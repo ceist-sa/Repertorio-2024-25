@@ -54,16 +54,16 @@
     do r fa, r |
 
     % Bar 8
-    re r mib fa!\> ~|
-    la\< fas\! do' re\> ~|
-    fas' r sol, sol\> ~|
+    re r mib fa! ~|
+    la fas do' re ~|
+    fas' r sol, sol ~|
     fas r sol r |
     fas r sol r |   
 
     % Bar 9
-    fa\! mi fa r |
-    re\! do do re |
-    sol\! r lab! r |
+    fa mi fa r |
+    re do do re |
+    sol r lab! r |
     do r re,! r |
     do r re,! r |
 
@@ -98,23 +98,23 @@
     % Bar 14
     sol r sol\fermata r |
     re r reb\fermata r |
-    si r sib\fermata r8 do8\p |
-    sol4 r mi\fermata r8 do8\p |
-    sol4 r mi\fermata r8 do'8\p |
+    si r sib\fermata r8 do8 |
+    sol4 r mi\fermata r8 do8 |
+    sol4 r mi\fermata r8 do'8 |
 
     % Bar 15
-    r8 reb'8\p (do sib lab4->) r4 |
-    r8 sib'8\p (lab sol fa4->) r4 |
-    fa,8 sib do4 reb-> r |
-    fa8 sib do4 reb-> r8 sol,8 |
-    fa,8 sib do4 reb-> r8 sol,8 |
+    r8 reb'8 (do sib lab4) r4 |
+    r8 sib'8 (lab sol fa4) r4 |
+    fa,8 sib do4 reb r |
+    fa8 sib do4 reb r8 sol,8 |
+    fa,8 sib do4 reb r8 sol,8 |
 
     % Bar 16
-    r8 fa4\dim mi8 fa2\fermata |
-    r8 reb8\dim do16 sib do8 do2\fermata |
-    r8 sib8\dim lab16 sib do8 lab 2\fermata |
-    do8\dim sib do do fa,2\fermata |
-    do8\dim sib do do fa,2\fermata |
+    r8 fa4 mi8 fa2\fermata |
+    r8 reb8 do16 sib do8 do2\fermata |
+    r8 sib8 lab16 sib do8 lab 2\fermata |
+    do8 sib do do fa,2\fermata |
+    do8 sib do do fa,2\fermata |
 }
 
 fluteI = \relative do' \fluteI
@@ -166,17 +166,9 @@ clarinetII = \relative do' {
 global = {
     \key do \minor
     \time 4/4
-    s1\pp |
-    s1 * 6 |
-    s4 s4 s4 s4 |
-    s2 s2\cresc |
-    s1 |
-    s1\< |
-    s2\mf s2\f |
-    s1\dim |
-    s2\p s4\pp s4 |
-    s1 |
-    s2 s2\ppp \bar "|."
+    \tempo "Adagio assai"
+    s1 * 16
+    \bar "|."
 }
 
 clarinets_I_and_II = 
