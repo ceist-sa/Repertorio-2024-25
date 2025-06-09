@@ -10,12 +10,137 @@ global = {
 
 \parallelMusic fluteI, fluteII, fluteIII, oboe, clarinetIII {
     % Bar 1
-    la2 |
-    si2 |
-    do2 |
-    re2 |
-    sol2 |
+    r4 do' r4 mi |
+    r4 lab' r4 sib |
+    lab'4 fa sib sol |
+    do4 r do r |
+    fa,4 r sol r |
+
+    % Bar 2
+    r fa r sol |
+    r do r reb |
+    do, la' reb sib |
+    fa r fa r |
+    lab r sib r |
+
+    \break
+
+    % Bar 3
+    r mi r fa |
+    r do r do |
+    sol r lab fa |
+    mi r do r |
+    do r fa r |
+
+    % Bar 4
+    do do'8 (lab) mib!4 reb8 (sib16 sol)|
+    lab4 fa' sib, mib, |
+    fa'4 r sol r |
+    fa4 r sol r |
+    fa,4 r sol r |
+
+    \break
+
+    % Bar 5
+    mib do' fa sib8 (fa16 re |
+    do4 lab' sib do |
+    lab r re,! r |
+    lab r re,! r |
+    lab r re,! r |
+
+    % Bar 6
+    sib4) sol r lab |
+    r mib r fa |
+    mib r si' re, |
+    mib r si' si |
+    mib r si' r |
+
+    \break
+
+    % Bar 7
+    r sol' lab re,! |
+    r mib reb si |
+    do' do lab, lab |
+    do r fa, r |
+    do r fa, r |
+
+    % Bar 8
+    re r mib fa! ~|
+    la fas do' re ~|
+    fas' r sol, sol ~|
+    fas r sol r |
+    fas r sol r |
+
+    \break
+
+    % Bar 9
+    fa mi fa r |
+    re do do re |
+    sol r lab! r |
+    do r re,! r |
+    do r re,! r |
+
+    % Bar 10
+    sol sol8 (mi) lab4 la8 (fa) |
+    do4 r do r |
+    mi' r fa r |
+    mi r fa r |
+    mi r fa r |
+
+    \break
+
+    % Bar 11
+    sib sol8 (mib) fa4 do'8 (fa,) |
+    fa4 r mib la8 (fa) |
+    reb4 r do r |
+    sol r la r |
+    sol r la r |
+
+    % Bar 12
+    fa sib solb solb |
+    reb r reb reb |
+    sib r sib sib |
+    sib r sib r |
+    sib r sib r |
+
+    \break 
+
+    % Bar 13
+    sol! r lab r |
+    mi r fa r |
+    sib r si r |
+    reb r re, r |
+    reb r re, r |
+
+    % Bar 14
+    sol r sol r |
+    re r reb r |
+    si r sib r8 do8 |
+    sol4 r mi r8 do8 |
+    sol4 r mi r8 do'8 |
+
+    \break 
+
+    % Bar 15
+    r8 reb'8 (do sib lab4) r4 |
+    r8 sib'8 (lab sol fa4) r4 |
+    fa,8 sib do4 reb r |
+    fa8 sib do4 reb r8 sol,8 |
+    fa,8 sib do4 reb r8 sol,8 |
+
+    % Bar 16
+    r8 fa4 mi8 fa2 |
+    r8 reb8 do16 sib do8 do2 |
+    r8 sib8 lab16 sib do8 lab 2 |
+    do8 sib do do fa,2 |
+    do8 sib do do fa,2 |
 }
+
+fluteI = \relative do' \fluteI
+fluteII = \relative do' \fluteII
+fluteIII = \relative do' \fluteIII
+oboe = \relative do' \oboe
+clarinetIII = \relative do' \clarinetIII
 
 clarinetI = \relative do' {
     \clef treble
@@ -53,13 +178,8 @@ clarinetII = \relative do' {
     fa sib2 sib,4 ~ |
     sib reb si re |
     re sol, si r8 mi8 |
-    do8 reb16 (mi,) fa8 do fa4 r8 reb'8 | 
-    sol,8 reb' la16 (sib) do8 do,2 | 
-}
-
-clarinetIII = \relative do {
-    \key do \major
-    do4 re mi fa sol la si do re mi fa sol la si do re mi fa sol la si do re mi fa sol la las si do
+    do8 reb16 (mi,) fa8 do' fa,4 r8 reb'8 | 
+    sol,8 reb' la16 (sib) do8 do2 | 
 }
 
 \score {
@@ -74,7 +194,7 @@ clarinetIII = \relative do {
         %             }
         %         {
         %             \override NoteHead.color = #clarinet-range
-        %             \transpose do re {\global \clarinetI}
+        %             %{ \transpose do re %} {\global \clarinetI}
         %         }
         %         \new Staff
         %             \with {
@@ -84,35 +204,54 @@ clarinetIII = \relative do {
         %             }
         %         {
         %             \override NoteHead.color = #clarinet-range
-        %             \transpose do re {\global \clarinetII}
+        %             %{\transpose do re%} {\global \clarinetII}
         %         }
         %     >>
         % }
 
-        % \new Staff
-        %     \with {
-        %         instrumentName = "Flutes"
-        %         shortInstrumentName = "Fl."
-        %         midiInstrument = #"flute"
-        %     }
-        % {
-        %     \global
-        %     << 
-        %         \relative do' \fluteI \\
-        %         \relative do' \fluteII \\
-        %         \relative do' \fluteIII
-        %     >>
-        % }
+        \new Staff
+            \with {
+                instrumentName = "Flute I"
+                shortInstrumentName = "Fl. I"
+                midiInstrument = #"flute"
+            }
+        {
+            \override NoteHead.color = #flute-range
+            \global \fluteI
+        }
 
-        % \new Staff
-        %     \with {
-        %         instrumentName = "Oboe"
-        %         shortInstrumentName = "Ob."
-        %         midiInstrument = #"oboe"
-        %     }
-        % {    
-        %     \global \relative do' \oboe
-        % }
+        \new Staff
+            \with {
+                instrumentName = "Flute II"
+                shortInstrumentName = "Fl. II"
+                midiInstrument = #"flute"
+            }
+        {
+            \override NoteHead.color = #flute-range
+            \global \fluteII
+        }
+
+        \new Staff
+            \with {
+                instrumentName = "Flute III"
+                shortInstrumentName = "Fl. III"
+                midiInstrument = #"flute"
+            }
+        {
+            \override NoteHead.color = #flute-range
+            \global \fluteIII
+        }
+
+        \new Staff
+            \with {
+                instrumentName = "Oboe"
+                shortInstrumentName = "Ob."
+                midiInstrument = #"oboe"
+            }
+        {    
+            \override NoteHead.color = #oboe-range
+            \global \oboe
+        }
 
         \new Staff
             \with {
@@ -122,11 +261,24 @@ clarinetIII = \relative do {
             }
         {
             \override NoteHead.color = #clarinet-range
-            \transposition sib
-            \transpose do re {\clarinetIII}
+            \global \clarinetIII
         }
+
+        % \new GrandStaff \with {\consists Merge_rests_engraver} {
+        %     <<
+        %     \new Staff
+        %     {
+        %         \global << \fluteI \\ \fluteII \\ \fluteIII  >>
+        %     }
+            
+        %     \new Staff
+        %     {
+        %         \global << \oboe \\ \clarinetIII \\ {\clef "bass^8"}>>
+        %     }
+        %     >>
+        % }
     >>
 
     \layout{}
-    \midi{}
+    \midi{ \tempo 8 = 68 }
 }
