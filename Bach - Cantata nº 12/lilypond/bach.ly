@@ -176,23 +176,23 @@ clarinets_I_and_II =
         <<
             \new Staff
                 \with {
-                    instrumentName = "Clarinet I"
+                    instrumentName = "Clarinete I"
                     shortInstrumentName = "Cl. I"
                     midiInstrument = #"clarinet"
                 }
             {
-                \override NoteHead.color = #clarinet-range
-                %{ \transpose do re %} {<<\global \clarinetI>>}
+                \transposition sib
+                \transpose do re {<<\global \clarinetI>>}
             }
             \new Staff
                 \with {
-                    instrumentName = "Clarinet II"
+                    instrumentName = "Clarinete II"
                     shortInstrumentName = "Cl. II"
                     midiInstrument = #"clarinet"
                 }
             {
-                \override NoteHead.color = #clarinet-range
-                %{\transpose do re%} {<<\global \clarinetII>>}
+                \transposition sib
+                \transpose do re {<<\global \clarinetII>>}
             }
         >>
     }
@@ -202,7 +202,7 @@ organ =
         <<
             \new Staff
                 \with {
-                    instrumentName = "Flute I"
+                    instrumentName = "Flauta I"
                     shortInstrumentName = "Fl. I"
                     midiInstrument = #"flute"
                 }
@@ -212,7 +212,7 @@ organ =
 
             \new Staff
                 \with {
-                    instrumentName = "Flute II"
+                    instrumentName = "Flauta II"
                     shortInstrumentName = "Fl. II"
                     midiInstrument = #"flute"
                 }
@@ -222,7 +222,7 @@ organ =
 
             \new Staff
                 \with {
-                    instrumentName = "Flute III"
+                    instrumentName = "Flauta III"
                     shortInstrumentName = "Fl. III"
                     midiInstrument = #"flute"
                 }
@@ -232,7 +232,7 @@ organ =
 
             \new Staff
                 \with {
-                    instrumentName = "Oboe"
+                    instrumentName = "Oboé"
                     shortInstrumentName = "Ob."
                     midiInstrument = #"oboe"
                 }
@@ -242,12 +242,13 @@ organ =
 
             \new Staff
                 \with {
-                    instrumentName = "Clarinet III"
-                    shortInstrumentName = "Cl."
+                    instrumentName = "Clarinete III"
+                    shortInstrumentName = "Cl. III"
                     midiInstrument = #"clarinet"
                 }
             {
-                << \global \clarinetIII >>
+                \transposition sib
+                \transpose do re {<< \global \clarinetIII >>}
             }
         >>
     }
