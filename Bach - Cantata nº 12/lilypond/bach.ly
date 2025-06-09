@@ -3,11 +3,6 @@
 
 \include "ranges.ily"
 
-global = {
-    \key do \minor
-    \time 4/4
-}
-
 \parallelMusic fluteI, fluteII, fluteIII, oboe, clarinetIII {
     % Bar 1
     r4 do' r4 mi |
@@ -23,8 +18,6 @@ global = {
     fa r fa r |
     lab r sib r |
 
-    \break
-
     % Bar 3
     r mi r fa |
     r do r do |
@@ -38,8 +31,6 @@ global = {
     fa'4 r sol r |
     fa4 r sol r |
     fa,4 r sol r |
-
-    \break
 
     % Bar 5
     mib do' fa sib8 (fa16 re |
@@ -55,8 +46,6 @@ global = {
     mib r si' si |
     mib r si' r |
 
-    \break
-
     % Bar 7
     r sol' lab re,! |
     r mib reb si |
@@ -65,18 +54,16 @@ global = {
     do r fa, r |
 
     % Bar 8
-    re r mib fa! ~|
-    la fas do' re ~|
-    fas' r sol, sol ~|
+    re r mib fa!\> ~|
+    la\< fas\! do' re\> ~|
+    fas' r sol, sol\> ~|
     fas r sol r |
-    fas r sol r |
-
-    \break
+    fas r sol r |   
 
     % Bar 9
-    fa mi fa r |
-    re do do re |
-    sol r lab! r |
+    fa\! mi fa r |
+    re\! do do re |
+    sol\! r lab! r |
     do r re,! r |
     do r re,! r |
 
@@ -85,9 +72,7 @@ global = {
     do4 r do r |
     mi' r fa r |
     mi r fa r |
-    mi r fa r |
-
-    \break
+    mi r fa r | 
 
     % Bar 11
     sib sol8 (mib) fa4 do'8 (fa,) |
@@ -103,8 +88,6 @@ global = {
     sib r sib r |
     sib r sib r |
 
-    \break 
-
     % Bar 13
     sol! r lab r |
     mi r fa r |
@@ -113,27 +96,25 @@ global = {
     reb r re, r |
 
     % Bar 14
-    sol r sol r |
-    re r reb r |
-    si r sib r8 do8 |
-    sol4 r mi r8 do8 |
-    sol4 r mi r8 do'8 |
-
-    \break 
+    sol r sol\fermata r |
+    re r reb\fermata r |
+    si r sib\fermata r8 do8\p |
+    sol4 r mi\fermata r8 do8\p |
+    sol4 r mi\fermata r8 do'8\p |
 
     % Bar 15
-    r8 reb'8 (do sib lab4) r4 |
-    r8 sib'8 (lab sol fa4) r4 |
-    fa,8 sib do4 reb r |
-    fa8 sib do4 reb r8 sol,8 |
-    fa,8 sib do4 reb r8 sol,8 |
+    r8 reb'8\p (do sib lab4->) r4 |
+    r8 sib'8\p (lab sol fa4->) r4 |
+    fa,8 sib do4 reb-> r |
+    fa8 sib do4 reb-> r8 sol,8 |
+    fa,8 sib do4 reb-> r8 sol,8 |
 
     % Bar 16
-    r8 fa4 mi8 fa2 |
-    r8 reb8 do16 sib do8 do2 |
-    r8 sib8 lab16 sib do8 lab 2 |
-    do8 sib do do fa,2 |
-    do8 sib do do fa,2 |
+    r8 fa4\dim mi8 fa2\fermata |
+    r8 reb8\dim do16 sib do8 do2\fermata |
+    r8 sib8\dim lab16 sib do8 lab 2\fermata |
+    do8\dim sib do do fa,2\fermata |
+    do8\dim sib do do fa,2\fermata |
 }
 
 fluteI = \relative do' \fluteI
@@ -157,9 +138,9 @@ clarinetI = \relative do' {
     reb sib do2 |
     sib4 reb sib2 ~ |
     sib2 fa |
-    sol sol4 r8 sol8 |
+    sol sol4\fermata r8 sol8 |
     fa sol lab16 (sib) do8 do,4 r8 sib8 |
-    sib8 lab16 (sib) do8 sib lab2 |
+    sib8 lab16 (sib) do8 sib lab2\fermata |
 }
 
 clarinetII = \relative do' {
@@ -177,92 +158,113 @@ clarinetII = \relative do' {
     sib, sol' fa la |
     fa sib2 sib,4 ~ |
     sib reb si re |
-    re sol, si r8 mi8 |
+    re sol, si\fermata r8 mi8 |
     do8 reb16 (mi,) fa8 do' fa,4 r8 reb'8 | 
-    sol,8 reb' la16 (sib) do8 do2 | 
+    sol,8 reb' la16 (sib) do8 do2\fermata | 
 }
+
+global = {
+    \key do \minor
+    \time 4/4
+    s1\pp |
+    s1 * 6 |
+    s4 s4 s4 s4 |
+    s2 s2\cresc |
+    s1 |
+    s1\< |
+    s2\mf s2\f |
+    s1\dim |
+    s2\p s4\pp s4 |
+    s1 |
+    s2 s2\ppp \bar "|."
+}
+
+clarinets_I_and_II = 
+    \new GrandStaff {
+        <<
+            \new Staff
+                \with {
+                    instrumentName = "Clarinet I"
+                    shortInstrumentName = "Cl. I"
+                    midiInstrument = #"clarinet"
+                }
+            {
+                \override NoteHead.color = #clarinet-range
+                %{ \transpose do re %} {<<\global \clarinetI>>}
+            }
+            \new Staff
+                \with {
+                    instrumentName = "Clarinet II"
+                    shortInstrumentName = "Cl. II"
+                    midiInstrument = #"clarinet"
+                }
+            {
+                \override NoteHead.color = #clarinet-range
+                %{\transpose do re%} {<<\global \clarinetII>>}
+            }
+        >>
+    }
+
+organ =
+    \new StaffGroup {
+        <<
+            \new Staff
+                \with {
+                    instrumentName = "Flute I"
+                    shortInstrumentName = "Fl. I"
+                    midiInstrument = #"flute"
+                }
+            {
+                << \global \fluteI >>
+            }
+
+            \new Staff
+                \with {
+                    instrumentName = "Flute II"
+                    shortInstrumentName = "Fl. II"
+                    midiInstrument = #"flute"
+                }
+            {
+                << \global \fluteII >>
+            }
+
+            \new Staff
+                \with {
+                    instrumentName = "Flute III"
+                    shortInstrumentName = "Fl. III"
+                    midiInstrument = #"flute"
+                }
+            {
+                << \global \fluteIII >>
+            }
+
+            \new Staff
+                \with {
+                    instrumentName = "Oboe"
+                    shortInstrumentName = "Ob."
+                    midiInstrument = #"oboe"
+                }
+            {    
+                << \global \oboe >>
+            }
+
+            \new Staff
+                \with {
+                    instrumentName = "Clarinet III"
+                    shortInstrumentName = "Cl."
+                    midiInstrument = #"clarinet"
+                }
+            {
+                << \global \clarinetIII >>
+            }
+        >>
+    }
 
 \score {
     <<  
-        % \new GrandStaff {
-        %     <<
-        %         \new Staff
-        %             \with {
-        %                 instrumentName = "Clarinet I"
-        %                 shortInstrumentName = "Cl. I"
-        %                 midiInstrument = #"clarinet"
-        %             }
-        %         {
-        %             \override NoteHead.color = #clarinet-range
-        %             %{ \transpose do re %} {\global \clarinetI}
-        %         }
-        %         \new Staff
-        %             \with {
-        %                 instrumentName = "Clarinet II"
-        %                 shortInstrumentName = "Cl. II"
-        %                 midiInstrument = #"clarinet"
-        %             }
-        %         {
-        %             \override NoteHead.color = #clarinet-range
-        %             %{\transpose do re%} {\global \clarinetII}
-        %         }
-        %     >>
-        % }
+        \clarinets_I_and_II
 
-        \new Staff
-            \with {
-                instrumentName = "Flute I"
-                shortInstrumentName = "Fl. I"
-                midiInstrument = #"flute"
-            }
-        {
-            \override NoteHead.color = #flute-range
-            \global \fluteI
-        }
-
-        \new Staff
-            \with {
-                instrumentName = "Flute II"
-                shortInstrumentName = "Fl. II"
-                midiInstrument = #"flute"
-            }
-        {
-            \override NoteHead.color = #flute-range
-            \global \fluteII
-        }
-
-        \new Staff
-            \with {
-                instrumentName = "Flute III"
-                shortInstrumentName = "Fl. III"
-                midiInstrument = #"flute"
-            }
-        {
-            \override NoteHead.color = #flute-range
-            \global \fluteIII
-        }
-
-        \new Staff
-            \with {
-                instrumentName = "Oboe"
-                shortInstrumentName = "Ob."
-                midiInstrument = #"oboe"
-            }
-        {    
-            \override NoteHead.color = #oboe-range
-            \global \oboe
-        }
-
-        \new Staff
-            \with {
-                instrumentName = "Clarinet III"
-                shortInstrumentName = "Cl."
-                midiInstrument = #"clarinet"
-            }
-        {
-            \override NoteHead.color = #clarinet-range
-            \global \clarinetIII
-        }
+        \organ
 
         % \new GrandStaff \with {\consists Merge_rests_engraver} {
         %     <<
