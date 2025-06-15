@@ -158,9 +158,9 @@ clarinetII = \relative do' {
     sib, sol' fa la |
     fa sib2 sib,4 ~ |
     sib reb si re |
-    re sol, si\fermata r8 mi8 |
+    re sol, sib\fermata r8 mi8 |
     do8 reb16 (mi,) fa8 do' fa,4 r8 reb'8 | 
-    sol,8 reb' la16 (sib) do8 do2\fermata | 
+    sol,8 reb' lab16 (sib) do8 do2\fermata | 
 }
 
 global = {
@@ -181,6 +181,7 @@ clarinets_I_and_II =
                     midiInstrument = #"clarinet"
                 }
             {
+                \override NoteHead.color = #clarinet-range
                 \transposition sib
                 \transpose do re {<<\global \clarinetI>>}
             }
@@ -191,6 +192,7 @@ clarinets_I_and_II =
                     midiInstrument = #"clarinet"
                 }
             {
+                \override NoteHead.color = #clarinet-range
                 \transposition sib
                 \transpose do re {<<\global \clarinetII>>}
             }
@@ -207,6 +209,7 @@ organ =
                     midiInstrument = #"flute"
                 }
             {
+                \override NoteHead.color = #flute-range
                 << \global \fluteI >>
             }
 
@@ -217,6 +220,7 @@ organ =
                     midiInstrument = #"flute"
                 }
             {
+                \override NoteHead.color = #flute-range
                 << \global \fluteII >>
             }
 
@@ -227,6 +231,7 @@ organ =
                     midiInstrument = #"flute"
                 }
             {
+                \override NoteHead.color = #flute-range
                 << \global \fluteIII >>
             }
 
@@ -237,6 +242,7 @@ organ =
                     midiInstrument = #"oboe"
                 }
             {    
+                \override NoteHead.color = #oboe-range
                 << \global \oboe >>
             }
 
@@ -247,6 +253,7 @@ organ =
                     midiInstrument = #"clarinet"
                 }
             {
+                \override NoteHead.color = #clarinet-range
                 \transposition sib
                 \transpose do re {<< \global \clarinetIII >>}
             }
