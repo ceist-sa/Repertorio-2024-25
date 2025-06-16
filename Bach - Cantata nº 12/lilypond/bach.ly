@@ -5,7 +5,7 @@
 
 \parallelMusic fluteI, fluteII, fluteIII, oboe, clarinetIII {
     % Bar 1
-    r4 do' r4 mi |
+    r4 do r4 mi |
     r4 lab' r4 sib |
     lab'4 fa sib sol |
     do4 r do r |
@@ -13,7 +13,7 @@
 
     % Bar 2
     r fa r sol |
-    r do r reb |
+    r do, r reb |
     do, la' reb sib |
     fa r fa r |
     lab r sib r |
@@ -26,37 +26,37 @@
     do r fa r |
 
     % Bar 4
-    do do'8 (lab) mib!4 reb8 (sib16 sol)|
-    lab4 fa' sib, mib, |
-    fa'4 r sol r |
+    do do'8 (lab) mib!4 reb'8 (sib16 sol)|
+    lab'4 fa sib mib, |
+    fa4 r sol r |
     fa4 r sol r |
     fa,4 r sol r |
 
     % Bar 5
-    mib do' fa sib8 (fa16 re |
-    do4 lab' sib do |
+    mib do fa sib8 (fa16 re |
+    do4 lab' sib r4 |
     lab r re,! r |
     lab r re,! r |
     lab r re,! r |
 
     % Bar 6
-    sib4) sol r lab |
-    r mib r fa |
+    sib'4) sol r lab |
+    r mib, r fa |
     mib r si' re, |
-    mib r si' si |
+    mib r si si |
     mib r si' r |
 
     % Bar 7
-    r sol' lab re,! |
-    r mib reb si |
-    do' do lab, lab |
-    do r fa, r |
+    r sol lab re,! |
+    r mib reb si' |
+    do' do lab lab |
+    do r fa r |
     do r fa, r |
 
     % Bar 8
     re r mib fa! ~|
-    la fas do' re ~|
-    fas' r sol, sol ~|
+    la fas do re ~|
+    fas r sol sol ~|
     fas r sol r |
     fas r sol r |   
 
@@ -64,13 +64,13 @@
     fa mi fa r |
     re do do re |
     sol r lab! r |
-    do r re,! r |
+    do, r re! r |
     do r re,! r |
 
     % Bar 10
     sol sol8 (mi) lab4 la8 (fa) |
     do4 r do r |
-    mi' r fa r |
+    mi r fa r |
     mi r fa r |
     mi r fa r | 
 
@@ -84,36 +84,36 @@
     % Bar 12
     fa sib solb solb |
     reb r reb reb |
-    sib r sib sib |
-    sib r sib r |
+    sib' r sib sib |
+    sib, r sib r |
     sib r sib r |
 
     % Bar 13
     sol! r lab r |
     mi r fa r |
     sib r si r |
-    reb r re, r |
+    reb r re r |
     reb r re, r |
 
     % Bar 14
     sol r sol\fermata r |
     re r reb\fermata r |
-    si r sib\fermata r8 do8 |
+    si r sib\fermata r8 do,8 |
     sol4 r mi\fermata r8 do8 |
     sol4 r mi\fermata r8 do'8 |
 
     % Bar 15
     r8 reb'8 (do sib lab4) r4 |
     r8 sib'8 (lab sol fa4) r4 |
-    fa,8 sib do4 reb r |
+    fa8 sib do4 reb r |
     fa8 sib do4 reb r8 sol,8 |
     fa,8 sib do4 reb r8 sol,8 |
 
     % Bar 16
     r8 fa4 mi8 fa2\fermata |
-    r8 reb8 do16 sib do8 do2\fermata |
+    r8 reb'8 do16 sib do8 do2\fermata |
     r8 sib8 lab16 sib do8 lab 2\fermata |
-    do8 sib do do fa,2\fermata |
+    do,8 sib do do fa2\fermata |
     do8 sib do do fa,2\fermata |
 }
 
