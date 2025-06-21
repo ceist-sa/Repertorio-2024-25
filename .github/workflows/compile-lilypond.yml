@@ -1,0 +1,75 @@
+name: Auto-compile LilyPond Files
+
+on:
+  push:
+    branches: [ main, master ]
+    paths:
+      - '**/*.ly'
+      - '**/*.ily'
+      - 'compile_lilypond.sh'
+  pull_request:
+    branches: [ main, master ]
+    paths:
+      - '**/*.ly'
+
+jobs:
+  compile-lilypond:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+      with:
+        token: ${{ secrets.GITHUB_TOKEN }}
+        fetch-depth: 0
+
+    - name: Restore file timestamps from Git
+      run: |
+        # Restore timestamps of all files to their last commit time
+        # This ensures our timestamp-based compilation works correctly
+        git ls-files -z | while IFS= read -r -d '' file; do
+          if [ -f "$file" ]; then
+            # Get the timestamp of the last commit that modified this file
+            timestamp=$(git log -1 --format="%ct" -- "$file" 2>/dev/null || echo "")
+            if [ -n "$timestamp" ] && [ "$timestamp" != "" ]; then
+              # Set the file's modification time to match the Git timestamp
+              touch -d "@$timestamp" "$file"
+            fi
+          fi
+        done
+
+    - name: Install Latest LilyPond
+      run: |
+        LILYPOND_VERSION="2.24.4"
+        wget -q "https://gitlab.com/lilypond/lilypond/-/releases/v${LILYPOND_VERSION}/downloads/lilypond-${LILYPOND_VERSION}-linux-x86_64.tar.gz"
+        tar -xzf "lilypond-${LILYPOND_VERSION}-linux-x86_64.tar.gz"
+        sudo mv "lilypond-${LILYPOND_VERSION}" /opt/lilypond
+        sudo ln -sf /opt/lilypond/bin/lilypond /usr/local/bin/lilypond
+        rm "lilypond-${LILYPOND_VERSION}-linux-x86_64.tar.gz"
+
+    - name: Make compile script executable
+      run: chmod +x ./compile_lilypond.sh
+
+    - name: Run LilyPond compilation
+      run: ./compile_lilypond.sh -v
+
+    - name: Check for changes
+      id: verify-changed-files
+      run: |
+        if [ -n "$(git status --porcelain)" ]; then
+          echo "changed=true" >> $GITHUB_OUTPUT
+          echo "Files changed:"
+          git status --porcelain
+        else
+          echo "changed=false" >> $GITHUB_OUTPUT
+          echo "No changes detected."
+        fi
+
+    - name: Commit and push changes
+      if: steps.verify-changed-files.outputs.changed == 'true'
+      run: |
+        git config --local user.name "github-actions[bot]"
+        git config --local user.email "github-actions[bot]@users.noreply.github.com"
+        git add .
+        git commit -m "Auto-compile LilyPond files"
+        git push

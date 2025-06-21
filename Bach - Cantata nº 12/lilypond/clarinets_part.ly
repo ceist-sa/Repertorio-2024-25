@@ -10,6 +10,7 @@
         composer = \markup{\vspace #1 "Joh. Seb. Bach (BWV 12)"}
         instrument = "Clarinetes I e II (Violas I e II)"
         tagline = "CEIST"
+        filename = "Bach - Cantata nº 12 - CLARINETES 1 E 2 (VIOLAS 1 E 2)"
     }
     \paper {
         system-count = #6

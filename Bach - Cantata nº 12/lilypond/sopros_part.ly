@@ -10,6 +10,7 @@
         composer = \markup{\vspace #1 "Joh. Seb. Bach (BWV 12)"}
         instrument = "Sopros (Órgão)"
         tagline = "CEIST"
+        filename = "Bach - Cantata nº 12 - SOPROS (ÓRGÃO)"
     }
     \paper {
         page-count = #1

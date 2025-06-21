@@ -1,4 +1,6 @@
-.*
-Bach - Cantata nº 12/lilypond/*.midi
-Bach - Cantata nº 12/lilypond/*.pdf
-Bach - Cantata nº 12/lilypond/*.tmp
+**/lilypond/*.midi
+**/lilypond/*.pdf
+**/lilypond/*.tmp
+
+# Common temporary files
+.DS_Store
