@@ -3,6 +3,127 @@
 
 \include "ranges.ily"
 
+global = {
+    \key do \minor
+    \time 4/4
+    \tempo "Adagio assai"
+    s1 * 16
+    \bar "|."
+}
+
+solo_oboe = \relative do' {
+    \clef treble
+
+}
+solo_oboe = {
+    \override NoteHead.color = #oboe-range
+    <<\global \solo_oboe>>
+}
+
+% ================ STRINGS ================
+violinI = \relative do' {
+    \clef treble
+    % insert notes here
+}
+violinI = {
+    \override NoteHead.color = #violin-range
+    <<\global \violinI>>
+}
+
+
+violinII = \relative do' {
+    \clef treble
+    % insert notes here
+}
+violinII = {
+    \override NoteHead.color = #violin-range
+    <<\global \violinII>>
+}
+
+
+violaI = \relative do' {
+    \clef alto
+    % insert notes here
+}
+violaI = {
+    \override NoteHead.color = #viola-range
+    <<\global \violaI>>
+}
+
+
+violaII = \relative do' {
+    \clef alto
+    % insert notes here
+}
+violaII = {
+    \override NoteHead.color = #viola-range
+    <<\global \violaII>>
+}
+
+
+cello = \relative do' {
+    \clef bass
+    % insert notes here
+}
+cello = {
+    \override NoteHead.color = #cello-range
+    <<\global \cello>>
+}
+
+% ================ CLARINETS I & II (VIOLAS) ================
+
+clarinetI = \relative do' {
+    \clef treble
+    fa4 do sol' mi |
+    lab fa sib sol | 
+    sol mi do fa |
+    do lab' mib sib' |
+    mib, do' sib fa |
+    sib sol lab re, |
+    do sol' fa2 |
+    la4 re, sol fa |
+    fa mi lab fa |
+    sol2 fa4 la |
+    reb sib do2 |
+    sib4 reb sib2 ~ |
+    sib2 fa |
+    sol sol4\fermata r8 sol8 |
+    fa sol lab16 (sib) do8 do,4 r8 sib8 |
+    sib8 lab16 (sib) do8 sib lab2\fermata |
+}
+clarinetI = {
+    \override NoteHead.color = #clarinet-range
+    \transposition sib
+    \transpose do re {<<\global \clarinetI>>}
+}
+
+clarinetII = \relative do' {
+    \clef treble
+    lab4 fa sib sol |
+    do lab fa sib |
+    sol do2 lab4 |
+    fa fa' do sol' |
+    do, lab' fa re |
+    sib mib re si |
+    sol do lab fa |
+    re' fas, do' sol ~ |
+    sol do fa, re' |
+    do mi do fa |
+    sib, sol' fa la |
+    fa sib2 sib,4 ~ |
+    sib reb si re |
+    re sol, sib\fermata r8 mi8 |
+    do8 reb16 (mi,) fa8 do' fa,4 r8 reb'8 | 
+    sol,8 reb' lab16 (sib) do8 do2\fermata | 
+}
+clarinetII = {
+    \override NoteHead.color = #clarinet-range
+    \transposition sib
+    \transpose do re {<<\global \clarinetII>>}
+}
+
+% ================ "ORGAN" ================
+
 \parallelMusic fluteI, fluteII, fluteIII, oboe, clarinetIII {
     % Bar 1
     r4 do r4 mi |
@@ -117,59 +238,87 @@
     do8 sib do do fa,2\fermata |
 }
 
-fluteI = \relative do' \fluteI
-fluteII = \relative do' \fluteII
-fluteIII = \relative do' \fluteIII
-oboe = \relative do' \oboe
-clarinetIII = \relative do' \clarinetIII
-
-clarinetI = \relative do' {
-    \clef treble
-    fa4 do sol' mi |
-    lab fa sib sol | 
-    sol mi do fa |
-    do lab' mib sib' |
-    mib, do' sib fa |
-    sib sol lab re, |
-    do sol' fa2 |
-    la4 re, sol fa |
-    fa mi lab fa |
-    sol2 fa4 la |
-    reb sib do2 |
-    sib4 reb sib2 ~ |
-    sib2 fa |
-    sol sol4\fermata r8 sol8 |
-    fa sol lab16 (sib) do8 do,4 r8 sib8 |
-    sib8 lab16 (sib) do8 sib lab2\fermata |
+fluteI = {
+    \override NoteHead.color = #flute-range
+    <<\global \relative do' \fluteI>>
+}
+fluteII = {
+    \override NoteHead.color = #flute-range
+    <<\global \relative do' \fluteII>>
+}
+fluteIII = {
+    \override NoteHead.color = #flute-range
+    <<\global \relative do' \fluteIII>>
+}
+oboe = {
+    \override NoteHead.color = #oboe-range
+    <<\global \relative do' \oboe>>
+}
+clarinetIII = {
+    \override NoteHead.color = #clarinet-range
+    \transposition sib
+    \transpose do re {<< \global \relative do' {\clarinetIII} >>}
 }
 
-clarinetII = \relative do' {
-    \clef treble
-    lab4 fa sib sol |
-    do lab fa sib |
-    sol do2 lab4 |
-    fa fa' do sol' |
-    do, lab' fa re |
-    sib mib re si |
-    sol do lab fa |
-    re' fas, do' sol ~ |
-    sol do fa, re' |
-    do mi do fa |
-    sib, sol' fa la |
-    fa sib2 sib,4 ~ |
-    sib reb si re |
-    re sol, sib\fermata r8 mi8 |
-    do8 reb16 (mi,) fa8 do' fa,4 r8 reb'8 | 
-    sol,8 reb' lab16 (sib) do8 do2\fermata | 
-}
+solo_oboe_staff = 
+    \new Staff
+        \with {
+            instrumentName = "Oboé solo"
+            shortInstrumentName = "Ob."
+            midiInstrument = #"oboe"
+        }
+        \violinI
 
-global = {
-    \key do \minor
-    \time 4/4
-    \tempo "Adagio assai"
-    s1 * 16
-    \bar "|."
-}
+strings = 
+    \new StaffGroup {
+        <<
+            \new GrandStaff {
+                <<
+                    \new Staff
+                        \with {
+                            instrumentName = "Violino I"
+                            shortInstrumentName = "Vln. I"
+                            midiInstrument = #"violin"
+                        }
+                        \violinI
+                    \new Staff
+                        \with {
+                            instrumentName = "Violino II"
+                            shortInstrumentName = "Vln. II"
+                            midiInstrument = #"violin"
+                        }
+                        \violinII
+                >>
+            }
+
+            \new GrandStaff {
+                <<
+                    \new Staff
+                        \with {
+                            instrumentName = "Viola I"
+                            shortInstrumentName = "Vla. I"
+                            midiInstrument = #"viola"
+                        }
+                        \violaI
+                    \new Staff
+                        \with {
+                            instrumentName = "Viola II"
+                            shortInstrumentName = "Vla. II"
+                            midiInstrument = #"viola"
+                        }
+                        \violaII
+                >>
+            }
+
+            \new Staff
+                \with {
+                        instrumentName = "Violoncelo"
+                        shortInstrumentName = "Vcl."
+                        midiInstrument = #"cello"
+                    }
+                    \cello
+        >>
+    }
 
 clarinets_I_and_II = 
     \new GrandStaff {
@@ -180,22 +329,15 @@ clarinets_I_and_II =
                     shortInstrumentName = "Cl. I"
                     midiInstrument = #"clarinet"
                 }
-            {
-                \override NoteHead.color = #clarinet-range
-                \transposition sib
-                \transpose do re {<<\global \clarinetI>>}
-            }
+                \clarinetI
+
             \new Staff
                 \with {
                     instrumentName = "Clarinete II"
                     shortInstrumentName = "Cl. II"
                     midiInstrument = #"clarinet"
                 }
-            {
-                \override NoteHead.color = #clarinet-range
-                \transposition sib
-                \transpose do re {<<\global \clarinetII>>}
-            }
+                \clarinetII
         >>
     }
 
@@ -208,10 +350,7 @@ organ =
                     shortInstrumentName = "Fl. I"
                     midiInstrument = #"flute"
                 }
-            {
-                \override NoteHead.color = #flute-range
-                << \global \fluteI >>
-            }
+                \fluteI
 
             \new Staff
                 \with {
@@ -219,10 +358,7 @@ organ =
                     shortInstrumentName = "Fl. II"
                     midiInstrument = #"flute"
                 }
-            {
-                \override NoteHead.color = #flute-range
-                << \global \fluteII >>
-            }
+                \fluteII
 
             \new Staff
                 \with {
@@ -230,21 +366,17 @@ organ =
                     shortInstrumentName = "Fl. III"
                     midiInstrument = #"flute"
                 }
-            {
-                \override NoteHead.color = #flute-range
-                << \global \fluteIII >>
-            }
-
+                \fluteIII
+            
+            %{
             \new Staff
                 \with {
                     instrumentName = "Oboé"
                     shortInstrumentName = "Ob."
                     midiInstrument = #"oboe"
                 }
-            {    
-                \override NoteHead.color = #oboe-range
-                << \global \oboe >>
-            }
+                \oboe
+            %}
 
             \new Staff
                 \with {
@@ -252,35 +384,21 @@ organ =
                     shortInstrumentName = "Cl. III"
                     midiInstrument = #"clarinet"
                 }
-            {
-                \override NoteHead.color = #clarinet-range
-                \transposition sib
-                \transpose do re {<< \global \clarinetIII >>}
-            }
+                \clarinetIII
         >>
     }
 
 \score {
     <<  
+        \solo_oboe_staff
+        \strings
         \clarinets_I_and_II
-
         \organ
-
-        % \new GrandStaff \with {\consists Merge_rests_engraver} {
-        %     <<
-        %     \new Staff
-        %     {
-        %         \global << \fluteI \\ \fluteII \\ \fluteIII  >>
-        %     }
-            
-        %     \new Staff
-        %     {
-        %         \global << \oboe \\ \clarinetIII \\ {\clef "bass^8"}>>
-        %     }
-        %     >>
-        % }
     >>
 
-    \layout{}
+    \layout{
+        indent = 2\cm
+        short-indent = 1\cm
+    }
     \midi{ \tempo 8 = 68 }
 }

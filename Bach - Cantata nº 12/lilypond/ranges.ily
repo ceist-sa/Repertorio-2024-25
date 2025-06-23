@@ -4,6 +4,85 @@
 % https://stackoverflow.com/questions/54062699/lilypond-change-color-of-notes-below-and-above-a-certain-pitch
 
 
+
+% ===================== VIOLIN =====================
+
+% musescore range:
+#(define violin_amateur_low -5) % G3
+#(define violin_amateur_high 28) % E6
+#(define violin_pro_low -5) % G3
+#(define violin_pro_high 43) % G7
+
+#(define (violin-range grob)
+   (let* ((pch (ly:event-property (event-cause grob) 'pitch))
+          (semitones (ly:pitch-semitones pch)))
+          (cond ((and 
+                    (>= semitones violin_amateur_low)
+                    (<= semitones violin_amateur_high) 
+                    ) black)
+                ((and 
+                    (>= semitones violin_pro_low)
+                    (<= semitones violin_pro_high) 
+                    ) darkyellow)
+
+                (else red)
+          )))
+
+% copy paste within staff
+% \override NoteHead.color = #violin-range
+
+% ===================== VIOLA =====================
+
+% musescore range:
+#(define viola_amateur_low -12) % C3
+#(define viola_amateur_high 19) % G5
+#(define viola_pro_low -12) % C3
+#(define viola_pro_high 33) % A6
+
+#(define (viola-range grob)
+   (let* ((pch (ly:event-property (event-cause grob) 'pitch))
+          (semitones (ly:pitch-semitones pch)))
+          (cond ((and 
+                    (>= semitones viola_amateur_low)
+                    (<= semitones viola_amateur_high) 
+                    ) black)
+                ((and 
+                    (>= semitones viola_pro_low)
+                    (<= semitones viola_pro_high) 
+                    ) darkyellow)
+
+                (else red)
+          )))
+
+% copy paste within staff
+% \override NoteHead.color = #viola-range
+
+% ===================== CELLO =====================
+
+% musescore range:
+#(define cello_amateur_low -24) % C2
+#(define cello_amateur_high 7) % G4
+#(define cello_pro_low -24) % C2
+#(define cello_pro_high 30) % F#6
+
+#(define (cello-range grob)
+   (let* ((pch (ly:event-property (event-cause grob) 'pitch))
+          (semitones (ly:pitch-semitones pch)))
+          (cond ((and 
+                    (>= semitones cello_amateur_low)
+                    (<= semitones cello_amateur_high) 
+                    ) black)
+                ((and 
+                    (>= semitones cello_pro_low)
+                    (<= semitones cello_pro_high) 
+                    ) darkyellow)
+
+                (else red)
+          )))
+
+% copy paste within staff
+% \override NoteHead.color = #cello-range
+
 % ===================== CLARINET =====================
 
 % musescore range:
