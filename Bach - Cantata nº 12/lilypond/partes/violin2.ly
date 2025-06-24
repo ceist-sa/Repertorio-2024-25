@@ -5,6 +5,9 @@
 
 \book {
     \paperStyle
+    \paper {
+        systems-per-page = #7
+    }
     \pieceHeaders
     \header {
         instrument = "Violino II"
