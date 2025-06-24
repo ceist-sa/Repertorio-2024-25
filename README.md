@@ -27,12 +27,27 @@ O repositório inclui um script bash (`compile_lilypond.sh`) que automatiza a co
 ./compile_lilypond.sh /caminho/para/pasta
 ```
 
+#### Modo Watch
+O modo watch (`-w` ou `--watch`) permite monitorização contínua dos ficheiros:
+- **Monitoriza automaticamente** todos os ficheiros LilyPond e suas dependências
+- **Recompila automaticamente** apenas os PDFs afetados quando um ficheiro é modificado
+- **Mostra em tempo real** quais ficheiros foram alterados e quais PDFs estão a ser recompilados
+
+```bash
+# Iniciar modo watch
+./compile_lilypond.sh --watch
+
+# Watch com modo verboso
+./compile_lilypond.sh -v -w
+```
+
 **Como funciona:**
 1. Procura recursivamente por pastas chamadas `lilypond`
 2. Para cada ficheiro `.ly` encontrado nessa pasta ou subpastas, extrai o campo `filename` do cabeçalho
 3. Segue recursivamente todas as declarações `\include` para identificar dependências
 4. Compila o ficheiro se o PDF resultante não existir ou se qualquer dependência foi modificada após a criação do PDF
-6. Guarda o PDF resultante na pasta `partes` correspondente com o nome especificado
+5. Guarda o PDF resultante na pasta `partes` correspondente com o nome especificado
+6. **No modo watch:** Continua a monitorizar todos os ficheiros e recompila automaticamente quando detecta alterações
 
 ### Pré-requisitos
 

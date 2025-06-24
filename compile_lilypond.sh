@@ -1,8 +1,9 @@
 #!/bin/bash
 
 # Script to recursively compile LilyPond files with filename header to PDF
-# Usage: ./compile_lilypond.sh [-v] [root_directory]
+# Usage: ./compile_lilypond.sh [-v] [-w] [root_directory]
 # -v: verbose mode (show LilyPond output)
+# -w: watch mode (monitor files for changes and auto-recompile)
 # If no directory is specified, uses current directory
 
 # Color definitions
@@ -16,6 +17,7 @@ NC='\033[0m' # No Color
 
 # Default values
 VERBOSE=false
+WATCH_MODE=false
 ROOT_DIR="."
 
 # Parse command line arguments
@@ -25,9 +27,14 @@ while [[ $# -gt 0 ]]; do
             VERBOSE=true
             shift
             ;;
+        -w|--watch)
+            WATCH_MODE=true
+            shift
+            ;;
         -h|--help)
-            echo "Usage: $0 [-v] [root_directory]"
+            echo "Usage: $0 [-v] [-w] [root_directory]"
             echo "  -v, --verbose    Show LilyPond compilation output"
+            echo "  -w, --watch      Watch files for changes and auto-recompile"
             echo "  -h, --help       Show this help message"
             echo "  root_directory   Directory to scan (default: current directory)"
             exit 0
@@ -244,25 +251,120 @@ process_lilypond_directory() {
     fi
 }
 
+# Function to get all dependencies for a LilyPond file
+get_all_dependencies() {
+    local input_file="$1"
+    local temp_file=$(mktemp)
+    find_includes "$input_file" "$(dirname "$input_file")" "$temp_file"
+    cat "$temp_file"
+    rm -f "$temp_file"
+}
+
+# Function to find all LilyPond files with filenames
+find_all_lilypond_files() {
+    local files_list=$(mktemp)
+    
+    while IFS= read -r -d '' lilypond_dir; do
+        while IFS= read -r -d '' ly_file; do
+            filename=$(extract_filename "$ly_file")
+            if [ -n "$filename" ]; then
+                local base_dir=$(dirname "$lilypond_dir")
+                local partes_dir="$base_dir/partes"
+                echo "$ly_file|$filename|$partes_dir" >> "$files_list"
+            fi
+        done < <(find "$lilypond_dir" -name "*.ly" -type f -print0)
+    done < <(find "$ROOT_DIR" -type d -name "lilypond" -print0)
+    
+    cat "$files_list"
+    rm -f "$files_list"
+}
+
+# Function to watch for file changes
+watch_files() {
+    echo -e "${BOLD}${BLUE}Entering watch mode...${NC}"
+    echo -e "${YELLOW}Press Ctrl+C to exit${NC}"
+    echo ""
+    
+    # Check if inotifywait is available
+    if ! command -v inotifywait &> /dev/null; then
+        echo -e "${RED}Error: inotifywait is not installed.${NC}"
+        echo -e "${YELLOW}Install it with: ${BOLD}sudo apt-get install inotify-tools${NC}"
+        exit 1
+    fi
+    
+    # Create a temporary file to store file mappings
+    local watch_map=$(mktemp)
+    local all_files=$(mktemp)
+    
+    # Build mapping of files to their LilyPond sources
+    while IFS='|' read -r ly_file filename partes_dir; do
+        # Get all dependencies for this LilyPond file
+        while IFS= read -r dep_file; do
+            echo "$dep_file|$ly_file|$filename|$partes_dir" >> "$watch_map"
+            echo "$dep_file" >> "$all_files"
+        done < <(get_all_dependencies "$ly_file")
+    done < <(find_all_lilypond_files)
+    
+    # Remove duplicates from all_files
+    sort "$all_files" | uniq > "${all_files}.tmp"
+    mv "${all_files}.tmp" "$all_files"
+    
+    # Set up signal handler for graceful exit
+    trap 'echo -e "\n${YELLOW}Exiting watch mode...${NC}"; rm -f "$watch_map" "$all_files"; exit 0' INT TERM
+    
+    # Watch for changes
+    while IFS= read -r file; do
+        if [ -f "$file" ]; then
+            echo "$file"
+        fi
+    done < "$all_files" | \
+    inotifywait -m --format '%w%f' -e modify -e move -e create -e delete --fromfile - 2>/dev/null | \
+    while read -r changed_file; do
+        echo -e "${YELLOW}File changed: $(basename "$changed_file")${NC}"
+        
+        # Find all LilyPond files that depend on this changed file
+        local files_to_compile=$(mktemp)
+        grep "^$changed_file|" "$watch_map" | cut -d'|' -f2-4 | sort | uniq > "$files_to_compile"
+        
+        if [ -s "$files_to_compile" ]; then
+            while IFS='|' read -r ly_file filename partes_dir; do
+                if [ -f "$ly_file" ]; then
+                    compile_lilypond "$ly_file" "$filename" "$partes_dir"
+                fi
+            done < "$files_to_compile"
+        fi
+        
+        rm -f "$files_to_compile"
+        echo ""
+    done
+    
+    # Clean up
+    rm -f "$watch_map" "$all_files"
+}
+
 # Main processing
-echo -e "${BOLD}Scanning for 'lilypond' directories in: $ROOT_DIR${NC}"
-echo -e "${BOLD}==========================================${NC}"
+if [ "$WATCH_MODE" = true ]; then
+    watch_files
+else
+    echo -e "${BOLD}Scanning for 'lilypond' directories in: $ROOT_DIR${NC}"
+    echo -e "${BOLD}==========================================${NC}"
 
-# Counter for total processed files
-total_processed=0
-total_uptodate=0
+    # Counter for total processed files
+    total_processed=0
+    total_uptodate=0
 
-# Find all directories named "lilypond" recursively
-while IFS= read -r -d '' lilypond_dir; do
-    lilypond_dir=$(sed 's/\.\///' <<< "$lilypond_dir")
-    process_lilypond_directory "$lilypond_dir"
-done < <(find "$ROOT_DIR" -type d -name "lilypond" -print0)
+    # Find all directories named "lilypond" recursively
+    while IFS= read -r -d '' lilypond_dir; do
+        lilypond_dir=$(sed 's/\.\///' <<< "$lilypond_dir")
+        process_lilypond_directory "$lilypond_dir"
+    done < <(find "$ROOT_DIR" -type d -name "lilypond" -print0)
 
-echo ""
-echo -e "${BOLD}==========================================${NC}"
-echo -e "${GREEN}${BOLD}Files compiled: $total_processed${NC}"
-echo -e "${GREEN}${BOLD}Files up to date: $total_uptodate${NC}"
-echo -e "${GREEN}${BOLD}Total files checked: $((total_processed + total_uptodate))${NC}"
+    echo ""
+    echo -e "${BOLD}==========================================${NC}"
+    echo -e "${GREEN}${BOLD}Files compiled: $total_processed${NC}"
+    echo -e "${GREEN}${BOLD}Files up to date: $total_uptodate${NC}"
+    echo -e "${GREEN}${BOLD}Total files checked: $((total_processed + total_uptodate))${NC}"
+fi
 
 # Check if LilyPond is installed
 if ! command -v lilypond &> /dev/null; then
@@ -270,4 +372,11 @@ if ! command -v lilypond &> /dev/null; then
     echo -e "${YELLOW}Warning: LilyPond is not installed or not in PATH.${NC}"
     echo -e "${YELLOW}Install it with: ${BOLD}sudo apt-get install lilypond${NC}${YELLOW} (Ubuntu/Debian)${NC}"
     echo -e "${YELLOW}Or download from: ${BOLD}https://lilypond.org/download.html${NC}"
+fi
+
+# Check if inotify-tools is installed (for watch mode)
+if [ "$WATCH_MODE" = true ] && ! command -v inotifywait &> /dev/null; then
+    echo ""
+    echo -e "${YELLOW}Note: For watch mode, install inotify-tools:${NC}"
+    echo -e "${YELLOW}${BOLD}sudo apt-get install inotify-tools${NC}"
 fi
