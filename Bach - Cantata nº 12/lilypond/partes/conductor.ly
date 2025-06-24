@@ -108,12 +108,12 @@
                 } {
                     \fluteIII
                 }
-                \new Staff \with {
+                %{ \new Staff \with {
                     instrumentName = "Oboé"
                     shortInstrumentName = "Ob."
                 } {    
                     \oboe
-                }
+                } %}
                 \new Staff \with {
                     instrumentName = "Clarinete III"
                     shortInstrumentName = "Cl. III"
