@@ -219,13 +219,8 @@ process_lilypond_directory() {
     # Create partes directory if it doesn't exist
     mkdir -p "$partes_dir"
     
-    # Process all .ly files in this lilypond directory
-    for ly_file in "$lilypond_dir"/*.ly; do
-        # Check if file exists (handles case where no .ly files exist)
-        if [ ! -f "$ly_file" ]; then
-            continue
-        fi
-        
+    # Process all .ly files in this lilypond directory and its subdirectories
+    while IFS= read -r -d '' ly_file; do
         # Extract filename from header
         filename=$(extract_filename "$ly_file")
         
@@ -242,7 +237,7 @@ process_lilypond_directory() {
         else
             echo -e "${YELLOW}⚠ Skipping $(basename "$ly_file"): No 'filename' header found${NC}"
         fi
-    done
+    done < <(find "$lilypond_dir" -name "*.ly" -type f -print0)
     
     if [ $files_checked -eq 0 ]; then
         echo -e "${YELLOW}No files with 'filename' header found in this directory.${NC}"

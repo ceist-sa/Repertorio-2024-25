@@ -7,6 +7,8 @@ Este repositório contém as partituras e arranjos para o repertório da CEIST (
 Cada peça tem uma pasta dedicada, contendo:
 
 - **`lilypond/`** - Ficheiros fonte em LilyPond
+    -  **`lilypond/musica/`** - Ficheiros com a música para cada instrumento
+    -  **`lilypond/partes/`** - Ficheiros com as definição das partituras individuais para cada instrumento
 - **`partes/`** - Partituras individuais geradas em PDF para cada instrumento
 - **`musescore/`** - Ficheiros MuseScore (`.mscz`) quando aplicável
 - **`originais/`** - Partituras originais de referência (quando disponíveis)
@@ -27,7 +29,7 @@ O repositório inclui um script bash (`compile_lilypond.sh`) que automatiza a co
 
 **Como funciona:**
 1. Procura recursivamente por pastas chamadas `lilypond`
-2. Para cada ficheiro `.ly` encontrado, extrai o campo `filename` do cabeçalho
+2. Para cada ficheiro `.ly` encontrado nessa pasta ou subpastas, extrai o campo `filename` do cabeçalho
 3. Segue recursivamente todas as declarações `\include` para identificar dependências
 4. Compila o ficheiro se o PDF resultante não existir ou se qualquer dependência foi modificada após a criação do PDF
 6. Guarda o PDF resultante na pasta `partes` correspondente com o nome especificado
@@ -64,11 +66,8 @@ Os ficheiros `.ly` devem incluir um campo `filename` no cabeçalho para funciona
 
 \book{
     \header {
-        title = "Título da Peça"
-        composer = "Compositor"
         instrument = "Instrumento"
         filename = "Nome_do_Ficheiro_Final"
-        tagline = "CEIST"
     }
     % ...resto do código...
 }
