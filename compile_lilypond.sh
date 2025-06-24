@@ -1,9 +1,10 @@
 #!/bin/bash
 
 # Script to recursively compile LilyPond files with filename header to PDF
-# Usage: ./compile_lilypond.sh [-v] [-w] [root_directory]
+# Usage: ./compile_lilypond.sh [-v] [-w] [--ignore pattern] [root_directory]
 # -v: verbose mode (show LilyPond output)
 # -w: watch mode (monitor files for changes and auto-recompile)
+# --ignore: ignore files matching pattern (can be used multiple times)
 # If no directory is specified, uses current directory
 
 # Color definitions
@@ -19,6 +20,7 @@ NC='\033[0m' # No Color
 VERBOSE=false
 WATCH_MODE=false
 ROOT_DIR="."
+IGNORE_PATTERNS=()
 
 # Parse command line arguments
 while [[ $# -gt 0 ]]; do
@@ -31,12 +33,26 @@ while [[ $# -gt 0 ]]; do
             WATCH_MODE=true
             shift
             ;;
+        --ignore)
+            if [[ -n "$2" && "$2" != -* ]]; then
+                IGNORE_PATTERNS+=("$2")
+                shift 2
+            else
+                echo -e "${RED}Error: --ignore requires a pattern argument${NC}"
+                exit 1
+            fi
+            ;;
         -h|--help)
-            echo "Usage: $0 [-v] [-w] [root_directory]"
+            echo "Usage: $0 [-v] [-w] [--ignore pattern] [root_directory]"
             echo "  -v, --verbose    Show LilyPond compilation output"
             echo "  -w, --watch      Watch files for changes and auto-recompile"
+            echo "  --ignore pattern Ignore files matching pattern (can be used multiple times)"
             echo "  -h, --help       Show this help message"
             echo "  root_directory   Directory to scan (default: current directory)"
+            echo ""
+            echo "Examples:"
+            echo "  $0 --ignore '*test*' --ignore '*backup*'"
+            echo "  $0 -w --ignore 'draft_*.ly'"
             exit 0
             ;;
         *)
@@ -212,6 +228,24 @@ compile_lilypond() {
     rm -rf "$temp_dir"
 }
 
+# Function to check if a file should be ignored
+should_ignore_file() {
+    local file="$1"
+    local basename_file=$(basename "$file")
+    
+    for pattern in "${IGNORE_PATTERNS[@]}"; do
+        # Check against full path
+        if [[ "$file" == $pattern ]]; then
+            return 0  # true - should ignore
+        fi
+        # Check against basename
+        if [[ "$basename_file" == $pattern ]]; then
+            return 0  # true - should ignore
+        fi
+    done
+    return 1  # false - should not ignore
+}
+
 # Function to process a single lilypond directory
 process_lilypond_directory() {
     local lilypond_dir="$1"
@@ -228,6 +262,12 @@ process_lilypond_directory() {
     
     # Process all .ly files in this lilypond directory and its subdirectories
     while IFS= read -r -d '' ly_file; do
+        # Check if file should be ignored
+        if should_ignore_file "$ly_file"; then
+            echo -e "${YELLOW}⚠ Ignoring: $(basename "$ly_file")${NC}"
+            continue
+        fi
+        
         # Extract filename from header
         filename=$(extract_filename "$ly_file")
         
@@ -266,6 +306,11 @@ find_all_lilypond_files() {
     
     while IFS= read -r -d '' lilypond_dir; do
         while IFS= read -r -d '' ly_file; do
+            # Check if file should be ignored
+            if should_ignore_file "$ly_file"; then
+                continue
+            fi
+            
             filename=$(extract_filename "$ly_file")
             if [ -n "$filename" ]; then
                 local base_dir=$(dirname "$lilypond_dir")
@@ -283,6 +328,12 @@ find_all_lilypond_files() {
 watch_files() {
     echo -e "${BOLD}${BLUE}Entering watch mode...${NC}"
     echo -e "${YELLOW}Press Ctrl+C to exit${NC}"
+    
+    # Show ignore patterns if any
+    if [ ${#IGNORE_PATTERNS[@]} -gt 0 ]; then
+        echo -e "${YELLOW}Ignoring patterns: ${IGNORE_PATTERNS[*]}${NC}"
+    fi
+    
     echo ""
     
     # Check if inotifywait is available
@@ -320,6 +371,11 @@ watch_files() {
     done < "$all_files" | \
     inotifywait -m --format '%w%f' -e modify -e move -e create -e delete --fromfile - 2>/dev/null | \
     while read -r changed_file; do
+        # Check if the changed file should be ignored
+        if should_ignore_file "$changed_file"; then
+            continue
+        fi
+        
         echo -e "${YELLOW}File changed: $(basename "$changed_file")${NC}"
         
         # Find all LilyPond files that depend on this changed file
@@ -328,7 +384,7 @@ watch_files() {
         
         if [ -s "$files_to_compile" ]; then
             while IFS='|' read -r ly_file filename partes_dir; do
-                if [ -f "$ly_file" ]; then
+                if [ -f "$ly_file" ] && ! should_ignore_file "$ly_file"; then
                     compile_lilypond "$ly_file" "$filename" "$partes_dir"
                 fi
             done < "$files_to_compile"

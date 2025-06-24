@@ -41,6 +41,22 @@ O modo watch (`-w` ou `--watch`) permite monitorização contínua dos ficheiros
 ./compile_lilypond.sh -v -w
 ```
 
+#### Opção Ignore
+A opção `--ignore` permite excluir ficheiros específicos da compilação:
+- **Suporta padrões glob** (wildcards como `*`, `?`)
+- **Pode ser usada múltiplas vezes** para ignorar vários padrões
+- **Funciona com nomes de ficheiros** ou caminhos completos
+
+Exemplos de padrões:
+- `--ignore '*test*'` - ignora ficheiros que contenham "test" no nome
+- `--ignore 'draft_*.ly'` - ignora ficheiros que comecem com "draft_"
+- `--ignore '*/backup/*'` - ignora ficheiros em pastas chamadas "backup"
+
+```bash
+# Ignorar ficheiros específicos
+./compile_lilypond.sh --ignore '*test*' --ignore 'draft_*.ly'
+```
+
 **Como funciona:**
 1. Procura recursivamente por pastas chamadas `lilypond`
 2. Para cada ficheiro `.ly` encontrado nessa pasta ou subpastas, extrai o campo `filename` do cabeçalho
