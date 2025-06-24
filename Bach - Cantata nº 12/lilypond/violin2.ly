@@ -1,7 +1,8 @@
 \version "2.24.4"
 \language "portugues"
-\include "../globals.ily"
-\include "../../../ranges.ily"
+\include "../../styles.ily"
+\include "../../ranges.ily"
+\include "globals.ily"
 
 violinII = \relative {
     \set Staff.midiInstrument = #"violin"
@@ -25,4 +26,19 @@ violinII = \relative {
     do' sib lab sol fa4 r16 do' (sib lab) |
     sol8 lab16 (fa) do8 do do2\fermata |
     \bar "|."
+}
+
+\bookpart {
+    \paper {
+        systems-per-page = 7
+    }
+    \header {
+        instrument = "Violino II"
+        filename = "Bach - Cantata nº 12 - VIOLINO 2"
+    }
+    \score {
+        \new Staff {
+            \violinII
+        }
+    }
 }

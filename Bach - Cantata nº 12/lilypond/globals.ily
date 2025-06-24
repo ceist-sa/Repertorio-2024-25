@@ -7,14 +7,11 @@ key_time_tempo = {
     \tempo "Adagio assai"
 }
 
-pieceHeaders = \header {
+\header {
     title = "Kantate Nr. 12" 
     subtitle = \markup{\small \normal-text "am Sonntag Jubilate"}
     subsubtitle = "Weinen, Klagen, Sorgen, Zagen"
     composer = \markup{\vspace #1 "Joh. Seb. Bach (BWV 12)"}
     tagline = "CEIST"
-}
-
-scoreHeaders = \header {
     piece = \markup{\bold \large "Nº 1 Sinfonie"}
 }

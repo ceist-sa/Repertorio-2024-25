@@ -1,4 +1,4 @@
-paperStyle = \paper {
+\paper {
     top-margin = 1\cm
     bottom-margin = 1\cm
     left-margin = 2\cm

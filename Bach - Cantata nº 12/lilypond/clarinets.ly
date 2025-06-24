@@ -1,7 +1,8 @@
 \version "2.24.4"
 \language "portugues"
-\include "../globals.ily"
-\include "../../../ranges.ily"
+\include "../../styles.ily"
+\include "../../ranges.ily"
+\include "globals.ily"
 
 clarinetI = \relative do' {
     \set Staff.midiInstrument = #"clarinet"
@@ -49,4 +50,38 @@ clarinetII = \relative do' {
     do8 reb16 (mi,) fa8 do' fa,4 r8 reb'8 | 
     sol,8 reb' lab16 (sib) do8 do2\fermata | 
     \bar "|."
+}
+
+\bookpart {
+    \paper {
+        system-count = 6
+        indent = 2\cm
+        short-indent = 1\cm
+    }
+    \header {
+        instrument = "Clarinetes I e II (Violas I e II)"
+        filename = "Bach - Cantata nº 12 - CLARINETES 1 E 2 (VIOLAS 1 E 2)"
+    }
+    \score {
+        \new GrandStaff <<
+            \new Staff \with {
+                instrumentName = "Clarinete I"
+                shortInstrumentName = "Cl. I"
+            } {
+                \transposition sib
+                \transpose do re {
+                    \clarinetI
+                }
+            }
+            \new Staff \with {
+                instrumentName = "Clarinete II"
+                shortInstrumentName = "Cl. II"
+            } {
+                \transposition sib
+                \transpose do re {
+                    \clarinetII
+                }
+            }
+        >>
+    }
 }

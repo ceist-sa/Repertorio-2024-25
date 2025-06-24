@@ -1,7 +1,8 @@
 \version "2.24.4"
 \language "portugues"
-\include "../globals.ily"
-\include "../../../ranges.ily"
+\include "../../styles.ily"
+\include "../../ranges.ily"
+\include "globals.ily"
 
 cello = \relative do, {
     \set Staff.midiInstrument = #"cello"
@@ -25,4 +26,16 @@ cello = \relative do, {
     fa si do4 reb r8 sol,8 |
     do [sib] do [do,] fa2 \fermata |
     \bar "|."
+}
+
+\bookpart {
+    \header {
+        instrument = "Violoncelo"
+        filename = "Bach - Cantata nº 12 - VIOLONCELO"
+    }
+    \score {
+        \new Staff {
+            \cello
+        }
+    }
 }

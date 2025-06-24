@@ -7,8 +7,6 @@ Este repositório contém as partituras e arranjos para o repertório da CEIST (
 Cada peça tem uma pasta dedicada, contendo:
 
 - **`lilypond/`** - Ficheiros fonte em LilyPond
-    -  **`lilypond/musica/`** - Ficheiros com a música para cada instrumento
-    -  **`lilypond/partes/`** - Ficheiros com as definição das partituras individuais para cada instrumento
 - **`partes/`** - Partituras individuais geradas em PDF para cada instrumento
 - **`musescore/`** - Ficheiros MuseScore (`.mscz`) quando aplicável
 - **`originais/`** - Partituras originais de referência (quando disponíveis)

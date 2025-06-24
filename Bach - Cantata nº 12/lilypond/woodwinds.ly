@@ -1,7 +1,8 @@
 \version "2.24.4"
 \language "portugues"
-\include "../globals.ily"
-\include "../../../ranges.ily"
+\include "../../styles.ily"
+\include "../../ranges.ily"
+\include "globals.ily"
 
 \parallelMusic fluteI, fluteII, fluteIII, oboe, clarinetIII {
     \key_time_tempo
@@ -146,4 +147,57 @@ clarinetIII = \relative do' {
     \set Staff.midiInstrument = #"clarinet"
     \override NoteHead.color = #clarinet-range
     \clarinetIII
+}
+
+\bookpart {
+    \paper {
+        page-count = 1
+        indent = 2\cm
+        short-indent = 1\cm
+    }
+    \header {
+        instrument = "Sopros (Órgão)"
+        filename = "Bach - Cantata nº 12 - SOPROS (ÓRGÃO)"
+    }
+    \score {
+        \new StaffGroup <<
+            \new Staff \with {
+                instrumentName = "Flauta I"
+                shortInstrumentName = "Fl. I"
+            } {
+                \fluteI
+            }
+
+            \new Staff \with {
+                instrumentName = "Flauta II"
+                shortInstrumentName = "Fl. II"
+            } {
+                \fluteII
+            }
+
+            \new Staff \with {
+                instrumentName = "Flauta III"
+                shortInstrumentName = "Fl. III"
+            } {
+                \fluteIII
+            }
+
+            %{ \new Staff \with {
+                instrumentName = "Oboé"
+                shortInstrumentName = "Ob."
+            } {    
+                \oboe
+            } %}
+
+            \new Staff \with {
+                instrumentName = "Clarinete III"
+                shortInstrumentName = "Cl. III"
+            } {
+                \transposition sib
+                \transpose do re {
+                    \clarinetIII
+                }
+            }
+        >>
+    }
 }

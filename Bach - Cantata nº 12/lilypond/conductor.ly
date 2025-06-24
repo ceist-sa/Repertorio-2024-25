@@ -1,27 +1,24 @@
 \version "2.24.4"
-\include "../../../styles.ily"
-\include "../globals.ily"
-\include "../musica/oboe_solo.ily"
-\include "../musica/violin1.ily"
-\include "../musica/violin2.ily"
-\include "../musica/viola1.ily"
-\include "../musica/viola2.ily"
-\include "../musica/clarinets.ily"
-\include "../musica/cello.ily"
-\include "../musica/woodwinds.ily"
+\include "../../styles.ily"
+\include "globals.ily"
+\include "oboe_solo.ly"
+\include "violin1.ly"
+\include "violin2.ly"
+\include "viola1.ly"
+\include "viola2.ly"
+\include "clarinets.ly"
+\include "cello.ly"
+\include "woodwinds.ly"
 
 \book {
-    \paperStyle
     \paper {
         indent = 2\cm
         short-indent = 1\cm
     }
-    \pieceHeaders
     \header {
         filename = "Bach - Cantata nº 12 - GERAL"
     }
     \score {
-        \scoreHeaders
         <<
             \new Staff \with {
                 instrumentName = "Oboé solo"
