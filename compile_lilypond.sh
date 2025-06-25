@@ -210,6 +210,9 @@ compile_lilypond() {
         local ly_basename=$(basename "$input_file" .ly)
         local generated_pdf="$temp_dir/${ly_basename}.pdf"
 
+        # Remove constantly changing metadata from the PDF
+        sed -i "/ModifyDate\|CreateDate\|DocumentID\|CreationDate\|ModDate\|\/ID/d" "$generated_pdf"
+
         if [ -f "$generated_pdf" ]; then
             # Move to partes directory with the specified filename
             mv "$generated_pdf" "$output_file"
