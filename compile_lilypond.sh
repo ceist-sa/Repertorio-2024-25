@@ -110,8 +110,8 @@ find_includes() {
             full_include_path="$base_dir/$include_file"
         fi
         
-        # Check if the included file exists and hasn't been processed yet
-        if [ -f "$full_include_path" ] && ! grep -Fxq "$full_include_path" "$temp_file"; then
+        # Check if the included file exists
+        if [ -f "$full_include_path" ]; then
             # Recursively find includes in the included file
             find_includes "$full_include_path" "$(dirname "$full_include_path")" "$temp_file"
         fi
@@ -405,34 +405,31 @@ watch_files() {
             if [ -f "$file" ]; then
                 echo "$file"
             fi
-        done | xargs fswatch -o --event=Updated --event=Removed --event=Renamed --event=Created 2>/dev/null | \
-        while read -r num_events file_list; do
-            # fswatch outputs files that changed, we need to check each one
-            while IFS= read -r changed_file; do
-                if [ -n "$changed_file" ] && [ -f "$changed_file" ]; then
-                    # Check if the changed file should be ignored
-                    if should_ignore_file "$changed_file"; then
-                        continue
+        done | xargs fswatch --event=Updated --event=Removed --event=Renamed --event=Created 2>/dev/null | \
+        while read -r changed_file; do
+            if [ -z "$changed_file" ]; then continue; fi
+
+            # Check if the changed file should be ignored
+            if should_ignore_file "$changed_file"; then
+                continue
+            fi
+            
+            echo -e "${YELLOW}File changed: $(basename "$changed_file")${NC}"
+            
+            # Find all LilyPond files that depend on this changed file
+            local files_to_compile=$(mktemp)
+            grep "^$changed_file|" "$watch_map" | cut -d'|' -f2-4 | sort | uniq > "$files_to_compile"
+            
+            if [ -s "$files_to_compile" ]; then
+                while IFS='|' read -r ly_file filename partes_dir; do
+                    if [ -f "$ly_file" ] && ! should_ignore_file "$ly_file"; then
+                        compile_lilypond "$ly_file" "$filename" "$partes_dir"
                     fi
-                    
-                    echo -e "${YELLOW}File changed: $(basename "$changed_file")${NC}"
-                    
-                    # Find all LilyPond files that depend on this changed file
-                    local files_to_compile=$(mktemp)
-                    grep "^$changed_file|" "$watch_map" | cut -d'|' -f2-4 | sort | uniq > "$files_to_compile"
-                    
-                    if [ -s "$files_to_compile" ]; then
-                        while IFS='|' read -r ly_file filename partes_dir; do
-                            if [ -f "$ly_file" ] && ! should_ignore_file "$ly_file"; then
-                                compile_lilypond "$ly_file" "$filename" "$partes_dir"
-                            fi
-                        done < "$files_to_compile"
-                    fi
-                    
-                    rm -f "$files_to_compile"
-                    echo ""
-                fi
-            done < <(cat "$all_files")
+                done < "$files_to_compile"
+            fi
+            
+            rm -f "$files_to_compile"
+            echo ""
         done
     else
         # Linux - use inotifywait
@@ -484,7 +481,7 @@ else
 
     # Find all directories named "lilypond" recursively
     while IFS= read -r -d '' lilypond_dir; do
-        lilypond_dir=$(sed 's/\.\///' <<< "$lilypond_dir")
+        lilypond_dir=${lilypond_dir#./}
         process_lilypond_directory "$lilypond_dir"
     done < <(find "$ROOT_DIR" -type d -name "lilypond" -print0)
 
