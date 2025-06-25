@@ -16,6 +16,9 @@ CYAN='\033[0;36m'
 BOLD='\033[1m'
 NC='\033[0m' # No Color
 
+# Detect operating system
+OS="$(uname -s)"
+
 # Default values
 VERBOSE=false
 WATCH_MODE=false
@@ -122,7 +125,12 @@ get_newest_mtime() {
     
     while IFS= read -r file; do
         if [ -f "$file" ]; then
-            local file_mtime=$(stat -c %Y "$file" 2>/dev/null || echo 0)
+            local file_mtime
+            if [[ "$OS" == "Darwin" ]]; then
+                file_mtime=$(stat -f %m "$file" 2>/dev/null || echo 0)
+            else
+                file_mtime=$(stat -c %Y "$file" 2>/dev/null || echo 0)
+            fi
             if [ "$file_mtime" -gt "$newest_mtime" ]; then
                 newest_mtime=$file_mtime
             fi
@@ -143,7 +151,12 @@ needs_compilation() {
     fi
     
     # Get modification time of output file
-    local output_mtime=$(stat -c %Y "$output_file" 2>/dev/null || echo 0)
+    local output_mtime
+    if [[ "$OS" == "Darwin" ]]; then
+        output_mtime=$(stat -f %m "$output_file" 2>/dev/null || echo 0)
+    else
+        output_mtime=$(stat -c %Y "$output_file" 2>/dev/null || echo 0)
+    fi
     
     # Create temporary file for includes list
     local temp_includes=$(mktemp)
@@ -211,10 +224,14 @@ compile_lilypond() {
         local generated_pdf="$temp_dir/${ly_basename}.pdf"
         local generated_midi="$temp_dir/${ly_basename}.midi"
 
-        # Remove constantly changing metadata from the PDF
-        sed -i "/ModifyDate\|CreateDate\|DocumentID\|CreationDate\|ModDate\|\/ID/d" "$generated_pdf"
-
         if [ -f "$generated_pdf" ]; then
+            # Remove constantly changing metadata from the PDF
+            if [[ "$OS" == "Darwin" ]]; then
+                sed -i '' "/ModifyDate\|CreateDate\|DocumentID\|CreationDate\|ModDate\|\/ID/d" "$generated_pdf"
+            else
+                sed -i "/ModifyDate\|CreateDate\|DocumentID\|CreationDate\|ModDate\|\/ID/d" "$generated_pdf"
+            fi
+
             # Move to partes directory with the specified filename
             mv "$generated_pdf" "$output_file"
             if [ -f "$generated_midi" ]; then
@@ -339,9 +356,6 @@ watch_files() {
     fi
     
     echo ""
-    
-    # Detect operating system
-    local OS="$(uname -s)"
     
     # Check for available file watching tools
     if [[ "$OS" == "Darwin" ]]; then
@@ -492,7 +506,6 @@ fi
 # Check if inotify-tools is installed (for watch mode)
 if [ "$WATCH_MODE" = true ] && ! command -v inotifywait &> /dev/null; then
     echo ""
-    local OS="$(uname -s)"
     if [[ "$OS" == "Darwin" ]]; then
         echo -e "${YELLOW}Note: For watch mode on macOS, install fswatch:${NC}"
         echo -e "${YELLOW}${BOLD}brew install fswatch${NC}${YELLOW} (Homebrew)${NC}"
