@@ -78,14 +78,41 @@ extract_filename() {
     grep -o 'filename[[:space:]]*=[[:space:]]*"[^"]*"' "$file" | sed 's/.*"\([^"]*\)".*/\1/'
 }
 
+# Function to canonicalize a path for cross-platform compatibility
+canonicalize_path() {
+    local path="$1"
+    # Use realpath if available (grealpath on macOS with coreutils)
+    if command -v realpath &>/dev/null; then
+        realpath -m "$path" 2>/dev/null || echo "$path"
+        return
+    fi
+    if command -v grealpath &>/dev/null; then
+        grealpath -m "$path" 2>/dev/null || echo "$path"
+        return
+    fi
+    # Basic fallback for systems without realpath
+    (
+        cd "$(dirname "$path")" &>/dev/null && \
+        echo "$(pwd)/$(basename "$path")"
+    ) || echo "$path"
+}
+
 # Function to recursively find all included files
 find_includes() {
     local file="$1"
     local base_dir="$2"
     local temp_file="$3"
     
-    # Add the current file to the list
-    echo "$file" >> "$temp_file"
+    local canonical_file
+    canonical_file=$(canonicalize_path "$file")
+
+    # If we've already processed this file, stop.
+    if grep -Fxq "$canonical_file" "$temp_file"; then
+        return
+    fi
+    
+    # Add the canonical path to the list.
+    echo "$canonical_file" >> "$temp_file"
     
     # Find all \include statements in the file
     while IFS= read -r line; do
