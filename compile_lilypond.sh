@@ -16,6 +16,9 @@ CYAN='\033[0;36m'
 BOLD='\033[1m'
 NC='\033[0m' # No Color
 
+# Detect operating system
+OS="$(uname -s)"
+
 # Default values
 VERBOSE=false
 WATCH_MODE=false
@@ -75,14 +78,41 @@ extract_filename() {
     grep -o 'filename[[:space:]]*=[[:space:]]*"[^"]*"' "$file" | sed 's/.*"\([^"]*\)".*/\1/'
 }
 
+# Function to canonicalize a path for cross-platform compatibility
+canonicalize_path() {
+    local path="$1"
+    # Use realpath if available (grealpath on macOS with coreutils)
+    if command -v realpath &>/dev/null; then
+        realpath -m "$path" 2>/dev/null || echo "$path"
+        return
+    fi
+    if command -v grealpath &>/dev/null; then
+        grealpath -m "$path" 2>/dev/null || echo "$path"
+        return
+    fi
+    # Basic fallback for systems without realpath
+    (
+        cd "$(dirname "$path")" &>/dev/null && \
+        echo "$(pwd)/$(basename "$path")"
+    ) || echo "$path"
+}
+
 # Function to recursively find all included files
 find_includes() {
     local file="$1"
     local base_dir="$2"
     local temp_file="$3"
     
-    # Add the current file to the list
-    echo "$file" >> "$temp_file"
+    local canonical_file
+    canonical_file=$(canonicalize_path "$file")
+
+    # If we've already processed this file, stop.
+    if grep -Fxq "$canonical_file" "$temp_file"; then
+        return
+    fi
+    
+    # Add the canonical path to the list.
+    echo "$canonical_file" >> "$temp_file"
     
     # Find all \include statements in the file
     while IFS= read -r line; do
@@ -107,8 +137,8 @@ find_includes() {
             full_include_path="$base_dir/$include_file"
         fi
         
-        # Check if the included file exists and hasn't been processed yet
-        if [ -f "$full_include_path" ] && ! grep -Fxq "$full_include_path" "$temp_file"; then
+        # Check if the included file exists
+        if [ -f "$full_include_path" ]; then
             # Recursively find includes in the included file
             find_includes "$full_include_path" "$(dirname "$full_include_path")" "$temp_file"
         fi
@@ -122,7 +152,12 @@ get_newest_mtime() {
     
     while IFS= read -r file; do
         if [ -f "$file" ]; then
-            local file_mtime=$(stat -c %Y "$file" 2>/dev/null || echo 0)
+            local file_mtime
+            if [[ "$OS" == "Darwin" ]]; then
+                file_mtime=$(stat -f %m "$file" 2>/dev/null || echo 0)
+            else
+                file_mtime=$(stat -c %Y "$file" 2>/dev/null || echo 0)
+            fi
             if [ "$file_mtime" -gt "$newest_mtime" ]; then
                 newest_mtime=$file_mtime
             fi
@@ -143,7 +178,12 @@ needs_compilation() {
     fi
     
     # Get modification time of output file
-    local output_mtime=$(stat -c %Y "$output_file" 2>/dev/null || echo 0)
+    local output_mtime
+    if [[ "$OS" == "Darwin" ]]; then
+        output_mtime=$(stat -f %m "$output_file" 2>/dev/null || echo 0)
+    else
+        output_mtime=$(stat -c %Y "$output_file" 2>/dev/null || echo 0)
+    fi
     
     # Create temporary file for includes list
     local temp_includes=$(mktemp)
@@ -209,13 +249,14 @@ compile_lilypond() {
         # Find the generated PDF (LilyPond creates PDF with same name as .ly file)
         local ly_basename=$(basename "$input_file" .ly)
         local generated_pdf="$temp_dir/${ly_basename}.pdf"
-
-        # Remove constantly changing metadata from the PDF
-        sed -i "/ModifyDate\|CreateDate\|DocumentID\|CreationDate\|ModDate\|\/ID/d" "$generated_pdf"
+        local generated_midi="$temp_dir/${ly_basename}.midi"
 
         if [ -f "$generated_pdf" ]; then
             # Move to partes directory with the specified filename
             mv "$generated_pdf" "$output_file"
+            if [ -f "$generated_midi" ]; then
+                mv "$generated_midi" "$(dirname "$input_file")"
+            fi
             echo -e "${GREEN}✓ Successfully created: ${BOLD}$output_file${NC}"
         else
             echo -e "${RED}✗ Error: PDF was not generated for $input_file${NC}"
@@ -291,6 +332,28 @@ process_lilypond_directory() {
     fi
 }
 
+# Function to compile all found LilyPond files
+compile_all() {
+    echo -e "${BOLD}Scanning for 'lilypond' directories in: $ROOT_DIR${NC}"
+    echo -e "${BOLD}==========================================${NC}"
+
+    # Counter for total processed files
+    total_processed=0
+    total_uptodate=0
+
+    # Find all directories named "lilypond" recursively
+    while IFS= read -r -d '' lilypond_dir; do
+        lilypond_dir=${lilypond_dir#./}
+        process_lilypond_directory "$lilypond_dir"
+    done < <(find "$ROOT_DIR" -type d -name "lilypond" -print0)
+
+    echo ""
+    echo -e "${BOLD}==========================================${NC}"
+    echo -e "${GREEN}${BOLD}Files compiled: $total_processed${NC}"
+    echo -e "${GREEN}${BOLD}Files up to date: $total_uptodate${NC}"
+    echo -e "${GREEN}${BOLD}Total files checked: $((total_processed + total_uptodate))${NC}"
+}
+
 # Function to get all dependencies for a LilyPond file
 get_all_dependencies() {
     local input_file="$1"
@@ -324,6 +387,36 @@ find_all_lilypond_files() {
     rm -f "$files_list"
 }
 
+# Function to handle a changed file in watch mode
+handle_changed_file() {
+    local changed_file="$1"
+    local watch_map="$2"
+
+    if [ -z "$changed_file" ]; then return; fi
+
+    # Check if the changed file should be ignored
+    if should_ignore_file "$changed_file"; then
+        return
+    fi
+    
+    echo -e "${YELLOW}File changed: $(basename "$changed_file")${NC}"
+    
+    # Find all LilyPond files that depend on this changed file
+    local files_to_compile=$(mktemp)
+    grep "^$changed_file|" "$watch_map" | cut -d'|' -f2-4 | sort | uniq > "$files_to_compile"
+    
+    if [ -s "$files_to_compile" ]; then
+        while IFS='|' read -r ly_file filename partes_dir; do
+            if [ -f "$ly_file" ] && ! should_ignore_file "$ly_file"; then
+                compile_lilypond "$ly_file" "$filename" "$partes_dir"
+            fi
+        done < "$files_to_compile"
+    fi
+    
+    rm -f "$files_to_compile"
+    echo ""
+}
+
 # Function to watch for file changes
 watch_files() {
     echo -e "${BOLD}${BLUE}Entering watch mode...${NC}"
@@ -336,10 +429,17 @@ watch_files() {
     
     echo ""
     
-    # Check if inotifywait is available
-    if ! command -v inotifywait &> /dev/null; then
-        echo -e "${RED}Error: inotifywait is not installed.${NC}"
-        echo -e "${YELLOW}Install it with: ${BOLD}sudo apt-get install inotify-tools${NC}"
+    # Check for fswatch
+    if ! command -v fswatch &> /dev/null; then
+        echo -e "${RED}Error: fswatch is not installed.${NC}"
+        if [[ "$OS" == "Darwin" ]]; then
+            echo -e "${YELLOW}Install it with: ${BOLD}brew install fswatch${NC}"
+            echo -e "${YELLOW}Or with MacPorts: ${BOLD}sudo port install fswatch${NC}"
+        else
+            echo -e "${YELLOW}Install it with: ${BOLD}sudo apt-get install fswatch${NC}${YELLOW} (Ubuntu/Debian)${NC}"
+            echo -e "${YELLOW}Or: ${BOLD}sudo yum install fswatch${NC}${YELLOW} (RHEL/CentOS)${NC}"
+            echo -e "${YELLOW}Or: ${BOLD}sudo dnf install fswatch${NC}${YELLOW} (Fedora)${NC}"
+        fi
         exit 1
     fi
     
@@ -363,63 +463,28 @@ watch_files() {
     # Set up signal handler for graceful exit
     trap 'echo -e "\n${YELLOW}Exiting watch mode...${NC}"; rm -f "$watch_map" "$all_files"; exit 0' INT TERM
     
-    # Watch for changes
-    while IFS= read -r file; do
-        if [ -f "$file" ]; then
-            echo "$file"
-        fi
-    done < "$all_files" | \
-    inotifywait -m --format '%w%f' -e modify -e move -e create -e delete --fromfile - 2>/dev/null | \
-    while read -r changed_file; do
-        # Check if the changed file should be ignored
-        if should_ignore_file "$changed_file"; then
-            continue
-        fi
-        
-        echo -e "${YELLOW}File changed: $(basename "$changed_file")${NC}"
-        
-        # Find all LilyPond files that depend on this changed file
-        local files_to_compile=$(mktemp)
-        grep "^$changed_file|" "$watch_map" | cut -d'|' -f2-4 | sort | uniq > "$files_to_compile"
-        
-        if [ -s "$files_to_compile" ]; then
-            while IFS='|' read -r ly_file filename partes_dir; do
-                if [ -f "$ly_file" ] && ! should_ignore_file "$ly_file"; then
-                    compile_lilypond "$ly_file" "$filename" "$partes_dir"
-                fi
-            done < "$files_to_compile"
-        fi
-        
-        rm -f "$files_to_compile"
-        echo ""
-    done
-    
+    # Watch for changes using fswatch on listed files
+    # load files into array
+    mapfile -t watch_list < "$all_files"
+    if [ ${#watch_list[@]} -eq 0 ]; then
+        echo -e "${YELLOW}No files to watch.${NC}"
+    else
+        fswatch -l 0.1 --event=Updated --event=Removed --event=Renamed --event=Created "${watch_list[@]}" 2>/dev/null | \
+        while read -r changed_file; do
+            handle_changed_file "$changed_file" "$watch_map"
+        done
+    fi
+
     # Clean up
     rm -f "$watch_map" "$all_files"
 }
 
 # Main processing
 if [ "$WATCH_MODE" = true ]; then
+    # compile_all
     watch_files
 else
-    echo -e "${BOLD}Scanning for 'lilypond' directories in: $ROOT_DIR${NC}"
-    echo -e "${BOLD}==========================================${NC}"
-
-    # Counter for total processed files
-    total_processed=0
-    total_uptodate=0
-
-    # Find all directories named "lilypond" recursively
-    while IFS= read -r -d '' lilypond_dir; do
-        lilypond_dir=$(sed 's/\.\///' <<< "$lilypond_dir")
-        process_lilypond_directory "$lilypond_dir"
-    done < <(find "$ROOT_DIR" -type d -name "lilypond" -print0)
-
-    echo ""
-    echo -e "${BOLD}==========================================${NC}"
-    echo -e "${GREEN}${BOLD}Files compiled: $total_processed${NC}"
-    echo -e "${GREEN}${BOLD}Files up to date: $total_uptodate${NC}"
-    echo -e "${GREEN}${BOLD}Total files checked: $((total_processed + total_uptodate))${NC}"
+    compile_all
 fi
 
 # Check if LilyPond is installed
@@ -430,9 +495,16 @@ if ! command -v lilypond &> /dev/null; then
     echo -e "${YELLOW}Or download from: ${BOLD}https://lilypond.org/download.html${NC}"
 fi
 
-# Check if inotify-tools is installed (for watch mode)
-if [ "$WATCH_MODE" = true ] && ! command -v inotifywait &> /dev/null; then
+# Check if fswatch is installed (for watch mode)
+if [ "$WATCH_MODE" = true ] && ! command -v fswatch &> /dev/null; then
     echo ""
-    echo -e "${YELLOW}Note: For watch mode, install inotify-tools:${NC}"
-    echo -e "${YELLOW}${BOLD}sudo apt-get install inotify-tools${NC}"
+    echo -e "${YELLOW}Note: For watch mode, install fswatch:${NC}"
+    if [[ "$OS" == "Darwin" ]]; then
+        echo -e "${YELLOW}${BOLD}brew install fswatch${NC}${YELLOW} (Homebrew)${NC}"
+        echo -e "${YELLOW}${BOLD}sudo port install fswatch${NC}${YELLOW} (MacPorts)${NC}"
+    else
+        echo -e "${YELLOW}${BOLD}sudo apt install fswatch${NC}${YELLOW} (Ubuntu/Debian)${NC}"
+        echo -e "${YELLOW}${BOLD}sudo yum install fswatch${NC}${YELLOW} (RHEL/CentOS)${NC}"
+        echo -e "${YELLOW}${BOLD}sudo dnf install fswatch${NC}${YELLOW} (Fedora)${NC}"
+    fi
 fi
