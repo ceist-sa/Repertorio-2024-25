@@ -201,7 +201,7 @@ compile_lilypond() {
         lilypond --output="$temp_dir" "$input_file"
         local compile_result=$?
     else
-        lilypond --output="$temp_dir" "$input_file" 2>/dev/null
+        lilypond -s --output="$temp_dir" "$input_file"
         local compile_result=$?
     fi
     
