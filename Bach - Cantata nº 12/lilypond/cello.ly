@@ -7,7 +7,6 @@
 cello = \relative do, {
     \set Staff.midiInstrument = #"cello"
     \override NoteHead.color = #cello-range
-    \key_time_tempo
     \clef bass
     fa4 r sol r | 
     lab r sib r |
@@ -25,7 +24,6 @@ cello = \relative do, {
     sol, r mi \fermata r8 do8 |
     fa si do4 reb r8 sol,8 |
     do [sib] do [do,] fa2 \fermata |
-    \bar "|."
 }
 
 \bookpart {
@@ -35,7 +33,7 @@ cello = \relative do, {
     }
     \score {
         \new Staff {
-            \cello
+            <<\cello \marks>>
         }
     }
 }

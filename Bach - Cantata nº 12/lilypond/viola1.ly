@@ -7,10 +7,8 @@
 violaI = \relative {
     \set Staff.midiInstrument = #"viola"
     \override NoteHead.color = #viola-range
-    \key_time_tempo
     \clef alto
-    s1*16 % replace with actual notes
-    \bar "|."
+    % insert notes here
 }
 
 \bookpart {
@@ -20,7 +18,7 @@ violaI = \relative {
     }
     \score {
         \new Staff {
-            \violaI
+            <<\violaI \marks>>
         }
     }
 }

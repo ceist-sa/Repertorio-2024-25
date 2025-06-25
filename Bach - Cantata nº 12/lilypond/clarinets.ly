@@ -7,7 +7,6 @@
 clarinetI = \relative do' {
     \set Staff.midiInstrument = #"clarinet"
     \override NoteHead.color = #clarinet-range
-    \key_time_tempo
     \clef treble
     fa4 do sol' mi |
     lab fa sib sol | 
@@ -25,13 +24,11 @@ clarinetI = \relative do' {
     sol sol4\fermata r8 sol8 |
     fa sol lab16 (sib) do8 do,4 r8 sib8 |
     sib8 lab16 (sib) do8 sib lab2\fermata |
-    \bar "|."
 }
 
 clarinetII = \relative do' {
     \set Staff.midiInstrument = #"clarinet"
     \override NoteHead.color = #clarinet-range
-    \key_time_tempo
     \clef treble
     lab4 fa sib sol |
     do lab fa sib |
@@ -49,7 +46,6 @@ clarinetII = \relative do' {
     re sol, sib\fermata r8 mi8 |
     do8 reb16 (mi,) fa8 do' fa,4 r8 reb'8 | 
     sol,8 reb' lab16 (sib) do8 do2\fermata | 
-    \bar "|."
 }
 
 \bookpart {
@@ -70,7 +66,7 @@ clarinetII = \relative do' {
             } {
                 \transposition sib
                 \transpose do re {
-                    \clarinetI
+                    <<\clarinetI \marks>>
                 }
             }
             \new Staff \with {
@@ -79,7 +75,7 @@ clarinetII = \relative do' {
             } {
                 \transposition sib
                 \transpose do re {
-                    \clarinetII
+                    <<\clarinetII \marks>>
                 }
             }
         >>

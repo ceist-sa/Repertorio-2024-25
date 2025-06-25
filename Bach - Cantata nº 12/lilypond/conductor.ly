@@ -24,22 +24,21 @@
                 instrumentName = "Oboé solo"
                 shortInstrumentName = "Ob."
             } {
-                \oboeSolo
+                <<\oboeSolo \marks>>
             }
-
             \new StaffGroup <<
                 \new GrandStaff <<
                     \new Staff \with {
                         instrumentName = "Violino I"
                         shortInstrumentName = "Vln. I"
                     } {
-                        \violinI
+                        <<\violinI \marks>>
                     }
                     \new Staff \with {
                         instrumentName = "Violino II"
                         shortInstrumentName = "Vln. II"
                     } {
-                        \violinII
+                        <<\violinII \marks>>
                     }
                 >>
                 \new GrandStaff <<
@@ -47,25 +46,22 @@
                         instrumentName = "Viola I"
                         shortInstrumentName = "Vla. I"
                     } {
-                        \violaI
+                        <<\violaI \marks>>
                     }
                     \new Staff \with {
                         instrumentName = "Viola II"
                         shortInstrumentName = "Vla. II"
                     } {
-                        \violaII
+                        <<\violaII \marks>>
                     }
                 >>
                 \new Staff \with {
                     instrumentName = "Violoncelo"
                     shortInstrumentName = "Vcl."
                 } {
-                    \key_time_tempo
-                    \override NoteHead.color = #cello-range
-                    \cello
+                    <<\cello \marks>>
                 }
             >>
-
             \new GrandStaff <<
                 \new Staff \with {
                     instrumentName = "Clarinete I"
@@ -73,7 +69,7 @@
                 } {
                     \transposition sib
                     \transpose do re {
-                        \clarinetI
+                        <<\clarinetI \marks>>
                     }
                 }
                 \new Staff \with {
@@ -82,7 +78,7 @@
                 } {
                     \transposition sib
                     \transpose do re {
-                        \clarinetII
+                        <<\clarinetII \marks>>
                     }
                 }
             >>
@@ -91,25 +87,25 @@
                     instrumentName = "Flauta I"
                     shortInstrumentName = "Fl. I"
                 } {
-                    \fluteI
+                    <<\fluteI \marks>>
                 }
                 \new Staff \with {
                     instrumentName = "Flauta II"
                     shortInstrumentName = "Fl. II"
                 } {
-                    \fluteII
+                    <<\fluteII \marks>>
                 }
                 %{ \new Staff \with {
                     instrumentName = "Flauta III"
                     shortInstrumentName = "Fl. III"
                 } {
-                    \fluteIII
+                    <<\fluteIII \marks>>
                 }
                 \new Staff \with {
                     instrumentName = "Oboé"
                     shortInstrumentName = "Ob."
                 } {    
-                    \oboe
+                    <<\oboe \marks>>
                 } %}
                 \new Staff \with {
                     instrumentName = "Clarinete III"
@@ -117,7 +113,7 @@
                 } {
                     \transposition sib
                     \transpose do re {
-                        \clarinetIII
+                        <<\clarinetIII \marks>>
                     }
                 }
             >>

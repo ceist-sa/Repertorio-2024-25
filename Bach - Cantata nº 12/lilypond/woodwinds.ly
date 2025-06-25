@@ -8,7 +8,6 @@
 fluteI = \relative do' {
     \set Staff.midiInstrument = #"flute"
     \override NoteHead.color = #flute-range
-    \key_time_tempo
     \clef treble
 
     % Bar 1
@@ -32,13 +31,11 @@ fluteI = \relative do' {
     re, r sol\fermata r8 mi'8 |
     fa4 do lab r4 |
     mi8 fa fa mi fa2\fermata
-
-    \bar "|."
 }
+
 fluteII = \relative do'' {
     \set Staff.midiInstrument = #"flute"
     \override NoteHead.color = #flute-range
-    \key_time_tempo
     \clef treble
 
     % Bar 1
@@ -62,31 +59,25 @@ fluteII = \relative do'' {
     re, r mi \fermata r8 do8 |
     do'4 lab fa r |
     sol8 lab do, do do2 \fermata |
-
-    
-    \bar "|."
 }
+
 fluteIII = \relative do' {
     \set Staff.midiInstrument = #"flute"
     \override NoteHead.color = #flute-range
-    \key_time_tempo
     \clef treble
 
     do4 r4 lab r |
-    
-    \bar "|."
 }
+    
 oboe = \relative do' {
     \set Staff.midiInstrument = #"oboe"
     \override NoteHead.color = #oboe-range
     do4 r4 lab r |
-    
-    \bar "|."
 }
+    
 clarinetIII = \relative do' {
     \set Staff.midiInstrument = #"clarinet"
     \override NoteHead.color = #clarinet-range
-    \key_time_tempo
     \clef treble
 
     % Bar 1
@@ -110,8 +101,6 @@ clarinetIII = \relative do' {
     sol r mi \fermata r8 do'8 |
     fa, sib do4 reb r8 sol,8 |
     do sib do do fa,2 \fermata 
-    
-    \bar "|."
 }
 
 \bookpart {
@@ -130,14 +119,14 @@ clarinetIII = \relative do' {
                 instrumentName = "Flauta I"
                 shortInstrumentName = "Fl. I"
             } {
-                \fluteI
+                <<\fluteI \marks>>
             }
 
             \new Staff \with {
                 instrumentName = "Flauta II"
                 shortInstrumentName = "Fl. II"
             } {
-                \fluteII
+                <<\fluteII \marks>>
             }
 
             %{\new Staff \with {
@@ -160,7 +149,7 @@ clarinetIII = \relative do' {
             } {
                 \transposition sib
                 \transpose do re {
-                    \clarinetIII
+                    <<\clarinetIII \marks>>
                 }
             }
         >>

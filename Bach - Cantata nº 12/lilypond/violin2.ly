@@ -7,7 +7,6 @@
 violinII = \relative {
     \set Staff.midiInstrument = #"violin"
     \override NoteHead.color = #violin-range
-    \key_time_tempo
     \clef treble
     lab'16 (sol) fa (sol) lab8 r sol16 (fa) mi (fa) sol8 r |
     do16 (sib) lab (sib) do8 r sib16 (lab) sol (lab) sib8 r |
@@ -25,7 +24,6 @@ violinII = \relative {
     si sol' (fa mib) re (do) si (la) sib4\fermata r8 do |
     do' sib lab sol fa4 r16 do' (sib lab) |
     sol8 lab16 (fa) do8 do do2\fermata |
-    \bar "|."
 }
 
 \bookpart {
@@ -38,7 +36,7 @@ violinII = \relative {
     }
     \score {
         \new Staff {
-            \violinII
+            <<\violinII \marks>>
         }
     }
 }

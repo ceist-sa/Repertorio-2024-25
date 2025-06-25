@@ -1,10 +1,12 @@
 \version "2.24.4"
 \language "portugues"
 
-key_time_tempo = {
+marks = {
     \key do \minor
     \time 4/4
     \tempo "Adagio assai"
+    % insert global marks here
+    s1*16 \bar "|."
 }
 
 \header {
