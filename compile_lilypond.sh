@@ -252,13 +252,6 @@ compile_lilypond() {
         local generated_midi="$temp_dir/${ly_basename}.midi"
 
         if [ -f "$generated_pdf" ]; then
-            # Remove constantly changing metadata from the PDF
-            if [[ "$OS" == "Darwin" ]]; then
-                sed -i '' "/ModifyDate\|CreateDate\|DocumentID\|CreationDate\|ModDate\|\/ID/d" "$generated_pdf"
-            else
-                sed -i "/ModifyDate\|CreateDate\|DocumentID\|CreationDate\|ModDate\|\/ID/d" "$generated_pdf"
-            fi
-
             # Move to partes directory with the specified filename
             mv "$generated_pdf" "$output_file"
             if [ -f "$generated_midi" ]; then
@@ -339,6 +332,28 @@ process_lilypond_directory() {
     fi
 }
 
+# Function to compile all found LilyPond files
+compile_all() {
+    echo -e "${BOLD}Scanning for 'lilypond' directories in: $ROOT_DIR${NC}"
+    echo -e "${BOLD}==========================================${NC}"
+
+    # Counter for total processed files
+    total_processed=0
+    total_uptodate=0
+
+    # Find all directories named "lilypond" recursively
+    while IFS= read -r -d '' lilypond_dir; do
+        lilypond_dir=${lilypond_dir#./}
+        process_lilypond_directory "$lilypond_dir"
+    done < <(find "$ROOT_DIR" -type d -name "lilypond" -print0)
+
+    echo ""
+    echo -e "${BOLD}==========================================${NC}"
+    echo -e "${GREEN}${BOLD}Files compiled: $total_processed${NC}"
+    echo -e "${GREEN}${BOLD}Files up to date: $total_uptodate${NC}"
+    echo -e "${GREEN}${BOLD}Total files checked: $((total_processed + total_uptodate))${NC}"
+}
+
 # Function to get all dependencies for a LilyPond file
 get_all_dependencies() {
     local input_file="$1"
@@ -372,6 +387,36 @@ find_all_lilypond_files() {
     rm -f "$files_list"
 }
 
+# Function to handle a changed file in watch mode
+handle_changed_file() {
+    local changed_file="$1"
+    local watch_map="$2"
+
+    if [ -z "$changed_file" ]; then return; fi
+
+    # Check if the changed file should be ignored
+    if should_ignore_file "$changed_file"; then
+        return
+    fi
+    
+    echo -e "${YELLOW}File changed: $(basename "$changed_file")${NC}"
+    
+    # Find all LilyPond files that depend on this changed file
+    local files_to_compile=$(mktemp)
+    grep "^$changed_file|" "$watch_map" | cut -d'|' -f2-4 | sort | uniq > "$files_to_compile"
+    
+    if [ -s "$files_to_compile" ]; then
+        while IFS='|' read -r ly_file filename partes_dir; do
+            if [ -f "$ly_file" ] && ! should_ignore_file "$ly_file"; then
+                compile_lilypond "$ly_file" "$filename" "$partes_dir"
+            fi
+        done < "$files_to_compile"
+    fi
+    
+    rm -f "$files_to_compile"
+    echo ""
+}
+
 # Function to watch for file changes
 watch_files() {
     echo -e "${BOLD}${BLUE}Entering watch mode...${NC}"
@@ -384,25 +429,18 @@ watch_files() {
     
     echo ""
     
-    # Check for available file watching tools
-    if [[ "$OS" == "Darwin" ]]; then
-        # macOS - use fswatch
-        if ! command -v fswatch &> /dev/null; then
-            echo -e "${RED}Error: fswatch is not installed.${NC}"
+    # Check for fswatch
+    if ! command -v fswatch &> /dev/null; then
+        echo -e "${RED}Error: fswatch is not installed.${NC}"
+        if [[ "$OS" == "Darwin" ]]; then
             echo -e "${YELLOW}Install it with: ${BOLD}brew install fswatch${NC}"
             echo -e "${YELLOW}Or with MacPorts: ${BOLD}sudo port install fswatch${NC}"
-            exit 1
+        else
+            echo -e "${YELLOW}Install it with: ${BOLD}sudo apt-get install fswatch${NC}${YELLOW} (Ubuntu/Debian)${NC}"
+            echo -e "${YELLOW}Or: ${BOLD}sudo yum install fswatch${NC}${YELLOW} (RHEL/CentOS)${NC}"
+            echo -e "${YELLOW}Or: ${BOLD}sudo dnf install fswatch${NC}${YELLOW} (Fedora)${NC}"
         fi
-        local WATCH_TOOL="fswatch"
-    else
-        # Linux - use inotifywait
-        if ! command -v inotifywait &> /dev/null; then
-            echo -e "${RED}Error: inotifywait is not installed.${NC}"
-            echo -e "${YELLOW}Install it with: ${BOLD}sudo apt-get install inotify-tools${NC}${YELLOW} (Ubuntu/Debian)${NC}"
-            echo -e "${YELLOW}Or: ${BOLD}sudo yum install inotify-tools${NC}${YELLOW} (RHEL/CentOS)${NC}"
-            exit 1
-        fi
-        local WATCH_TOOL="inotifywait"
+        exit 1
     fi
     
     # Create a temporary file to store file mappings
@@ -425,98 +463,28 @@ watch_files() {
     # Set up signal handler for graceful exit
     trap 'echo -e "\n${YELLOW}Exiting watch mode...${NC}"; rm -f "$watch_map" "$all_files"; exit 0' INT TERM
     
-    # Watch for changes using the appropriate tool
-    if [[ "$WATCH_TOOL" == "fswatch" ]]; then
-        # macOS - use fswatch
-        cat "$all_files" | while IFS= read -r file; do
-            if [ -f "$file" ]; then
-                echo "$file"
-            fi
-        done | xargs fswatch --event=Updated --event=Removed --event=Renamed --event=Created 2>/dev/null | \
-        while read -r changed_file; do
-            if [ -z "$changed_file" ]; then continue; fi
-
-            # Check if the changed file should be ignored
-            if should_ignore_file "$changed_file"; then
-                continue
-            fi
-            
-            echo -e "${YELLOW}File changed: $(basename "$changed_file")${NC}"
-            
-            # Find all LilyPond files that depend on this changed file
-            local files_to_compile=$(mktemp)
-            grep "^$changed_file|" "$watch_map" | cut -d'|' -f2-4 | sort | uniq > "$files_to_compile"
-            
-            if [ -s "$files_to_compile" ]; then
-                while IFS='|' read -r ly_file filename partes_dir; do
-                    if [ -f "$ly_file" ] && ! should_ignore_file "$ly_file"; then
-                        compile_lilypond "$ly_file" "$filename" "$partes_dir"
-                    fi
-                done < "$files_to_compile"
-            fi
-            
-            rm -f "$files_to_compile"
-            echo ""
-        done
+    # Watch for changes using fswatch on listed files
+    # load files into array
+    mapfile -t watch_list < "$all_files"
+    if [ ${#watch_list[@]} -eq 0 ]; then
+        echo -e "${YELLOW}No files to watch.${NC}"
     else
-        # Linux - use inotifywait
-        while IFS= read -r file; do
-            if [ -f "$file" ]; then
-                echo "$file"
-            fi
-        done < "$all_files" | \
-        inotifywait -m --format '%w%f' -e modify -e move -e create -e delete --fromfile - 2>/dev/null | \
+        fswatch -l 0.1 --event=Updated --event=Removed --event=Renamed --event=Created "${watch_list[@]}" 2>/dev/null | \
         while read -r changed_file; do
-            # Check if the changed file should be ignored
-            if should_ignore_file "$changed_file"; then
-                continue
-            fi
-            
-            echo -e "${YELLOW}File changed: $(basename "$changed_file")${NC}"
-            
-            # Find all LilyPond files that depend on this changed file
-            local files_to_compile=$(mktemp)
-            grep "^$changed_file|" "$watch_map" | cut -d'|' -f2-4 | sort | uniq > "$files_to_compile"
-            
-            if [ -s "$files_to_compile" ]; then
-                while IFS='|' read -r ly_file filename partes_dir; do
-                    if [ -f "$ly_file" ] && ! should_ignore_file "$ly_file"; then
-                        compile_lilypond "$ly_file" "$filename" "$partes_dir"
-                    fi
-                done < "$files_to_compile"
-            fi
-            
-            rm -f "$files_to_compile"
-            echo ""
+            handle_changed_file "$changed_file" "$watch_map"
         done
     fi
-    
+
     # Clean up
     rm -f "$watch_map" "$all_files"
 }
 
 # Main processing
 if [ "$WATCH_MODE" = true ]; then
+    # compile_all
     watch_files
 else
-    echo -e "${BOLD}Scanning for 'lilypond' directories in: $ROOT_DIR${NC}"
-    echo -e "${BOLD}==========================================${NC}"
-
-    # Counter for total processed files
-    total_processed=0
-    total_uptodate=0
-
-    # Find all directories named "lilypond" recursively
-    while IFS= read -r -d '' lilypond_dir; do
-        lilypond_dir=${lilypond_dir#./}
-        process_lilypond_directory "$lilypond_dir"
-    done < <(find "$ROOT_DIR" -type d -name "lilypond" -print0)
-
-    echo ""
-    echo -e "${BOLD}==========================================${NC}"
-    echo -e "${GREEN}${BOLD}Files compiled: $total_processed${NC}"
-    echo -e "${GREEN}${BOLD}Files up to date: $total_uptodate${NC}"
-    echo -e "${GREEN}${BOLD}Total files checked: $((total_processed + total_uptodate))${NC}"
+    compile_all
 fi
 
 # Check if LilyPond is installed
@@ -527,16 +495,16 @@ if ! command -v lilypond &> /dev/null; then
     echo -e "${YELLOW}Or download from: ${BOLD}https://lilypond.org/download.html${NC}"
 fi
 
-# Check if inotify-tools is installed (for watch mode)
-if [ "$WATCH_MODE" = true ] && ! command -v inotifywait &> /dev/null; then
+# Check if fswatch is installed (for watch mode)
+if [ "$WATCH_MODE" = true ] && ! command -v fswatch &> /dev/null; then
     echo ""
+    echo -e "${YELLOW}Note: For watch mode, install fswatch:${NC}"
     if [[ "$OS" == "Darwin" ]]; then
-        echo -e "${YELLOW}Note: For watch mode on macOS, install fswatch:${NC}"
         echo -e "${YELLOW}${BOLD}brew install fswatch${NC}${YELLOW} (Homebrew)${NC}"
         echo -e "${YELLOW}${BOLD}sudo port install fswatch${NC}${YELLOW} (MacPorts)${NC}"
     else
-        echo -e "${YELLOW}Note: For watch mode on Linux, install inotify-tools:${NC}"
-        echo -e "${YELLOW}${BOLD}sudo apt-get install inotify-tools${NC}${YELLOW} (Ubuntu/Debian)${NC}"
-        echo -e "${YELLOW}${BOLD}sudo yum install inotify-tools${NC}${YELLOW} (RHEL/CentOS)${NC}"
+        echo -e "${YELLOW}${BOLD}sudo apt install fswatch${NC}${YELLOW} (Ubuntu/Debian)${NC}"
+        echo -e "${YELLOW}${BOLD}sudo yum install fswatch${NC}${YELLOW} (RHEL/CentOS)${NC}"
+        echo -e "${YELLOW}${BOLD}sudo dnf install fswatch${NC}${YELLOW} (Fedora)${NC}"
     fi
 fi
