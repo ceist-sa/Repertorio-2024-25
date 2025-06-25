@@ -340,11 +340,28 @@ watch_files() {
     
     echo ""
     
-    # Check if inotifywait is available
-    if ! command -v inotifywait &> /dev/null; then
-        echo -e "${RED}Error: inotifywait is not installed.${NC}"
-        echo -e "${YELLOW}Install it with: ${BOLD}sudo apt-get install inotify-tools${NC}"
-        exit 1
+    # Detect operating system
+    local OS="$(uname -s)"
+    
+    # Check for available file watching tools
+    if [[ "$OS" == "Darwin" ]]; then
+        # macOS - use fswatch
+        if ! command -v fswatch &> /dev/null; then
+            echo -e "${RED}Error: fswatch is not installed.${NC}"
+            echo -e "${YELLOW}Install it with: ${BOLD}brew install fswatch${NC}"
+            echo -e "${YELLOW}Or with MacPorts: ${BOLD}sudo port install fswatch${NC}"
+            exit 1
+        fi
+        local WATCH_TOOL="fswatch"
+    else
+        # Linux - use inotifywait
+        if ! command -v inotifywait &> /dev/null; then
+            echo -e "${RED}Error: inotifywait is not installed.${NC}"
+            echo -e "${YELLOW}Install it with: ${BOLD}sudo apt-get install inotify-tools${NC}${YELLOW} (Ubuntu/Debian)${NC}"
+            echo -e "${YELLOW}Or: ${BOLD}sudo yum install inotify-tools${NC}${YELLOW} (RHEL/CentOS)${NC}"
+            exit 1
+        fi
+        local WATCH_TOOL="inotifywait"
     fi
     
     # Create a temporary file to store file mappings
@@ -367,36 +384,74 @@ watch_files() {
     # Set up signal handler for graceful exit
     trap 'echo -e "\n${YELLOW}Exiting watch mode...${NC}"; rm -f "$watch_map" "$all_files"; exit 0' INT TERM
     
-    # Watch for changes
-    while IFS= read -r file; do
-        if [ -f "$file" ]; then
-            echo "$file"
-        fi
-    done < "$all_files" | \
-    inotifywait -m --format '%w%f' -e modify -e move -e create -e delete --fromfile - 2>/dev/null | \
-    while read -r changed_file; do
-        # Check if the changed file should be ignored
-        if should_ignore_file "$changed_file"; then
-            continue
-        fi
-        
-        echo -e "${YELLOW}File changed: $(basename "$changed_file")${NC}"
-        
-        # Find all LilyPond files that depend on this changed file
-        local files_to_compile=$(mktemp)
-        grep "^$changed_file|" "$watch_map" | cut -d'|' -f2-4 | sort | uniq > "$files_to_compile"
-        
-        if [ -s "$files_to_compile" ]; then
-            while IFS='|' read -r ly_file filename partes_dir; do
-                if [ -f "$ly_file" ] && ! should_ignore_file "$ly_file"; then
-                    compile_lilypond "$ly_file" "$filename" "$partes_dir"
+    # Watch for changes using the appropriate tool
+    if [[ "$WATCH_TOOL" == "fswatch" ]]; then
+        # macOS - use fswatch
+        cat "$all_files" | while IFS= read -r file; do
+            if [ -f "$file" ]; then
+                echo "$file"
+            fi
+        done | xargs fswatch -o --event=Updated --event=Removed --event=Renamed --event=Created 2>/dev/null | \
+        while read -r num_events file_list; do
+            # fswatch outputs files that changed, we need to check each one
+            while IFS= read -r changed_file; do
+                if [ -n "$changed_file" ] && [ -f "$changed_file" ]; then
+                    # Check if the changed file should be ignored
+                    if should_ignore_file "$changed_file"; then
+                        continue
+                    fi
+                    
+                    echo -e "${YELLOW}File changed: $(basename "$changed_file")${NC}"
+                    
+                    # Find all LilyPond files that depend on this changed file
+                    local files_to_compile=$(mktemp)
+                    grep "^$changed_file|" "$watch_map" | cut -d'|' -f2-4 | sort | uniq > "$files_to_compile"
+                    
+                    if [ -s "$files_to_compile" ]; then
+                        while IFS='|' read -r ly_file filename partes_dir; do
+                            if [ -f "$ly_file" ] && ! should_ignore_file "$ly_file"; then
+                                compile_lilypond "$ly_file" "$filename" "$partes_dir"
+                            fi
+                        done < "$files_to_compile"
+                    fi
+                    
+                    rm -f "$files_to_compile"
+                    echo ""
                 fi
-            done < "$files_to_compile"
-        fi
-        
-        rm -f "$files_to_compile"
-        echo ""
-    done
+            done < <(cat "$all_files")
+        done
+    else
+        # Linux - use inotifywait
+        while IFS= read -r file; do
+            if [ -f "$file" ]; then
+                echo "$file"
+            fi
+        done < "$all_files" | \
+        inotifywait -m --format '%w%f' -e modify -e move -e create -e delete --fromfile - 2>/dev/null | \
+        while read -r changed_file; do
+            # Check if the changed file should be ignored
+            if should_ignore_file "$changed_file"; then
+                continue
+            fi
+            
+            echo -e "${YELLOW}File changed: $(basename "$changed_file")${NC}"
+            
+            # Find all LilyPond files that depend on this changed file
+            local files_to_compile=$(mktemp)
+            grep "^$changed_file|" "$watch_map" | cut -d'|' -f2-4 | sort | uniq > "$files_to_compile"
+            
+            if [ -s "$files_to_compile" ]; then
+                while IFS='|' read -r ly_file filename partes_dir; do
+                    if [ -f "$ly_file" ] && ! should_ignore_file "$ly_file"; then
+                        compile_lilypond "$ly_file" "$filename" "$partes_dir"
+                    fi
+                done < "$files_to_compile"
+            fi
+            
+            rm -f "$files_to_compile"
+            echo ""
+        done
+    fi
     
     # Clean up
     rm -f "$watch_map" "$all_files"
@@ -437,6 +492,14 @@ fi
 # Check if inotify-tools is installed (for watch mode)
 if [ "$WATCH_MODE" = true ] && ! command -v inotifywait &> /dev/null; then
     echo ""
-    echo -e "${YELLOW}Note: For watch mode, install inotify-tools:${NC}"
-    echo -e "${YELLOW}${BOLD}sudo apt-get install inotify-tools${NC}"
+    local OS="$(uname -s)"
+    if [[ "$OS" == "Darwin" ]]; then
+        echo -e "${YELLOW}Note: For watch mode on macOS, install fswatch:${NC}"
+        echo -e "${YELLOW}${BOLD}brew install fswatch${NC}${YELLOW} (Homebrew)${NC}"
+        echo -e "${YELLOW}${BOLD}sudo port install fswatch${NC}${YELLOW} (MacPorts)${NC}"
+    else
+        echo -e "${YELLOW}Note: For watch mode on Linux, install inotify-tools:${NC}"
+        echo -e "${YELLOW}${BOLD}sudo apt-get install inotify-tools${NC}${YELLOW} (Ubuntu/Debian)${NC}"
+        echo -e "${YELLOW}${BOLD}sudo yum install inotify-tools${NC}${YELLOW} (RHEL/CentOS)${NC}"
+    fi
 fi
