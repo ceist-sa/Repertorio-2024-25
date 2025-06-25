@@ -209,6 +209,7 @@ compile_lilypond() {
         # Find the generated PDF (LilyPond creates PDF with same name as .ly file)
         local ly_basename=$(basename "$input_file" .ly)
         local generated_pdf="$temp_dir/${ly_basename}.pdf"
+        local generated_midi="$temp_dir/${ly_basename}.midi"
 
         # Remove constantly changing metadata from the PDF
         sed -i "/ModifyDate\|CreateDate\|DocumentID\|CreationDate\|ModDate\|\/ID/d" "$generated_pdf"
@@ -216,6 +217,9 @@ compile_lilypond() {
         if [ -f "$generated_pdf" ]; then
             # Move to partes directory with the specified filename
             mv "$generated_pdf" "$output_file"
+            if [ -f "$generated_midi" ]; then
+                mv "$generated_midi" "$(dirname "$input_file")"
+            fi
             echo -e "${GREEN}✓ Successfully created: ${BOLD}$output_file${NC}"
         else
             echo -e "${RED}✗ Error: PDF was not generated for $input_file${NC}"
