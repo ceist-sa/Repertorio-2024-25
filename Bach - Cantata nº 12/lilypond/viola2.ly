@@ -23,7 +23,7 @@ violaII = \relative {
     sib(sib) reb(reb) si(si) re(re) |
     re(re) sol,(sol) sib4\fermata r8 mi8 |
     do8 reb16 (mi,) fa8 do fa4 r8 reb'8 | 
-    sol,8 reb' lab16 (sib) do8 do2,\fermata | 
+    sol,8 reb' lab16 (sib) do8 do,2\fermata | 
 }
 
 \bookpart {
