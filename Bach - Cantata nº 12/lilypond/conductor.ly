@@ -12,6 +12,7 @@
 
 \book {
     \paper {
+        #(set-paper-size "b4")
         indent = 2\cm
         short-indent = 1\cm
     }
@@ -26,6 +27,53 @@
             } {
                 <<\oboeSolo \marks>>
             }
+
+            \new StaffGroup <<
+                \new GrandStaff <<
+                    \new Staff \with {
+                        instrumentName = "Flauta I"
+                        shortInstrumentName = "Fl. I"
+                    } {
+                        <<\fluteI \marks>>
+                    }
+                    \new Staff \with {
+                        instrumentName = "Flauta II"
+                        shortInstrumentName = "Fl. II"
+                    } {
+                        <<\fluteII \marks>>
+                    }
+                >> 
+                \new GrandStaff <<
+                    \new Staff \with {
+                        instrumentName = "Clarinete I"
+                        shortInstrumentName = "Cl. I"
+                    } {
+                        \transposition sib
+                        \transpose do re {
+                            <<\clarinetI \marks>>
+                        }
+                    }
+                    \new Staff \with {
+                        instrumentName = "Clarinete II"
+                        shortInstrumentName = "Cl. II"
+                    } {
+                        \transposition sib
+                        \transpose do re {
+                            <<\clarinetII \marks>>
+                        }
+                    }
+                    \new Staff \with {
+                        instrumentName = "Clarinete III"
+                        shortInstrumentName = "Cl. III"
+                    } {
+                        \transposition sib
+                        \transpose do re {
+                            <<\clarinetIII \marks>>
+                        }
+                    }
+                >> 
+            >>
+            
             \new StaffGroup <<
                 \new GrandStaff <<
                     \new Staff \with {
@@ -60,61 +108,6 @@
                     shortInstrumentName = "Vcl."
                 } {
                     <<\cello \marks>>
-                }
-            >>
-            \new GrandStaff <<
-                \new Staff \with {
-                    instrumentName = "Clarinete I"
-                    shortInstrumentName = "Cl. I"
-                } {
-                    \transposition sib
-                    \transpose do re {
-                        <<\clarinetI \marks>>
-                    }
-                }
-                \new Staff \with {
-                    instrumentName = "Clarinete II"
-                    shortInstrumentName = "Cl. II"
-                } {
-                    \transposition sib
-                    \transpose do re {
-                        <<\clarinetII \marks>>
-                    }
-                }
-            >>
-            \new StaffGroup <<
-                \new Staff \with {
-                    instrumentName = "Flauta I"
-                    shortInstrumentName = "Fl. I"
-                } {
-                    <<\fluteI \marks>>
-                }
-                \new Staff \with {
-                    instrumentName = "Flauta II"
-                    shortInstrumentName = "Fl. II"
-                } {
-                    <<\fluteII \marks>>
-                }
-                %{ \new Staff \with {
-                    instrumentName = "Flauta III"
-                    shortInstrumentName = "Fl. III"
-                } {
-                    <<\fluteIII \marks>>
-                }
-                \new Staff \with {
-                    instrumentName = "Oboé"
-                    shortInstrumentName = "Ob."
-                } {    
-                    <<\oboe \marks>>
-                } %}
-                \new Staff \with {
-                    instrumentName = "Clarinete III"
-                    shortInstrumentName = "Cl. III"
-                } {
-                    \transposition sib
-                    \transpose do re {
-                        <<\clarinetIII \marks>>
-                    }
                 }
             >>
         >>
