@@ -28,16 +28,3 @@ violaI = \relative do'{
     fa sol lab16(sib) do8 do,4 r8 sib8 |
     sib8 lab16 (sib) do8 sib lab2\fermata |
 }
-
-
-\bookpart {
-    \header {
-        instrument = "Viola I"
-        filename = "Bach - Cantata nº 12 - VIOLA 1"
-    }
-    \score {
-        \new Staff {
-            <<\violaI \marks>>
-        }
-    }
-}

@@ -25,15 +25,3 @@ cello = \relative do, {
     fa si do4 reb r8 sol,8 |
     do [sib] do [do,] fa2 \fermata |
 }
-
-\bookpart {
-    \header {
-        instrument = "Violoncelo"
-        filename = "Bach - Cantata nº 12 - VIOLONCELO"
-    }
-    \score {
-        \new Staff {
-            <<\cello \marks>>
-        }
-    }
-}

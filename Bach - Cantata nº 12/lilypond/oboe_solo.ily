@@ -24,16 +24,4 @@ oboeSolo = \relative {
     fa,16 (sol lab sol) fa (mib re mib32 do) reb'4-\fermata ~ 32 (do re mi fa16 lab32 sol) |
     lab16 (sib32 lab sol16 lab32 sib) mi,8.-\trill fa16 fa32 (mib reb do sib lab sol lab64 fa) sib4 ~ |
     32 (lab reb do fa32 mi16 fa32) lab,8.-\trill (sol32 fa) fa2-\fermata |
-}   
-
-\bookpart {
-    \header {
-        instrument = "Oboé Solo"
-        filename = "Bach - Cantata nº 12 - OBOÉ SOLO"
-    }
-    \score {
-        \new Staff {
-            <<\oboeSolo \marks>>
-        }
-    }
 }

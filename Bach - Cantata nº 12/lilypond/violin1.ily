@@ -35,15 +35,3 @@ violinI = \relative do'' {
 
     \bar".|"
 }
-
-\bookpart {
-    \header {
-        instrument = "Violino I"
-        filename = "Bach - Cantata nº 12 - VIOLINO 1"
-    }
-    \score {
-        \new Staff {
-            <<\violinI \marks>>
-        }
-    }
-}

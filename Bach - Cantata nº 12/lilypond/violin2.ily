@@ -25,18 +25,3 @@ violinII = \relative {
     do' sib lab sol fa4 r16 do' (sib lab) |
     sol8 lab16 (fa) do8 do do2\fermata |
 }
-
-\bookpart {
-    \paper {
-        systems-per-page = 7
-    }
-    \header {
-        instrument = "Violino II"
-        filename = "Bach - Cantata nº 12 - VIOLINO 2"
-    }
-    \score {
-        \new Staff {
-            <<\violinII \marks>>
-        }
-    }
-}
