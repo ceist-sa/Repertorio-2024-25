@@ -21,7 +21,7 @@ clarinetI = \relative do' {
     reb' r do r |
     sib r sib r |
     sib r fa r |
-    sol r sol4\fermata r8 sol8 |
+    sol r sol4\fermata r8 \partCombineApart sol8 |
     fa sol lab16 (sib) do8 do,4 r8 sib8 |
     sib8 lab16 (sib) do8 sib lab2\fermata |
 }
@@ -48,15 +48,45 @@ clarinetII = \relative do' {
     sol,8 reb' lab16 (sib) do8 do2\fermata | 
 }
 
+clarinetIII = \relative do' {
+    \set Staff.midiInstrument = #"clarinet"
+    \override NoteHead.color = #clarinet-range
+    \clef treble
+
+    % Bar 1
+    fa,4 r4 sol4 r|
+    lab r sib r |
+    do r fa r |
+    fa, r4 sol4 r|
+    lab! r re,! r |
+
+    % Bar 6
+    mib r si' r |
+    do r fa, r |
+    fas r sol r |
+    do r re,! r |
+    mi r fa r |
+    sol r la r |    %confirmar se é la ou lab
+
+    % Bar 12
+    sib r sib r |
+    reb r reb, r|  
+    sol r mi \fermata r8 do'8 |
+    fa, sib do4 reb r8 sol,8 |
+    do sib do do fa,2 \fermata 
+}
+
 \bookpart {
     \paper {
-        system-count = 6
+        system-count=4
         indent = 2\cm
-        short-indent = 1\cm
+        short-indent = 0.2\cm
+        ragged-last-bottom = ##f
+        ragged-bottom = ##f
     }
     \header {
-        instrument = "Clarinetes I e II (Violas I e II)"
-        filename = "Bach - Cantata nº 12 - CLARINETES 1 E 2 (VIOLAS 1 E 2)"
+        instrument = "Clarinetes I, II & III"
+        filename = "Bach - Cantata nº 12 - CLARINETES"
     }
     \score {
         \new GrandStaff <<
@@ -76,6 +106,15 @@ clarinetII = \relative do' {
                 \transposition sib
                 \transpose do re {
                     <<\clarinetII \marks>>
+                }
+            }
+            \new Staff \with {
+                instrumentName = "Clarinete III"
+                shortInstrumentName = "Cl. III"
+            } {
+                \transposition sib
+                \transpose do re {
+                    <<\clarinetIII \marks>>
                 }
             }
         >>

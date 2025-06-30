@@ -8,13 +8,16 @@
 \include "viola2.ly"
 \include "clarinets.ly"
 \include "cello.ly"
-\include "woodwinds.ly"
+\include "flutes.ly"
 
 \book {
     \paper {
         #(set-paper-size "b4")
-        indent = 2\cm
-        short-indent = 1\cm
+        indent = 1.5\cm
+        short-indent = 0.2\cm
+        system-count = 8
+        ragged-last-bottom = ##f
+        ragged-bottom = ##f
     }
     \header {
         filename = "Bach - Cantata nº 12 - GERAL"
@@ -28,36 +31,25 @@
                 <<\oboeSolo \marks>>
             }
 
-            \new StaffGroup <<
+            \new StaffGroup <<    
+                \new Staff \with {
+                    instrumentName = \markup{\column{"Flauta I" "Flauta II"}}
+                    shortInstrumentName = \markup{\column{"Fl. I" "Fl. II"}}
+                } {
+                    \partCombine <<\fluteI \marks>> <<\fluteII \marks>>
+                }
+                
                 \new GrandStaff <<
+                    
                     \new Staff \with {
-                        instrumentName = "Flauta I"
-                        shortInstrumentName = "Fl. I"
-                    } {
-                        <<\fluteI \marks>>
-                    }
-                    \new Staff \with {
-                        instrumentName = "Flauta II"
-                        shortInstrumentName = "Fl. II"
-                    } {
-                        <<\fluteII \marks>>
-                    }
-                >> 
-                \new GrandStaff <<
-                    \new Staff \with {
-                        instrumentName = "Clarinete I"
-                        shortInstrumentName = "Cl. I"
+                        instrumentName = \markup{\column{"Clarinete I" "Clarinete II"}}
+                        shortInstrumentName = \markup{\column{"Cl. I" "Cl. II"}}
                     } {
                         \transposition sib
+                        \partCombine
                         \transpose do re {
                             <<\clarinetI \marks>>
                         }
-                    }
-                    \new Staff \with {
-                        instrumentName = "Clarinete II"
-                        shortInstrumentName = "Cl. II"
-                    } {
-                        \transposition sib
                         \transpose do re {
                             <<\clarinetII \marks>>
                         }
@@ -73,7 +65,7 @@
                     }
                 >> 
             >>
-            
+
             \new StaffGroup <<
                 \new GrandStaff <<
                     \new Staff \with {

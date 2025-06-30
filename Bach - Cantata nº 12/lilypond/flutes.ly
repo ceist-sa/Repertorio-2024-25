@@ -68,50 +68,18 @@ fluteIII = \relative do' {
 
     do4 r4 lab r |
 }
-    
-oboe = \relative do' {
-    \set Staff.midiInstrument = #"oboe"
-    \override NoteHead.color = #oboe-range
-    do4 r4 lab r |
-}
-    
-clarinetIII = \relative do' {
-    \set Staff.midiInstrument = #"clarinet"
-    \override NoteHead.color = #clarinet-range
-    \clef treble
-
-    % Bar 1
-    fa,4 r4 sol4 r|
-    lab r sib r |
-    do r fa r |
-    fa, r4 sol4 r|
-    lab! r re,! r |
-
-    % Bar 6
-    mib r si' r |
-    do r fa, r |
-    fas r sol r |
-    do r re,! r |
-    mi r fa r |
-    sol r la r |    %confirmar se é la ou lab
-
-    % Bar 12
-    sib r sib r |
-    reb r reb, r|  
-    sol r mi \fermata r8 do'8 |
-    fa, sib do4 reb r8 sol,8 |
-    do sib do do fa,2 \fermata 
-}
 
 \bookpart {
     \paper {
-        page-count = 1
+        system-count = 6
         indent = 2\cm
-        short-indent = 1\cm
+        short-indent = 0.2\cm
+        ragged-last-bottom = ##f
+        ragged-bottom = ##f
     }
     \header {
-        instrument = "Sopros (Órgão)"
-        filename = "Bach - Cantata nº 12 - SOPROS (ÓRGÃO)"
+        instrument = "Flautas I & II"
+        filename = "Bach - Cantata nº 12 - FLAUTAS"
     }
     \score {
         \new StaffGroup <<
@@ -127,31 +95,7 @@ clarinetIII = \relative do' {
                 shortInstrumentName = "Fl. II"
             } {
                 <<\fluteII \marks>>
-            }
-
-            %{\new Staff \with {
-                instrumentName = "Flauta III"
-                shortInstrumentName = "Fl. III"
-            } {
-                \fluteIII
-            }
-
-             \new Staff \with {
-                instrumentName = "Oboé"
-                shortInstrumentName = "Ob."
-            } {    
-                \oboe
-            } %}
-
-            \new Staff \with {
-                instrumentName = "Clarinete III"
-                shortInstrumentName = "Cl. III"
-            } {
-                \transposition sib
-                \transpose do re {
-                    <<\clarinetIII \marks>>
-                }
-            }
+            }            
         >>
     }
 }
