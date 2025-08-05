@@ -3,7 +3,10 @@
 ffp = _\markup { \dynamic ffp }
 ffz = _\markup { \dynamic ffz }
 piup = _\markup{\center-align \italic più \dynamic p}
+piupp = _\markup{\center-align \italic più \dynamic pp}
 piuf = _\markup{\center-align \italic più \dynamic f}
+solo = ^\markup{\smallCaps Solo}
+threeSoli = ^\markup{\smallCaps "3 Soli"}
 tutti = ^\markup{\smallCaps Tutti}
 twoCelliSoli = ^\markup{\smallCaps "2 Celli Soli"}
 pizz = ^\markup{\center-align "pizz."}
