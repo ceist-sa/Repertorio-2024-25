@@ -29,8 +29,13 @@ marks = {
     s1 * 8 |
     % K 
     \mark \markup {\bold "K"}
-    s1 * 5 |
-    \partial 2 s4 s4 \volta 2 \fine \break
+    s1 * 2 |
+    \override TextSpanner.bound-details.left.text = "ritardando"
+    \override TextSpanner.to-barline = ##t
+    \textSpannerDown
+    s2 s4\startTextSpan s4 |
+    s1 * 2 |
+    \partial 2 s4 \stopTextSpan s4 \volta 2 \fine \break
     \volta 1
     \key do \major
     \tempo "Poco più mosso."
