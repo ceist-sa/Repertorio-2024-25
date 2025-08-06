@@ -5,6 +5,7 @@ ffz = _\markup { \dynamic ffz }
 piup = _\markup{\center-align \italic più \dynamic p}
 piupp = _\markup{\center-align \italic più \dynamic pp}
 piuf = _\markup{\center-align \italic più \dynamic f}
+pcantab = _\markup{\center-align \dynamic p \italic cantab.}
 solo = ^\markup{\smallCaps Solo}
 threeSoli = ^\markup{\smallCaps "3 Soli"}
 tutti = ^\markup{\smallCaps Tutti}
