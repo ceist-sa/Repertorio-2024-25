@@ -1,6 +1,7 @@
 \version "2.24.4"
 
 \include "globals.ily"
+\include "../hairpin.ily"
 
 \language "português"
 
@@ -149,7 +150,7 @@ dynamics = {
     s2 s4\< |
     s4 \f\> \after 8 \! s4 s4 |
     s2 s4\< |
-    \after 8. \> s2 \!\ffp  s4 \pp |
+    \after 8. \> s2 \!\ffz  s4 \pp |
     % repeat bar
     s2. \pp |
     s2. * 3 |
@@ -173,8 +174,11 @@ dynamics = {
     s8 s8\dim s2 |
     s4 s8\! s8 s4 |
     s2. |
-    \after 8 \< s2.\f \cantab|
+    % FIXME this does not look exactly right
+    \hairpinWithRightText \markup{\italic \tiny "molto"}
+    s2.\f\< \cantab|
     s8\! s8\> s4.\! s8 |
+    \hairpinWithRightText \markup{\italic \tiny "molto"}
     s2.\< |
     s8\! s8\> s4.\! s8 |
     s8 s4\ff s8 s8 s8 |
