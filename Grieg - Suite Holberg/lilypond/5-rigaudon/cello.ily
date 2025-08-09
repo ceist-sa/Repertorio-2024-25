@@ -17,7 +17,7 @@ notes = \relative re' {
     r4 re r re |
     r4 re r re |
     % T
-    re4-\f r r la |
+    re4->\f r r la |
     re4-> r r la |
     re4-> fas, sol la |
     re4-> r r re\p |
@@ -67,8 +67,8 @@ notes = \relative re' {
     do2.-> la4 |
     sib4 do re re, |
     sol2 sib,4\p^\markup{\italic "più traquillo"} (sol) |
-    mib'2-> re-> |
-    do2.-> la4 |
+    mib'2-> re |
+    do2. la4 |
     sib4 do re re, |
     sol2 \pp \fermata r4 |
 }
