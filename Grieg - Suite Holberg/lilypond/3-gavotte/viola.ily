@@ -17,7 +17,7 @@ dynamics = {
   % H 
   s2 \p |
   s1 |
-  s2 s2\< | % FIXME the thing where it does not terminate at bar line. but only this time
+  s2 \once \override Hairpin.to-barline = ##f s2\< |
   s2\! s2 |
   s2 s2\> |
   s2 s2\! |
@@ -91,7 +91,7 @@ notes = \relative do' {
   \grace{si16(do} si8->) la sol4-. do8-> re mi4-. |
   si2-> mi-> |
   \grace{re16^( mi} re8->) si re4-. \grace{do16 (re} do8->) la do4-. |
-  <si re>4 <la re> sol2 ~ |
+  <si re>4\nondiv <la re> sol2 ~ |
   1 ~ |
   1 ~ |
   1 |
@@ -148,7 +148,8 @@ notesI = \relative do' {
   re4-> do-> do-> sol'-> |
   fas2-> re4 mi |
   do4 re re do8 si |
-  la4.\trill (\grace{sol16 la} si8) si2->^"TODO" ~ | %FIXME pausa aqui
+  \set breathMarkType = #'outsidecomma
+  la4.\trill (\grace{sol16 la} si8) \breathe si2-> ~ |
   4 r4 |
   % MUSETTE
   mi,8 (re mi sol |
@@ -218,7 +219,8 @@ notesII = \relative do' {
   re4-> do-> do-> sol'-> |
   fas2-> re4 mi |
   do4 re re do8 si |
-  la4.\trill (\grace{sol16 la} si8) si2->^"TODO" ~ | %FIXME pausa aqui
+  \set breathMarkType = #'outsidecomma
+  la4.\trill (\grace{sol16 la} si8) \breathe si2-> ~ |
   4 r4 |
   % MUSETTE
   mi,8 (re mi sol |

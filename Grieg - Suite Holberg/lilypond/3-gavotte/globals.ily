@@ -35,7 +35,7 @@ marks = {
     \textSpannerDown
     s2 s4\startTextSpan s4 |
     s1 * 2 |
-    \partial 2 s4 \stopTextSpan s4 \volta 2 \fine \break
+    \partial 2 s4 \stopTextSpan s4 \bar "||" \volta 2 \fine \break
     \volta 1
     \key do \major
     \tempo "Poco più mosso."

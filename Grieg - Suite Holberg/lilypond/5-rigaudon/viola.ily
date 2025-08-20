@@ -4,10 +4,6 @@
 
 \language "português"
 
-dynamics = {
-  
-} 
-
 notes = \relative do'' {
   \clef alto
   s4 |
@@ -162,10 +158,10 @@ staves = {
   % one staff until the end
 }
 
-viola = <<\notes << \notesI \\ \notesII >> \marks \dynamics>>
+viola = <<\notes << \notesI \\ \notesII >> \marks >>
 
-violaI = <<\notes \notesI \marks \dynamics>>
-violaII = <<\notes \notesII \marks \dynamics>>
+violaI = <<\notes \notesI \marks >>
+violaII = <<\notes \notesII \marks >>
 
 
 viola_conductor = {

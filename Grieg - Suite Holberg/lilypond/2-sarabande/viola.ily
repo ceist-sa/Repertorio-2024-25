@@ -7,7 +7,7 @@
 dynamics = {
   s2. \p |
   s4 \< s2\> |
-  s4\! s2\< | % FIXME the thing where it does not terminate at bar line. but only this time
+  s4\! \once \override Hairpin.to-barline = ##f s2\< |
   s4\! s2\> |
   s2. \! |
   s2. \cresc |
@@ -19,14 +19,14 @@ dynamics = {
   s4\< s2\f \> |
   s8\! s8\p s2 |
   s4\< s4.\> s8\! |
-  s4\cresc s4.\! s8 | % TODO theres a crescendo hairpin here which I ignored because it was causing trouble with the \cresc. Check if it's ok or if it was important.
+  s4\cresc s4.\! s8 |
   s2 \mf s8 s8\> |
   s4 s2\! |
   % F
   s2. * 5 |
   s4 s8 s8\p s4 |
   s2. \cresc |
-  s8 s8 s2 | % same as before, look into overlapping cresc with hairpin
+  s8 s8 s2 |
   % G
   s4\f s2\< |
   s2.\ff |

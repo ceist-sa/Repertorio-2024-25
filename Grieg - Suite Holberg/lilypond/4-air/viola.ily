@@ -92,7 +92,7 @@ notes = \relative do' {
 notesI = \relative do'' {
   s2. * 8 |
   % N
-  r8 la8 8 8 8 8 |
+  r8 la8\div 8 8 8 8 |
   sol8 8 8 8 8 8 |
   r8 mi'8 8 8 8 8 |
   re8 [8 mi8 8] 8 [8] |
