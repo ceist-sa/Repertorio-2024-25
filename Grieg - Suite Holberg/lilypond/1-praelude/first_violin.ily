@@ -289,8 +289,6 @@ first_violin_part = \compressMMRests{
       \override VerticalAxisGroup.remove-layer = 1
     }
     << \first_violinIII \three_divisi_staves \system_breaks >>
-
-
     \new Staff \with {
       \override VerticalAxisGroup.remove-empty = ##t
       \override VerticalAxisGroup.remove-first = ##t
@@ -303,8 +301,6 @@ first_violin_part = \compressMMRests{
       \override VerticalAxisGroup.remove-layer = 2
     }
     << \first_violinII \two_divisi_staves \system_breaks >>
-
-
     \new Staff \with {
       \override VerticalAxisGroup.remove-layer = 3
     }
@@ -312,7 +308,7 @@ first_violin_part = \compressMMRests{
   >>
 }
 
-% \score{
-%   \first_violin_part
-%   \layout {}
-% }
+\score{
+  \first_violin_part
+  \layout {}
+}
