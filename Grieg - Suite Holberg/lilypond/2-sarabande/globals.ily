@@ -22,7 +22,7 @@ marks = {
     s2.^\markup{\italic "ritenuto poco a poco al"} |
     s2. |
     %G
-    \tempo "Tempo Iº"
+    \after 16 \tempo "Tempo I" % this was coliding with the rehearsal mark
     \mark \default
     s2.*8
     }
