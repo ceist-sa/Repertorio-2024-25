@@ -49,7 +49,7 @@ notesI = \relative do'{
 
 notesII = \relative do'{
   s2.*21 
-  r4 r8 do'8 do do|
+  r4 r8 do8 do do|
   do do do dos dos re |
   re mi mi fas fas sol |
   sol( la) la4.(si8) |
@@ -132,7 +132,7 @@ first_violin_part = \compressMMRests{
   >>
 }
 
-%\score{
+% \score{
 %  \first_violin_part
 %  \layout {}
-%}
+% }

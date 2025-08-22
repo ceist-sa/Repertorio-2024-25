@@ -91,7 +91,7 @@ notesII = \relative do' {
   sol2 (fas4) |
   fa4 mi8 re-- sol4 |
   si4 (mi,) la |
-  re,8 sol \grace{fa16 (sol} fa16) mi re8 re4 |
+  re,8 sol \grace{fas16 (sol} fas16) mi re8 re4 |
   s2. * 4 |
   % repeat bar
   s2. * 8 |
@@ -158,7 +158,7 @@ viola_part = \compressMMRests{
   >>
 }
 
-\score {
-  \viola_part
-  \layout {}
-}
+% \score {
+%   \viola_part
+%   \layout {}
+% }

@@ -19,12 +19,13 @@ marks = {
     %F
     \mark #6
     s2. * 6 |
-    s2.^\markup{\italic "ritenuto poco a poco al"} |
+    s2.^\markup{\italic "ritenuto poco a poco"} |
     s2. |
     %G
-    \after 16 \tempo "Tempo I" % this was coliding with the rehearsal mark
     \mark \default
-    s2.*8
-    }
+    \after 16 \tempo "Tempo I" % this was coliding with the rehearsal mark
+    s2. |
+    s2. * 7 |
     %repeat bar
+    }
 }

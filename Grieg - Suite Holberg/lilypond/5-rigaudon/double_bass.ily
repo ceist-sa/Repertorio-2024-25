@@ -57,7 +57,7 @@ notes = \relative re' {
 
 double_bass = << \notes \marks >>
 
-double_bass_contuctor = {
+double_bass_conductor = {
   \new Staff \with {
     instrumentName = \double_bass_name_long
     shortInstrumentName = \double_bass_name_short

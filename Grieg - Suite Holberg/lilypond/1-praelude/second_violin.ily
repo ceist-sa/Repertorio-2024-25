@@ -173,7 +173,7 @@ dynamics = {
 
 second_violin = << \notes \marks \dynamics >>
 
-second_violin_contuctor = {
+second_violin_conductor = {
   \new Staff \with {
     instrumentName = \second_violin_name_long
     shortInstrumentName = \second_violin_name_short

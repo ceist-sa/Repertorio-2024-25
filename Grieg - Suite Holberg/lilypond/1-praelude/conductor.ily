@@ -11,13 +11,13 @@ conductor = {
         <<  
             \first_violin_conductor
 
-            \second_violin_contuctor
+            \second_violin_conductor
 
             \viola_conductor
             
             \cello_conductor
 
-            \double_bass_contuctor
+            \double_bass_conductor
         >>
     }
 }
