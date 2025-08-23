@@ -16,6 +16,7 @@ twoCelliSoli = ^\markup{\smallCaps "2 Celli Soli"}
 
 pizz = ^\markup{\center-align "pizz."}
 arco = ^\markup{\center-align "arco"}
+spicc = ^\markup{\center-align "spicc."}
 div = ^\markup{\center-align "div."}
 nondiv = ^\markup{\center-align "non div."}
 crescmolto = _\markup{\italic "cresc. molto"}
