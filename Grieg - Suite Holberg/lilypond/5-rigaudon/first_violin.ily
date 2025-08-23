@@ -171,7 +171,7 @@ notesII = \relative do'{
 
   s1 * 16 |
 
-  la4 r4 sols r4 |
+  la4 r4 sol r4 |
   re' r4 r4 re |
   mi4 mi fas fas |
   sol sol si si |
@@ -319,6 +319,7 @@ first_violin_conductor = {
 first_violin_part = \compressMMRests{
   \new GrandStaff \with {
     \consists "Keep_alive_together_engraver"
+    midiInstrument = #"violin"
   }
   <<
     \new Staff \with {
