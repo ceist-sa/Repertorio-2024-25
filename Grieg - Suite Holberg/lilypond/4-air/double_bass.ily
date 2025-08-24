@@ -35,7 +35,7 @@ notes = \relative sol {
     mib8 sol r4 r |
     re8 sol fa4 r |
     mib2.->\arco |
-    mib2 ~8 mi |
+    mib2 ~8 mib |
     re8-> sol-> fa2 |
     % P 
     sib,4~8 r8 r4 |
@@ -104,16 +104,16 @@ dynamics = {
     s2 \cantab s16 s16\< s8 |
     s8\> s8\! s2 |
     s2.\cresc |
-    s4 s8 s8\< s4 |
-    s4 \f\> s4 s4\! |
-    s4. s4.\< |
-    \after 8. \> s2 \!\ffz  s4 \pp |
+    s4 s4 s4\< |
+    s4 \f\> \after 8 \! s4 s4 |
+    s2 s32 s32 \< s8 s16 \! |
+    s8 \ffp s8 \>  s8 s8 s4 \pp |
     % repeat bar
     s2. \pp |
     s2. * 3 |
     s2. \cresc |
     s2 s4\p |
-    s4\< s4\! s4 |
+    s8 s8\< s8 s8\! s4 |
     s2 s4\p\< |
     s8 s8\! s4 s4 |
     s4\cresc s2 |
@@ -147,7 +147,7 @@ dynamics = {
     s4 s8 s16 s16\< s4 |
     s2\ff\> s4\! |
     s2 s4\< |
-    \after 8. \> s2 \!\ffp s4\pp |
+    s8\! \ffp s8 \>  s8 s8 s4 \pp |
 }
 
 
@@ -210,8 +210,8 @@ double_bass_part = \compressMMRests{
   \double_bass_staves
 }
 
-\score {
-  \double_bass_part
-  \layout {}
-  \midi {\tempo 2. = 15 }
-}
+% \score {
+%   \double_bass_part
+%   \layout {}
+%   \midi {\tempo 2. = 15 }
+% }

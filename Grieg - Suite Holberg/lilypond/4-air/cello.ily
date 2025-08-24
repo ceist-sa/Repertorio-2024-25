@@ -74,7 +74,7 @@ notesI = \relative {
     s2 fa16 (do) do (sol') sol (re) re (fa) s2 |
     s2. |
     sib,4.-> re8 do la |
-    sib8 do re do sib la |
+    sib8 [do re do] sib la |
     sib8-> [sib->] do (re) mib4 |
     % P
     re4\ffz ~8 r8 r4
@@ -144,13 +144,13 @@ dynamics = {
     s2. \p |
     s2. |
     % N
-    s2 \cantab s8 s8\< |
+    s2 \cantab s16 s16\< s8 |
     s8\> s8\! s2 |
     s2.\cresc |
     s2 s4\< |
     s4 \f\> \after 8 \! s4 s4 |
-    s2 s4\< |
-    \after 8. \> s2 \!\ffz  s4 \pp |
+    s2 s32 s32 \< s8 s16 \! |
+    s8 \ffp s8 \>  s8 s8 s4 \pp |
     % repeat bar
     s2. \pp |
     s2. * 3 |
@@ -192,7 +192,7 @@ dynamics = {
     s4 s8 s16 s16\< s4 |
     s2\ff s4 |
     s2 s4\< |
-    \after 8. \> s2 \!\ffp s4\pp |
+    s8\! \ffp s8 \>  s8 s8 s4 \pp |
 }
 
 
@@ -273,8 +273,8 @@ cello_part = \compressMMRests{
   \cello_staves
 }
 
-\score {
-  \cello_part
-  \layout {}
-  \midi {\tempo 2. = 15 }
-}
+% \score {
+%   \cello_part
+%   \layout {}
+%   \midi {\tempo 2. = 15 }
+% }

@@ -30,7 +30,7 @@ marks = {
     s2._\markup{\italic "poco rit"} |
     % Q
     \mark \default 
-    \tempo "a tempo"
+    \after 16 \tempo "a tempo"
     s2. * 8 |
     % R
     \mark \default 

@@ -132,7 +132,7 @@ dynamics = {
   s2. |
   s8 s8 \cresc s2 | 
   s2 s8 \< s16 s32 s32 \! |
-  s4 \f s4 \> s8. s16 \!|
+  s4 \f\> s4 s8.\! s16|
   s2 s32 s32 \< s8 s16 \!|
   s8 \ffp s8 \>  s8 s8 s4 \pp | 
   s4 \pp s2 |
@@ -172,7 +172,7 @@ dynamics = {
   s2 s4 \< | 
   s2 \ff s4 |
   s2 s4 \< | 
-  s32 \ffp s32 \>   s16  s8 s4 s4\pp |
+  s8\! \ffp s8 \>  s8 s8 s4 \pp |
 
 }
 

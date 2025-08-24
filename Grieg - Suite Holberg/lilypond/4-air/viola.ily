@@ -8,17 +8,17 @@ dynamics = {
   s2.\p |
   s2. * 2 |
   s4 s2\< |
-  s2. \f |
+  s2. \mf |
   s4 s2\> |
   s2. \p |
   s2. |
   % N
   s2. * 2 |
   s8 s8\cresc s2 |
-  s4. s4.\< |
-  s8\f\> s8 s4\! s4 |
   s2 s4\< |
-  s8\!\ffp s8 s4\> s4\p |
+  s8\f\> s8 s8 s8\! s4 |
+  s2 s32 s32 \< s8 s16 \! |
+  s8 \ffp s8 \>  s8 s8 s4 \pp |
   % O
   s2. \pp |
   s2. * 3 |
@@ -29,7 +29,7 @@ dynamics = {
   s4 s4\p \cresc s4 |
   s4 s2\< |
   s2.\ff |
-  s4\< s4\> s4\! |
+  s8\< s8\! s2 |
   s4 s2\< |
   s8\! s8\ffz s8 s4.\> |
   s8\! s8 \dim s2 |
@@ -58,7 +58,7 @@ dynamics = {
   s2 s4\< |
   s2.\ff |
   s2 s4\< |
-  s4 \ff\> s4 s4\pp |
+  s8\! \ffp s8 \>  s8 s8 s4 \pp |
 } 
 
 notes = \relative do' {
@@ -85,7 +85,7 @@ notes = \relative do' {
   <sol sib>8 [8] sib8 [<la do>8] sib8 [8] |
   sib8 <sib mi>8 do8 8 8 8 |
   mib!8-> 8 8 8 8 8 |
-  mib8 8 8 8 s4 |
+  mib8 8 8-> 8 s4 |
 
 }
 
@@ -147,7 +147,7 @@ notesII = \relative do' {
   fa8 fa,8 8 8 4 |
   % O
   s2. * 11 |
-  s2 mib'8 do |
+  s2 mib'8 [do] |
   sib8-> [sib->] do8 [re mib! mib] |
   %P
   r8 re8 8 8 8 8 |
@@ -238,8 +238,8 @@ viola_part = \compressMMRests{
   >>
 }
 
-\score {
-  \viola_part
-  \layout {}
-  \midi {\tempo 2 = 90}
-}
+% \score {
+%   \viola_part
+%   \layout {}
+%   \midi {\tempo 2 = 90}
+% }
