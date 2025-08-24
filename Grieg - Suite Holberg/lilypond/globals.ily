@@ -1,6 +1,7 @@
 \version "2.24.4"
 
 ffp = _\markup { \dynamic ffp }
+fpp = _\markup { \dynamic fpp }
 ffz = _\markup { \dynamic ffz }
 piup = _\markup{\center-align \italic più \dynamic p}
 piupp = _\markup{\center-align \italic più \dynamic pp}

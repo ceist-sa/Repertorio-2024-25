@@ -7,7 +7,7 @@
 dynamics = {
   s2 |
   s1 |
-  s1 \ffp |
+  s1 \fpp |
   s1 |
   s2 s2\f |
   s1 |
@@ -23,7 +23,7 @@ dynamics = {
   s2 s2\! |
   s2 s2\pp |
   s1 |
-  s1 \ffp |
+  s1 \fpp |
   s1 |
   s2 s2\f |
   s1 |
@@ -31,9 +31,9 @@ dynamics = {
   s1 * 2 |
   s2 |
   % I 
-  s2 \ffp |
+  s2 \fpp |
   s1 |
-  s2 s2 \ffp |
+  s2 s2 \fpp |
   s1 |
   s2 s2 \f |
   s1 |
@@ -337,8 +337,8 @@ viola_part = \compressMMRests{
   >>
 }
 
-\score {
-  \viola_part
-  \layout {}
-  \midi {\tempo 2 = 90}
-}
+% \score {
+%   \viola_part
+%   \layout {}
+%   \midi {\tempo 2 = 90}
+% }

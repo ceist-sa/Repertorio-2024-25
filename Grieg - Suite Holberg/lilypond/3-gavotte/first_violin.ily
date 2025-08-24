@@ -65,7 +65,7 @@ notesI = \relative do'{
   sol4 r4 r2| 
   R1*3|
   r2 mi8( re mi sol |
-  fa mi re fa) mi( re do fa |
+  fa mi re fa) mi( re do mi |
   re si sol4) do'2-> |
   sol-> re-> |
   do4->( do8) r8 r2 | %L 
@@ -116,7 +116,7 @@ notesII = \relative do'{
   sol4 r4 r2| 
   R1*3|
   r2 mi8( re mi sol |
-  fa mi re fa) mi( re do fa |
+  fa mi re fa) mi( re do mi |
   re si sol4) do'2-> |
   sol-> re-> |
   do4->( do8) r8 r2 | %L 
