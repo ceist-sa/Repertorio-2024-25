@@ -102,7 +102,9 @@ cello = \relative do {
     mi2 (fas4) |
     sol2.\f |
     fas\f |
-    fa \dim ~ |
+    \once \set decrescendoText = \markup { \italic { dim. molto } }
+    \once \set decrescendoSpanner = #'text
+    fa \> ~ |
     2. ~|
     2. ~|
     2\pp ~ 8 r8 |

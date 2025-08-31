@@ -107,7 +107,9 @@ double_bass = \relative do' {
     sol2 la4 |
     si2.\f |
     si,\f |
-    si \dim |
+    \once \set decrescendoText = \markup { \italic { dim. molto } }
+    \once \set decrescendoSpanner = #'text
+    si \> |
     si |
     si |
     si \pp |
