@@ -6,6 +6,7 @@ spitze = ^"Spitze"
 express = ^\markup{\italic "express."}
 pizz = ^\markup{\center-align "pizz."}
 arco = ^\markup{\center-align "arco"}
+ffz =  _\markup {\dynamic "ffz" }
 
 marks = {
     \set Score.caesuraType =
