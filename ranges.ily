@@ -17,6 +17,19 @@
    (let* ((pch (ly:event-property (event-cause grob) 'pitch))
           (semitones (ly:pitch-semitones pch)))
           (cond ((and 
+                    (>= semitones violin_pro_low)
+                    (<= semitones violin_pro_high) 
+                    ) black)
+                (else red)
+          )))
+
+% copy paste within staff
+% \override NoteHead.color = #violin-range
+
+#(define (violin-amateur-range grob)
+   (let* ((pch (ly:event-property (event-cause grob) 'pitch))
+          (semitones (ly:pitch-semitones pch)))
+          (cond ((and 
                     (>= semitones violin_amateur_low)
                     (<= semitones violin_amateur_high) 
                     ) black)
@@ -29,7 +42,7 @@
           )))
 
 % copy paste within staff
-% \override NoteHead.color = #violin-range
+% \override NoteHead.color = #violin-amateur-range
 
 % ===================== VIOLA =====================
 
