@@ -10,8 +10,8 @@ first_violin = \relative do'' {
     \clef treble
 
     % A
-    R2. * 8 |
-    fas,2.\express_\markup{\dynamic p \italic dolce}\consord ( |
+    R2. * 8_\consord |
+    fas,2.\express_\markup{\dynamic p \italic dolce} ( |
     mis) |
     fas\< ( ~ |
     2 sols4\!) |
@@ -107,7 +107,7 @@ first_violin = \relative do'' {
     mi2 (fas4) |
     sol2.\f-- |
     fas\f-- |
-    fa \dim-> ~ |
+    fa->_\markup{\italic "dim. molto"} ~ |
     2. ~|
     2. ~|
     2\pp ~ 8 r8 |
@@ -205,7 +205,7 @@ first_violin = \relative do'' {
     }>>
 
     % L 
-    re,2.\f^\markup{\italic espress.} ~ |
+    re,2._\markup{\dynamic f \italic espress.} ~ |
     re |
     dos ~ |
     dos |
@@ -237,7 +237,20 @@ first_violin = \relative do'' {
     re2.\> ~ |
     re4 r\! r
 
-    % TODO 4 violini soli
+    <<{
+        \voiceOne
+        sol'2.\pp\>^"2 soli" |
+        fas\> |
+        sol\> ~ |
+        sol2
+    }
+    \new Voice {
+        \voiceTwo
+        re2. |
+        mib |
+        re ~ |
+        re2
+    }>> \oneVoice r4\! |
 }
 
 first_violin_conductor = \relative do'' {
