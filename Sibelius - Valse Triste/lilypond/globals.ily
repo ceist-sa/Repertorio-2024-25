@@ -18,6 +18,7 @@ marks = {
     \key mi \minor
     \time 3/4
     \tempo "Lento"
+    \compressEmptyMeasures
     s2. * 8 |
     % A
     \barNumberCheck 9
