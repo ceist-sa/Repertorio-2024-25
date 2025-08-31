@@ -8,13 +8,10 @@ pizz = ^\markup{\center-align "pizz."}
 arco = ^\markup{\center-align "arco"}
 ffz =  _\markup {\dynamic "ffz" }
 
+barlineFermata = {\once \set Score.caesuraType = #'((scripts . (fermata))) \caesura} 
+
 marks = {
-    \set Score.caesuraType =
-    #'((breath . spacer)
-       (scripts . (outsidecomma)))
-    \set Score.caesuraTypeTransform =
-        #(at-bar-line-substitute-caesura-type
-        '((scripts . (fermata))))
+    \set Score.caesuraType = #'((scripts . (outsidecomma)))
     \key mi \minor
     \time 3/4
     \tempo "Lento"
@@ -50,14 +47,14 @@ marks = {
     \barNumberCheck 89
     \mark \default
     s2. * 10 |
-    \caesura
+    \barlineFermata
     s2.* 3 |
     \tempo "rit." 
     s2. |
     \tempo "Lento" 
     s2. * 4 |
     % G
-    \caesura
+    \barlineFermata
     \tempo "a tempo" 
     \barNumberCheck 107
     \mark \default
