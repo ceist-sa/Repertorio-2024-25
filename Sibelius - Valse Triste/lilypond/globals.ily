@@ -1,7 +1,11 @@
 \version "2.24.4"
 \language "portugues"
 
-rall = ^\markup { \italic "rall." }
+consord = ^"con sordino"
+spitze = ^"Spitze"
+express = ^\markup{\italic "express."}
+pizz = ^\markup{\center-align "pizz."}
+arco = ^\markup{\center-align "arco"}
 
 marks = {
     \set Score.caesuraType =
@@ -28,8 +32,8 @@ marks = {
     \barNumberCheck 41
     \mark \default
     \tempo "a tempo"
-    s2. * 15 |
-    \tempo "poco rall."
+    s2. * 14 |
+    s2 \tempo "poco rall." s4 |
     s2. |
     % D
     \barNumberCheck 57
@@ -87,6 +91,7 @@ marks = {
 \header {
     title = "Valse Triste" 
     subtitle = \markup{"from the incidental music for" \italic "Kuolema" ", Op. 44"}
+    composer = "Jean Sibelius"
     tagline = "CEIST"
 }
 

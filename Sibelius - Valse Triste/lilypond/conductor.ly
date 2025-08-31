@@ -18,7 +18,6 @@
         #(set-paper-size "b4")
         indent = 1.5\cm
         short-indent = 0.2\cm
-        system-count = 8
         ragged-last-bottom = ##f
         ragged-bottom = ##f
     }
