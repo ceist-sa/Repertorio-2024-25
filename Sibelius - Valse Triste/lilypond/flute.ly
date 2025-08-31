@@ -110,10 +110,6 @@ flute = \relative do'' {
     r4 r4 r4 |
     R2. * 8 |
 
-
-
-
-
 }
 
 flute_conductor = \relative do' {
