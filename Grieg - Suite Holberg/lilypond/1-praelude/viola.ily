@@ -55,12 +55,13 @@ dynamics = {
   s4\< s2 s4\fz |
   s4 s4\piuf s2 |
   s4\< s2 s4\fz |
-  s1 * 4 |
+  s4 s4\ff s2 | 
+  s1 * 3 |
   s1\ffz |
 }
 
 notes = \relative do {
-  \clef alto
+  \clef treble
   \key sol \major
   \rthm re \rthm re \rthm re \rthm mi |
   \rthm fas \rthm sol \rthm la \rthm si |
@@ -84,11 +85,11 @@ notes = \relative do {
   % repeat bar
   <<{do,!2->\div ~ 4} \\ {la 2 ~ 4}>> r4 |
   r2 do16 (la) la (fas) r4 |
-  sol16^"sul C" fas sol si sol fas sol si sol fas sol si sol fas sol do |
+  sol16^"sul C"\fp fas sol si sol fas sol si sol fas sol si sol fas sol do |
   la^"sul G" sol la re si la si mi do si do fas re do re sol |
   <<{la,2->\div ~ 4} \\ {fas 2 ~ 4}>> r4 |
   r2 la16 (fas) fas (res) r4 |
-  mi16 res mi sol mi res mi sol mi res mi sol mi res mi la |
+  mi16\fp res mi sol mi res mi sol mi res mi sol mi res mi la |
   fas mi fas si sol fas sol dos la^"sul G" sol la res si la si mi |
   la,8-> [la] la'-> [la] si-> [si] si,-> [si] |
   sols-> [sols] sols'-> [sols] la-> [la] la,-> [la] |

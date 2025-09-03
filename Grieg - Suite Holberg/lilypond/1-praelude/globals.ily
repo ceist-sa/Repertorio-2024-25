@@ -1,5 +1,8 @@
 \version "2.24.4"
 
+\include "../globals.ily"
+\include "../instrument_names.ily"
+
 marks = {
     \tempo "Allegro vivace."
     \time 4/4 

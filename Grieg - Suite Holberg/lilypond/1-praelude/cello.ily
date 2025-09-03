@@ -174,9 +174,13 @@ dynamics = {
     %repeat bar 
     s1 * 2 |
     s1 \fp |
-    s1 * 3 |
+    s1 |
+    s1 \f |
+    s1 |
     s1 \fp |
-    s1 * 4 |
+    s1 |
+    s1 \f |
+    s1 * 2 |
     %B
     s1 * 5 |
     s8 s8 \pp s4 s2 |
@@ -184,8 +188,9 @@ dynamics = {
     s4 s4 \f \< s2 |
     s1 \fz |
     %C
-    s1 * 4 |
-    s1_\markup{\italic sempre \dynamic ff} |
+    s1 * 3 |
+    s2 s4 s4_\markup{\italic sempre \dynamic ff} |
+    s1 |
     s1 * 7 |
     s1 \> |
     %D

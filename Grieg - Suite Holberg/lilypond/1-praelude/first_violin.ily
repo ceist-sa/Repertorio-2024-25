@@ -64,7 +64,7 @@ notes = \relative do'{
   sol4 r4 r2 |
   s1 * 8 |
   % E
-  s8 r8 \rthm sol \rthm si \rthm re |
+  s8 r8 \rthm sol, \rthm si \rthm re |
   \rthm sol \rthm si \rthm re sol4-. |
   r4 \rthm sol,, \rthm si \rthm re |
   \rthm sol \rthm si \rthm re sol4-. |
@@ -194,7 +194,8 @@ dynamics = {
   s1\< |
   s2\fp s2\fp |
   s1\fp |
-  s1 * 3 |
+  s1\cresc |
+  s1 * 2 |
   % A 
   s1\f |
   s1_\markup{\dynamic p \italic "dolce e tranq."} |
@@ -229,8 +230,8 @@ dynamics = {
   s4 s4\ff s2 |
   s1 |
   s2 \afterGrace s2\startTrillSpan {s16\stopTrillSpan s16} |
+  s2 s4 s4_\markup{\italic sempre \dynamic ff} |
   s1 |
-  s1_\markup{\italic sempre \dynamic ff} |
   s1 * 7 |
   s8 s8\> s4 s2 |
   % D 
@@ -245,10 +246,11 @@ dynamics = {
   s1 \f \stopTrillSpan |
   s4 \< s4 s4 s4\fz |
   s4 s4\piuf s2 |
-  s2 s4 s4\fz |
-  s1 * 3 |
+  s4\< s4 s4 s4\fz |
+  s4 s4\ff s2 |
+  s1 * 2 |
   s2 s4.\startTrillSpan s8 \stopTrillSpan |
-  s1 |
+  s1 \ffz |
 }
 
 first_violin = << \notes <<\notesI \\ \notesII \\ \notesIII>> \marks \dynamics >>
@@ -308,7 +310,7 @@ first_violin_part = \compressMMRests{
   >>
 }
 
-\score{
-  \first_violin_part
-  \layout {}
-}
+% \score{
+%   \first_violin_part
+%   \layout {}
+% }

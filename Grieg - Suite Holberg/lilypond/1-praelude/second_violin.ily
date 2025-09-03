@@ -140,7 +140,9 @@ dynamics = {
   s1 \f |
   s1 |
   s1 \fp |
-  s1 * 4 |
+  s1 |
+  s1 \f
+  s1 * 2 |
   %B
   s8 s8 \pp s4 s2 |
   s1 * 3 |
@@ -151,8 +153,9 @@ dynamics = {
   s1\fz |
   %C
   s4 s2 \ff s4 |
-  s1 * 3 |
-  s1 _\markup{\italic sempre \dynamic ff} |
+  s1 * 2 |
+  s2 s4 s4 _\markup{\italic sempre \dynamic ff} |
+  s1 |
   s1 * 7 |
   s1 \> |
   %D
@@ -167,7 +170,8 @@ dynamics = {
   s4 \< s2 s4 \fz |
   s4 s4 \piuf s2 |
   s4 \< s2 s4 \fz |
-  s1 * 4 |
+  s4 s4\ff s2 |
+  s1 * 3 |
   s1 \ffz |
 }
 
