@@ -61,7 +61,7 @@ dynamics = {
 }
 
 notes = \relative do {
-  \clef treble
+  \clef alto
   \key sol \major
   \rthm re \rthm re \rthm re \rthm mi |
   \rthm fas \rthm sol \rthm la \rthm si |
