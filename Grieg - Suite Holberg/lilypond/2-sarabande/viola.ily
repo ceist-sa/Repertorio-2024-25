@@ -12,7 +12,7 @@ dynamics = {
   s2. \! |
   s2. \cresc |
   s2. \f |
-  s2. |
+  s4\> s4 s8\! s8 |
   % repeat bar
   s2. \p |
   s2. |
@@ -35,7 +35,7 @@ dynamics = {
   s2. \pp |
   s2. \crescmolto |
   s2. \f |
-  s4\> s4 s8\! s8|
+  s4 s4\> s8\! s8|
 } 
 
 notes = \relative do' {
@@ -52,7 +52,7 @@ notes = \relative do' {
   r8 si8 \grace{las16 (si} las16) sols fas8 fas4 |
   fas4 sol4. (fas8) |
   fas4 sol4. (fas8) |
-  fas16 (la) la sol fa8 (mi) re dos |
+  fas16 (la) la sol fas8 (mi) re dos |
   dos8 (re) re2 |
   %F
   R2. * 5 |

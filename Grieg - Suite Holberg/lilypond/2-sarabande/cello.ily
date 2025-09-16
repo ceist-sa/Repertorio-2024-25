@@ -11,7 +11,7 @@ notes = \relative re, {
     mi4 fas sol |
     la4 si la8 sol |
     fas8-> sol-> la4-> r4 |
-    re4 r re, |
+    re4\> r re,\! |
     %repeat bar 
     re'2 \arco mi4 |
     fas4 ~ 8 r8 r4 |

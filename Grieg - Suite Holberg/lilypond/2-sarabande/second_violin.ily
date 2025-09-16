@@ -113,7 +113,7 @@ dynamics = {
   s4 s2\p |
   s2. \crescmolto |
   s2. \f |
-  s4\> s4 s8\! s8 |
+  s4 s4\> s8\! s8 |
 
 }
 
