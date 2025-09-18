@@ -13,7 +13,7 @@ notes = \relative do'{
   s1*2 |
   %tutti
   R1 |
-  r2 sol'4->( la-.) |
+  r2 sol'4-> \tutti ( la-.) |
   la->( do-.) do-> mi-. |
   mi2-> re8 do si4 |
   do4 la si8( do) la sol |
@@ -27,7 +27,7 @@ notes = \relative do'{
   %divisi
   s1 *4 |
   %tutti
-  r2 sol,4->( la-.) |
+  r2 sol,4-> \tutti ( la-.) |
   la->( do-.) do-> mi-. |
   mi2-> re8 do si4 |
   do4 la si8( do) la sol |
@@ -91,15 +91,19 @@ notesI = \relative do'{
 }
 
 notesII = \relative do'{
-  sol2~|
+  \stemUp
+  \partCombineApart
+  sol2 \div ~|
   sol1~|
   sol2. r4 |
   %tutti
   s1*12 |
   %divisi
-  r2 sol2~|
+  r2 sol2\div ~|
   sol1~|
   sol2. r4 |
+  \stemNeutral
+  \partCombineAutomatic
   R1 |
   %tutti
   s1 *13 |
@@ -199,7 +203,7 @@ s2|
 
 
 
-first_violin = << \notes << \notesI \\ \notesII >> \marks \dynamics >>
+first_violin = << \notes \partCombine \notesI \notesII \marks \dynamics >>
 first_violinI = <<\notes \notesI \marks \dynamics>>
 first_violinII = <<\notes \notesII \marks \dynamics>>
 

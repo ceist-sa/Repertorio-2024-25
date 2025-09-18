@@ -85,7 +85,7 @@ double_bass_part = \compressMMRests{
   \double_bass
 }
 
-\score{
-  \double_bass_part
-  \layout{}
-}
+% \score{
+%   \double_bass_part
+%   \layout{}
+% }
