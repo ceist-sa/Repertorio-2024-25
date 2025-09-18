@@ -62,13 +62,17 @@ notesI = \relative do'{
   mi2-> re8 do si4 |
   do4 la si8(do) la sol |
   \afterGrace fas4.\trill( { mi16 fas} sol8) \breathe sol2->~|
-  sol4 r4 r2| 
+  sol4 r4 | 
+  % MUSETTE
+  r2 | 
   R1*3|
   r2 mi8( re mi sol |
   fa mi re fa) mi( re do mi |
   re si sol4) do'2-> |
   sol-> re-> |
-  do4->( do8) r8 r2 | %L 
+  do4->( do8) r8 |
+  % L
+  r2 |
   R1 *2 | 
   r2 re4-. re-. |
   do-. mi-. fa-. fa-. |

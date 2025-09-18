@@ -55,6 +55,38 @@ notesI = \relative la' {
     do4 re4 re4 do8 si8 | 
     la4. ( \trill \grace { la16 si16 } si8 ) si2 ~ -> | 
     si4 r4 |
+    % MUSETTE
+    sol4. sol8-> ~ |
+    4. 8-> ~4. 8-> ~ |
+    2 do-> |
+    sol2-> re-> |
+    do2-> sol''4. sol8-> ~ |
+    4. 8-> ~4. 8-> ~ |
+    2 fa8-> (la fa re) |
+    do8-> (mi do la) sol-> (si sol re) |
+    mi4-> ~ 8 r8 |
+    % L 
+    r2 | % 55
+    R1*2 | % 57
+    r2 fa'2 ( ~ -\p | % 58
+    fa8 sol8 ) sol8 ( la8 ) la2 ( ~ | % 59
+    la8 sib8 ) la8 ( sib8 ) sol4 la8 ( sib8 ) |
+    \grace { la16 sib16 } la8 sol8 fa4 la4 -. -\f la4 -. | % 61
+    si ?4 -. si4 -. si4 -. si4 -. | % 62
+    la4 -. la4 -. la4 -. sol4 -. | % 63
+    sol4 -. fa4 -. fa4 -. mi4 -. | % 64
+    mi4 -. re4 -. re4 -. do4 -. -\< | % 65
+    sol'4 -. fa4 -. sol4 -. sol4 -. -\! | % 66
+    % M 
+    sol4 ~ -\ff sol8 r8 sol,4. sol8-> ~ |
+    4. 8-> ~4. 8-> ~ |
+    2 do-> |
+    sol2-> re-> |
+    do2-> sol''4. sol8-> ~ |
+    4. 8-> ~4. 8-> ~ |
+    2 fa8-> (la fa re) |
+    do8-> (mi do la) sol-> (si sol re) |
+    mi4-> ~ 8 r8 |
 }
 
 notesII = \relative la {
@@ -94,6 +126,38 @@ notesII = \relative la {
     do4 la4 si8 ( do8 ) la8 sol8 | 
     fas4. ( \trill \grace { fas16 sol16 } sol8 ) sol2 ~ -> | 
     sol4 r4
+    % MUSETTE
+    mi8 (re mi sol |
+    fa8 mi re fa) mi (re do mi|
+    re4 sol4) do2-> |
+    sol2-> re-> |
+    do2-> sol'4. sol8-> ~ |
+    4. sol8-> ~ 4. sol8-> ~ |
+    2 fa'8-> (la fa re) |
+    do8-> (mi do la) sol8-> (si sol re) |
+    mi4-> ~8 r8 |
+    % L
+    r2 | % 55
+    R1*2 | % 57
+    r2 fa2 ( ~ -\p | % 58
+    fa8 sol8 ) sol8 ( la8 ) la2 ( ~ | % 59
+    la8 sib8 ) la8 ( sib8 ) sol4 la8 ( sib8 ) |
+    \grace { la16 si16 } la8 sol8 fa4 fa'4 -. -\f fa4 -. | % 61
+    sol4 -. sol4 -. sol4 -. sol4 -. | % 62
+    fa4 -. fa4 -. fa4 -. mi4 -. | % 63
+    mi4 -. re4 -. re4 -. do4 -. | % 64
+    do4 -. si4 -. si4 -. do4 -. | % 65
+    do4 -. do4 -. re4 -. re4 -. | % 66
+    mi4 ~ -\ff mi8 r8 mi,8 (re mi sol |
+    % M
+    fa8 mi re fa) mi (re do mi|
+    re4 sol4) do2-> |
+    sol2-> re-> |
+    do2-> sol'4. sol8-> ~ |
+    4. sol8-> ~ 4. sol8-> ~ |
+    2 fa'8-> (la fa re) |
+    do8-> (mi do la) sol8-> (si sol re) |
+    mi4-> ~8 r8 |
 }
 
 dynamics = {
@@ -105,7 +169,7 @@ oboeI = << \notes \notesI \marks \dynamics >>
 oboeII = << \notes \notesII \marks \dynamics >>
 
 staves = {
-    \oneStaff
+    \twoStaves
 }
 
 oboe_staves = {

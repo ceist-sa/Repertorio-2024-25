@@ -16,8 +16,28 @@ notes =  \relative la' {
     do4 re4 re4 mi4 | % 9
     la,2 si2 ~ -> |
     si4 r4 |
-    % H 
+    % H
     r2 |
+    s1 * 9  |
+    s1 * 5 |
+    s2 |
+    % I
+    s2 |
+    s1 * 11 |
+    % K 
+    s1 * 5 |
+    s2 |
+    % MUSETTE
+    s2 |
+    s1 * 7 |
+    s2 |
+    % L
+    re2 ( ~ -\p | % 55
+    re8 mi8 ) mi8 ( fa8 ) fa2 ( ~ | % 56
+    fa8 sol8 ) fa8 ( sol8 ) mi4 fa8 ( sol8 ) | % 57
+    \grace { fa16 sol16 } fa8 mi8 re4 r2 | % 58
+    R1*2 |
+     
 
 }
 
@@ -50,13 +70,40 @@ notesI = \relative la {
     la8 do4 -. | % 35
     si4 -. la4 -. r2 | % 36
     R1 * 3|
-    r2 re4 -. -> -\f re4 -. -> | \barNumberCheck #40
+    r2 re4 -. -> -\f re4 -. -> |
     re4 -. -> -\! -\< -\< sol4 -. -> sol4 -. -> do4 -. -> | % 41
     do2 -> -\! -\ff sol4 sol4 | % 42
     sol4 fas4 sol4 mi4 | % 43
     re2 re2 ~ -> | % 44
     re4 r4
-    
+    % MUSETTE
+    mi8 (re mi sol |
+    fa8 mi re fa) mi (re do mi|
+    re8 si sol4) fa'8-> (la fa re) |
+    do8-> (mi do la) sol (si sol re) |
+    mi2-> sol'4. sol8-> ~ |
+    4. sol8-> ~ 4. sol8-> ~ |
+    2 la8-> (do la fa) |
+    mi8-> (sol mi do) si8-> (re si sol) |
+    sol4-> ~8 r8 |
+    % L
+    s2 | % 55
+    s1*5 |
+    r2 la'4 -. -\f la4 -. | % 61
+    si4 -. si4 -. si4 -. si4 -. | % 62
+    la4 -. la4 -. la4 -. sol4 -. | % 63
+    sol4 -. fa4 -. fa4 -. mi4 -. | % 64
+    mi4 -. re4 -. re4 -. do4 -. | % 65
+    sol'4 -. -\< fa4 -. sol4 -. sol4 -. | % 66
+    sol4 ~ -\! -\ff sol8 r8 mi8 (re mi sol |
+    fa8 mi re fa) mi (re do mi|
+    re8 si sol4) fa'8-> (la fa re) |
+    do8-> (mi do la) sol (si sol re) |
+    mi2-> sol'4. sol8-> ~ |
+    4. sol8-> ~ 4. sol8-> ~ |
+    2 la8-> (do la fa) |
+    mi8-> (sol mi do) si8-> (re si sol) |
+    sol4-> ~8 r8 |
 }
 
 notesII = \relative la {
@@ -92,7 +139,35 @@ notesII = \relative la {
     fas2 -> -\ff re4 mi4 | % 42
     do4 re4 re4 do8 si8 | % 43
     la4. ( \trill \grace { sol16 la16 } si8 ) si2 ~ -> | % 44
-    si4 r4
+    si4 r4 |
+    % MUSETTE
+    sol4. sol8-> ~ |
+    4. 8-> ~4. 8-> ~ |
+    2 la'8-> (do la fa) |
+    mi8-> (sol mi do) si-> (re si sol) |
+    sol2-> sol'4. sol8-> ~ |
+    4. 8-> ~4. 8-> ~ |
+    2 la8-> (do la fa) |
+    mi8-> (sol mi do) si-> (re si sol) |
+    sol4-> ~8 r8 |
+    % L
+    s2 | % 55
+    s1*5 |
+    r2 fa'4 -. -\f fa4 -. | % 61
+    sol4 -. sol4 -. sol4 -. sol4 -. | % 62
+    fa4 -. fa4 -. fa4 -. mi4 -. | % 63
+    mi4 -. re4 -. re4 -. do4 -. | % 64
+    do4 -. si4 -. si4 -. do4 -. | % 65
+    do4 -. -\< do4 -. re4 -. re4 -. | % 66
+    mi4 ~ -\! -\ff mi8 r8 sol,4. sol8-> ~ |
+    4. 8-> ~4. 8-> ~ |
+    2 la'8-> (do la fa) |
+    mi8-> (sol mi do) si-> (re si sol) |
+    sol2-> sol'4. sol8-> ~ |
+    4. 8-> ~4. 8-> ~ |
+    2 la8-> (do la fa) |
+    mi8-> (sol mi do) si-> (re si sol) |
+    sol4-> ~8 r8 |
 }
 
 dynamics = {
