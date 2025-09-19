@@ -115,11 +115,12 @@ notes = \relative do' {
 }
 
 notesI = \relative do' {
+  \partCombineApart
   r2 |
   r2 sol'4->\pp (la8) r8 |
   la2 si4 (mi, ~ |
   4 re) re2 |
-  re2 s2 |
+  re2 \partCombineAutomatic s2 |
   s1 * 4 |
   s2 |
   % H
@@ -295,7 +296,7 @@ staves = {
   s2 |
 }
 
-viola = <<\notes << \notesI \\ \notesII >> \marks \dynamics>>
+viola = <<\notes \partCombine \notesI \notesII \marks \dynamics>>
 
 violaI = <<\notes \notesI \marks \dynamics>>
 violaII = <<\notes \notesII \marks \dynamics>>
@@ -303,6 +304,8 @@ violaII = <<\notes \notesII \marks \dynamics>>
 
 viola_conductor = {
   \new Staff \with {
+    printPartCombineTexts = ##f
+    \consists Merge_rests_engraver
     midiInstrument = #"viola"
     instrumentName = \viola_name_long
     shortInstrumentName = \viola_name_short
@@ -330,6 +333,8 @@ viola_part = \compressMMRests{
     }
     << \violaII \staves >>
     \new Staff \with {
+      printPartCombineTexts = ##f
+      \consists Merge_rests_engraver
       midiInstrument = #"viola"
       \override VerticalAxisGroup.remove-layer = 2
     }
@@ -338,7 +343,7 @@ viola_part = \compressMMRests{
 }
 
 % \score {
-%   \viola_part
+%   \viola_conductor
 %   \layout {}
 %   \midi {\tempo 2 = 90}
 % }

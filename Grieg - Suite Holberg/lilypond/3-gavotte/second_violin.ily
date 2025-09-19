@@ -126,10 +126,13 @@ notesI = \relative do'' {
   sol2-> (fas |
   mi2 re ~ |
   1) |
-  r2 sol4->\pp (la8) r8 |
+  r2 
+  \partCombineApart
+  sol4->\pp (la8) r8 |
   la4-> (do8) r8 do4-> (mi8) r8 |
   mi2 (\grace{re16 mi} re8 do si4 |
   do4 la) \grace{si16 (do} si8 la sol4) |
+  \partCombineAutomatic
   la2 s2 |
   s1 * 4 |
   s2 |
@@ -200,7 +203,7 @@ notesII = \relative do'' {
   re1 ( ~|
   2 la2 ~|
   1) |
-  R1 |
+  r2 r2 |
   r2 sol'4->\pp (do8) r8 |
   do2 si4 _(sol4 ~|
   4 fas) sol (re) |
@@ -298,12 +301,14 @@ staves = {
 }
 
 
-second_violin = << \notes << \notesI \\ \notesII >> \marks \dynamics >>
+second_violin = << \notes \partCombine \notesI \notesII \marks \dynamics >>
 second_violinI = <<\notes \notesI \marks \dynamics>>
 second_violinII = <<\notes \notesII \marks \dynamics>>
 
 second_violin_conductor = {
   \new Staff \with {  
+    printPartCombineTexts = ##f
+    \consists Merge_rests_engraver
     instrumentName = \second_violin_name_long
     shortInstrumentName = \second_violin_name_short
     midiInstrument = #"violin"
@@ -330,6 +335,8 @@ second_violin_part = \compressMMRests{
     }
     << \second_violinII \staves >>
     \new Staff \with {
+      printPartCombineTexts = ##f
+      \consists Merge_rests_engraver
       \override VerticalAxisGroup.remove-layer = 2
     }
     << \second_violin \staves >>
@@ -337,7 +344,7 @@ second_violin_part = \compressMMRests{
 }
 
 % \score{
-%   \second_violin_part
+%   \second_violin_conductor
 %   \layout {}
 %   \midi {\tempo 2 = 90}
 % }

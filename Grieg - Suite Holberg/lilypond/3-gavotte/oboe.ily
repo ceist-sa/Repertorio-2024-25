@@ -28,7 +28,7 @@ notesI = \relative la' {
     % H  
     s2 | 
     si4 (  la8 ) r8 r2 | 
-    \grace { si16 dos16 } si4 la8 r8 la8 (  fas8 la8 re8 )  | 
+    \grace { si16 (dos16 } si4 la8) r8 la8 (  fas8 la8 re8 )  | 
     sol,8 ( mi8 sol8 re'8 ) fas,8 ( re8 fas8 re'8 ) | 
     mi,8 ( re8 mi8 re'8 ) re,8 (  dos8 re8 re'8 ) | 
     re,8 ( dos8 re8 re'8 ) re,8 ( dos8 re8  re'8 ) | 
@@ -43,9 +43,9 @@ notesI = \relative la' {
     r2 
     R1 * 3 |  
     r2 do2 ->  | 
-    \grace { si16 do16 } si8 -> la8 sol4 -. do8 -> re8 mi4 -. | 
+    \grace { si16 (do16 } si8 ->) la8 sol4 -. do8 -> re8 mi4 -. | 
     si2 -> mi2 -> | 
-    \grace { re16 mi16 } re8 -> si8 re4 -. \grace { do16 re16 } do8 la8
+    \grace { re16 (mi16 } re8) -> si8 re4 -. \grace { do16 (re16 } do8) la8
     do4 -. | 
     si4 -. la4 -. r2 | 
     R1 * 3 | 
@@ -53,7 +53,7 @@ notesI = \relative la' {
     re4 -. ->  do4 -. -> do4 -. -> sol'4 -. ->  | 
     fas2 ->  re4 mi4 | 
     do4 re4 re4 do8 si8 | 
-    la4. ( \trill \grace { la16 si16 } si8 ) si2 ~ -> | 
+    la4. ( \trill \grace { la16 si16 } si8 ) \breathe si2 ~ -> | 
     si4 r4 |
     % MUSETTE
     sol4. sol8-> ~ |
@@ -66,19 +66,19 @@ notesI = \relative la' {
     do8-> (mi do la) sol-> (si sol re) |
     mi4-> ~ 8 r8 |
     % L 
-    r2 | % 55
-    R1*2 | % 57
-    r2 fa'2 ( ~ -\p | % 58
-    fa8 sol8 ) sol8 ( la8 ) la2 ( ~ | % 59
+    r2 | 
+    R1*2 | 
+    r2 fa'2 ( ~  | 
+    fa8 sol8 ) sol8 ( la8 ) la2 ( ~ | 
     la8 sib8 ) la8 ( sib8 ) sol4 la8 ( sib8 ) |
-    \grace { la16 sib16 } la8 sol8 fa4 la4 -. -\f la4 -. | % 61
-    si ?4 -. si4 -. si4 -. si4 -. | % 62
-    la4 -. la4 -. la4 -. sol4 -. | % 63
-    sol4 -. fa4 -. fa4 -. mi4 -. | % 64
-    mi4 -. re4 -. re4 -. do4 -. -\< | % 65
-    sol'4 -. fa4 -. sol4 -. sol4 -. -\! | % 66
+    \grace { la16 (sib16 } la8 sol8) fa4 la4 -.  la4 -. | 
+    si ?4 -. si4 -. si4 -. si4 -. | 
+    la4 -. la4 -. la4 -. sol4 -. | 
+    sol4 -. fa4 -. fa4 -. mi4 -. | 
+    mi4 -. re4 -. re4 -. do4 -. | 
+    sol'4 -. fa4 -. sol4 -. sol4 -. -\! | 
     % M 
-    sol4 ~ -\ff sol8 r8 sol,4. sol8-> ~ |
+    sol4 ~  sol8 r8 sol,4. sol8-> ~ |
     4. 8-> ~4. 8-> ~ |
     2 do-> |
     sol2-> re-> |
@@ -106,7 +106,7 @@ notesII = \relative la {
     la4 ( -> do4 ) -. do4 ( -> mi4 ) -. | 
     mi2 ->  re8 do8 si4 | 
     do4 la4 si8 ( do8 ) la8 sol8 | 
-    \grace { fas16 sol16 } fas4. sol8 sol2 ~ -> | 
+    \grace { fas16 (sol16 } fas4. sol8-.) sol2 ~ -> | 
     sol4 r4 | 
     r2 | 
     R1 | 
@@ -124,7 +124,7 @@ notesII = \relative la {
     la4 -. ->  do4 -. -> do4 -. -> mi4 -. -> | 
     mi2 ->   re8 do8 si4 | 
     do4 la4 si8 ( do8 ) la8 sol8 | 
-    fas4. ( \trill \grace { fas16 sol16 } sol8 ) sol2 ~ -> | 
+    fas4. ( \trill \grace { fas16 sol16 } sol8 ) \breathe sol2 ~ -> | 
     sol4 r4
     % MUSETTE
     mi8 (re mi sol |
@@ -137,18 +137,18 @@ notesII = \relative la {
     do8-> (mi do la) sol8-> (si sol re) |
     mi4-> ~8 r8 |
     % L
-    r2 | % 55
-    R1*2 | % 57
-    r2 fa2 ( ~ -\p | % 58
-    fa8 sol8 ) sol8 ( la8 ) la2 ( ~ | % 59
+    r2 | 
+    R1*2 | 
+    r2 fa2 ( ~  | 
+    fa8 sol8 ) sol8 ( la8 ) la2 ( ~ | 
     la8 sib8 ) la8 ( sib8 ) sol4 la8 ( sib8 ) |
-    \grace { la16 si16 } la8 sol8 fa4 fa'4 -. -\f fa4 -. | % 61
-    sol4 -. sol4 -. sol4 -. sol4 -. | % 62
-    fa4 -. fa4 -. fa4 -. mi4 -. | % 63
-    mi4 -. re4 -. re4 -. do4 -. | % 64
-    do4 -. si4 -. si4 -. do4 -. | % 65
-    do4 -. do4 -. re4 -. re4 -. | % 66
-    mi4 ~ -\ff mi8 r8 mi,8 (re mi sol |
+    \grace { la16 (si16 } la8 sol8) fa4 fa'4 -.  fa4 -. | 
+    sol4 -. sol4 -. sol4 -. sol4 -. | 
+    fa4 -. fa4 -. fa4 -. mi4 -. | 
+    mi4 -. re4 -. re4 -. do4 -. | 
+    do4 -. si4 -. si4 -. do4 -. | 
+    do4 -. do4 -. re4 -. re4 -. | 
+    mi4 ~  mi8 r8 mi,8 (re mi sol |
     % M
     fa8 mi re fa) mi (re do mi|
     re4 sol4) do2-> |
@@ -161,8 +161,70 @@ notesII = \relative la {
 }
 
 dynamics = {
-  
-}
+  s2 |
+  s1 |
+  s1 |
+  s1 |
+  s2 s2\f |
+  s1 |
+  s1 \fz |
+  s1 * 2 |
+  s2 |
+  % H 
+  s2 |
+  s1\p |
+  s1 |
+  s1 |
+  s1 |
+  s1 |
+  s1 |
+  s1 |
+  s1 |
+  s1 |
+  s2 s2\f |
+  s1 |
+  s1 \fz |
+  s1 * 2 |
+  s2 |
+  % I 
+  s2 |
+  s1 |
+  s1 |
+  s1 |
+  s2 s2 \f |
+  s1 |
+  s2 s2\f |
+  s1 |
+  s2 s2 |
+  s1 |
+  s1 |
+  s1 |
+  % K
+  s2 s2 \f |
+  s1\< |
+  s1 \ff |
+  s1 * 2 |
+  s2 |
+  % MUSETTE 
+  s2\pp |
+  s1 * 3 |
+  s2 s2 |
+  s1 * 3 |
+  s2 |
+  % L
+  s2|
+  s1 * 2 |
+  s2 s2 _\markup{\dynamic p \italic cantab.}  |
+  s1 \cresc |
+  s1 |
+  s2 s2\f |
+  s1 * 3 |
+  s2. s4\< |
+  s1 |
+  s2\ff s2\pp|
+  s1 * 7 |
+  s2 |
+} 
 
 oboe = << \notes \partCombine \notesI \notesII \marks \dynamics>>
 oboeI = << \notes \notesI \marks \dynamics >>

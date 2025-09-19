@@ -25,8 +25,10 @@ notes = \relative do'{
   mi,(re mi re') re,( dos re re')|
   re,( dos re re') re,( dos re re')|
   %divisi
-  s1 *4 |
+  r2 s2 |
+  s1 * 2 |
   %tutti
+  R1 |
   r2 sol,4-> \tutti ( la-.) |
   la->( do-.) do-> mi-. |
   mi2-> re8 do si4 |
@@ -44,19 +46,32 @@ notes = \relative do'{
 }
 
 notesI = \relative do'{
+  \partCombineApart
   r2|
   R1*2 |
+  \partCombineAutomatic
   %tutti
-  s1*12 |
+  s1*6 |
+  s2 |
+  % H 
+  s2 |
+  s1 * 5 |
   %divisi
-  R1 *4 |
+  s2 \partCombineApart r2 |
+  R1 * 2 |
+  \partCombineAutomatic
   %tutti
-  s1 *13 |
+  s1 * 6 |
+  s2 |
+  % I 
+  s2 |
+  s1 * 7 |
   %divisi
-  <re si'>4 <re la'>4 sol( la8) r8 |
+  <re si'>4\nondiv <re la'>4 \partCombineApart sol4( la8) r8 |
   la4->( do8) r8 do4->( mi8) r8 |
   mi2 \grace{ re16\( ( mi} re8) do si4 |
   do la\) \grace{ si16\( ( do} si8) la sol4\) | %K
+  \partCombineAutomatic
   la2 sol'4-> la-> |
   la-> do-> do-> mi-> |
   mi2-> re8 do si4 |
@@ -95,22 +110,22 @@ notesI = \relative do'{
 }
 
 notesII = \relative do'{
-  \stemUp
-  \partCombineApart
+  \once \stemUp
   sol2 \div ~|
+  \once \stemUp
   sol1~|
+  \once \stemUp
   sol2. r4 |
   %tutti
   s1*12 |
   %divisi
-  r2 sol2\div ~|
+  s2 sol2\div ~|
   sol1~|
   sol2. r4 |
-  \stemNeutral
-  \partCombineAutomatic
-  R1 |
+  %\stemNeutral
+  %\partCombineAutomatic
   %tutti
-  s1 *13 |
+  s1 *14 |
   %divisi
   <re' si'>4 <re la'>4 sol( sol8) r8 |
   sol4->( sol8) r8 do4->( do8) r8 |
@@ -150,9 +165,8 @@ notesII = \relative do'{
 staves = {
   \oneStaff s2
   s1*33
-  \twoStaves s1 *37 
+  %{\twoStaves%} s1 *35 
   s2 
-  
 }
 
 
@@ -164,9 +178,9 @@ s1 *3 |
 s2  s4 \f s4 |
 s1 \< |
 s2 \fz s2 |
-s2 s8 s8 \> s8 s8 \! |
-s4 \> s4 s2 |
-s2 s4\! s4 |
+s1 |
+s1 |
+s1 |
 s4\p s4 s2| 
 s1*4|
 s2 s2 \pp |
@@ -199,8 +213,8 @@ s2 s4 s8 \! s8 |
 s4 \ff s4 s2 |
 s1 *3 |
 s2 s4 \pp s4 | 
-s1 *3 |
-s2|
+s1 * 3 |
+s2 |
 
 
 }
@@ -212,7 +226,9 @@ first_violinI = <<\notes \notesI \marks \dynamics>>
 first_violinII = <<\notes \notesII \marks \dynamics>>
 
 first_violin_conductor = {
-  \new Staff \with {  
+  \new Staff \with {
+    printPartCombineTexts = ##f
+    \consists Merge_rests_engraver  
     instrumentName = \first_violin_name_long
     shortInstrumentName = \first_violin_name_short
     midiInstrument = #"violin"
@@ -238,13 +254,15 @@ first_violin_part = \compressMMRests{
     }
     << \first_violinII \staves >>
     \new Staff \with {
+      printPartCombineTexts = ##f
+      \consists Merge_rests_engraver
       \override VerticalAxisGroup.remove-layer = 2
     }
     << \first_violin \staves >>
   >>
 }
 
-%\score{
+% \score{
 %  \first_violin_part
 %  \layout {}
-%}
+% }

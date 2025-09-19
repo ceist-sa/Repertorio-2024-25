@@ -10,10 +10,10 @@ notes =  \relative la' {
     \clef "treble" 
     r2 |
     R1 * 3 |
-    r2 si,4 ( -> do4 ) -. | % 6
-    do4 ( -> mi4 ) -. mi4 ( -> fas4 ) -. | % 7
-    fas2 re4 mi4 | % 8
-    do4 re4 re4 mi4 | % 9
+    r2 si,4 ( -> do4 ) -. | 
+    do4 ( -> mi4 ) -. mi4 ( -> fas4 ) -. | 
+    fas2 re4 mi4 | 
+    do4 re4 re4 mi4 | 
     la,2 si2 ~ -> |
     si4 r4 |
     % H
@@ -32,10 +32,10 @@ notes =  \relative la' {
     s1 * 7 |
     s2 |
     % L
-    re2 ( ~ -\p | % 55
-    re8 mi8 ) mi8 ( fa8 ) fa2 ( ~ | % 56
-    fa8 sol8 ) fa8 ( sol8 ) mi4 fa8 ( sol8 ) | % 57
-    \grace { fa16 sol16 } fa8 mi8 re4 r2 | % 58
+    re2 ( ~  | 
+    re8 mi8 ) mi8 ( fa8 ) fa2 ( ~ | 
+    fa8 sol8 ) fa8 ( sol8 ) mi4 fa8 ( sol8 ) | 
+    \grace { fa16 (sol16 } fa8 mi8) re4 r2 | 
     R1*2 |
      
 
@@ -48,33 +48,33 @@ notesI = \relative la {
     s2 |
     % H
     s2 |
-    la4. -> -\p r8 r2 | % 13
-    la4. -> r8 la2 -\< | % 14
-    re2 ( dos2 -\! | % 15
-    si2 la2 -\> | % 16
-    sol2 fas2 ) -\! | % 17
+    la4. ->  r8 r2 | 
+    la4. -> r8 la2  | 
+    re2 ( dos2  | 
+    si2 la2  | 
+    sol2 fas2 )  | 
     R1 * 4 |
-    r2 sol'4 ( -> -\f sol4 ) -. | % 22
-    sol4 ( -> sol4 ) -. sol4 ( -> do4 ) -. | % 23
-    do2 -> -\fz sol4 sol4 | % 24
-    sol4 fas4 sol4 mi4 | % 25
-    re2 re2 ~ -> | % 26
+    r2 sol'4 ( ->  sol4 ) -. | 
+    sol4 ( -> sol4 ) -. sol4 ( -> do4 ) -. | 
+    do2 ->  sol4 sol4 | 
+    sol4 fas4 sol4 mi4 | 
+    re2 re2 ~ -> | 
     re4 r4 |
     % I
     r2 |
     R1 * 3 | 
-    r2 do2 | % 32
-    \grace { si16 do16 } si8 -> la8 sol4 -. do8 -> re8 mi4 -. | % 33
-    si2 -> mi2 -> | % 34
+    r2 do2 | 
+    \grace { si16 do16 } si8 -> la8 sol4 -. do8 -> re8 mi4 -. | 
+    si2 -> mi2 -> | 
     \grace { re16 mi16 } re8 -> si8 re4 -. \grace { do16 re16 } do8 ->
-    la8 do4 -. | % 35
-    si4 -. la4 -. r2 | % 36
+    la8 do4 -. | 
+    si4 -. la4 -. r2 | 
     R1 * 3|
-    r2 re4 -. -> -\f re4 -. -> |
-    re4 -. -> -\! -\< -\< sol4 -. -> sol4 -. -> do4 -. -> | % 41
-    do2 -> -\! -\ff sol4 sol4 | % 42
-    sol4 fas4 sol4 mi4 | % 43
-    re2 re2 ~ -> | % 44
+    r2 re4 -. ->  re4 -. -> |
+    re4 -. ->    sol4 -. -> sol4 -. -> do4 -. -> | 
+    do2 ->   sol4 sol4 | 
+    sol4 fas4 sol4 mi4 | 
+    re2 \breathe re2 ~ -> | 
     re4 r4
     % MUSETTE
     mi8 (re mi sol |
@@ -87,15 +87,15 @@ notesI = \relative la {
     mi8-> (sol mi do) si8-> (re si sol) |
     sol4-> ~8 r8 |
     % L
-    s2 | % 55
+    s2 | 
     s1*5 |
-    r2 la'4 -. -\f la4 -. | % 61
-    si4 -. si4 -. si4 -. si4 -. | % 62
-    la4 -. la4 -. la4 -. sol4 -. | % 63
-    sol4 -. fa4 -. fa4 -. mi4 -. | % 64
-    mi4 -. re4 -. re4 -. do4 -. | % 65
-    sol'4 -. -\< fa4 -. sol4 -. sol4 -. | % 66
-    sol4 ~ -\! -\ff sol8 r8 mi8 (re mi sol |
+    r2 la'4 -.  la4 -. | 
+    si4 -. si4 -. si4 -. si4 -. | 
+    la4 -. la4 -. la4 -. sol4 -. | 
+    sol4 -. fa4 -. fa4 -. mi4 -. | 
+    mi4 -. re4 -. re4 -. do4 -. | 
+    sol'4 -.  fa4 -. sol4 -. sol4 -. | 
+    sol4 ~   sol8 r8 mi8 (re mi sol |
     fa8 mi re fa) mi (re do mi|
     re8 si sol4) fa'8-> (la fa re) |
     do8-> (mi do la) sol (si sol re) |
@@ -113,32 +113,32 @@ notesII = \relative la {
     s2 |
     % H
     s2 |
-    sol4 ( -\p fas8 ) r8 r2 | % 13
-    sol4 ( fas8 ) r8 fas2 | % 14
-    si2 ( la2 | % 15
-    sol2 fas2 -\> | % 16
-    mi2 re2 ) -\! | % 17
+    sol4 (  fas8 ) r8 r2 | 
+    sol4 ( fas8 ) r8 fas2 | 
+    si2 ( la2 | 
+    sol2 fas2  | 
+    mi2 re2 )  | 
     R1 * 4 |
-    r2 si'4 ( -> -\f do4 ) -. | % 22
-    do4 ( -> mi4 ) -. mi4 ( -> fas4 ) -. | % 23
-    fas2 -> -\fz re4 mi4 | % 24
-    do4 re4 re4 mi4 | % 25
-    la,2 si2 ( -> | % 26
-    si4 ) r4 | % 27
+    r2 si'4 ( ->  do4 ) -. | 
+    do4 ( -> mi4 ) -. mi4 ( -> fas4 ) -. | 
+    fas2 ->  re4 mi4 | 
+    do4 re4 re4 mi4 | 
+    la,2 si2 ( -> | 
+    si4 ) r4 | 
     % I
     r2 |
     R1 * 3 |
-    r2 sol2 -> -\f | % 32
-    sol8 -> sol8 sol4 -. sol8 -> sol8 sol4 -. | % 33
-    sol2 -> si2 -> | % 34
-    sol8 -> sol8 sol4 -. sol8 -> sol8 sol4 -. | % 35
-    sol4 -. fas4 -. -\pp r2 | % 36
-    R1 * 3 | % 39
-    r2 si4 -. -> -\f re4 -. -> |
-    re4 -. -> -\< do4 -. -> -\! do4 -. -> sol'4 -. -> | % 41
-    fas2 -> -\ff re4 mi4 | % 42
-    do4 re4 re4 do8 si8 | % 43
-    la4. ( \trill \grace { sol16 la16 } si8 ) si2 ~ -> | % 44
+    r2 sol2 ->  | 
+    sol8 -> sol8 sol4 -. sol8 -> sol8 sol4 -. | 
+    sol2 -> si2 -> | 
+    sol8 -> sol8 sol4 -. sol8 -> sol8 sol4 -. | 
+    sol4 -. fas4 -.  r2 | 
+    R1 * 3 | 
+    r2 si4 -. ->  re4 -. -> |
+    re4 -. ->  do4 -. ->  do4 -. -> sol'4 -. -> | 
+    fas2 ->  re4 mi4 | 
+    do4 re4 re4 do8 si8 | 
+    la4. ( \trill \grace { sol16 la16 } si8 ) \breathe si2 ~ -> | 
     si4 r4 |
     % MUSETTE
     sol4. sol8-> ~ |
@@ -151,15 +151,15 @@ notesII = \relative la {
     mi8-> (sol mi do) si-> (re si sol) |
     sol4-> ~8 r8 |
     % L
-    s2 | % 55
+    s2 | 
     s1*5 |
-    r2 fa'4 -. -\f fa4 -. | % 61
-    sol4 -. sol4 -. sol4 -. sol4 -. | % 62
-    fa4 -. fa4 -. fa4 -. mi4 -. | % 63
-    mi4 -. re4 -. re4 -. do4 -. | % 64
-    do4 -. si4 -. si4 -. do4 -. | % 65
-    do4 -. -\< do4 -. re4 -. re4 -. | % 66
-    mi4 ~ -\! -\ff mi8 r8 sol,4. sol8-> ~ |
+    r2 fa'4 -.  fa4 -. | 
+    sol4 -. sol4 -. sol4 -. sol4 -. | 
+    fa4 -. fa4 -. fa4 -. mi4 -. | 
+    mi4 -. re4 -. re4 -. do4 -. | 
+    do4 -. si4 -. si4 -. do4 -. | 
+    do4 -.  do4 -. re4 -. re4 -. | 
+    mi4 ~   mi8 r8 sol,4. sol8-> ~ |
     4. 8-> ~4. 8-> ~ |
     2 la'8-> (do la fa) |
     mi8-> (sol mi do) si-> (re si sol) |
@@ -171,8 +171,70 @@ notesII = \relative la {
 }
 
 dynamics = {
-  
-}
+  s2 |
+  s1 |
+  s1 |
+  s1 |
+  s2 s2\f |
+  s1 |
+  s1 \fz |
+  s1 * 2 |
+  s2 |
+  % H 
+  s2 |
+  s1\p |
+  s1 |
+  s1 |
+  s1 |
+  s1 |
+  s1 |
+  s1 |
+  s1 |
+  s1 |
+  s2 s2\f |
+  s1 |
+  s1 \fz |
+  s1 * 2 |
+  s2 |
+  % I 
+  s2 |
+  s1 |
+  s1 |
+  s1 |
+  s2 s2 \f |
+  s1 |
+  s2 s2\f |
+  s1 |
+  s2 s2 |
+  s1 |
+  s1 |
+  s1 |
+  % K
+  s2 s2 \f |
+  s1\< |
+  s1 \ff |
+  s1 * 2 |
+  s2 |
+  % MUSETTE 
+  s2\pp |
+  s1 * 3 |
+  s2 s2 |
+  s1 * 3 |
+  s2 |
+  % L
+  s2 _\markup{\dynamic p \italic cantab.} |
+  s1 * 2 |
+  s1 |
+  s1 |
+  s1 |
+  s2 s2\f |
+  s1 * 3 |
+  s2. s4\< |
+  s1 |
+  s2\ff s2\pp|
+  s1 * 7 |
+  s2 |
+} 
 
 staves = {
     \twoStaves
