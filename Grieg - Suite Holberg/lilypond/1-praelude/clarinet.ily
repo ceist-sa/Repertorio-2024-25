@@ -111,3 +111,10 @@ clarinet_conductor = {
   }
   \clarinet
 }
+
+clarinet_praelude = \score {
+    \header { piece = "I. Praelude" }
+    \compressMMRests {
+        \clarinet
+    }
+}

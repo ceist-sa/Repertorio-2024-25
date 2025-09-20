@@ -1,0 +1,34 @@
+\version "2.24.4"
+\language "portugues"
+\include "../../styles.ily"
+\include "../../ranges.ily"
+\include "globals.ily"
+
+\include "1-praelude/oboe.ily"
+\include "2-sarabande/oboe.ily"
+\include "3-gavotte/oboe.ily"
+\include "5-rigaudon/oboe.ily"
+
+oboe_conductor = \relative do'' {
+    \new Staff \with {
+        instrumentName = \oboe_name_long
+        shortInstrumentName = \oboe_name_short
+        midiInstrument = #"oboe"
+    }
+    \oboe
+}
+
+\bookpart {
+    \paper {
+        indent = 0.2\cm
+        short-indent = 0.2\cm
+    }
+    \header {
+        instrument = "Oboe"
+        filename = "Grieg - Suite Holberg - OBOE"
+    }
+    \oboe_praelude
+    \oboe_sarabande
+    \oboe_gavotte
+    \oboe_rigaudon
+}

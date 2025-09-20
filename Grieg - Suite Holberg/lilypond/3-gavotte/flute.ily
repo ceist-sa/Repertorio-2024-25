@@ -249,16 +249,14 @@ flute_conductor = {
   \flute
 }
 
-flute_part = {
+flute_gavotte = \score {
+  \header { piece = "III. Gavotte" }
+  \compressMMRests{
     \new GrandStaff \with {
         \consists "Keep_alive_together_engraver"
     }
     \flute_staves
+  }
 }
 
-
-
-% \score{
-%   \flute_part
-%   \layout {}
-% }
+% \flute_gavotte

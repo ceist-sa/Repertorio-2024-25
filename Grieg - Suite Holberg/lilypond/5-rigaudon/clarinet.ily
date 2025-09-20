@@ -188,9 +188,14 @@ clarinet_conductor = {
   \clarinet_staves
 }
 
-clarinet_part = {
+clarinet_rigaudon = \score {
+  \header { piece = "V. Rigaudon" }
+  \compressMMRests{
     \new GrandStaff \with {
         \consists Keep_alive_together_engraver
     }
     \clarinet_staves
+  }
 }
+
+% \clarinet_rigaudon

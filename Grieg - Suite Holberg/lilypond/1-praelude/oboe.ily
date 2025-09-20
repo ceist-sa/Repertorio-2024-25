@@ -142,8 +142,11 @@ oboe_conductor = {
   \oboe
 }
 
+oboe_praelude = \score {
+    \header { piece = "I. Praelude" }
+    \compressMMRests {
+        \oboe
+    }
+}
 
-% \score{
-%   \flute_part
-%   \layout {}
-% }
+% \oboe_praelude

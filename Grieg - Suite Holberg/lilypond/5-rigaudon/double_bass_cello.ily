@@ -86,14 +86,14 @@ double_bass_cello_conductor = {
   \double_bass_cello
 }
 
-double_bass_cello_part = \compressMMRests{
-  \new Staff \with {
-    midiInstrument = #"cello"
+double_bass_cello_rigaudon = \score {
+  \header { piece = "V. Rigaudon" }
+  \compressMMRests{
+    \new Staff \with {
+      midiInstrument = #"cello"
+    }
+    \double_bass_cello
   }
-  \double_bass_cello
 }
 
-% \score{
-%   \double_bass_cello_part
-%   \layout{}
-% }
+% \double_bass_cello_rigaudon

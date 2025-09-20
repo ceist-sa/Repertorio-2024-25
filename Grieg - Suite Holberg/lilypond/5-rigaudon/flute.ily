@@ -72,14 +72,12 @@ flute_conductor = {
   \flute
 }
 
-flute_part = {
+flute_rigaudon = \score {
+  \header { piece = "V. Rigaudon" }
+  \compressMMRests{
     \new Staff
     \flute
+  }
 }
 
-
-
-% \score{
-%   \flute_part
-%   \layout {}
-% }
+% \flute_rigaudon

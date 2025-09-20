@@ -323,18 +323,18 @@ first_violin_tutti_conductor = {
   \first_violin_tutti
 }
 
-first_violin_part = \compressMMRests{
-  \new GrandStaff \with {
-    \override VerticalAxisGroup.remove-empty = ##t
-    printPartCombineTexts = ##f
+first_violin_rigaudon = \score {
+  \header { piece = "V. Rigaudon" }
+  \compressMMRests{
+    \new GrandStaff \with {
+      \override VerticalAxisGroup.remove-empty = ##t
+      printPartCombineTexts = ##f
+    }
+    <<
+      \new Staff \first_violin_solo
+      \new Staff \first_violin_tutti
+    >>
   }
-  <<
-    \new Staff \first_violin_solo
-    \new Staff \first_violin_tutti
-  >>
 }
 
-% \score{
-%  \first_violin_part
-%  \layout {}
-% }
+% \first_violin_rigaudon

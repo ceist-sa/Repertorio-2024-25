@@ -270,3 +270,15 @@ oboe_conductor = {
   }
   \oboe_staves
 }
+
+oboe_gavotte = \score {
+  \header { piece = "III. Gavotte" }
+  \compressMMRests{
+    \new GrandStaff \with {
+      \consists "Keep_alive_together_engraver"
+    }
+    \oboe_staves
+  }
+}
+
+% \oboe_gavotte

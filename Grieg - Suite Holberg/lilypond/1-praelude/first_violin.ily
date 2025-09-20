@@ -268,49 +268,49 @@ first_violin_conductor = {
   \first_violin
 }
 
-first_violin_part = \compressMMRests{
-  \new GrandStaff \with {
-    \consists "Keep_alive_together_engraver"
+first_violin_praelude = \score {
+  \header { piece = "I. Praelude" }
+  \compressMMRests{
+    \new GrandStaff \with {
+      \consists "Keep_alive_together_engraver"
+    }
+    <<
+      \new Staff \with {
+        \override VerticalAxisGroup.remove-empty = ##t
+        \override VerticalAxisGroup.remove-first = ##t
+        \override VerticalAxisGroup.remove-layer = 1
+      }
+      << \first_violinI \three_divisi_staves \system_breaks >>
+      \new Staff \with { 
+        \override VerticalAxisGroup.remove-empty = ##t
+        \override VerticalAxisGroup.remove-first = ##t
+        \override VerticalAxisGroup.remove-layer = 1
+      }
+      << \first_violinII \three_divisi_staves \system_breaks >>
+      \new Staff \with { 
+        \override VerticalAxisGroup.remove-empty = ##t
+        \override VerticalAxisGroup.remove-first = ##t
+        \override VerticalAxisGroup.remove-layer = 1
+      }
+      << \first_violinIII \three_divisi_staves \system_breaks >>
+      \new Staff \with {
+        \override VerticalAxisGroup.remove-empty = ##t
+        \override VerticalAxisGroup.remove-first = ##t
+        \override VerticalAxisGroup.remove-layer = 2
+      }
+      << \first_violinI \two_divisi_staves \system_breaks >>
+      \new Staff \with { 
+        \override VerticalAxisGroup.remove-empty = ##t
+        \override VerticalAxisGroup.remove-first = ##t
+        \override VerticalAxisGroup.remove-layer = 2
+      }
+      << \first_violinII \two_divisi_staves \system_breaks >>
+      \new Staff \with {
+        \override VerticalAxisGroup.remove-layer = 3
+      }
+      << \first_violin \system_breaks >>
+    >>
   }
-  <<
-    \new Staff \with {
-      \override VerticalAxisGroup.remove-empty = ##t
-      \override VerticalAxisGroup.remove-first = ##t
-      \override VerticalAxisGroup.remove-layer = 1
-    }
-    << \first_violinI \three_divisi_staves \system_breaks >>
-    \new Staff \with { 
-      \override VerticalAxisGroup.remove-empty = ##t
-      \override VerticalAxisGroup.remove-first = ##t
-      \override VerticalAxisGroup.remove-layer = 1
-    }
-    << \first_violinII \three_divisi_staves \system_breaks >>
-    \new Staff \with { 
-      \override VerticalAxisGroup.remove-empty = ##t
-      \override VerticalAxisGroup.remove-first = ##t
-      \override VerticalAxisGroup.remove-layer = 1
-    }
-    << \first_violinIII \three_divisi_staves \system_breaks >>
-    \new Staff \with {
-      \override VerticalAxisGroup.remove-empty = ##t
-      \override VerticalAxisGroup.remove-first = ##t
-      \override VerticalAxisGroup.remove-layer = 2
-    }
-    << \first_violinI \two_divisi_staves \system_breaks >>
-    \new Staff \with { 
-      \override VerticalAxisGroup.remove-empty = ##t
-      \override VerticalAxisGroup.remove-first = ##t
-      \override VerticalAxisGroup.remove-layer = 2
-    }
-    << \first_violinII \two_divisi_staves \system_breaks >>
-    \new Staff \with {
-      \override VerticalAxisGroup.remove-layer = 3
-    }
-    << \first_violin \system_breaks >>
-  >>
 }
 
-% \score{
-%   \first_violin_part
-%   \layout {}
-% }
+% \first_violin_praelude

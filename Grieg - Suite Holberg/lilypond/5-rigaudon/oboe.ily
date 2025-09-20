@@ -74,9 +74,14 @@ oboe_conductor = {
   \oboe
 }
 
-oboe_part = {
-  \new Staff \with {
-    midiInstrument = #"oboe"
+oboe_rigaudon = \score {
+  \header { piece = "V. Rigaudon" }
+  \compressMMRests{
+    \new Staff \with {
+      midiInstrument = #"oboe"
+    }
+    \oboe
   }
-  \oboe
 }
+
+% \oboe_rigaudon

@@ -134,31 +134,31 @@ viola_conductor = {
   \viola
 }
 
-viola_part = \compressMMRests{
-  \new GrandStaff \with {
-    \consists "Keep_alive_together_engraver"
+viola_sarabande = \score {
+  \header { piece = "II. Sarabande" }
+  \compressMMRests {
+    \new GrandStaff \with {
+      \consists "Keep_alive_together_engraver"
+    }
+    <<
+      \new Staff \with {
+        \override VerticalAxisGroup.remove-empty = ##t
+        \override VerticalAxisGroup.remove-first = ##t
+        \override VerticalAxisGroup.remove-layer = 1
+      }
+      << \violaI \staves >>
+      \new Staff \with {
+        \override VerticalAxisGroup.remove-empty = ##t
+        \override VerticalAxisGroup.remove-first = ##t
+        \override VerticalAxisGroup.remove-layer = 1
+      }
+      << \violaII \staves >>
+      \new Staff \with {
+        \override VerticalAxisGroup.remove-layer = 2
+      }
+      << \viola \staves >>
+    >>
   }
-  <<
-    \new Staff \with {
-      \override VerticalAxisGroup.remove-empty = ##t
-      \override VerticalAxisGroup.remove-first = ##t
-      \override VerticalAxisGroup.remove-layer = 1
-    }
-    << \violaI \staves >>
-    \new Staff \with {
-      \override VerticalAxisGroup.remove-empty = ##t
-      \override VerticalAxisGroup.remove-first = ##t
-      \override VerticalAxisGroup.remove-layer = 1
-    }
-    << \violaII \staves >>
-    \new Staff \with {
-      \override VerticalAxisGroup.remove-layer = 2
-    }
-    << \viola \staves >>
-  >>
 }
 
-% \score {
-%   \viola_part
-%   \layout {}
-% }
+% \viola_sarabande

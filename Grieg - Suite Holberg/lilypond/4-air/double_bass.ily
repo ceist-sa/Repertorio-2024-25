@@ -203,15 +203,14 @@ double_bass_conductor = {
   \double_bass_staves
 }
 
-double_bass_part = \compressMMRests{
-  \new GrandStaff \with {
-    \consists "Keep_alive_together_engraver"
+double_bass_air = \score {
+  \header { piece = "IV. Air" }
+  \compressMMRests{
+    \new GrandStaff \with {
+      \consists "Keep_alive_together_engraver"
+    }
+    \double_bass_staves
   }
-  \double_bass_staves
 }
 
-% \score {
-%   \double_bass_part
-%   \layout {}
-%   \midi {\tempo 2. = 15 }
-% }
+% \double_bass_air

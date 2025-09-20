@@ -303,23 +303,23 @@ cello_staves = {
 }
 
 cello_conductor = {
-  \new GrandStaff \with {
-    \consists "Keep_alive_together_engraver"
-    midiInstrument = #"cello"
-    instrumentName = \cello_name_long
-    shortInstrumentName = \cello_name_short
-  }
-  \cello_staves
+    \new GrandStaff \with {
+        \consists "Keep_alive_together_engraver"
+        midiInstrument = #"cello"
+        instrumentName = \cello_name_long
+        shortInstrumentName = \cello_name_short
+    }
+    \cello_staves
 }
 
-cello_part = \compressMMRests{
-  \new GrandStaff \with {
-    \consists "Keep_alive_together_engraver"
-  }
-  \cello_staves
+cello_praelude = \score {
+    \header { piece = "I. Praelude" }
+    \compressMMRests {
+        \new GrandStaff \with {
+            \consists "Keep_alive_together_engraver"
+        }
+        \cello_staves
+    }
 }
 
-% \score {
-%   \cello_part
-%   \layout {}
-% }
+% \cello_praelude

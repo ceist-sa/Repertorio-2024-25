@@ -160,22 +160,21 @@ viola_tutti_conductor = {
   \viola_tutti
 }
 
-viola_part = \compressMMRests{
-  \new GrandStaff \with {
-    midiInstrument = #"viola"
-  }
-  <<
-    \new Staff \with {
-      \override VerticalAxisGroup.remove-empty = ##t
+viola_rigaudon = \score {
+  \header { piece = "V. Rigaudon" }
+  \compressMMRests {
+    \new GrandStaff \with {
+      midiInstrument = #"viola"
     }
-    \viola_solo
-    \new Staff 
-    \viola_tutti
-  >>
+    <<
+      \new Staff \with {
+        \override VerticalAxisGroup.remove-empty = ##t
+      }
+      \viola_solo
+      \new Staff
+      \viola_tutti
+    >>
+  }
 }
 
-% \score {
-%   \viola_part
-%   \layout {}
-%   \midi {\tempo 2 = 90}
-% }
+% \viola_rigaudon

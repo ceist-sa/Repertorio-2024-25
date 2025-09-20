@@ -80,12 +80,12 @@ double_bass_conductor = {
   \double_bass
 }
 
-double_bass_part = \compressMMRests{
-  \new Staff 
-  \double_bass
+double_bass_gavotte = \score {
+  \header { piece = "III. Gavotte" }
+  \compressMMRests{
+    \new Staff
+    \double_bass
+  }
 }
 
-% \score{
-%   \double_bass_part
-%   \layout{}
-% }
+% \double_bass_gavotte

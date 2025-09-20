@@ -113,16 +113,14 @@ flute_conductor = {
   \flute
 }
 
-flute_part = {
+flute_sarabande = \score {
+  \header { piece = "II. Sarabande" }
+  \compressMMRests{
     \new GrandStaff \with {
         \consists "Keep_alive_together_engraver"
     }
     \flute_staves
+  }
 }
 
-
-
-% \score{
-%   \flute_part
-%   \layout {}
-% }
+% \flute_sarabande

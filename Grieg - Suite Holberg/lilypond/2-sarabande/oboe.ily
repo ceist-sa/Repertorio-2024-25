@@ -112,3 +112,15 @@ oboe_conductor = {
   }
   \oboe_staves
 }
+
+oboe_sarabande = \score {
+  \header { piece = "II. Sarabande" }
+  \compressMMRests{
+    \new GrandStaff \with {
+      \consists "Keep_alive_together_engraver"
+    }
+    \oboe_staves
+  }
+}
+
+% \oboe_sarabande

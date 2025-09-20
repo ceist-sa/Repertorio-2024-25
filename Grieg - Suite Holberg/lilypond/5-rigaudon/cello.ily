@@ -86,15 +86,14 @@ cello_conductor = {
   \cello
 }
 
-cello_part = \compressMMRests{
-  \new Staff \with {
-    midiInstrument = #"cello"
+cello_rigaudon = \score {
+  \header { piece = "V. Rigaudon" }
+  \compressMMRests {
+    \new Staff \with {
+      midiInstrument = #"cello"
+    }
+    \cello
   }
-  \cello
 }
 
-% \score {
-%   \cello_part
-%   \layout {}
-%   \midi {\tempo 2 = 120}
-% }
+% \cello_rigaudon

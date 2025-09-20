@@ -121,14 +121,12 @@ second_violin_conductor = {
   \second_violin
 }
 
-second_violin_part = \compressMMRests{
-  \new Staff 
-  \second_violin
+second_violin_rigaudon = \score {
+  \header { piece = "V. Rigaudon" }
+  \compressMMRests {
+    \new Staff
+    \second_violin
+  }
 }
 
-% \score{
-%   \second_violin_part
-
-%   \layout{}
-%   \midi {\tempo 2 = 120}
-% }
+% \second_violin_rigaudon

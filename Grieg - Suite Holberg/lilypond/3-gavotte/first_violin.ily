@@ -236,33 +236,33 @@ first_violin_conductor = {
   \first_violin
 }
 
-first_violin_part = \compressMMRests{
-  \new GrandStaff \with {
-    \consists "Keep_alive_together_engraver"
+first_violin_gavotte = \score {
+  \header { piece = "III. Gavotte" }
+  \compressMMRests {
+    \new GrandStaff \with {
+      \consists "Keep_alive_together_engraver"
+    }
+    <<
+      \new Staff \with {
+        \override VerticalAxisGroup.remove-empty = ##t
+        \override VerticalAxisGroup.remove-first = ##t
+        \override VerticalAxisGroup.remove-layer = 1
+      }
+      << \first_violinI \staves >>
+      \new Staff \with {
+        \override VerticalAxisGroup.remove-empty = ##t
+        \override VerticalAxisGroup.remove-first = ##t
+        \override VerticalAxisGroup.remove-layer = 1
+      }
+      << \first_violinII \staves >>
+      \new Staff \with {
+        printPartCombineTexts = ##f
+        \consists Merge_rests_engraver
+        \override VerticalAxisGroup.remove-layer = 2
+      }
+      << \first_violin \staves >>
+    >>
   }
-  <<
-    \new Staff \with {
-      \override VerticalAxisGroup.remove-empty = ##t
-      \override VerticalAxisGroup.remove-first = ##t
-      \override VerticalAxisGroup.remove-layer = 1
-    }
-    << \first_violinI \staves >>
-    \new Staff \with {
-      \override VerticalAxisGroup.remove-empty = ##t
-      \override VerticalAxisGroup.remove-first = ##t
-      \override VerticalAxisGroup.remove-layer = 1
-    }
-    << \first_violinII \staves >>
-    \new Staff \with {
-      printPartCombineTexts = ##f
-      \consists Merge_rests_engraver
-      \override VerticalAxisGroup.remove-layer = 2
-    }
-    << \first_violin \staves >>
-  >>
 }
 
-% \score{
-%  \first_violin_part
-%  \layout {}
-% }
+% \first_violin_gavotte

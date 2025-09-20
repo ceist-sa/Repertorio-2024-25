@@ -1,0 +1,37 @@
+\version "2.24.4"
+\language "portugues"
+\include "../../styles.ily"
+\include "../../ranges.ily"
+\include "globals.ily"
+
+\include "1-praelude/double_bass.ily"
+\include "2-sarabande/double_bass.ily"
+\include "3-gavotte/double_bass.ily"
+\include "4-air/double_bass.ily"
+\include "5-rigaudon/double_bass.ily"
+
+double_bass_conductor = \relative do {
+    \new GrandStaff \with {
+        \consists "Keep_alive_together_engraver"
+        midiInstrument = #"contrabass"
+        instrumentName = \double_bass_name_long
+        shortInstrumentName = \double_bass_name_short
+    }
+    \double_bass_staves
+}
+
+\bookpart {
+    \paper {
+        indent = 0.2\cm
+        short-indent = 0.2\cm
+    }
+    \header {
+        instrument = "Double Bass"
+        filename = "Grieg - Suite Holberg - DOUBLE BASS"
+    }
+    \double_bass_praelude
+    \double_bass_sarabande
+    \double_bass_gavotte
+    \double_bass_air
+    \double_bass_rigaudon
+}

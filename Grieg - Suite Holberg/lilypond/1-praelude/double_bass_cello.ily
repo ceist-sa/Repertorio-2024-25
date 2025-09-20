@@ -94,15 +94,14 @@ double_bass_cello_conductor = {
   \double_bass_cello
 }
 
-double_bass_cello_part = \compressMMRests{
-  \new Staff \with {
-    midiInstrument = #"cello"
+double_bass_cello_praelude = \score {
+  \header { piece = "I. Praelude" }
+  \compressMMRests {
+    \new Staff \with {
+      midiInstrument = #"cello"
+    }
+    \double_bass_cello
   }
-  \double_bass_cello
 }
 
-% \score{
-%   \double_bass_cello_part
-%   \layout{}
-%   \midi{ \tempo 4 = 150 }
-% }
+% \double_bass_cello_praelude

@@ -151,8 +151,11 @@ flute_conductor = {
   \flute
 }
 
+flute_praelude = \score {
+    \header { piece = "I. Praelude" }
+    \compressMMRests {
+        \flute
+    }
+}
 
-% \score{
-%   \flute_part
-%   \layout {}
-% }
+% \flute_praelude

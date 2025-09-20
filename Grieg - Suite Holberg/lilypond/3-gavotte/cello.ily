@@ -109,15 +109,14 @@ cello_conductor = {
   \cello
 }
 
-cello_part = \compressMMRests{
-  \new Staff \with {
-    midiInstrument = #"cello"
+cello_gavotte = \score {
+  \header { piece = "III. Gavotte" }
+  \compressMMRests {
+    \new Staff \with {
+      midiInstrument = #"cello"
+    }
+    \cello
   }
-  \cello
 }
 
-% \score {
-%   \cello_part
-%   \layout {}
-%   \midi {\tempo 2 = 90}
-% }
+% \cello_gavotte

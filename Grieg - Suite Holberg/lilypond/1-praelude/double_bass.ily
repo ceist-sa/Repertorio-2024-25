@@ -93,12 +93,12 @@ double_bass_conductor = {
   \double_bass
 }
 
-double_bass_part = \compressMMRests{
-  \new Staff 
-  \double_bass
+double_bass_praelude = \score {
+  \header { piece = "I. Praelude" }
+  \compressMMRests{
+    \new Staff 
+    \double_bass
+  }
 }
 
-% \score{
-%   \double_bass_part
-%   \layout{}
-% }
+% \double_bass_praelude

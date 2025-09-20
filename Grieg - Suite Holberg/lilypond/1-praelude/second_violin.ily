@@ -186,13 +186,12 @@ second_violin_conductor = {
   \second_violin
 }
 
-second_violin_part = \compressMMRests{
-  \new Staff 
-  \second_violin
+second_violin_praelude = \score {
+  \header { piece = "I. Praelude" }
+  \compressMMRests{
+    \new Staff 
+    \second_violin
+  }
 }
 
-% \score{
-%   \second_violin_part
-
-%   \layout{}
-% }
+% \second_violin_praelude

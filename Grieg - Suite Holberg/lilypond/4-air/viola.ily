@@ -210,36 +210,35 @@ viola_conductor = {
   \viola
 }
 
-viola_part = \compressMMRests{
-  \new GrandStaff \with {
-    \consists "Keep_alive_together_engraver"
+viola_air = \score {
+  \header { piece = "IV. Air" }
+  \compressMMRests {
+    \new GrandStaff \with {
+      \consists "Keep_alive_together_engraver"
+    }
+    <<
+      \new Staff \with {
+        midiInstrument = #"viola"
+        \override VerticalAxisGroup.remove-empty = ##t
+        \override VerticalAxisGroup.remove-first = ##t
+        \override VerticalAxisGroup.remove-layer = 1
+      }
+      << \violaI \staves >>
+      \new Staff \with {
+        midiInstrument = #"viola"
+        \override VerticalAxisGroup.remove-empty = ##t
+        \override VerticalAxisGroup.remove-first = ##t
+        \override VerticalAxisGroup.remove-layer = 1
+      }
+      << \violaII \staves >>
+      \new Staff \with {
+        midiInstrument = #"viola"
+        \override VerticalAxisGroup.remove-layer = 2
+        printPartCombineTexts = ##f
+      }
+      << \viola \staves >>
+    >>
   }
-  <<
-    \new Staff \with {
-      midiInstrument = #"viola"
-      \override VerticalAxisGroup.remove-empty = ##t
-      \override VerticalAxisGroup.remove-first = ##t
-      \override VerticalAxisGroup.remove-layer = 1
-    }
-    << \violaI \staves >>
-    \new Staff \with {
-      midiInstrument = #"viola"
-      \override VerticalAxisGroup.remove-empty = ##t
-      \override VerticalAxisGroup.remove-first = ##t
-      \override VerticalAxisGroup.remove-layer = 1
-    }
-    << \violaII \staves >>
-    \new Staff \with {
-      midiInstrument = #"viola"
-      \override VerticalAxisGroup.remove-layer = 2
-      printPartCombineTexts = ##f
-    }
-    << \viola \staves >>
-  >>
 }
 
-% \score {
-%   \viola_part
-%   \layout {}
-%   \midi {\tempo 2 = 90}
-% }
+% \viola_air

@@ -281,9 +281,14 @@ clarinet_conductor = {
   \clarinet_staves
 }
 
-clarinet_part = {
+clarinet_gavotte = \score {
+  \header { piece = "III. Gavotte" }
+  \compressMMRests{
     \new GrandStaff \with {
         \consists Keep_alive_together_engraver
     }
     \clarinet_staves
+  }
 }
+
+% \clarinet_gavotte

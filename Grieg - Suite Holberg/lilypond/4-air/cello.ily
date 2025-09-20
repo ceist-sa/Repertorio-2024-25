@@ -266,15 +266,14 @@ cello_conductor = {
   \cello_staves
 }
 
-cello_part = \compressMMRests{
-  \new GrandStaff \with {
-    \consists "Keep_alive_together_engraver"
+cello_air = \score {
+  \header { piece = "IV. Air" }
+  \compressMMRests {
+    \new GrandStaff \with {
+      \consists "Keep_alive_together_engraver"
+    }
+    \cello_staves
   }
-  \cello_staves
 }
 
-% \score {
-%   \cello_part
-%   \layout {}
-%   \midi {\tempo 2. = 15 }
-% }
+% \cello_air
