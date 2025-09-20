@@ -4,20 +4,49 @@
 
 \language "português"
 
-notes = \relative do'' {
+notes_tutti = \relative do' {
   \clef alto
-  s4 |
-  s1 * 7 |
-  s2. |
-  s4 |
-  s1 * 26 |
-  s4 r4 r2 |
+  r4 \pizz |
+  sol4\tutti\f r4 r2 |
+  R1 * 6 |
+  re''4-.->\arco\f re,-. re-. |
+  % S
+  r4 |
+  si'4->\pizz\p r4 r2 |
+  r4 mi, mi r |
+  la4-> r4 r2 |
+  r4 re, re r |
+  sol4-> r r dos, |
+  fas4-> r r si, |
+  mi->\cresc r re r |
+  dos4 r si r |
+  la4 r sol r |
+  fas4 r mi r |
+  % T
+  fas4->\f r r mi |
+  fas4-> r r mi |
+  fas4-> fas fas mi |
+  fas4-> r4 r2 |
+  do'4\p r la r |
+  si4 r sol r |
+  fas4 r mi r |
+  re' r r re'\piup |
+  do4 do la la |
+  si4 si sol sol |
+  fas fas mi mi |
+  re'4 r4 r2 |
+  re,4\pp r4 r2 |
+  re4 r4 r2 |
+  re4 r re r |
+  re4 r re r |
+  re4 r4 r2 |
   R1 |
-  si4->\tutti\ff (la8--) sol fas mi re do |
+  si'4->\tutti\ff (la8--) sol fas mi re do |
   si8 do re2-> mi4 |
   do4 re do2->\fermata\< |
   si4-.\!\ffz sol-. sol-. |
   % Poco meno mosso
+  \break % maybe this shouldn't be here, but I think it's ok
   r4 |
   sol'1\p ~ |
   2. sol4 |
@@ -52,16 +81,17 @@ notes = \relative do'' {
   sol2-> sol-> |
   sol2.-> sol4 |
   sol4 la8 sol \grace{fas16 (sol} fas2)-> |
-  sol2 sol,->\p^\markup{\italic "più tranquilo"} |
+  sol2 sol,->\p^\markup{\italic "più tranquillo"} |
   sol2-> sol-> |
   sol2.-> sol4 |
   sol4 la8 sol \grace{fas16 (sol} fas2)-> |
   sol2\fermata\pp r4 |
 }
 
-notesI = \relative do'' {
-  r4 \solo |
-  sol8\fp (re) sol, re' sol, (re') sol re |
+notes_solo = \relative do'' {
+  \clef alto
+  r4 |
+  sol8\fp \solo (re) sol, re' sol, (re') sol re |
   sol8 (re) sol, re' sol, (re') sol re |
   fas8 (re) sol, re' sol, (re') fas re |
   sol8 (re) sol, re' sol, (re') sol re |
@@ -99,109 +129,53 @@ notesI = \relative do'' {
   fas2.->) mi4 (|
   fas4) mi (fas) mi4 (|
   fas4) mi (fas) mi4 (|
-  fas4) s2. |
-  s1 |
-
+  fas4) r4 r2 |
+  R1 |
+  si4->\tutti\ff (la8--) sol fas mi re do |
+  si8 do re2-> mi4 |
+  do4 re do2->\fermata\< |
+  si4-.\!\ffz sol-. sol-. |
 }
 
-notesII = \relative do' {
-  r4 \tutti |
-  sol4\pizz\f r4 r2 |
-  R1 * 6 |
-  re''4-.->\arco\f re,-. re-. |
-  % S
-  r4 |
-  si'4->\pizz\p r4 r2 |
-  r4 mi, mi r |
-  la4-> r4 r2 |
-  r4 re, re r |
-  sol4-> r r dos, |
-  fas4-> r r si, |
-  mi->\cresc r re r |
-  dos4 r si r |
-  la4 r sol r |
-  fas4 r mi r |
-  % T
-  fas4->\f r r mi |
-  fas4-> r r mi |
-  fas4-> fas fas mi |
-  fas4-> r4 r2 |
-  do'4\p r la r |
-  si4 r sol r |
-  fas4 r mi r |
-  re' r r re'\piup |
-  do4 do la la |
-  si4 si sol sol |
-  fas fas mi mi |
-  re'4 r4 r2 |
-  re,4\pp r4 r2 |
-  re4 r4 r2 |
-  re4 r re r |
-  re4 r re r |
-  re4 s2. |
-  s1 |
+
+viola_solo = << \notes_solo \marks >>
+viola_tutti = << \notes_tutti \marks >>
+
+viola_solo_conductor = {
+  \new Staff \with {
+    midiInstrument = #"viola"
+    instrumentName = \solo_viola_name_long
+    shortInstrumentName = \solo_viola_name_short
+    \override VerticalAxisGroup.remove-empty = ##t
+  }
+  \viola_solo
 }
 
-staves = {
-  \twoStaves
-  s4 |
-  s1 * 7 |
-  s2. |
-  % S
-  s4 |
-  s1 * 27 |
-  \oneStaff
-  s1 * 4 |
-  s2. |
-  % Poco meno mosso
-  % ...
-  % one staff until the end
-}
-
-viola = <<\notes << \notesI \\ \notesII >> \marks >>
-
-violaI = <<\notes \notesI \marks >>
-violaII = <<\notes \notesII \marks >>
-
-
-viola_conductor = {
+viola_tutti_conductor = {
   \new Staff \with {
     midiInstrument = #"viola"
     instrumentName = \viola_name_long
     shortInstrumentName = \viola_name_short
   }
-  \viola
+  \viola_tutti
 }
 
 viola_part = \compressMMRests{
   \new GrandStaff \with {
-    \consists "Keep_alive_together_engraver"
+    midiInstrument = #"viola"
   }
   <<
     \new Staff \with {
-      midiInstrument = #"viola"
       \override VerticalAxisGroup.remove-empty = ##t
-      \override VerticalAxisGroup.remove-first = ##t
-      \override VerticalAxisGroup.remove-layer = 1
     }
-    << \violaI \staves >>
-    \new Staff \with {
-      midiInstrument = #"viola"
-      \override VerticalAxisGroup.remove-empty = ##t
-      \override VerticalAxisGroup.remove-first = ##t
-      \override VerticalAxisGroup.remove-layer = 1
-    }
-    << \violaII \staves >>
-    \new Staff \with {
-      midiInstrument = #"viola"
-      \override VerticalAxisGroup.remove-layer = 2
-    }
-    << \viola \staves >>
+    \viola_solo
+    \new Staff 
+    \viola_tutti
   >>
 }
 
-\score {
-  \viola_part
-  \layout {}
-  \midi {\tempo 2 = 90}
-}
+% \score {
+%   \viola_part
+%   \layout {}
+%   \midi {\tempo 2 = 90}
+% }

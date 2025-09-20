@@ -7,6 +7,9 @@ oboe_name_short = "Ob."
 clarinet_name_long = "Clarinet in B♭"
 clarinet_name_short = "Cl."
 
+solo_violin_name_long = "Solo Violin"
+solo_violin_name_short = "Vln."
+
 first_violin_name_long = "Violin I"
 first_violin_name_short = "Vln. I"
 
@@ -15,6 +18,9 @@ second_violin_name_short = "Vln. II"
 
 viola_name_long = "Viola"
 viola_name_short = "Vla."
+
+solo_viola_name_long = "Solo Viola"
+solo_viola_name_short = "Vla."
 
 cello_name_long = "Violoncello"
 cello_name_short = "Vc."

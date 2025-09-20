@@ -45,22 +45,43 @@ notes_solo = \relative do'{
   la8( do) la8( do) la8( do) la8( do) |
   la( do) do( fas) fas( la) la( do) |
   \ottava #1  do( fas) fas( la) la( do) \ottava #0 r4 |
-
-  s1 * 38 |
-  s2. |
-
-}
-
-notes = \relative do'{  %Tutti without solo (one staff)
-  \clef treble 
-  s4 |
-  s1 * 36 |
-  %38 measures + three beats 
-
-  si''4-> ( la8--) sol8 fas mi re do |
+  si,4-> ( la8--) sol8 fas mi re do |
   si do re2-> mi4 |
   do si \grace { la16 \(  si }  la4.\fermata \)\( sol8\) |
-  sol4-. sol,-. sol-. re'' |
+  sol4-. sol,-. sol-.
+}
+
+
+notes = \relative do'{ % tutti with solo (two staves)
+  s4 |
+  s1 * 8 |%S
+
+  sol''4-> r4 r2 |
+  r4 dos,4 dos r4 |
+  fas -> r4 r2 |
+  r4 si, si r4 | 
+  mi-> r4 r4 la, | 
+  re-> r4 r4 sol, | 
+  dos-> r4 si r4 |
+  la r4 sol r4 |
+  fas r4 mi r4 |
+  re r4 dos r4 |%T
+  la-> r4 r4 dos |
+  la-> r4 r4 dos |
+  la-> re re dos |
+  la-> r4 r4 re |
+  mi r4 fas r4 |
+  sol r4 si r4 |
+  
+  s1 * 12 |
+
+  si'4-> ( la8--) sol8 fas mi re do |
+  si do re2-> mi4 |
+  do si \grace { la16 \(  si }  la4.\fermata \)\( sol8\) |
+  sol4-. sol,-. sol-.|
+  % Poco meno mosso
+  \break % maybe this shouldn't be here, but I think it's ok
+  re'' |
   sol( fa8 mib) re4( do) |
   sib8-> do re2 re4 |
   re2 \grace { dos16\( re} dos2 \) |
@@ -96,34 +117,6 @@ notes = \relative do'{  %Tutti without solo (one staff)
   sib8( la) la2 do8 mib |
   re4 do8 sib \grace {la16\( sib} la4.->  sol8 \) |
   sol2 \fermata r4 |
-
-}
-
-
-notesI_II = \relative do'{ % tutti with solo (two staves)
-  s4 |
-  s1 * 8 |%S
-
-  sol''4-> r4 r2 |
-  r4 dos,4 dos r4 |
-  fas -> r4 r2 |
-  r4 si, si r4 | 
-  mi-> r4 r4 la, | 
-  re-> r4 r4 sol, | 
-  dos-> r4 si r4 |
-  la r4 sol r4 |
-  fas r4 mi r4 |
-  re r4 dos r4 |%T
-  la-> r4 r4 dos |
-  la-> r4 r4 dos |
-  la-> re re dos |
-  la-> r4 r4 re |
-  mi r4 fas r4 |
-  sol r4 si r4 |
-  
-  s1 * 12 |
-  s1 * 38 |
-  s2. |
 }
 
 notesI = \relative do'{
@@ -132,8 +125,10 @@ notesI = \relative do'{
   r4 si si r4 |
   r4 la la r4 |
   r4 si si r4 |
+  \partCombineApart
   re r4 re r4 |
   re r4 re r4 |
+  \partCombineAutomatic
   r4 re sol sol |
   fas r4 r4 r4 |
 
@@ -251,11 +246,37 @@ s2. s4 \piup |
 s1*3 | 
 s2. s4 \pp |
 s1 *6 |
-
-s1 \ff \arco \tutti|
+s1 \ff \tutti|
 s1 |
 s4 s4 s4. \< s8 \! |
-s4 \ffz s2 s4 \p |
+s4 \ffz s2 |
+}
+
+dynamicsI_II = {
+s4 \pizz \div |
+s4 \fp  \tutti s2 s4 |
+s4 s4\pp s2 |
+s1 *4 |
+s4 s4 \cresc s2 |
+s4 \f  s4 s4 s4 |
+s1 \p |
+s1 *6 |
+s1 \cresc |
+s1*2 |
+s1 \f |
+s1*2 |
+s2. s4 \p |
+s1*2 | 
+s1 \div |
+s2. s4 \piup |
+s1*3 | 
+s2. s4 \pp |
+s1 * 6 |
+s1 \ff \arco |
+s1 |
+s4 s4 s4. \< s8 \! |
+s4 \ffz s2 |
+s4 \p |
 s1 *3|
 s2. s4\mf |
 s1 
@@ -274,92 +295,46 @@ s1 * 3 |
 s2 s2 \p |
 s1 * 3 |
 s2. |
-}
-
-dynamicsI_II = {
-s4  |
-s4 \fp \pizz \div s2 s4 |
-s4 s4\pp s2 |
-s1 *4 |
-s4 s4 \cresc s2 |
-s4 \f  s4 s4 s4 |
-s1 \p \tutti |
-s1 *6 |
-s1 \cresc |
-s1*2 |
-s1 \f |
-s1*2 |
-s2. s4 \p |
-s1*2 | 
-s1 \div |
-s2. s4 \piup |
-s1*3 | 
-s2. s4 \pp |
-s1 * 44 |
-s2. |
 
 }
 
+first_violin_solo = << \notes_solo \marks \dynamicssolo >> 
+first_violinI = << \notes \notesI >> 
+first_violinII = << \notes \notesII >> 
+first_violin_tutti = << \partCombine \first_violinI \first_violinII \marks \dynamicsI_II >>
 
-first_violin = << \notes <<\notes_solo \\ \notesI \\ \notesII \\ \notesI_II >> \marks \dynamicssolo \dynamicsI_II >>
+first_violin_solo_conductor = {
+  \new Staff \with {  
+    instrumentName = \solo_violin_name_long
+    shortInstrumentName = \solo_violin_name_short
+    midiInstrument = #"violin"
+    \override VerticalAxisGroup.remove-empty = ##t
+  }
+  \first_violin_solo
+}
 
-first_violin_solo = << \notes \notes_solo \marks \dynamicssolo >> 
-first_violinI = << \notes \notesI \notesI_II \marks \dynamicsI_II  >> 
-first_violinII = << \notes \notesII \notesI_II \marks \dynamicsI_II >> 
-
-first_violin_conductor = {
+first_violin_tutti_conductor = {
   \new Staff \with {  
     instrumentName = \first_violin_name_long
     shortInstrumentName = \first_violin_name_short
     midiInstrument = #"violin"
+    printPartCombineTexts = ##f
   }
-  \first_violin
+  \first_violin_tutti
 }
 
 first_violin_part = \compressMMRests{
   \new GrandStaff \with {
-    \consists "Keep_alive_together_engraver"
-    midiInstrument = #"violin"
+    \override VerticalAxisGroup.remove-empty = ##t
+    printPartCombineTexts = ##f
   }
   <<
-    \new Staff \with {
-      \override VerticalAxisGroup.remove-empty = ##t
-      \override VerticalAxisGroup.remove-first = ##t
-      \override VerticalAxisGroup.remove-layer = 1
-    }
-    << \first_violin_solo \three_divisi_staves \system_breaks >>
-    \new Staff \with { 
-      \override VerticalAxisGroup.remove-empty = ##t
-      \override VerticalAxisGroup.remove-first = ##t
-      \override VerticalAxisGroup.remove-layer = 1
-    }
-    << \first_violinI \three_divisi_staves \system_breaks >>
-    \new Staff \with { 
-      \override VerticalAxisGroup.remove-empty = ##t
-      \override VerticalAxisGroup.remove-first = ##t
-      \override VerticalAxisGroup.remove-layer = 1
-    }
-    << \first_violinII \three_divisi_staves \system_breaks >>
-    \new Staff \with {
-      \override VerticalAxisGroup.remove-empty = ##t
-      \override VerticalAxisGroup.remove-first = ##t
-      \override VerticalAxisGroup.remove-layer = 2
-    }
-    << \first_violin_solo \two_divisi_staves \system_breaks >>
-    \new Staff \with { 
-      \override VerticalAxisGroup.remove-empty = ##t
-      \override VerticalAxisGroup.remove-first = ##t
-      \override VerticalAxisGroup.remove-layer = 2
-    }
-    << \first_violinI \two_divisi_staves \system_breaks >>
-    \new Staff \with {
-      \override VerticalAxisGroup.remove-layer = 3
-    }
-    << \first_violin \system_breaks >>
+    \new Staff \first_violin_solo
+    \new Staff \first_violin_tutti
   >>
 }
 
-%\score{
+% \score{
 %  \first_violin_part
 %  \layout {}
-%}
+% }

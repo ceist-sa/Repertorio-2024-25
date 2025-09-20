@@ -93,8 +93,8 @@ cello_part = \compressMMRests{
   \cello
 }
 
-\score {
-  \cello_part
-  \layout {}
-  \midi {\tempo 2 = 120}
-}
+% \score {
+%   \cello_part
+%   \layout {}
+%   \midi {\tempo 2 = 120}
+% }

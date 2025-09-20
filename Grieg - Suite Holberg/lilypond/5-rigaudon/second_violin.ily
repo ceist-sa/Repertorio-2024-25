@@ -101,7 +101,7 @@ notes = \relative do'{
   sol4-> (sol') sol,4-> (sol') |
   sol,4-> (sol'2) do,4 |
   re4 do8 sib \grace{la16 _(sib} la4.-> sol8) |
-  sol2 re4\p^\markup{\italic "più tranquilo"} (sib) |
+  sol2 re4\p^\markup{\italic "più tranquillo"} (sib) |
   sol4-> (sol') sol,4-> (sol') |
   sol,4-> (sol'2) do,4 |
   re4 do8 sib \grace{la16 _(sib} la4.-> sol8) |
@@ -126,9 +126,9 @@ second_violin_part = \compressMMRests{
   \second_violin
 }
 
-\score{
-  \second_violin_part
+% \score{
+%   \second_violin_part
 
-  \layout{}
-  \midi {\tempo 2 = 120}
-}
+%   \layout{}
+%   \midi {\tempo 2 = 120}
+% }
