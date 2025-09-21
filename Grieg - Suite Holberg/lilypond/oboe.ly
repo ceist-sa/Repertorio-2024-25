@@ -7,6 +7,7 @@
 \include "1-praelude/oboe.ily"
 \include "2-sarabande/oboe.ily"
 \include "3-gavotte/oboe.ily"
+\include "4-air/oboe.ily"
 \include "5-rigaudon/oboe.ily"
 
 oboe_conductor = \relative do'' {
@@ -30,5 +31,6 @@ oboe_conductor = \relative do'' {
     \oboe_praelude
     \oboe_sarabande
     \oboe_gavotte
+    \oboe_air
     \oboe_rigaudon
 }

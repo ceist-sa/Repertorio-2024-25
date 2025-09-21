@@ -7,6 +7,7 @@
 \include "1-praelude/clarinet.ily"
 \include "2-sarabande/clarinet.ily"
 \include "3-gavotte/clarinet.ily"
+\include "4-air/clarinet.ily"
 \include "5-rigaudon/clarinet.ily"
 
 clarinet_conductor = \relative do' {
@@ -30,5 +31,6 @@ clarinet_conductor = \relative do' {
     \clarinet_praelude
     \clarinet_sarabande
     \clarinet_gavotte
+    \clarinet_air
     \clarinet_rigaudon
 }

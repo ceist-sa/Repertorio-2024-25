@@ -204,8 +204,8 @@ double_bass_cello_conductor = {
   \double_bass_cello_staves
 }
 
-double_bass_cello_rigaudon = \score {
-  \header { piece = "V. Rigaudon" }
+double_bass_cello_air = \score {
+  \header { piece = "IV. Air" }
   \compressMMRests{
     \new GrandStaff \with {
       \consists Keep_alive_together_engraver

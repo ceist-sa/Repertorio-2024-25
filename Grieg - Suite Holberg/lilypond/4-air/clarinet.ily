@@ -241,16 +241,14 @@ clarinet_conductor = {
   \clarinet_staves
 }
 
-%TODO
-
-% clarinet_air = \score {
-%   \header { piece = "IV. Air" }
-%   \compressMMRests {
-%     \new GrandStaff \with {
-%       \consists "Keep_alive_together_engraver"
-%     }
-%     \clarinet_staves
-%   }
-% }
+clarinet_air = \score {
+  \header { piece = "IV. Air" }
+  \compressMMRests {
+    \new GrandStaff \with {
+      \consists "Keep_alive_together_engraver"
+    }
+    \clarinet_staves
+  }
+}
 
 % \clarinet_air

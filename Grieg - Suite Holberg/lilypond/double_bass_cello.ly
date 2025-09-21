@@ -7,6 +7,7 @@
 \include "1-praelude/double_bass_cello.ily"
 \include "2-sarabande/double_bass_cello.ily"
 \include "3-gavotte/double_bass_cello.ily"
+\include "4-air/double_bass_cello.ily"
 \include "5-rigaudon/double_bass_cello.ily"
 
 double_bass_cello_conductor = \relative do {
@@ -30,5 +31,6 @@ double_bass_cello_conductor = \relative do {
     \double_bass_cello_praelude
     \double_bass_cello_sarabande
     \double_bass_cello_gavotte
+    \double_bass_cello_air
     \double_bass_cello_rigaudon
 }
