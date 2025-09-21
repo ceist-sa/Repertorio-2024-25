@@ -39,7 +39,7 @@ notes = \relative sol {
     s2. * 3 |
     \once \stemUp re4->\tutti ~ (16 do) do (sib) sib (la) la (sol) |
     re'2 sol,4 \espressivo |
-    \once \stemUp re'4-> ~ (16 do) do (sib) sib (la) \tuplet 3/2 {do16 (sib la)} |
+    \once \stemUp re'4-> ~ (16 do) do\< (sib) sib\! (la\>) \tuplet 3/2 {do16 (sib la\!)} |
     re4 sib-> (la) |
     sol4-> (fas) mi ( |
     re8) sib'-> (la sol fas mi |
@@ -121,7 +121,7 @@ notesII = \relative {
     % P
     \after 4 \> sib,2\ffz ~ 8\! r8 |
     do2 \dim ~ 8 r8 |
-    re2\p (do4) |
+    re2\p (sol,4) |
     s2. * 8 |
     s2. * 8 |
     % R 
@@ -168,7 +168,7 @@ dynamics = {
     s2. * 2 |
     s2. \p |
     s2. |
-    s4 s16 s16\< s8 s16\> s16\! s8 |
+    s4 s16 s16 s8 s16 s16 s8 |
     s4 s2 \cresc |
     s2. |
     s8 s8\dim s2 |
@@ -252,7 +252,7 @@ cello_staves = {
         \consists Merge_rests_engraver
         \override VerticalAxisGroup.remove-layer = 2
         }
-        << \cello \staves >>
+        \cello
     >>
 }
 

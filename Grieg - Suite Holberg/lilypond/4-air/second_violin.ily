@@ -36,7 +36,7 @@ dynamics = {
   s2. |
   s8 s8\p s2 |
   s2. |
-  s4 s8\< s8\! s8\> s8\! |
+  s4.\! s8\< s16 s16\> s8 |
   s4\! s2\cresc |
   s2. |
   s4 s4 s4\dim |

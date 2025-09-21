@@ -44,7 +44,7 @@ dynamics = {
   % Q
   s2. \pp |
   s2. * 2 |
-  s4 s2\< |
+  s4 s8 s8\< s4|
   s4\mf s4 s4 \dim |
   s2 s4\> |
   s2. \pp |

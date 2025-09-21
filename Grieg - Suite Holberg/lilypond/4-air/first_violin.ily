@@ -12,7 +12,7 @@ notes = \relative do''{
   \tuplet 3/2 {re32-> \( do si} do16~ do8~ do4. \) r8|
   do4 do2-- |
   \tuplet 3/2 {do32-> \( sib la} sib16~ sib8~ sib4. \) r8|
-  r8 fa'4 re8-- sib-- lab-- |
+  r8 fa'4-> re8-- sib-- lab-- |
   lab32->(sol fa sol \tuplet 3/2 {fa sol lab} sol16~ sol2) |
   r8 re'8->\(( re16) si\) si sol sol( lab) lab fa |
   fa32->(mib re mib \tuplet 3/2 {re mib fa} mib16~ mib2) | %N
@@ -31,7 +31,7 @@ notes = \relative do''{
   R2. |
   fas,4~( fas16 mi) mi( re) mi( fas) fas( sol) |
   R2. |
-  fas4~( fas16 mi) mi( re) mi( fas) \tuplet 3/2 { la( sol fas)} |
+  fas4~( fas16 mi) mi\<( re) mi\!( fas\>) \tuplet 3/2 { la( sol fas\!)} |
   R2. |
   fas4~( fas16 mi) mi( fas) r4 |
   r4 fas4~( fas16 mi) mi( fas) |
@@ -148,11 +148,11 @@ dynamics = {
   s4 \ff s4 s4\< |
   s8 s16 s16 \! s2 |
   s4 s4 \< s4 | 
-  s8 \ffz s8 \> s8 \! s8 s4 | 
+  s8\! \ffz s8 \> s8 \! s8 s4 | 
   s2. | 
   s4 \p s2 | 
   s2. |
-  s4 s16 \< s16 s16 s16  s16\> s16 \! s8 |
+  s2. |
   s2. | 
   s4 \< s16 \! s16 s8 s4 | 
   s4 s4 \cresc s8 s16 s16 \! |
@@ -178,7 +178,7 @@ dynamics = {
 
 
 
-first_violin = << \notes << \notesI \\ \notesII >> \marks \dynamics >>
+first_violin = << \notes \partCombine \notesI \notesII \marks \dynamics >>
 first_violinI = <<\notes \notesI \marks \dynamics>>
 first_violinII = <<\notes \notesII \marks \dynamics>>
 
