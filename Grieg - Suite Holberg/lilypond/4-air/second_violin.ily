@@ -50,7 +50,7 @@ dynamics = {
   s2 s4\> |
   s8\! s8 \pp s2 |
   s2. |
-  % R 
+  % R
   s8 s8\p s2 |
   s2. |
   s8 \cresc s8 s2 |
@@ -60,9 +60,10 @@ dynamics = {
   s2.\ff |
   s2 s4\< |
   s8\! \ffp s8 \>  s8 s8 s4 \pp |
-} 
+}
 
 notes = \relative do' {
+  \set Staff.midiInstrument = #"violin"
   \clef treble
   <re sol>8\div 8 8 8 8 8 |
   <mib sol>8 8 8 8 8 8 |
@@ -74,7 +75,7 @@ notes = \relative do' {
   r8 si si re! re do |
   % N
   s2. * 7 |
-  % O 
+  % O
   s2. * 13 |
   % P
   s2. * 6 |
@@ -84,6 +85,7 @@ notes = \relative do' {
 }
 
 notesI = \relative do'' {
+  \set Staff.midiInstrument = #"violin"
   s2. * 8 |
   r8 re8\div 8 8 8 8 |
   re8 8 8 8 8 8 |
@@ -106,9 +108,9 @@ notesI = \relative do'' {
   sib8 sib sib re do la |
   sib8 [do re-> do] sib [sol'16 (fa)] |
   fa8-> [mi->] fa8 [8 8 8] |
-  % P 
+  % P
   r8 sib,8 8 [8 8 8] |
-  r8 la8 8 [8 8 8] | 
+  r8 la8 8 [8 8 8] |
   R2. |
   r8 fas fas fas mi mi |
   R2. |
@@ -138,6 +140,7 @@ notesI = \relative do'' {
 }
 
 notesII = \relative do'' {
+  \set Staff.midiInstrument = #"violin"
   s2. * 8 |
   r8 re,8 8 8 8 8 |
   re8 8 8 8 8 8 |
@@ -147,7 +150,7 @@ notesII = \relative do'' {
   sol8 [fa mi re] la' [la] |
   la8 la,8 8 8 la4 |
   % O
-  fa'8 8 8 8 8 8 | 
+  fa'8 8 8 8 8 8 |
   sol8 8 8 8 8 8 |
   fa8 8 8 8 8 8 |
   fa8 [8 8 8] mib8 [8] |
@@ -164,7 +167,7 @@ notesII = \relative do'' {
   r8 fa8 8 [8 8 8] |
   r8 mib8 8 [8 8 8] |
   R2. |
-  r8 re8 8 8 8 8 |   
+  r8 re8 8 8 8 8 |
   R2. |
   r8 re8 8 8 8 8 |
   s2. * 3 |
@@ -204,9 +207,9 @@ staves = {
   s2. * 3 |
   \twoStaves
   s2. * 3 |
-  \oneStaff 
+  \oneStaff
   s2. * 5 |
-  % Q 
+  % Q
   s2. |
   \twoStaves
   s2. * 7 |
@@ -221,13 +224,12 @@ second_violinI = <<\notes \notesI \marks \dynamics>>
 second_violinII = <<\notes \notesII \marks \dynamics>>
 
 second_violin_conductor = {
-  \new Staff \with {
-    printPartCombineTexts = ##f  
-    instrumentName = \second_violin_name_long
-    shortInstrumentName = \second_violin_name_short
-    midiInstrument = #"violin"
-  }
-  \second_violin
+   \new Staff \with {
+     printPartCombineTexts = ##f
+     instrumentName = \second_violin_name_long
+     shortInstrumentName = \second_violin_name_short
+   }
+   \second_violin
 }
 
 second_violin_air = \score {
@@ -235,7 +237,6 @@ second_violin_air = \score {
   \compressMMRests {
     \new GrandStaff \with {
       \consists "Keep_alive_together_engraver"
-      midiInstrument = #"violin"
     }
     <<
       \new Staff \with {

@@ -6,6 +6,7 @@
 \language "português"
 
 notes = \relative sol {
+    \set Staff.midiInstrument = #"cello"
     \clef bass
     sol2. |
     sol2. |
@@ -22,7 +23,7 @@ notes = \relative sol {
     sol16 (fa) mi (fa) do'-- (sib--) la-- sol-- la4 |
     sib2-> s4
     s2. |
-    re16 (re,) do (sib) la-- (sol--) fa-- (mi--) re4 | 
+    re16 (re,) do (sib) la-- (sol--) fa-- (mi--) re4 |
     % O, repeat bar
     sib''2. |
     sib2. |
@@ -35,7 +36,7 @@ notes = \relative sol {
     s4 re8 fa mib sol |
     re8 sol fa2 |
     s2. * 3 |
-    % P 
+    % P
     s2. * 3 |
     \once \stemUp re4->\tutti ~ (16 do) do (sib) sib (la) la (sol) |
     re'2 sol,4 \espressivo |
@@ -63,11 +64,12 @@ notes = \relative sol {
 }
 
 notesI = \relative {
+    \set Staff.midiInstrument = #"cello"
     s2. * 12 |
     s2 re'8. (do16) |
     do16 (si) si sib sib (la) la8 \tuplet 3/2 {re32 (dos si} dos8 re16) |
     s2. |
-    % O 
+    % O
     s2. * 5 |
     s2 fa4\solo ~ ( |
     16 mib) mib (do) do (mib) mib (fa) s4 |
@@ -81,7 +83,7 @@ notesI = \relative {
     R2. * 2 |
     s2. * 8 |
     s2. * 8 |
-    % R 
+    % R
     <<
         {
             r8 la \twoSoli \p la la la la |
@@ -99,16 +101,17 @@ notesI = \relative {
     s2. * 2 |
     s2 sol'8. (fa16-.) |
     fa16 (mi) mi mib mib (re) re8 \tuplet 3/2 {sol32 (fas mi} fas8 sol16) |
-    sol2. | 
+    sol2. |
 
 }
 
 notesII = \relative {
+    \set Staff.midiInstrument = #"cello"
     s2. * 12 |
     s2 fas4 |
     sol4. fa!16 sol la4 |
     s2. |
-    % O 
+    % O
     s2. * 5 |
     s2 re,4 \tutti ~ |
     8 mib fa mib s4 |
@@ -116,15 +119,15 @@ notesII = \relative {
     mib8 fa s2 |
     s2. |
     mib2.-> |
-    mib2 ~ 8 mib | 
-    re8-> sol-> fa2 | 
+    mib2 ~ 8 mib |
+    re8-> sol-> fa2 |
     % P
     \after 4 \> sib,2\ffz ~ 8\! r8 |
     do2 \dim ~ 8 r8 |
     re2\p (sol,4) |
     s2. * 8 |
     s2. * 8 |
-    % R 
+    % R
     do2. \p \tutti |
     sib2. |
     fa2. |
@@ -132,7 +135,7 @@ notesII = \relative {
     s2. * 2 |
     s2 si''4 |
     do4. sib16 do re4 |
-    sol16 (sol,) fa-- (mib--) re-- (do--) sib-- (la--) sol4 | 
+    sol16 (sol,) fa-- (mib--) re-- (do--) sib-- (la--) sol4 |
 }
 
 dynamics = {
@@ -202,7 +205,7 @@ staves = {
     \twoStaves
     s2. * 3 |
     % repeat bar
-    \oneStaff 
+    \oneStaff
     s2. * 5 |
     \twoStaves
     s2. * 11 |
@@ -232,7 +235,6 @@ celloII = <<\notes \notesII \marks \dynamics >>
 cello_staves = {
     <<
         \new Staff \with {
-        midiInstrument = #"cello"
         \consists Merge_rests_engraver
         \override VerticalAxisGroup.remove-empty = ##t
         \override VerticalAxisGroup.remove-first = ##t
@@ -240,7 +242,6 @@ cello_staves = {
         }
         << \celloI \staves >>
         \new Staff \with {
-        midiInstrument = #"cello"
         \consists Merge_rests_engraver
         \override VerticalAxisGroup.remove-empty = ##t
         \override VerticalAxisGroup.remove-first = ##t
@@ -248,7 +249,6 @@ cello_staves = {
         }
         << \celloII \staves >>
         \new Staff \with {
-        midiInstrument = #"cello"
         \consists Merge_rests_engraver
         \override VerticalAxisGroup.remove-layer = 2
         }
@@ -259,7 +259,6 @@ cello_staves = {
 cello_conductor = {
   \new GrandStaff \with {
     \consists "Keep_alive_together_engraver"
-    midiInstrument = #"cello"
     instrumentName = \cello_name_long
     shortInstrumentName = \cello_name_short
   }

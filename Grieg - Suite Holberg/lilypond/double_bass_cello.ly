@@ -14,7 +14,6 @@ double_bass_cello_conductor = \relative do {
     \new Staff \with {
         instrumentName = \double_bass_cello_name_long
         shortInstrumentName = \double_bass_cello_name_short
-        midiInstrument = #"cello"
     }
     \double_bass_cello
 }

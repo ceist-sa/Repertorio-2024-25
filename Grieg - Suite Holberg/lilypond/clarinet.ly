@@ -14,7 +14,6 @@ clarinet_conductor = \relative do' {
     \new Staff \with {
         instrumentName = \clarinet_name_long
         shortInstrumentName = \clarinet_name_short
-        midiInstrument = #"clarinet"
     }
     \clarinet
 }

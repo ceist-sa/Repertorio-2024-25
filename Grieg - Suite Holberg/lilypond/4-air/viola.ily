@@ -49,7 +49,7 @@ dynamics = {
   s2 s4\> |
   s2. \pp |
   s2. |
-  % R 
+  % R
   s2. \pcantab |
   s2. |
   s2. \cresc |
@@ -59,9 +59,10 @@ dynamics = {
   s2.\ff |
   s2 s4\< |
   s8\! \ffp s8 \>  s8 s8 s4 \pp |
-} 
+}
 
 notes = \relative do' {
+  \set Staff.midiInstrument = #"viola"
   \clef alto
   sib8 8 8 8 8 8 |
   la8 8 8 8 8 8 |
@@ -90,6 +91,7 @@ notes = \relative do' {
 }
 
 notesI = \relative do'' {
+  \set Staff.midiInstrument = #"viola"
   s2. * 8 |
   % N
   r8 la8\div 8 8 8 8 |
@@ -136,6 +138,7 @@ notesI = \relative do'' {
 }
 
 notesII = \relative do' {
+  \set Staff.midiInstrument = #"viola"
   s2. * 8 |
   % N
   r8 la8 8 8 8 8 |
@@ -188,7 +191,7 @@ staves = {
   s2. * 12 |
   \twoStaves
   s2. |
-  % P 
+  % P
   s2. * 2 |
   % ...
   % two staves until the end
@@ -203,7 +206,6 @@ violaII = <<\notes \notesII \marks \dynamics>>
 viola_conductor = {
   \new Staff \with {
     printPartCombineTexts = ##f
-    midiInstrument = #"viola"
     instrumentName = \viola_name_long
     shortInstrumentName = \viola_name_short
   }
@@ -218,21 +220,18 @@ viola_air = \score {
     }
     <<
       \new Staff \with {
-        midiInstrument = #"viola"
         \override VerticalAxisGroup.remove-empty = ##t
         \override VerticalAxisGroup.remove-first = ##t
         \override VerticalAxisGroup.remove-layer = 1
       }
       << \violaI \staves >>
       \new Staff \with {
-        midiInstrument = #"viola"
         \override VerticalAxisGroup.remove-empty = ##t
         \override VerticalAxisGroup.remove-first = ##t
         \override VerticalAxisGroup.remove-layer = 1
       }
       << \violaII \staves >>
       \new Staff \with {
-        midiInstrument = #"viola"
         \override VerticalAxisGroup.remove-layer = 2
         printPartCombineTexts = ##f
       }

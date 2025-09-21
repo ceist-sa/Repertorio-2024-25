@@ -7,8 +7,9 @@
 \language "português"
 
 notes = \relative do''{
-  \clef treble 
-  re4 re2-- | 
+  \set Staff.midiInstrument = #"violin"
+  \clef treble
+  re4 re2-- |
   \tuplet 3/2 {re32-> \( do si} do16~ do8~ do4. \) r8|
   do4 do2-- |
   \tuplet 3/2 {do32-> \( sib la} sib16~ sib8~ sib4. \) r8|
@@ -50,6 +51,7 @@ notes = \relative do''{
 }
 
 notesI = \relative do'{
+  \set Staff.midiInstrument = #"violin"
   s2.*8| %N
   r8 fas'8 fas fas fas fas|
   sol sol sol sol sol sol|
@@ -80,6 +82,7 @@ notesI = \relative do'{
 }
 
 notesII = \relative do'{
+  \set Staff.midiInstrument = #"violin"
   s2.*8| %N
   r8 fas8 fas fas fas fas|
   sol sol sol sol sol sol|
@@ -88,14 +91,14 @@ notesII = \relative do'{
   re2->\(( re8.) do!16\)|
   do16( si) si sib sib(la) la8 \tuplet 3/2 {re32\( dos si} dos8 re16\) |
   re8 re, re re re4 | %O
-  s2.*9| 
+  s2.*9|
   r16 sib' sib( do) do4~( do8. sol'16) |
   sol4~( sol16 sib) sib( la) la( fa) fa sol|
   sol( la) la sib sib->( la) la sol sol( do,) do fa |
   fa( sib,) sib do do4~(do8. sib16) | %P
   sib4( sib8) r8 r4 |
   s2.*18|
-  %R 
+  %R
   fas2~( fas16 la) sol fas |
   la( sol fas sol) \grace {fas\( sol la} sol2 \) |
   si2~( si16 re) do si |
@@ -113,7 +116,7 @@ staves = {
   \oneStaff s2. *9
   \twoStaves s2. *5
   \oneStaff s2. *18
-  \twoStaves s2.*9  
+  \twoStaves s2.*9
 }
 
 
@@ -122,56 +125,56 @@ staves = {
 dynamics = {
   s4 \p s2 \< |
   s32 \! s32 s16\> s8 s2 \! |
-  s4 s2\< |  
+  s4 s2\< |
   s32 \! s32 s16\> s8 s2 \! |
   s8 s8 \f  s2 |
-  s2.| 
-  s4 s4 \dim s16 \< s16\! s16\> s16 \! | 
+  s2.|
+  s4 s4 \dim s16 \< s16\! s16\> s16 \! |
   s2. |
   s8 s8 \p s2 |
   s2. |
-  s8 s8 \cresc s2 | 
+  s8 s8 \cresc s2 |
   s2 s8 \< s16 s32 s32 \! |
   s4 \f\> s4 s8.\! s16|
   s2 s32 s32 \< s8 s16 \!|
-  s8 \ffp s8 \>  s8 s8 s4 \pp | 
+  s8 \ffp s8 \>  s8 s8 s4 \pp |
   s4 \pp s2 |
-  s2. | 
-  s4 s8 \< s8 s8 \> s8 \! | 
+  s2. |
+  s4 s8 \< s8 s8 \> s8 \! |
   s2. |
   s4 \cresc s2 |
   s2. |
   s2 s4 \p |
-  s8 s16\< s16 s16 s16 s16 s16\! s4 | 
-  s4 s16 \p s16\cresc s8 s4 |  
-  s4 s4 \< s4 | 
+  s8 s16\< s16 s16 s16 s16 s16\! s4 |
+  s4 s16 \p s16\cresc s8 s4 |
+  s4 s4 \< s4 |
   s4 \ff s4 s4\< |
   s8 s16 s16 \! s2 |
-  s4 s4 \< s4 | 
-  s8\! \ffz s8 \> s8 \! s8 s4 | 
-  s2. | 
-  s4 \p s2 | 
+  s4 s4 \< s4 |
+  s8\! \ffz s8 \> s8 \! s8 s4 |
+  s2. |
+  s4 \p s2 |
   s2. |
   s2. |
-  s2. | 
-  s4 \< s16 \! s16 s8 s4 | 
+  s2. |
+  s4 \< s16 \! s16 s8 s4 |
   s4 s4 \cresc s8 s16 s16 \! |
-  s4 s8 \dim s16 s16 \! s4 | 
-  s2. | 
+  s4 s8 \dim s16 s16 \! s4 |
+  s2. |
   s4 s4\> s8 s16 s16\! |
-  s16 s16 \pp s8 s2 | 
+  s16 s16 \pp s8 s2 |
   s2. *2 |
   s4. s8\< s8 s16 s16 \! |
-  s16 s16 \mf s8 s8 s16 \dim s16 s4 | 
+  s16 s16 \mf s8 s8 s16 \dim s16 s4 |
   s2 s16 \> s16 s16 s16 \! |
-  s16 s16 \pp s8 s2 | 
-  s2. *3 | 
-  s2 \cresc s4 | 
-  s2. | 
-  s8 s8\f s2 | 
-  s2 s4 \< | 
+  s16 s16 \pp s8 s2 |
+  s2. *3 |
+  s2 \cresc s4 |
+  s2. |
+  s8 s8\f s2 |
+  s2 s4 \< |
   s2 \ff s4 |
-  s2 s4 \< | 
+  s2 s4 \< |
   s8\! \ffp s8 \>  s8 s8 s4 \pp |
 
 }
@@ -183,10 +186,9 @@ first_violinI = <<\notes \notesI \marks \dynamics>>
 first_violinII = <<\notes \notesII \marks \dynamics>>
 
 first_violin_conductor = {
-  \new Staff \with {  
+  \new Staff \with {
     instrumentName = \first_violin_name_long
     shortInstrumentName = \first_violin_name_short
-    midiInstrument = #"violin"
   }
   \first_violin
 }

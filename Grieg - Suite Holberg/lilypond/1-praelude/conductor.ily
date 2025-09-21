@@ -13,14 +13,14 @@
 conductor = {
     <<
         \new StaffGroup {
-            <<  
+            <<
                 \flute_conductor
                 \oboe_conductor
                 \clarinet_conductor
             >>
         }
         \new StaffGroup {
-            <<  
+            <<
                 \first_violin_conductor
                 \second_violin_conductor
                 \viola_conductor

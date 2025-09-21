@@ -7,7 +7,8 @@
 \language "português"
 
 notes = \relative do'{
-  \clef treble 
+  \set Staff.midiInstrument = #"violin"
+  \clef treble
   \key sol \major
   s2|
   s1*2 |
@@ -19,7 +20,7 @@ notes = \relative do'{
   do4 la si8( do) la sol |
   \grace{ fas16( sol} fas4. sol8) sol2->~|
   sol4 r4 r2|%H
-  si4->( la8) r8 r2 | 
+  si4->( la8) r8 r2 |
   \grace{si16( dos} si4-> la8) r8 la8( fas la re) |
   sol,( mi sol re') fas,( re fas re') |
   mi,(re mi re') re,( dos re re')|
@@ -53,7 +54,7 @@ notesI = \relative do'{
   %tutti
   s1*6 |
   s2 |
-  % H 
+  % H
   s2 |
   s1 * 5 |
   %divisi
@@ -63,7 +64,7 @@ notesI = \relative do'{
   %tutti
   s1 * 6 |
   s2 |
-  % I 
+  % I
   s2 |
   s1 * 7 |
   %divisi
@@ -77,9 +78,9 @@ notesI = \relative do'{
   mi2-> re8 do si4 |
   do4 la si8(do) la sol |
   \afterGrace fas4.\trill( { mi16 fas} sol8) \breathe sol2->~|
-  sol4 r4 | 
+  sol4 r4 |
   % MUSETTE
-  r2 | 
+  r2 |
   R1*3|
   r2 mi8( re mi sol |
   fa mi re fa) mi( re do mi |
@@ -88,7 +89,7 @@ notesI = \relative do'{
   do4->( do8) r8 |
   % L
   r2 |
-  R1 *2 | 
+  R1 *2 |
   r2 re4-. re-. |
   do-. mi-. fa-. fa-. |
   fa-. fa-. fa-. mi-. |
@@ -96,8 +97,8 @@ notesI = \relative do'{
   fa8 sol\) fa sol mi2~\( |
   mi8 fa \) mi fa re( mi) re mi |
   do( re) do re  si( do) si do |
-  la( si) la si sol( la) sol( do) | 
-  sol( do) fa,( do') do4 si8(do) | %M 
+  la( si) la si sol( la) sol( do) |
+  sol( do) fa,( do') do4 si8(do) | %M
   do4( do8) r8 r2|
   R1 *3 |
   r2 mi,8( re mi sol |
@@ -105,7 +106,7 @@ notesI = \relative do'{
   re si sol4) do'2-> |
   sol-> re-> |
   do4->( do8) r8 |
-  
+
 
 }
 
@@ -136,14 +137,14 @@ notesII = \relative do'{
   mi2-> re8 do si4 |
   do4 la si8(do) la sol |
   \afterGrace fas4.\trill( { mi16 fas} sol8) \breathe sol2->~|
-  sol4 r4 r2| 
+  sol4 r4 r2|
   R1*3|
   r2 mi8( re mi sol |
   fa mi re fa) mi( re do mi |
   re si sol4) do'2-> |
   sol-> re-> |
-  do4->( do8) r8 r2 | %L 
-  R1 *2 | 
+  do4->( do8) r8 r2 | %L
+  R1 *2 |
   r2 sib'4-. sib-. |
   la-. sib-. do-. do-. |
   re-. re-. re-. do-. |
@@ -151,8 +152,8 @@ notesII = \relative do'{
   fa8 sol\) fa sol mi2~\( |
   mi8 fa \) mi fa re( mi) re mi |
   do( re) do re  si( do) si do |
-  la( si) la si sol( la) sol( do) | 
-  sol( do) fa,( do') do4 si8(do) | %M 
+  la( si) la si sol( la) sol( do) |
+  sol( do) fa,( do') do4 si8(do) | %M
   do4( do8) r8 r2|
   R1 *3 |
   r2 mi,8( re mi sol |
@@ -165,8 +166,8 @@ notesII = \relative do'{
 staves = {
   \oneStaff s2
   s1*33
-  %{\twoStaves%} s1 *35 
-  s2 
+  %{\twoStaves%} s1 *35
+  s2
 }
 
 
@@ -181,20 +182,20 @@ s2 \fz s2 |
 s1 |
 s1 |
 s1 |
-s4\p s4 s2| 
+s4\p s4 s2|
 s1*4|
 s2 s2 \pp |
 s1 *3 |
 s2 s2\f |
 s1 |
 s1 \fz |
-s1 *6 | 
+s1 *6 |
 s2 s2 \f |
 s1|
-s2 s2 \f | 
-s1 | 
+s2 s2 \f |
+s1 |
 s2 s2 \pp |
-s1 | 
+s1 |
 s2 \fp s2 |
 s1 |
 s2 s2 \f |
@@ -204,7 +205,7 @@ s1 *6
 s2 s2 \pp |
 s1 *6
 s2 s2 \p |
-s2 s2 \cresc | 
+s2 s2 \cresc |
 s1 |
 s2 s2 \f |
 s1*3 |
@@ -212,7 +213,7 @@ s2 s4 s8 \< s8 |
 s2 s4 s8 \! s8 |
 s4 \ff s4 s2 |
 s1 *3 |
-s2 s4 \pp s4 | 
+s2 s4 \pp s4 |
 s1 * 3 |
 s2 |
 
@@ -228,10 +229,9 @@ first_violinII = <<\notes \notesII \marks \dynamics>>
 first_violin_conductor = {
   \new Staff \with {
     printPartCombineTexts = ##f
-    \consists Merge_rests_engraver  
+    \consists Merge_rests_engraver
     instrumentName = \first_violin_name_long
     shortInstrumentName = \first_violin_name_short
-    midiInstrument = #"violin"
   }
   \first_violin
 }

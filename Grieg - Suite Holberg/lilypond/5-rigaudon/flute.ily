@@ -6,8 +6,9 @@
 \language "português"
 
 notes =  \relative la' {
+    \set Staff.midiInstrument = #"flute"
     \override NoteHead.color = #flute-range
-    \clef "treble" 
+    \clef "treble"
     r4 |
     R1 * 7 |
     r2 r4 |
@@ -38,7 +39,7 @@ notes =  \relative la' {
     fa2 sib,4( sib') |
     fa->( mib) mib->( re) |
     re8->( do) do2 mib8 sol |
-    fa4 mib8 re  \grace { do16 \(( re } do4.\) sib8) | 
+    fa4 mib8 re  \grace { do16 \(( re } do4.\) sib8) |
     sib2 r4 re4 |
     sol4( fa8 mib8) re4( do) |
     sib8-> do re2 re4 |
@@ -67,7 +68,6 @@ flute_conductor = {
   \new Staff \with {
     instrumentName = \flute_name_long
     shortInstrumentName = \flute_name_short
-    midiInstrument = #"flute"
   }
   \flute
 }

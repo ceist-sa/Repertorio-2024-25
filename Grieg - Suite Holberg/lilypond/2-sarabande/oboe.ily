@@ -6,6 +6,7 @@
 \language "português"
 
 notes =  \relative la' {
+    \set Staff.midiInstrument = #"oboe"
     \override NoteHead.color = #oboe-range
     \clef "treble"
     R2. * 8 |
@@ -28,7 +29,7 @@ notesI = \relative la' {
     sol4. la8 si8
     mi8 | % 31
     re8 mi8 -- re4 do4 | % 32
-    do16 ( la16 si8 ) si4 ~ si8 r8 
+    do16 ( la16 si8 ) si4 ~ si8 r8
 }
 
 notesII = \relative la {
@@ -47,7 +48,7 @@ notesII = \relative la {
 
 dynamics = {
   s2. * 8 |
-  % repeat bar 
+  % repeat bar
   s2. \p |
   s2. |
   s4 \< s8\f s8\> s8 s16 s16\!|
@@ -108,7 +109,6 @@ oboe_conductor = {
     printPartCombineTexts = ##f
     instrumentName = \oboe_name_long
     shortInstrumentName = \oboe_name_short
-    midiInstrument = #"oboe"
   }
   \oboe_staves
 }

@@ -5,7 +5,7 @@
 
 marks = {
     \tempo "Allegro vivace."
-    \time 4/4 
+    \time 4/4
     \repeat volta 2 {
     s1*7
     %A

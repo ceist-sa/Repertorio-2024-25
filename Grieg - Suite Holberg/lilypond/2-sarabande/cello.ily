@@ -5,6 +5,7 @@
 \language "português"
 
 notes = \relative re, {
+    \set Staff.midiInstrument = #"cello"
     \clef "bass"
     R2. * 3 |
     r4 r4 re4 \pizz |
@@ -12,22 +13,22 @@ notes = \relative re, {
     la4 si la8 sol |
     fas8-> sol-> la4-> r4 |
     re4\> r re,\! |
-    %repeat bar 
+    %repeat bar
     re'2 \arco mi4 |
     fas4 ~ 8 r8 r4 |
-    re4 dos2 | 
+    re4 dos2 |
     fas4 ~ 8 r8 r4 |
     s2. * 4 |
     % F
     s2. * 7 |
     %G
     s2. * 8 |
-    %repeat bar 
+    %repeat bar
 }
 
 notesI = \relative {
     s2. * 8 |
-    %repeat bar 
+    %repeat bar
     s2. * 4 |
     si8 \solo (dos16 re) re8 (dos4.) |
     si16 (dos) dos re re8 (dos4 \clef "tenor" fas8) |
@@ -41,7 +42,7 @@ notesI = \relative {
             r8 \clef "bass" la16 (si la8) fas'4 (la,8) |
             la8 (sol) sol fa re' fa, |
             fa8 (mi) mi re si' (re,) |
-            re8 (do) do r8 r4 | 
+            re8 (do) do r8 r4 |
         }
         \\
         {
@@ -50,7 +51,7 @@ notesI = \relative {
             r8 \clef "bass" fas16 (sol fas8) la4 (fas8) |
             fas8 (mi) mi re fa! re |
             re8 (do) do si re (si) |
-            si8 (la) la r8 r4 | 
+            si8 (la) la r8 r4 |
         }
     >>
     r4 r r8 re8 |
@@ -67,7 +68,7 @@ notesI = \relative {
 
 notesII = \relative {
     s2. * 8 |
-    %repeat bar 
+    %repeat bar
     s2. * 4 |
     re4 \tutti mi (las,) |
     re4 mi (las,) |
@@ -100,7 +101,7 @@ dynamics = {
     s2. \cresc |
     s2. \f |
     s2. |
-    % repeat bar 
+    % repeat bar
     s2. \p |
     s2. |
     s4 \< s2\f \> |
@@ -170,7 +171,6 @@ cello_staves = {
 cello_conductor = {
   \new GrandStaff \with {
     \consists "Keep_alive_together_engraver"
-    midiInstrument = #"cello"
     instrumentName = \cello_name_long
     shortInstrumentName = \cello_name_short
   }

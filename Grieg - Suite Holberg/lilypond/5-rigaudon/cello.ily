@@ -5,7 +5,8 @@
 \language "português"
 
 notes = \relative re' {
-    \clef bass 
+    \set Staff.midiInstrument = #"cello"
+    \clef bass
     r4 |
     R1 * 7 |
     re4-.->\f re,-. re-. |
@@ -51,7 +52,7 @@ notes = \relative re' {
     mib2.-> do4 |
     re mib fa fa, |
     sib2 r2 |
-    %V 
+    %V
     sol4\pizz\p r4 r2 |
     sol4 r4 r2 |
     r4 fa r mib |
@@ -79,7 +80,6 @@ cello = << \notes \marks >>
 
 cello_conductor = {
   \new Staff \with {
-    midiInstrument = #"cello"
     instrumentName = \cello_name_long
     shortInstrumentName = \cello_name_short
   }
@@ -89,9 +89,7 @@ cello_conductor = {
 cello_rigaudon = \score {
   \header { piece = "V. Rigaudon" }
   \compressMMRests {
-    \new Staff \with {
-      midiInstrument = #"cello"
-    }
+    \new Staff
     \cello
   }
 }

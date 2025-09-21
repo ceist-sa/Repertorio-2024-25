@@ -6,9 +6,10 @@
 \language "português"
 
 notes =  \relative la' {
+    \set Staff.midiInstrument = #"flute"
     \override NoteHead.color = #flute-range
-    \clef "treble" 
-    \key sol \major 
+    \clef "treble"
+    \key sol \major
     s1*7 |
     % A
     s1 |
@@ -33,13 +34,13 @@ notes =  \relative la' {
     mi2-> \afterGrace fas-> \startTrillSpan ( {mi16 \stopTrillSpan fa)}|
     sol2-> ~ 8 r8 \rthm si,_\markup{\italic sempre \dynamic ff} |
     \rthm do-> \rthm do \rthm fa-> \rthm fa |
-    \rthm mi-> \rthm mi \rthm mi \rthm fas->|  
-    \rthm sol-> \rthm sol \rthm do-> \rthm do |  
-    \rthm si-> \rthm si \rthm si \rthm si |  
-    \rthm la-> \rthm la \rthm la \rthm la |  
+    \rthm mi-> \rthm mi \rthm mi \rthm fas->|
+    \rthm sol-> \rthm sol \rthm do-> \rthm do |
+    \rthm si-> \rthm si \rthm si \rthm si |
+    \rthm la-> \rthm la \rthm la \rthm la |
     \rthm sol-> \rthm sol \rthm fas-> \rthm fas |
-    \rthm mi-> \rthm mi \rthm re-> \rthm re |  
-    \rthm do-> \rthm do \rthm si-> \rthm si |  
+    \rthm mi-> \rthm mi \rthm re-> \rthm re |
+    \rthm do-> \rthm do \rthm si-> \rthm si |
     \rthm la->\> \rthm la \rthm la \rthm la |
     % D
     sol4\p r4 r2 |
@@ -144,16 +145,15 @@ notesII = \relative la' {
     si,2-> la4.->\startTrillSpan (sol8--\stopTrillSpan ) |
     sol1 \ffz \fermata |
 }
-    
+
 flute = << \notes \partCombine \notesI \notesII \marks >>
 fluteI = << \notes \notesI \marks >>
 fluteII = << \notes \notesII \marks >>
 
 flute_conductor = {
-  \new Staff \with {  
+  \new Staff \with {
     instrumentName = \flute_name_long
     shortInstrumentName = \flute_name_short
-    midiInstrument = #"flute"
   }
   \flute
 }

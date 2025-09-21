@@ -6,9 +6,10 @@
 \language "português"
 
 notes =  \relative la {
+    \set Staff.midiInstrument = #"clarinet"
     \override NoteHead.color = #clarinet-range
-    \clef "treble" 
-    \key sol \major 
+    \clef "treble"
+    \key sol \major
     R1*3 |
     r2 r4 <dos sol>4\mp -> | % 5
     <re fas,>2\cresc -> <mi mi,>2 -> | % 6
@@ -25,7 +26,7 @@ notes =  \relative la {
     la2 sol) |
     fas4-. re'4 -.\f \crescmolto \tutti la4 -. fas4 -. | % 18
     re4 -.\< la4 -. fas4 -. re4\fz  | % 19
-    <fas re>2-> ~ 4 r4 | 
+    <fas re>2-> ~ 4 r4 |
     R1 | % 21
     sol16\solo\fp ( fas16 sol16 si16 sol16 fas16 sol16 si16 sol16 fas16 sol16 si16  sol16 fas16 -\! sol16 do16 ) | % 22
     la16 ( sol16 la16 re16 si16 la16 si16 mi16 do16 si16 do16 fas16 re16 do16 re16 sol16 ) | % 23
@@ -75,8 +76,8 @@ notes =  \relative la {
     la1 ) |
     la1-> ( |
     sol ) |
-    sol2-> (fas) | 
-    fas2-> (mi) | 
+    sol2-> (fas) |
+    fas2-> (mi) |
     mi1 (|
     re2 do)
     si4-.\f \rthm sol\tutti \rthm sol \rthm sol |
@@ -104,10 +105,9 @@ notes =  \relative la {
 clarinet = << \notes \marks>>
 
 clarinet_conductor = {
-  \new Staff \with {  
+  \new Staff \with {
     instrumentName = \clarinet_name_long
     shortInstrumentName = \clarinet_name_short
-    midiInstrument = #"clarinet"
   }
   \clarinet
 }

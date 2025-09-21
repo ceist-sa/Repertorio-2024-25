@@ -14,7 +14,7 @@ dynamics = {
   s1 \fz |
   s1 * 2 |
   s2 |
-  % H 
+  % H
   s2 \p |
   s1 |
   s2 \once \override Hairpin.to-barline = ##f s2\< |
@@ -30,7 +30,7 @@ dynamics = {
   s1 \fz |
   s1 * 2 |
   s2 |
-  % I 
+  % I
   s2 \fpp |
   s1 |
   s2 s2 \fpp |
@@ -49,7 +49,7 @@ dynamics = {
   s1 \ff |
   s1 * 2 |
   s2 |
-  % MUSETTE 
+  % MUSETTE
   s2 \pp |
   s1 * 7 |
   s2 |
@@ -66,9 +66,10 @@ dynamics = {
   s2\ff s2\pp |
   s1 * 7 |
   s2 |
-} 
+}
 
 notes = \relative do'' {
+  \set Staff.midiInstrument = #"violin"
   \clef treble
   s2 |
   s1 * 3 |
@@ -96,7 +97,7 @@ notes = \relative do'' {
   sol8-> 8 4-. 8-> 8 4-. |
   sol4-. fas-. s2 |
   s1 * 3 |
-  % K 
+  % K
   s1 * 5 |
   s2 |
   % MUSETTE
@@ -107,7 +108,7 @@ notes = \relative do'' {
   si,4-. si-. |
   la4-. dos-. re-. re-. |
   re4-. re-. <sib re>-. dos-. |
-  re-. re-. s2 |  
+  re-. re-. s2 |
 
 }
 
@@ -119,14 +120,14 @@ notesI = \relative do'' {
   la2 s2 |
   s1 * 4 |
   s2 |
-  % H 
+  % H
   la4 (re) |
   re,4.-> r8 la' (fas la re) |
   re,4.-> r8 re2 |
   sol2-> (fas |
   mi2 re ~ |
   1) |
-  r2 
+  r2
   \partCombineApart
   sol4->\pp (la8) r8 |
   la4-> (do8) r8 do4-> (mi8) r8 |
@@ -147,7 +148,7 @@ notesI = \relative do'' {
   mi4-> (sol8) r8 sol4-> (la8) r8 |
   la2 (si4 mi, ~|
   4 re) re2 |
-  % K 
+  % K
   re2 re'4-> re-> |
   re4-> sol-> sol-> do-> |
   do2-> sol4 sol |
@@ -164,7 +165,7 @@ notesI = \relative do'' {
   2 fa8-> (la fa re) |
   do8-> (mi do la) sol-> (si sol re) |
   mi4-> ~ 8 r8 |
-  % L 
+  % L
   s2 |
   s1 * 2 |
   s2 fa'2( ~ |
@@ -221,7 +222,7 @@ notesII = \relative do'' {
   do4-> (mi8) r8 mi4-> (fas8) r8 |
   fas2 (sol4 mi |
   la,4 re) sol, (si) |
-  % K 
+  % K
   la2 re4-> re-> |
   re4-> sol-> sol-> do-> |
   do2-> sol4 sol |
@@ -238,7 +239,7 @@ notesII = \relative do'' {
   2 la8-> (do la fa) |
   mi8-> (sol mi do) si-> (re si sol) |
   sol4-> ~8 r8 |
-  % L  
+  % L
   s2 |
   s1 * 2 |
   s2 fa'2( ~ |
@@ -285,7 +286,7 @@ staves = {
   s1 * 4 |
   \twoStaves
   s1 * 3 |
-  % K 
+  % K
   s1 * 5 |
   s2 |
   % MUSETTE
@@ -306,12 +307,11 @@ second_violinI = <<\notes \notesI \marks \dynamics>>
 second_violinII = <<\notes \notesII \marks \dynamics>>
 
 second_violin_conductor = {
-  \new Staff \with {  
+  \new Staff \with {
     printPartCombineTexts = ##f
     \consists Merge_rests_engraver
     instrumentName = \second_violin_name_long
     shortInstrumentName = \second_violin_name_short
-    midiInstrument = #"violin"
   }
   \second_violin
 }
@@ -321,7 +321,6 @@ second_violin_gavotte = \score {
   \compressMMRests {
     \new GrandStaff \with {
       \consists "Keep_alive_together_engraver"
-      midiInstrument = #"violin"
     }
     <<
       \new Staff \with {

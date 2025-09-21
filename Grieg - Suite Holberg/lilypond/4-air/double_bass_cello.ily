@@ -6,6 +6,7 @@
 \language "português"
 
 notes = \relative sol, {
+    \set Staff.midiInstrument = #"cello"
     \override NoteHead.color = #cello-range
     \clef bass
     sol4\pizz r r |
@@ -23,7 +24,7 @@ notes = \relative sol, {
     sol16 (fa) mi (fa) do'-- (sib--) la-- sol-- la4 |
     sib2-> fas4
     sol4. fa16 sol la4 |
-    re2 re,4 | 
+    re2 re,4 |
     % O, repeat bar
     sib'4\pizz r r |
     sib4 r r |
@@ -38,7 +39,7 @@ notes = \relative sol, {
     mib2.->\arco |
     mib2 ~8 mib |
     re8-> sol-> fa2 |
-    % P 
+    % P
     sib4~8 r8 r4 |
     do,4 \pizz r r |
     re4 r r |
@@ -60,10 +61,11 @@ notes = \relative sol, {
     do16 (sib) la sib fa'-- (mib--) re-- do-- re4 |
     mib2-> si4 |
     do4. sib!16 do re4 |
-    sol16 (sol) fa-- (mib--) re-- (do--) sib-- (la--) sol4 | 
+    sol16 (sol) fa-- (mib--) re-- (do--) sib-- (la--) sol4 |
 }
 
 notesI = \relative {
+    \set Staff.midiInstrument = #"cello"
     s2. * 39 |
     % Q
     sol,2\arco r4 |
@@ -79,6 +81,7 @@ notesI = \relative {
 }
 
 notesII = \relative {
+    \set Staff.midiInstrument = #"cello"
     s2. * 39 |
     % Q
     sol,4\pizz r r |
@@ -170,7 +173,6 @@ double_bass_celloII = <<\notes \notesII \marks \dynamics >>
 double_bass_cello_staves = {
   <<
       \new Staff \with {
-      midiInstrument = #"cello"
       \consists Merge_rests_engraver
       \override VerticalAxisGroup.remove-empty = ##t
       \override VerticalAxisGroup.remove-first = ##t
@@ -178,7 +180,6 @@ double_bass_cello_staves = {
       }
       << \double_bass_celloI \staves >>
       \new Staff \with {
-      midiInstrument = #"cello"
       \consists Merge_rests_engraver
       \override VerticalAxisGroup.remove-empty = ##t
       \override VerticalAxisGroup.remove-first = ##t
@@ -186,7 +187,6 @@ double_bass_cello_staves = {
       }
       << \double_bass_celloII \staves >>
       \new Staff \with {
-      midiInstrument = #"cello"
       \consists Merge_rests_engraver
       \override VerticalAxisGroup.remove-layer = 2
       }
@@ -199,7 +199,6 @@ double_bass_cello_conductor = {
     \consists Keep_alive_together_engraver
     instrumentName = \double_bass_cello_name_long
     shortInstrumentName = \double_bass_cello_name_short
-    midiInstrument = #"cello"
   }
   \double_bass_cello_staves
 }
@@ -209,7 +208,6 @@ double_bass_cello_air = \score {
   \compressMMRests{
     \new GrandStaff \with {
       \consists Keep_alive_together_engraver
-      midiInstrument = #"cello"
     }
     \double_bass_cello_staves
   }

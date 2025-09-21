@@ -5,7 +5,8 @@
 \language "português"
 
 notes = \relative re' {
-    \clef bass 
+    \set Staff.midiInstrument = #"contrabass"
+    \clef bass
     r4 |
     R1 * 7 |
     re4-.->\f re,-. re-. |
@@ -36,7 +37,7 @@ notes = \relative re' {
     mib2.-> do4 |
     re mib fa fa, |
     sib2 r2 |
-    %V 
+    %V
     R1 * 4 |
     r4 do\pizz r la |
     r4 sib r sol |
@@ -61,7 +62,6 @@ double_bass_conductor = {
   \new Staff \with {
     instrumentName = \double_bass_name_long
     shortInstrumentName = \double_bass_name_short
-    midiInstrument = #"contrabass"
   }
   \double_bass
 }

@@ -14,7 +14,6 @@ oboe_conductor = \relative do'' {
     \new Staff \with {
         instrumentName = \oboe_name_long
         shortInstrumentName = \oboe_name_short
-        midiInstrument = #"oboe"
     }
     \oboe
 }

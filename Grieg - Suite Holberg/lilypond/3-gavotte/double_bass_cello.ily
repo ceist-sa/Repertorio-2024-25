@@ -6,8 +6,9 @@
 \language "português"
 
 notes = \relative sol, {
+    \set Staff.midiInstrument = #"cello"
     \override NoteHead.color = #cello-range
-    \clef bass 
+    \clef bass
     r2 |
     R1 * 3 |
     r2 sol4.->\f (fas8-.) |
@@ -31,10 +32,10 @@ notes = \relative sol, {
     la,4 re sol, do |
     re4 re' sol,-- re-- |
     sol,-- r4 |
-    % I 
+    % I
     r2 |
     R1 * 3 |
-    r2 mi2-> \f | 
+    r2 mi2-> \f |
     re8-> do sol'4-. mi8-> fas sol4-> |
     re2-> sol->\f |
     fas8-> re fas4-. mi8-> do mi4-.|
@@ -85,7 +86,6 @@ double_bass_cello_conductor = {
   \new Staff \with {
     instrumentName = \double_bass_cello_name_long
     shortInstrumentName = \double_bass_cello_name_short
-    midiInstrument = #"cello"
   }
   \double_bass_cello
 }
@@ -94,7 +94,6 @@ double_bass_cello_gavotte = \score {
   \header { piece = "III. Gavotte" }
   \compressMMRests{
     \new Staff \with {
-      midiInstrument = #"cello"
     }
     \double_bass_cello
   }

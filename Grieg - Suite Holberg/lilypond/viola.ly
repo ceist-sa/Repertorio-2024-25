@@ -14,8 +14,7 @@ viola_conductor = \relative do' {
     \new Staff \with {
         instrumentName = \viola_name_long
         shortInstrumentName = \viola_name_short
-        midiInstrument = #"viola"
-    } 
+    }
     << \viola \marks >>
 }
 

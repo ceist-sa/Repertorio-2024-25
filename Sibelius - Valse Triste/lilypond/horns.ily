@@ -5,18 +5,17 @@
 \include "globals.ily"
 
 hornI = \relative do' {
-    
+    \set Staff.midiInstrument = #"french horn"
 }
 
 hornII = \relative do' {
-    
+    \set Staff.midiInstrument = #"french horn"
 }
 
 horns_conductor = \relative do' {
     \new Staff \with {
         instrumentName = "Trompas"
         shortInstrumentName = "Hn."
-        midiInstrument = #"french horn"
-    } 
+    }
     << \partCombine \hornI \hornII \marks >>
 }

@@ -10,7 +10,7 @@ marks = {
     \set Score.dalSegnoTextFormatter =
          #(lambda (context repeat-count markups)
            #{ \markup{\bold \upright \column{"Rigaudon da capo al Fine," "ma senza Ripetizione."}} #})
-    \time 2/2 
+    \time 2/2
     \key sol \major
     \repeat segno 2 {
       \tempo "Allegro con brio."
@@ -34,12 +34,12 @@ marks = {
         s1 |
         \partial 2. \tempo "a tempo" s2. |
       }
-      \volta 2 \fine 
-      \volta 1 
+      \volta 2 \fine
+      \volta 1
       \set Score.caesuraType = #'((scripts . (fermata)))
       \caesura
       \tempo "Poco meno mosso."
-      \key sol \minor 
+      \key sol \minor
       \partial 4 s4 |
         s1 * 7 |
       \partial 2. s2. |
@@ -52,5 +52,5 @@ marks = {
         s1^\markup{\italic "ritard. e dim."} |
         \partial 2. s2. |
       }
-    } 
+    }
 }

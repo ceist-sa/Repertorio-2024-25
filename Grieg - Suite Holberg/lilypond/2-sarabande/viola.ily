@@ -36,9 +36,10 @@ dynamics = {
   s2. \crescmolto |
   s2. \f |
   s4 s4\> s8\! s8|
-} 
+}
 
 notes = \relative do' {
+  \set Staff.midiInstrument = #"viola"
   \clef alto
   s2. * 4 |
   re,2. |
@@ -63,7 +64,7 @@ notes = \relative do' {
   do'4 (re do) |
   fa4 sol sol |
   sol8-- sol-- sol4 fas! |
-  re4 re4 ~ 8 r8 | 
+  re4 re4 ~ 8 r8 |
 }
 
 notesI = \relative do' {
@@ -74,17 +75,17 @@ notesI = \relative do' {
   s2. * 4 |
   % repeat bar
   s2. * 8 |
-  % F 
+  % F
   s2. * 5 |
   s4 s8 la'8 la sol |
   sol8 fas fas mi mi fas |
   fas8 sol sol la la si |
-  % G 
+  % G
   si4 do2 |
   re8 do16 si do8 (re) re4 |
   si8 la16 sol la8 (si) la (sol) |
   la8 re, re4 re |
-  s2. * 4 | 
+  s2. * 4 |
 }
 
 notesII = \relative do' {
@@ -95,17 +96,17 @@ notesII = \relative do' {
   s2. * 4 |
   % repeat bar
   s2. * 8 |
-  % F 
+  % F
   s2. * 5 |
   s4 s8 la'8 la sol |
   sol8 fas fas mi mi fas |
   fas8 sol sol la la si |
-  % G 
+  % G
   si4 do2 |
   re8 do16 si do8 (re) re4 |
   si8 la16 sol la8 (si) la (sol) |
   la8 sol la4 la8 (si) |
-  s2. * 4 | 
+  s2. * 4 |
 }
 
 staves = {
@@ -113,7 +114,7 @@ staves = {
   s2. * 4 |
   \oneStaff
   s2. * 17 |
-  \twoStaves 
+  \twoStaves
   s2. * 7 |
   \oneStaff
   s2. * 3 |
@@ -127,7 +128,6 @@ violaII = <<\notes \notesII \marks \dynamics>>
 
 viola_conductor = {
   \new Staff \with {
-    midiInstrument = #"viola"
     instrumentName = \viola_name_long
     shortInstrumentName = \viola_name_short
   }

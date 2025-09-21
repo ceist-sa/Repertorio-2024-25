@@ -6,28 +6,29 @@
 \language "português"
 
 notes =  \relative la' {
+    \set Staff.midiInstrument = #"oboe"
     \override NoteHead.color = #oboe-range
-    \clef "treble" 
-    \key sol \major 
-    R1*3 | 
-    r2 r4 
+    \clef "treble"
+    \key sol \major
+    R1*3 |
+    r2 r4
     <<
         {
-            la4 -> -\mp | 
-            la2->\cresc dos2-> | 
-            re2. -> re4 -> | 
-            re2 -> dos2 -> | 
+            la4 -> -\mp |
+            la2->\cresc dos2-> |
+            re2. -> re4 -> |
+            re2 -> dos2 -> |
             % A
             re4 \f
         }{
-            mi,4 ->  | 
-            fas2 -> sol2 -> | 
+            mi,4 ->  |
+            fas2 -> sol2 -> |
             la2. -> si4 -> |
             la2 -> la2 -> |
             % A
-            la4 
-        } 
-    >> r4 r2 | 
+            la4
+        }
+    >> r4 r2 |
     R1 * 8 |
     r4 <<
         {
@@ -43,13 +44,13 @@ notes =  \relative la' {
     <do, la'>2-> ~4 r4 |
     R1 |
     re2.\solo\fp (mi4) |
-    fas4 (sol la si) |    
+    fas4 (sol la si) |
     <la fas>2->\tutti ~ 4 r4 |
     R1 |
     si,2.\solo\fp (dos4) |
     res ( mi fas sol )
-    r4 <fa do>\tutti -> -\f <fa re> -> r4 | 
-    r4 <mi si>4 -> <mi do>4 -> r4 | 
+    r4 <fa do>\tutti -> -\f <fa re> -> r4 |
+    r4 <mi si>4 -> <mi do>4 -> r4 |
     <do mi>4-> ~ 8 r8 r4 r8 la'8-> |
     % B
     si8-> r8 r4 r4 res4\p^\markup{\right-align \smallCaps "Ob. I"} |
@@ -65,37 +66,37 @@ notes =  \relative la' {
     <mi, sol>4\f -> <la do>\< -> <mi' sol> -> <la do> -> |
     <la re>4->\fz ~ 8  r8 r2 |
     % C
-    r4 
+    r4
     <<
         {
-            \rthm sol,->\ff \rthm la \rthm si-> | 
-            \rthm do-> \rthm re-> \rthm do-> \rthm si-> | 
-            \rthm la-> \rthm la \rthm fas-> \rthm fas | 
-            \rthm sol-> \rthm sol \rthm sol \rthm fa | 
-            \rthm mi-> \rthm mi \rthm si'-> \rthm si | 
+            \rthm sol,->\ff \rthm la \rthm si-> |
+            \rthm do-> \rthm re-> \rthm do-> \rthm si-> |
+            \rthm la-> \rthm la \rthm fas-> \rthm fas |
+            \rthm sol-> \rthm sol \rthm sol \rthm fa |
+            \rthm mi-> \rthm mi \rthm si'-> \rthm si |
             \rthm sol-> \rthm sol \rthm sol \rthm do-> |
-            \rthm si-> \rthm si \rthm fas'-> \rthm fas | 
+            \rthm si-> \rthm si \rthm fas'-> \rthm fas |
             \rthm re-> \rthm re \rthm mi-> \rthm mi |
-            \rthm do-> \rthm do \rthm re-> \rthm re | 
-            \rthm si-> \rthm do \rthm la-> \rthm si | 
+            \rthm do-> \rthm do \rthm re-> \rthm re |
+            \rthm si-> \rthm do \rthm la-> \rthm si |
             \rthm sol-> \rthm la \rthm fas-> \rthm sol |
-            \rthm mi-> \rthm fas \rthm re-> \rthm mi | 
-            \rthm re->\> \rthm re \rthm re-> \rthm re |  
+            \rthm mi-> \rthm fas \rthm re-> \rthm mi |
+            \rthm re->\> \rthm re \rthm re-> \rthm re |
         }
         {
-            \rthm si-> \rthm do-> \rthm re-> | 
-            \rthm mi-> \rthm fas-> \rthm mi-> \rthm re-> | 
-            \rthm do-> \rthm do \rthm re-> \rthm re | 
-            \rthm si-> \rthm si \rthm si \rthm re_\markup{\italic sempre \dynamic ff} | 
-            \rthm do-> \rthm do \rthm fa-> \rthm fa | 
-            \rthm mi-> \rthm mi \rthm mi \rthm la-> | 
-            \rthm sol-> \rthm sol \rthm do \rthm do | 
+            \rthm si-> \rthm do-> \rthm re-> |
+            \rthm mi-> \rthm fas-> \rthm mi-> \rthm re-> |
+            \rthm do-> \rthm do \rthm re-> \rthm re |
+            \rthm si-> \rthm si \rthm si \rthm re_\markup{\italic sempre \dynamic ff} |
+            \rthm do-> \rthm do \rthm fa-> \rthm fa |
+            \rthm mi-> \rthm mi \rthm mi \rthm la-> |
+            \rthm sol-> \rthm sol \rthm do \rthm do |
             \rthm si \rthm si \rthm si-> \rthm si |
-            \rthm la \rthm la \rthm la-> \rthm la | 
-            \rthm sol-> \rthm sol \rthm fas-> \rthm fas | 
-            \rthm mi-> \rthm mi \rthm re-> \rthm re | 
-            \rthm do-> \rthm do \rthm re-> \rthm mi | 
-            \rthm re-> \rthm si \rthm do-> \rthm do | 
+            \rthm la \rthm la \rthm la-> \rthm la |
+            \rthm sol-> \rthm sol \rthm fas-> \rthm fas |
+            \rthm mi-> \rthm mi \rthm re-> \rthm re |
+            \rthm do-> \rthm do \rthm re-> \rthm mi |
+            \rthm re-> \rthm si \rthm do-> \rthm do |
         }
     >>
     re4\p r4 r2 |
@@ -134,10 +135,9 @@ notes =  \relative la' {
 oboe = << \notes \marks>>
 
 oboe_conductor = {
-  \new Staff \with {  
+  \new Staff \with {
     instrumentName = \oboe_name_long
     shortInstrumentName = \oboe_name_short
-    midiInstrument = #"oboe"
   }
   \oboe
 }

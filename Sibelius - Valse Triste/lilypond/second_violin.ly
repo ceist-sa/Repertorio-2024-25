@@ -33,7 +33,7 @@ second_violin = \relative do' {
     r do do |
     r si si |
     r si si |
-    
+
     % B
     r fa' mib |
     r mib re |
@@ -150,7 +150,7 @@ second_violin = \relative do' {
     r <<si mi,\f>> <<si' mi,>> |
     r <<si' res,\f>> <<si' res,>> |
     r <<si' mi,\>>> <<si' mi,>> |
-    
+
     % H
     R2.\! |
     r4 <<do la'\pizz\f>> <<do, la'>> |
@@ -233,8 +233,7 @@ second_violin_conductor = \relative do'' {
     \new Staff \with {
         instrumentName = "Violino II"
         shortInstrumentName = "Vln. II"
-        midiInstrument = #"violin"
-    } 
+    }
     << \second_violin \marks >>
 }
 

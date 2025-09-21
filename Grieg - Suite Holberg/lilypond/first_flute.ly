@@ -14,7 +14,6 @@ flute_conductor = \relative do'' {
     \new Staff \with {
         instrumentName = \flute_name_long
         shortInstrumentName = \flute_name_short
-        midiInstrument = #"flute"
     }
     \flute
 }

@@ -7,7 +7,8 @@
 \language "português"
 
 notes = \relative do'{
-  \clef treble 
+  \set Staff.midiInstrument = #"violin"
+  \clef treble
   \key sol \major
   \rthm si \rthm si \rthm si \rthm do |
   \rthm re \rthm mi \rthm fas \rthm sol |
@@ -29,11 +30,11 @@ notes = \relative do'{
   re4-. \rthm re, \rthm fas \rthm la |
   \rthm re \rthm fas \rthm la re4-. |
   % repeat bar
-  r4 do!4-> ~ (16 la) la (fas) fas (re) re (do!) | 
+  r4 do!4-> ~ (16 la) la (fas) fas (re) re (do!) |
   R1 |
   si,8  16 16 8 r8 r2 |
   R1 |
-  r4 la''4-> ~ (16 fas) fas (res) res (si) si (la) | 
+  r4 la''4-> ~ (16 fas) fas (res) res (si) si (la) |
   R1 |
   sol,8 16 16 8 r8 r2 |
   R1 |
@@ -52,13 +53,13 @@ notes = \relative do'{
   mi2-> \afterGrace fas->( {mi16 fa)}|
   sol2-> ~ 8 r8 \rthm si, |
   \rthm do-> \rthm do \rthm fa-> \rthm fa |
-  \rthm mi-> \rthm mi \rthm mi \rthm fas->|  
-  \rthm sol-> \rthm sol \rthm do-> \rthm do |  
-  \rthm si-> \rthm si \rthm si \rthm si |  
-  \rthm la-> \rthm la \rthm la \rthm la |  
+  \rthm mi-> \rthm mi \rthm mi \rthm fas->|
+  \rthm sol-> \rthm sol \rthm do-> \rthm do |
+  \rthm si-> \rthm si \rthm si \rthm si |
+  \rthm la-> \rthm la \rthm la \rthm la |
   \rthm sol-> \rthm sol \rthm fas-> \rthm fas |
-  \rthm mi-> \rthm mi \rthm re-> \rthm re |  
-  \rthm do-> \rthm do \rthm si-> \rthm si |  
+  \rthm mi-> \rthm mi \rthm re-> \rthm re |
+  \rthm do-> \rthm do \rthm si-> \rthm si |
   \rthm la-> \rthm la \rthm la \rthm la |
   % D
   sol4 r4 r2 |
@@ -106,7 +107,7 @@ notesI = \relative do'{
   re-> la'-> sol-> fa-> |
   mi-> mi'-> re-> sol-> |
   si,2-> la4.-> (sol8-- ) |
-  sol1 \fermata | 
+  sol1 \fermata |
 }
 
 notesII = \relative do'{
@@ -142,7 +143,7 @@ notesII = \relative do'{
   re-> la'-> sol-> fa-> |
   mi-> mi'-> re-> sol-> |
   si,2-> la4.-> (sol8-- ) |
-  sol1 \fermata | 
+  sol1 \fermata |
 }
 
 notesIII = \relative do'{
@@ -196,7 +197,7 @@ dynamics = {
   s1\fp |
   s1\cresc |
   s1 * 2 |
-  % A 
+  % A
   s1\f |
   s1_\markup{\dynamic p \italic "dolce e tranq."} |
   s1 * 3 |
@@ -213,11 +214,11 @@ dynamics = {
   s4 s4\f s2 |
   s1 |
   s1\fp |
-  s1 | 
+  s1 |
   s1 \f |
   s1 \f |
   s1 |
-  % B 
+  % B
   s2 s4 s4\p |
   s1 * 3 |
   s2 s4 s4\piup |
@@ -234,7 +235,7 @@ dynamics = {
   s1 |
   s1 * 7 |
   s8 s8\> s4 s2 |
-  % D 
+  % D
   s1 \p |
   s1_\markup{\dynamic p \italic dolce}
   s1 * 3 |
@@ -242,7 +243,7 @@ dynamics = {
   s1 |
   s2 s2\startTrillSpan |
   s2\crescmolto s2 |
-  % E 
+  % E
   s1 \f \stopTrillSpan |
   s4 \< s4 s4 s4\fz |
   s4 s4\piuf s2 |
@@ -255,15 +256,14 @@ dynamics = {
 
 first_violin = << \notes <<\notesI \\ \notesII \\ \notesIII>> \marks \dynamics >>
 
-first_violinI = << \notes \notesI \marks \dynamics >> 
-first_violinII = << \notes \notesII \marks \dynamics >> 
-first_violinIII = << \notes \notesIII \marks \dynamics >> 
+first_violinI = << \notes \notesI \marks \dynamics >>
+first_violinII = << \notes \notesII \marks \dynamics >>
+first_violinIII = << \notes \notesIII \marks \dynamics >>
 
 first_violin_conductor = {
-  \new Staff \with {  
+  \new Staff \with {
     instrumentName = \first_violin_name_long
     shortInstrumentName = \first_violin_name_short
-    midiInstrument = #"violin"
   }
   \first_violin
 }
@@ -281,13 +281,13 @@ first_violin_praelude = \score {
         \override VerticalAxisGroup.remove-layer = 1
       }
       << \first_violinI \three_divisi_staves \system_breaks >>
-      \new Staff \with { 
+      \new Staff \with {
         \override VerticalAxisGroup.remove-empty = ##t
         \override VerticalAxisGroup.remove-first = ##t
         \override VerticalAxisGroup.remove-layer = 1
       }
       << \first_violinII \three_divisi_staves \system_breaks >>
-      \new Staff \with { 
+      \new Staff \with {
         \override VerticalAxisGroup.remove-empty = ##t
         \override VerticalAxisGroup.remove-first = ##t
         \override VerticalAxisGroup.remove-layer = 1
@@ -299,7 +299,7 @@ first_violin_praelude = \score {
         \override VerticalAxisGroup.remove-layer = 2
       }
       << \first_violinI \two_divisi_staves \system_breaks >>
-      \new Staff \with { 
+      \new Staff \with {
         \override VerticalAxisGroup.remove-empty = ##t
         \override VerticalAxisGroup.remove-first = ##t
         \override VerticalAxisGroup.remove-layer = 2
