@@ -24,12 +24,12 @@ oboe_conductor = \relative do'' {
         short-indent = 0.2\cm
     }
     \header {
-        instrument = "Oboe"
-        filename = "Grieg - Suite Holberg - OBOE"
+        instrument = "Oboe II"
+        filename = "Grieg - Suite Holberg - OBOE II"
     }
     \oboe_praelude
-    \oboe_sarabande
-    \oboe_gavotte
-    \oboe_air
+    \oboeII_sarabande
+    \oboeII_gavotte
+    \oboeII_air
     \oboe_rigaudon
 }

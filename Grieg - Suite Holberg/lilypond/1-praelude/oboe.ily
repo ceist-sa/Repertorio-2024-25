@@ -5,6 +5,8 @@
 
 \language "português"
 
+% TODO: separate oboe I and oboe II parts
+
 notes =  \relative la' {
     \set Staff.midiInstrument = #"oboe"
     \override NoteHead.color = #oboe-range
@@ -145,6 +147,7 @@ oboe_conductor = {
 oboe_praelude = \score {
     \header { piece = "I. Praelude" }
     \compressMMRests {
+        \new Staff
         \oboe
     }
 }

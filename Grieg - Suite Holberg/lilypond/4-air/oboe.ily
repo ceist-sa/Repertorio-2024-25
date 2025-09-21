@@ -234,13 +234,19 @@ oboe_conductor = {
   \oboe_staves
 }
 
-oboe_air = \score {
+oboeI_air = \score {
   \header { piece = "IV. Air" }
   \compressMMRests {
-    \new GrandStaff \with {
-      \consists "Keep_alive_together_engraver"
-    }
-    \oboe_staves
+    \new Staff
+    \oboeI
+  }
+}
+
+oboeII_air = \score {
+  \header { piece = "IV. Air" }
+  \compressMMRests {
+    \new Staff
+    \oboeII
   }
 }
 
