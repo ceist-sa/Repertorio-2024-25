@@ -10,10 +10,13 @@
 \include "4-air/conductor.ily"
 \include "5-rigaudon/conductor.ily"
 
-\bookpart {
+\book {
     \paper {
-        indent = 0.2\cm
+        #(set-paper-size "b4")
+        indent = 1.5\cm
         short-indent = 0.2\cm
+        ragged-last-bottom = ##f
+        ragged-bottom = ##f
     }
     \header {
         instrument = "Violin I"
