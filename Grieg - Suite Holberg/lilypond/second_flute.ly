@@ -7,6 +7,7 @@
 \include "1-praelude/flute.ily"
 \include "2-sarabande/flute.ily"
 \include "3-gavotte/flute.ily"
+\include "4-air/flute.ily"
 \include "5-rigaudon/flute.ily"
 
 flute_conductor = \relative do'' {
@@ -24,11 +25,12 @@ flute_conductor = \relative do'' {
         short-indent = 0.2\cm
     }
     \header {
-        instrument = "Flute"
-        filename = "Grieg - Suite Holberg - FLUTE"
+        instrument = "Flute II"
+        filename = "Grieg - Suite Holberg - FLUTE II"
     }
-    \flute_praelude
-    \flute_sarabande
-    \flute_gavotte
+    \fluteII_praelude
+    \fluteII_sarabande
+    \fluteII_gavotte
+    \fluteII_air
     \flute_rigaudon
 }

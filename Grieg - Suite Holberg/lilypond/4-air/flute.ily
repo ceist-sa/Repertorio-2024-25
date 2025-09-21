@@ -206,14 +206,20 @@ flute_conductor = {
 
 %TODO
 
-% flute_air = \score {
-%   \header { piece = "IV. Air" }
-%   \compressMMRests {
-%     \new GrandStaff \with {
-%       \consists "Keep_alive_together_engraver"
-%     }
-%     \flute_staves
-%   }
-% }
+fluteI_air = \score {
+  \header { piece = "IV. Air" }
+  \compressMMRests {
+    \new Staff
+    \fluteI
+  }
+}
+
+fluteII_air = \score {
+  \header { piece = "IV. Air" }
+  \compressMMRests {
+    \new Staff
+    \fluteII
+  }
+}
 
 % \flute_air
