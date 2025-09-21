@@ -10,7 +10,7 @@
 \include "cello.ily"
 \include "double_bass_cello.ily"
 
-conductor = {
+conductor_air = {
     <<
         \new StaffGroup {
             <<
@@ -32,7 +32,7 @@ conductor = {
 }
 
 \score{
-    \conductor
+    \conductor_air
     \layout {
         \context {
             \Staff

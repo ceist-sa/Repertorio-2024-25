@@ -10,7 +10,7 @@
 \include "cello.ily"
 \include "double_bass_cello.ily"
 
-conductor = {
+conductor_gavotte = {
     <<
         \new StaffGroup {
             <<
@@ -32,7 +32,7 @@ conductor = {
 }
 
 \score{
-    \conductor
+    \conductor_gavotte
     \layout {}
     \midi {\tempo 2 = 90}
 }

@@ -10,7 +10,7 @@
 \include "cello.ily"
 \include "double_bass_cello.ily"
 
-conductor = {
+conductor_rigaudon = {
     <<
         \new StaffGroup {
             <<
@@ -40,7 +40,7 @@ conductor = {
 }
 
 \score{
-    \conductor
+    \conductor_rigaudon
     \layout {
         % \context {
         %     \Staff
