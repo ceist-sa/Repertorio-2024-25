@@ -268,7 +268,7 @@ first_violin_conductor = {
 }
 
 first_violin_praelude = \score {
-  \header { subtitle = \markup{\bold \center-align \large "I. Praelude" }}
+  \header { piece = "I. Praelude" }
   \compressMMRests{
     \new GrandStaff \with {
       \consists "Keep_alive_together_engraver"
