@@ -35,7 +35,7 @@ conductor_praelude = \score {
 }
 
 \score{
-    \conductor
+    \conductor_praelude
     \layout {}
     \midi{ \tempo 4 = 150 }
 }
