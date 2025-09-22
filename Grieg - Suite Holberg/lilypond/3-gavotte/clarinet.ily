@@ -6,14 +6,15 @@
 \language "português"
 
 notes =  \relative la' {
+    \set Staff.midiInstrument = #"clarinet"
     \override NoteHead.color = #clarinet-range
-    \clef "treble" 
+    \clef "treble"
     r2 |
     R1 * 3 |
-    r2 si,4 ( -> do4 ) -. | 
-    do4 ( -> mi4 ) -. mi4 ( -> fas4 ) -. | 
-    fas2 re4 mi4 | 
-    do4 re4 re4 mi4 | 
+    r2 si,4 ( -> do4 ) -. |
+    do4 ( -> mi4 ) -. mi4 ( -> fas4 ) -. |
+    fas2 re4 mi4 |
+    do4 re4 re4 mi4 |
     la,2 si2 ~ -> |
     si4 r4 |
     % H
@@ -24,7 +25,7 @@ notes =  \relative la' {
     % I
     s2 |
     s1 * 11 |
-    % K 
+    % K
     s1 * 5 |
     s2 |
     % MUSETTE
@@ -32,12 +33,12 @@ notes =  \relative la' {
     s1 * 7 |
     s2 |
     % L
-    re2 ( ~  | 
-    re8 mi8 ) mi8 ( fa8 ) fa2 ( ~ | 
-    fa8 sol8 ) fa8 ( sol8 ) mi4 fa8 ( sol8 ) | 
-    \grace { fa16 (sol16 } fa8 mi8) re4 r2 | 
+    re2 ( ~  |
+    re8 mi8 ) mi8 ( fa8 ) fa2 ( ~ |
+    fa8 sol8 ) fa8 ( sol8 ) mi4 fa8 ( sol8 ) |
+    \grace { fa16 (sol16 } fa8 mi8) re4 r2 |
     R1*2 |
-     
+
 
 }
 
@@ -48,33 +49,33 @@ notesI = \relative la {
     s2 |
     % H
     s2 |
-    la4. ->  r8 r2 | 
-    la4. -> r8 la2  | 
-    re2 ( dos2  | 
-    si2 la2  | 
-    sol2 fas2 )  | 
+    la4. ->  r8 r2 |
+    la4. -> r8 la2  |
+    re2 ( dos2  |
+    si2 la2  |
+    sol2 fas2 )  |
     R1 * 4 |
-    r2 sol'4 ( ->  sol4 ) -. | 
-    sol4 ( -> sol4 ) -. sol4 ( -> do4 ) -. | 
-    do2 ->  sol4 sol4 | 
-    sol4 fas4 sol4 mi4 | 
-    re2 re2 ~ -> | 
+    r2 sol'4 ( ->  sol4 ) -. |
+    sol4 ( -> sol4 ) -. sol4 ( -> do4 ) -. |
+    do2 ->  sol4 sol4 |
+    sol4 fas4 sol4 mi4 |
+    re2 re2 ~ -> |
     re4 r4 |
     % I
     r2 |
-    R1 * 3 | 
-    r2 do2 | 
-    \grace { si16 do16 } si8 -> la8 sol4 -. do8 -> re8 mi4 -. | 
-    si2 -> mi2 -> | 
+    R1 * 3 |
+    r2 do2 |
+    \grace { si16 do16 } si8 -> la8 sol4 -. do8 -> re8 mi4 -. |
+    si2 -> mi2 -> |
     \grace { re16 mi16 } re8 -> si8 re4 -. \grace { do16 re16 } do8 ->
-    la8 do4 -. | 
-    si4 -. la4 -. r2 | 
+    la8 do4 -. |
+    si4 -. la4 -. r2 |
     R1 * 3|
     r2 re4 -. ->  re4 -. -> |
-    re4 -. ->    sol4 -. -> sol4 -. -> do4 -. -> | 
-    do2 ->   sol4 sol4 | 
-    sol4 fas4 sol4 mi4 | 
-    re2 \breathe re2 ~ -> | 
+    re4 -. ->    sol4 -. -> sol4 -. -> do4 -. -> |
+    do2 ->   sol4 sol4 |
+    sol4 fas4 sol4 mi4 |
+    re2 \breathe re2 ~ -> |
     re4 r4
     % MUSETTE
     mi8 (re mi sol |
@@ -87,14 +88,14 @@ notesI = \relative la {
     mi8-> (sol mi do) si8-> (re si sol) |
     sol4-> ~8 r8 |
     % L
-    s2 | 
+    s2 |
     s1*5 |
-    r2 la'4 -.  la4 -. | 
-    si4 -. si4 -. si4 -. si4 -. | 
-    la4 -. la4 -. la4 -. sol4 -. | 
-    sol4 -. fa4 -. fa4 -. mi4 -. | 
-    mi4 -. re4 -. re4 -. do4 -. | 
-    sol'4 -.  fa4 -. sol4 -. sol4 -. | 
+    r2 la'4 -.  la4 -. |
+    si4 -. si4 -. si4 -. si4 -. |
+    la4 -. la4 -. la4 -. sol4 -. |
+    sol4 -. fa4 -. fa4 -. mi4 -. |
+    mi4 -. re4 -. re4 -. do4 -. |
+    sol'4 -.  fa4 -. sol4 -. sol4 -. |
     sol4 ~   sol8 r8 mi8 (re mi sol |
     fa8 mi re fa) mi (re do mi|
     re8 si sol4) fa'8-> (la fa re) |
@@ -113,32 +114,32 @@ notesII = \relative la {
     s2 |
     % H
     s2 |
-    sol4 (  fas8 ) r8 r2 | 
-    sol4 ( fas8 ) r8 fas2 | 
-    si2 ( la2 | 
-    sol2 fas2  | 
-    mi2 re2 )  | 
+    sol4 (  fas8 ) r8 r2 |
+    sol4 ( fas8 ) r8 fas2 |
+    si2 ( la2 |
+    sol2 fas2  |
+    mi2 re2 )  |
     R1 * 4 |
-    r2 si'4 ( ->  do4 ) -. | 
-    do4 ( -> mi4 ) -. mi4 ( -> fas4 ) -. | 
-    fas2 ->  re4 mi4 | 
-    do4 re4 re4 mi4 | 
-    la,2 si2 ( -> | 
-    si4 ) r4 | 
+    r2 si'4 ( ->  do4 ) -. |
+    do4 ( -> mi4 ) -. mi4 ( -> fas4 ) -. |
+    fas2 ->  re4 mi4 |
+    do4 re4 re4 mi4 |
+    la,2 si2 ( -> |
+    si4 ) r4 |
     % I
     r2 |
     R1 * 3 |
-    r2 sol2 ->  | 
-    sol8 -> sol8 sol4 -. sol8 -> sol8 sol4 -. | 
-    sol2 -> si2 -> | 
-    sol8 -> sol8 sol4 -. sol8 -> sol8 sol4 -. | 
-    sol4 -. fas4 -.  r2 | 
-    R1 * 3 | 
+    r2 sol2 ->  |
+    sol8 -> sol8 sol4 -. sol8 -> sol8 sol4 -. |
+    sol2 -> si2 -> |
+    sol8 -> sol8 sol4 -. sol8 -> sol8 sol4 -. |
+    sol4 -. fas4 -.  r2 |
+    R1 * 3 |
     r2 si4 -. ->  re4 -. -> |
-    re4 -. ->  do4 -. ->  do4 -. -> sol'4 -. -> | 
-    fas2 ->  re4 mi4 | 
-    do4 re4 re4 do8 si8 | 
-    la4. ( \trill \grace { sol16 la16 } si8 ) \breathe si2 ~ -> | 
+    re4 -. ->  do4 -. ->  do4 -. -> sol'4 -. -> |
+    fas2 ->  re4 mi4 |
+    do4 re4 re4 do8 si8 |
+    la4. ( \trill \grace { sol16 la16 } si8 ) \breathe si2 ~ -> |
     si4 r4 |
     % MUSETTE
     sol4. sol8-> ~ |
@@ -151,14 +152,14 @@ notesII = \relative la {
     mi8-> (sol mi do) si-> (re si sol) |
     sol4-> ~8 r8 |
     % L
-    s2 | 
+    s2 |
     s1*5 |
-    r2 fa'4 -.  fa4 -. | 
-    sol4 -. sol4 -. sol4 -. sol4 -. | 
-    fa4 -. fa4 -. fa4 -. mi4 -. | 
-    mi4 -. re4 -. re4 -. do4 -. | 
-    do4 -. si4 -. si4 -. do4 -. | 
-    do4 -.  do4 -. re4 -. re4 -. | 
+    r2 fa'4 -.  fa4 -. |
+    sol4 -. sol4 -. sol4 -. sol4 -. |
+    fa4 -. fa4 -. fa4 -. mi4 -. |
+    mi4 -. re4 -. re4 -. do4 -. |
+    do4 -. si4 -. si4 -. do4 -. |
+    do4 -.  do4 -. re4 -. re4 -. |
     mi4 ~   mi8 r8 sol,4. sol8-> ~ |
     4. 8-> ~4. 8-> ~ |
     2 la'8-> (do la fa) |
@@ -180,7 +181,7 @@ dynamics = {
   s1 \fz |
   s1 * 2 |
   s2 |
-  % H 
+  % H
   s2 |
   s1\p |
   s1 |
@@ -196,7 +197,7 @@ dynamics = {
   s1 \fz |
   s1 * 2 |
   s2 |
-  % I 
+  % I
   s2 |
   s1 |
   s1 |
@@ -215,7 +216,7 @@ dynamics = {
   s1 \ff |
   s1 * 2 |
   s2 |
-  % MUSETTE 
+  % MUSETTE
   s2\pp |
   s1 * 3 |
   s2 s2 |
@@ -234,7 +235,7 @@ dynamics = {
   s2\ff s2\pp|
   s1 * 7 |
   s2 |
-} 
+}
 
 staves = {
     \twoStaves
@@ -276,7 +277,6 @@ clarinet_conductor = {
     printPartCombineTexts = ##f
     instrumentName = \clarinet_name_long
     shortInstrumentName = \clarinet_name_short
-    midiInstrument = #"clarinet"
   }
   \clarinet_staves
 }

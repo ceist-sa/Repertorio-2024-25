@@ -14,7 +14,7 @@ dynamics = {
   s1 \fz |
   s1 * 2 |
   s2 |
-  % H 
+  % H
   s2 \p |
   s1 |
   s2 \once \override Hairpin.to-barline = ##f s2\< |
@@ -30,7 +30,7 @@ dynamics = {
   s1 \fz |
   s1 * 2 |
   s2 |
-  % I 
+  % I
   s2 \fpp |
   s1 |
   s2 s2 \fpp |
@@ -47,7 +47,7 @@ dynamics = {
   s1 \ff |
   s1 * 2 |
   s2 |
-  % MUSETTE 
+  % MUSETTE
   s2 \pp |
   s1 * 7 |
   s2 |
@@ -63,9 +63,10 @@ dynamics = {
   s2\ff s2\pp |
   s1 * 7 |
   s2 |
-} 
+}
 
 notes = \relative do' {
+  \set Staff.midiInstrument = #"viola"
   \clef alto
   s2 |
   s1 * 3 |
@@ -84,7 +85,7 @@ notes = \relative do' {
   do4 re re mi |
   la,2 si-> ~ |
   4 r4 |
-  % I 
+  % I
   s2 |
   s1 * 3 |
   s2 do2-> |
@@ -95,7 +96,7 @@ notes = \relative do' {
   1 ~ |
   1 ~ |
   1 |
-  % K 
+  % K
   re'4-. re,-. s2 |
   s1 * 4 |
   s2 |
@@ -109,7 +110,7 @@ notes = \relative do' {
   sib4-. sib-. sol-. la-. |
   la4-. re,-. s2 |
   s1 * 8 |
-  % M 
+  % M
   s1 * 8 |
   s2 |
 }
@@ -144,7 +145,7 @@ notesI = \relative do' {
   \grace{fas16^( sol} fas8-> re fas4 \grace{mi16 fas} mi8 do mi4)
   re4-. re-. s2 |
   s1 * 7 |
-  % K 
+  % K
   s2 si'4-> re-> |
   re4-> do-> do-> sol'-> |
   fas2-> re4 mi |
@@ -215,7 +216,7 @@ notesII = \relative do' {
   1 |
   si8 (do) re4-. s2 |
   s1 * 7 |
-  % K 
+  % K
   s2 si4-> re-> |
   re4-> do-> do-> sol'-> |
   fas2-> re4 mi |
@@ -277,7 +278,7 @@ staves = {
   s1 * 4 |
   \oneStaff
   s1 * 7 |
-  % K 
+  % K
   \twoStaves
   s1 * 5 |
   s2 |
@@ -291,7 +292,7 @@ staves = {
   s1 * 2 |
   \twoStaves
   s1 * 9 |
-  % M 
+  % M
   s1 * 8 |
   s2 |
 }
@@ -306,7 +307,6 @@ viola_conductor = {
   \new Staff \with {
     printPartCombineTexts = ##f
     \consists Merge_rests_engraver
-    midiInstrument = #"viola"
     instrumentName = \viola_name_long
     shortInstrumentName = \viola_name_short
   }
@@ -321,14 +321,12 @@ viola_gavotte = \score {
     }
     <<
       \new Staff \with {
-        midiInstrument = #"viola"
         \override VerticalAxisGroup.remove-empty = ##t
         \override VerticalAxisGroup.remove-first = ##t
         \override VerticalAxisGroup.remove-layer = 1
       }
       << \violaI \staves >>
       \new Staff \with {
-        midiInstrument = #"viola"
         \override VerticalAxisGroup.remove-empty = ##t
         \override VerticalAxisGroup.remove-first = ##t
         \override VerticalAxisGroup.remove-layer = 1
@@ -337,7 +335,6 @@ viola_gavotte = \score {
       \new Staff \with {
         printPartCombineTexts = ##f
         \consists Merge_rests_engraver
-        midiInstrument = #"viola"
         \override VerticalAxisGroup.remove-layer = 2
       }
       << \viola \staves >>

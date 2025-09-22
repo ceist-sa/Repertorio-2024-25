@@ -10,17 +10,18 @@
 \include "cello.ily"
 \include "double_bass_cello.ily"
 
-conductor = {
+conductor_sarabande = \score {
+    \header { piece = "II. Sarabande" }
     <<
         \new StaffGroup {
-            <<  
+            <<
                 \flute_conductor
                 \oboe_conductor
                 \clarinet_conductor
             >>
         }
         \new StaffGroup {
-            <<  
+            <<
                 \first_violin_conductor
                 \second_violin_conductor
                 \viola_conductor
@@ -31,8 +32,8 @@ conductor = {
     >>
 }
 
-\score{
-    \conductor
-    \layout {}
-    \midi { \tempo 4 = 60}
-}
+% \score{
+%     \conductor_sarabande
+%     \layout {}
+%     \midi { \tempo 4 = 60}
+% }

@@ -7,7 +7,7 @@
 
 marks = {
     \tempo "Andante."
-    \time 3/4 
+    \time 3/4
     \key sol \major
     \repeat volta 2 {
     s2. * 8 |

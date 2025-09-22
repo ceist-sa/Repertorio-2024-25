@@ -5,6 +5,7 @@
 \include "globals.ily"
 
 double_bass = \relative do' {
+    \set Staff.midiInstrument = #"contrabass"
     \clef bass
     sols2.\pizz\p |
     2. |
@@ -47,7 +48,7 @@ double_bass = \relative do' {
     mib |
     mib |
     \after 2 \! lab\< |
-    la!2\> re,4\! | 
+    la!2\> re,4\! |
     % C
     sol2.\pp |
     re |
@@ -65,7 +66,7 @@ double_bass = \relative do' {
     fas, |
     si, |
     la |
-    % D 
+    % D
     sol_\markup{\right-align \italic "più" \dynamic pp} |
     re' |
     la' |
@@ -83,7 +84,7 @@ double_bass = \relative do' {
     re |
     sol, |
     sol |
-    % E 
+    % E
     sol \mp |
     si |
     la |
@@ -100,7 +101,7 @@ double_bass = \relative do' {
     si |
     la |
     re, |
-    % F 
+    % F
     sol\p |
     mi\cresc |
     fas |
@@ -145,7 +146,7 @@ double_bass = \relative do' {
     si2.\f |
     si,\f |
     \after 2 \! mi\> |
-    % H 
+    % H
     R2. |
     la4-.\arco\mf r r |
     re,-. r r |
@@ -191,28 +192,28 @@ double_bass = \relative do' {
     la2 r4 |
     % L
     re4:8\f sol: la: |
-    sib: la: sol: | 
+    sib: la: sol: |
     re4:8 sol: la: |
-    sib: la: sol: | 
+    sib: la: sol: |
     re4:8 sol: la: |
-    sib: la: sol: | 
+    sib: la: sol: |
     re4:8 sol: la: |
-    sib: la: sol: | 
+    sib: la: sol: |
     re4:8 sol: la: |
-    sib: la: sol: | 
+    sib: la: sol: |
     re4:8 sol: la: |
-    sib: la: sol: | 
+    sib: la: sol: |
     re4:8 sol: la: |
-    sib: la: sol: | 
+    sib: la: sol: |
     re4:8 sol: la: |
-    sib: la: sol: | 
+    sib: la: sol: |
     % M
     re4:8 sol: la: |
-    sib: la: sol: | 
+    sib: la: sol: |
     re4:8 sol: la: |
-    sib: la: sol: | 
+    sib: la: sol: |
     re4:8 sol: la: |
-    sib: la: sol: | 
+    sib: la: sol: |
     re4:8 sol: la: |
     sib: la: sol-. |
     r4 r\fermata r |
@@ -227,8 +228,7 @@ double_bass_conductor = \relative do, {
     \new Staff \with {
         instrumentName = "Contrabaixo"
         shortInstrumentName = "Cb."
-        midiInstrument = #"contrabass"
-    } 
+    }
     << \double_bass \marks >>
 }
 
@@ -240,7 +240,7 @@ double_bass_conductor = \relative do, {
         ragged-bottom = ##f
     }
     \score {
-        \new Staff 
+        \new Staff
             <<\double_bass \marks>>
     }
 }

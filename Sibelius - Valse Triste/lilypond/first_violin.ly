@@ -63,7 +63,7 @@ first_violin = \relative do'' {
     fas4-. fas-. fas-. |
     fas-.\< fas-. r8 fas8\! |
     fas4\> mi-- re--\! |
-    
+
     % D
     re4-._\markup{\italic più \dynamic pp} 4-. r8 8 |
     4-. 4-. 4-. |
@@ -82,7 +82,7 @@ first_violin = \relative do'' {
     \once \override Hairpin.to-barline = ##f
     sol2.\> ~|
     2\! r4 |
-    
+
     % E
     \acciaccatura re'8 si'2. (~ |
     8 la) sol(\( fas) sol( mi)\) |
@@ -120,7 +120,7 @@ first_violin = \relative do'' {
     dos
     dos\> ~ |
     dos2 r4\! |
-    
+
     % G
     fas2._\markup{\dynamic p \italic dolce} ( |
     mis) |
@@ -146,11 +146,11 @@ first_violin = \relative do'' {
     fas\f |
     mi2\> ~ mi8 r8\> |
 
-    % H 
+    % H
     mi4\f-! fa-! sol-! |
     la-! sol-! fa-! |
     mi-! fas( r8 re) |
-    sol2\>( sol8) r\! | 
+    sol2\>( sol8) r\! |
     fa2. |
     mi |
     res |
@@ -158,7 +158,7 @@ first_violin = \relative do'' {
     mi4\f-! fa-! sol-! |
     la-! sol-! fa-! |
     mi-! fas( r8 re) |
-    sol2\>( sol8) r\! | 
+    sol2\>( sol8) r\! |
     la2.\< |
     si |
     dos |
@@ -204,7 +204,7 @@ first_violin = \relative do'' {
         sib (la!) la8 r8 |
     }>>
 
-    % L 
+    % L
     re,2._\markup{\dynamic f \italic espress.} ~ |
     re |
     dos ~ |
@@ -257,8 +257,7 @@ first_violin_conductor = \relative do'' {
     \new Staff \with {
         instrumentName = "Violino I"
         shortInstrumentName = "Vln. I"
-        midiInstrument = #"violin"
-    } 
+    }
     << \first_violin \marks >>
 }
 

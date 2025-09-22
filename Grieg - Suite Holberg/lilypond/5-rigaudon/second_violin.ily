@@ -5,10 +5,11 @@
 \language "português"
 
 notes = \relative do'{
-  \clef treble 
+   \set Staff.idiInstrument = #"violin"
+   \clef treble
   r4 |
   <sol sol'>4\f\div\pizz r r2 |
-  % remember q = last played note or chord 
+  % remember q = last played note or chord
   r4 q4\pp q r |
   r4 q4 q r |
   r4 q4 q r |
@@ -28,7 +29,7 @@ notes = \relative do'{
   mi4\cresc r re r |
   dos4 r si r |
   la4 r sol r |
-  % T 
+  % T
   la4->\f r r la |
   la4-> r r la |
   la4-> la si la |
@@ -40,7 +41,7 @@ notes = \relative do'{
   re4 4 4 4 |
   re4 4 4 4 |
   re4 4 4 4 |
-  % U 
+  % U
   fas,4 r r
   <<
     {
@@ -64,7 +65,7 @@ notes = \relative do'{
   >>
   si'4->\arco\ff (la8--) sol fas mi re do |
   si8 do re2-> sol,4 |
-  fas4 sol fas2->\fermata |   
+  fas4 sol fas2->\fermata |
   mi4-.\ffz sol,-. sol-. |
   % Poco meno mosso
   r4 |
@@ -116,7 +117,6 @@ second_violin_conductor = {
   \new Staff \with {
     instrumentName = \second_violin_name_long
     shortInstrumentName = \second_violin_name_short
-    midiInstrument = #"violin"
   }
   \second_violin
 }

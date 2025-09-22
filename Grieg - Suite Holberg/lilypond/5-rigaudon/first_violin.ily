@@ -14,9 +14,9 @@ notes_solo = \relative do'{
   si-.-> sol-. sol-. si8( re)|
   do-> ( re do re) si4-. si8( re)|
   do-> ( re do re) si4-. si8( re)|
-  la( re) la( re) dos( sol') dos,( sol') | 
+  la( re) la( re) dos( sol') dos,( sol') |
   < re, la' fas' >4 -.-> r4 r4 re'-. | %S
-  
+
   sol8-.-> re-. si-. la-. si-. re-. sol-. re-. |
   mi4-.-> dos-. dos-. mi-. |
   fas8-> dos la sol la dos fas dos |
@@ -53,15 +53,16 @@ notes_solo = \relative do'{
 
 
 notes = \relative do'{ % tutti with solo (two staves)
+   \set Staff.midiInstrument = #"violin"
   s4 |
   s1 * 8 |%S
 
   sol''4-> r4 r2 |
   r4 dos,4 dos r4 |
   fas -> r4 r2 |
-  r4 si, si r4 | 
-  mi-> r4 r4 la, | 
-  re-> r4 r4 sol, | 
+  r4 si, si r4 |
+  mi-> r4 r4 la, |
+  re-> r4 r4 sol, |
   dos-> r4 si r4 |
   la r4 sol r4 |
   fas r4 mi r4 |
@@ -96,7 +97,7 @@ notes = \relative do'{ % tutti with solo (two staves)
   fa2 sib,4( sib') |
   fa->( mib) mib->( re) |
   re8->( do) do2 mib8 sol |
-  fa4 mib8 re  \grace { do16 \(( re } do4.\) sib8) | 
+  fa4 mib8 re  \grace { do16 \(( re } do4.\) sib8) |
   sib2 r4 re4 |
   sol4( fa8 mib8) re4( do) |
   sib8-> do re2 re4 |
@@ -120,8 +121,8 @@ notes = \relative do'{ % tutti with solo (two staves)
 }
 
 notesI = \relative do'{
-  r4 | 
-  si'4 r4 r2 | 
+  r4 |
+  si'4 r4 r2 |
   r4 si si r4 |
   r4 la la r4 |
   r4 si si r4 |
@@ -154,8 +155,8 @@ notesI = \relative do'{
 }
 
 notesII = \relative do'{
-  r4 | 
-  re4 r4 r2 | 
+  r4 |
+  re4 r4 r2 |
   r4 re re r4 |
   r4 re re r4 |
   r4 re re r4 |
@@ -266,10 +267,10 @@ s1*2 |
 s1 \f |
 s1*2 |
 s2. s4 \p |
-s1*2 | 
+s1*2 |
 s1 \div |
 s2. s4 \piup |
-s1*3 | 
+s1*3 |
 s2. s4 \pp |
 s1 * 6 |
 s1 \ff \arco |
@@ -279,45 +280,43 @@ s4 \ffz s2 |
 s4 \p |
 s1 *3|
 s2. s4\mf |
-s1 
+s1
 s1\> |
 s1 |
 s2 \pp s4 s4 \p |
 s1 *3|
 s2 s2\f |
-s1 *3| 
-s2. s4 \p | 
+s1 *3|
+s2. s4 \p |
 s1 * 8 |
-s2 s2 \cresc | 
-s1 | 
-s2 s2 \ff | 
-s1 * 3 | 
+s2 s2 \cresc |
+s1 |
+s2 s2 \ff |
+s1 * 3 |
 s2 s2 \p |
 s1 * 3 |
 s2. |
 
 }
 
-first_violin_solo = << \notes_solo \marks \dynamicssolo >> 
-first_violinI = << \notes \notesI >> 
-first_violinII = << \notes \notesII >> 
+first_violin_solo = << \notes_solo \marks \dynamicssolo >>
+first_violinI = << \notes \notesI >>
+first_violinII = << \notes \notesII >>
 first_violin_tutti = << \partCombine \first_violinI \first_violinII \marks \dynamicsI_II >>
 
 first_violin_solo_conductor = {
-  \new Staff \with {  
+  \new Staff \with {
     instrumentName = \solo_violin_name_long
     shortInstrumentName = \solo_violin_name_short
-    midiInstrument = #"violin"
     \override VerticalAxisGroup.remove-empty = ##t
   }
   \first_violin_solo
 }
 
 first_violin_tutti_conductor = {
-  \new Staff \with {  
+  \new Staff \with {
     instrumentName = \first_violin_name_long
     shortInstrumentName = \first_violin_name_short
-    midiInstrument = #"violin"
     printPartCombineTexts = ##f
   }
   \first_violin_tutti

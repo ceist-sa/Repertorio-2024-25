@@ -55,12 +55,13 @@ dynamics = {
   s4\< s2 s4\fz |
   s4 s4\piuf s2 |
   s4\< s2 s4\fz |
-  s4 s4\ff s2 | 
+  s4 s4\ff s2 |
   s1 * 3 |
   s1\ffz |
 }
 
 notes = \relative do {
+  \set Staff.midiInstrument = #"viola"
   \clef alto
   \rthm re \rthm re \rthm re \rthm mi |
   \rthm fas \rthm sol \rthm la \rthm si |
@@ -190,7 +191,6 @@ violaII = <<\notes \notesII \marks \dynamics>>
 
 viola_conductor = {
   \new Staff \with {
-    midiInstrument = #"viola"
     instrumentName = \viola_name_long
     shortInstrumentName = \viola_name_short
   }

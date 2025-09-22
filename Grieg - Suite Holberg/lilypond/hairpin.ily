@@ -64,7 +64,7 @@ The length of that hairpin may be adjusted with @var{x-length-corr}
 
 #(define (shortened-hairpin corr)
   (elbowed-hairpin '((1.0 . 1.0)) corr #t))
-  
+
 #(define-markup-command (vstrut layout props)
   ()
   #:category other
@@ -78,44 +78,44 @@ a reference.
     (ly:make-stencil (ly:stencil-expr empty-stencil)
                      empty-interval
                      (ly:stencil-extent ref-mrkp Y))))
-  
+
 #(define (hairpin-with-right-text text grob)
   "Rebuild a hairpin and add @var{text} to the right.
-  The hairpin is shortened by the length of @var{text}, 
+  The hairpin is shortened by the length of @var{text},
   @code{bound-padding} is taken into account"
       (let* ((text-stil (grob-interpret-markup grob (markup #:vstrut text)))
              (text-stil-x-extent (ly:stencil-extent text-stil X))
              (text-stil-length (interval-length text-stil-x-extent))
-             (staff-space 
+             (staff-space
                (ly:output-def-lookup (ly:grob-layout grob) 'staff-space))
              (x-corr (+ text-stil-length (/ staff-space 2))))
-             
+
       (ly:grob-set-property! grob 'stencil (shortened-hairpin x-corr))
-      
+
         (let* ((stencil (ly:grob-property grob 'stencil))
-               (stil-x-ext 
-                 (ordered-cons 
+               (stil-x-ext
+                 (ordered-cons
                    (car (ly:stencil-extent stencil X))
                    (cdr (ly:stencil-extent stencil X))))
-               (new-stencil 
+               (new-stencil
                  (ly:stencil-add
                    (ly:stencil-aligned-to stencil Y CENTER)
                    (ly:stencil-translate-axis
                      (ly:stencil-aligned-to text-stil Y CENTER)
                      (+ (cdr stil-x-ext) staff-space)
                      X))))
-        
+
         (ly:grob-set-property! grob 'stencil new-stencil))))
-        
+
 #(define (hairpin-with-right-text-callback txt)
 "
- Returns a stencil build by @code{hairpin-with-right-text} for unbroken or the 
+ Returns a stencil build by @code{hairpin-with-right-text} for unbroken or the
  last of broken hairpins.
 "
   (lambda (grob)
     (let* ((orig (ly:grob-original grob))
            (siblings (ly:spanner-broken-into orig)))
-       (if (or (null? siblings) 
+       (if (or (null? siblings)
                (equal? grob (car (last-pair siblings))))
            (hairpin-with-right-text txt grob)))))
            

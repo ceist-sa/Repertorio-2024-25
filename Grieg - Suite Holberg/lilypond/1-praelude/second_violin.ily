@@ -7,7 +7,8 @@
 \language "português"
 
 notes = \relative do'{
-  \clef treble 
+  \set Staff.midiInstrument = #"violin"
+  \clef treble
   \rthm sol \rthm sol \rthm sol \rthm sol |
   \rthm la \rthm si \rthm do \rthm re |
   \rthm mi \rthm mi \rthm fas \rthm fas |
@@ -29,11 +30,11 @@ notes = \relative do'{
   % repeat bar
   re,,2-> ~ 4 r4 |
   do'!16-> (la) la (fas) fas (re) re (do) r2 |
-  si 8 16 16 8 r8 r2 | 
+  si 8 16 16 8 r8 r2 |
   R1 |
   si2-> ~ 4 r4 |
   la'16-> (fas) fas (res) res (si) si (la) r2 |
-  sol 8 16 16 8 r8 r2 | 
+  sol 8 16 16 8 r8 r2 |
   R1 |
   fa'16-> (do) do (fa) do'8-> 8 re8-> 8 fa,16-> (re) re (fa) |
   mi16-> (si) si (mi) si'8-> 8 do8-> 8 mi,16-> (do) do (mi) |
@@ -53,7 +54,7 @@ notes = \relative do'{
       \rthm si-. \rthm si-. \rthm si-. \rthm si-. |
       \rthm do \rthm do \rthm do \rthm do |
       do8
-    } 
+    }
     \\
     {
       \rthm res,-. \rthm res-. \rthm res-. \rthm res-. |
@@ -112,7 +113,7 @@ notes = \relative do'{
 
 % Splitting dynamics from the notes is only strictly necessary
 % when we have divisi staves. In this case it was not necessary.
-% I did it because I was in auto-pilot mode and did not think 
+% I did it because I was in auto-pilot mode and did not think
 % much about it. It doesn't hurt anyone, and it would be a pain
 % to undo the changes, so I'll just leave it as is.
 dynamics = {
@@ -179,7 +180,6 @@ second_violin_conductor = {
   \new Staff \with {
     instrumentName = \second_violin_name_long
     shortInstrumentName = \second_violin_name_short
-    midiInstrument = #"violin"
   }
   \second_violin
 }
@@ -187,7 +187,7 @@ second_violin_conductor = {
 second_violin_praelude = \score {
   \header { piece = "I. Praelude" }
   \compressMMRests{
-    \new Staff 
+    \new Staff
     \second_violin
   }
 }

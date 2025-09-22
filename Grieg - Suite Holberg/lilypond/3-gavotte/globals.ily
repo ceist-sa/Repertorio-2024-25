@@ -12,22 +12,22 @@ marks = {
            #{ \markup{\bold \upright "Gavotte da capo al Fine."} #})
     \repeat segno 2 {
     \tempo "Allegretto."
-    \time 2/2 
+    \time 2/2
     \key sol \major
     \partial 2 s2 |
     s1 * 8 |
     \partial 2 s2 \bar "||"
-    % H 
+    % H
     \mark \markup {\bold "H"}
     \partial 2 s2 |
     s1 * 14 |
     \partial 2 s2 \bar "||"
-    %I 
+    %I
     \mark \markup {\bold "I"}
     \partial 2 s2 |
     s1 * 3 |
     s1 * 8 |
-    % K 
+    % K
     \mark \markup {\bold "K"}
     s1 * 2 |
     \override TextSpanner.bound-details.left.text = "ritardando"
@@ -40,22 +40,22 @@ marks = {
     \key do \major
     \tempo "Poco più mosso."
     \mark \markup{\bold \left-align "MUSETTE."}
-    \partial 2 s2 | 
+    \partial 2 s2 |
     s1 * 7 |
-    \partial 2 s2 | 
+    \partial 2 s2 |
     \mark \markup {\bold "L"}
     % L
     \repeat volta 2 {
-    \partial 2 s2 | 
+    \partial 2 s2 |
     s1 * 11 |
     \mark \markup {\bold "M"}
     s1 * 8 |
     \partial 2 s2 |}
-    } 
+    }
 }
 
 \header {
-    title = "Holberg Suite, Op. 40" 
+    title = "Holberg Suite, Op. 40"
     composer = "Edvard Grieg"
     tagline = "CEIST"
 }

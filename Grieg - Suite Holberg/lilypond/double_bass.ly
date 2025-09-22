@@ -13,7 +13,6 @@
 double_bass_conductor = \relative do {
     \new GrandStaff \with {
         \consists "Keep_alive_together_engraver"
-        midiInstrument = #"contrabass"
         instrumentName = \double_bass_name_long
         shortInstrumentName = \double_bass_name_short
     }

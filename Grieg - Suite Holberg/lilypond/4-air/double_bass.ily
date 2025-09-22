@@ -5,6 +5,7 @@
 \language "português"
 
 notes = \relative sol {
+    \set Staff.midiInstrument = #"contrabass"
     \transposition do
     \clef bass
     sol4\pizz r r |
@@ -22,7 +23,7 @@ notes = \relative sol {
     sol16 (fa) mi (fa) do'-- (sib--) la-- sol-- la4 |
     sib2-> fas4
     sol4. fa16 sol la4 |
-    re2 re,4 | 
+    re2 re,4 |
     % O, repeat bar
     sib'4\pizz r r |
     sib4 r r |
@@ -37,7 +38,7 @@ notes = \relative sol {
     mib2.->\arco |
     mib2 ~8 mib |
     re8-> sol-> fa2 |
-    % P 
+    % P
     sib,4~8 r8 r4 |
     do4 \pizz r r |
     re4 r r |
@@ -59,10 +60,11 @@ notes = \relative sol {
     do16 (sib) la sib fa'-- (mib--) re-- do-- re4 |
     mib2-> si4 |
     do4. sib!16 do re4 |
-    sol16 (sol,) fa-- (mib--) re-- (do--) sib-- (la--) sol4 | 
+    sol16 (sol,) fa-- (mib--) re-- (do--) sib-- (la--) sol4 |
 }
 
 notesI = \relative {
+    \set Staff.midiInstrument = #"contrabass"
     s2. * 39 |
     % Q
     sol2 r4 |
@@ -78,6 +80,7 @@ notesI = \relative {
 }
 
 notesII = \relative {
+    \set Staff.midiInstrument = #"contrabass"
     s2. * 39 |
     % Q
     sol,4\pizz r r |
@@ -169,7 +172,6 @@ double_bassII = <<\notes \notesII \marks \dynamics >>
 double_bass_staves = {
     <<
         \new Staff \with {
-        midiInstrument = #"contrabass"
         \consists Merge_rests_engraver
         \override VerticalAxisGroup.remove-empty = ##t
         \override VerticalAxisGroup.remove-first = ##t
@@ -177,7 +179,6 @@ double_bass_staves = {
         }
         << \double_bassI \staves >>
         \new Staff \with {
-        midiInstrument = #"contrabass"
         \consists Merge_rests_engraver
         \override VerticalAxisGroup.remove-empty = ##t
         \override VerticalAxisGroup.remove-first = ##t
@@ -185,7 +186,6 @@ double_bass_staves = {
         }
         << \double_bassII \staves >>
         \new Staff \with {
-        midiInstrument = #"contrabass"
         \consists Merge_rests_engraver
         \override VerticalAxisGroup.remove-layer = 2
         }
@@ -196,7 +196,6 @@ double_bass_staves = {
 double_bass_conductor = {
   \new GrandStaff \with {
     \consists "Keep_alive_together_engraver"
-    midiInstrument = #"contrabass"
     instrumentName = \double_bass_name_long
     shortInstrumentName = \double_bass_name_short
   }

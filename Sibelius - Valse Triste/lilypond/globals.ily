@@ -8,7 +8,7 @@ pizz = ^\markup{\center-align "pizz."}
 arco = ^\markup{\center-align "arco"}
 ffz =  _\markup {\dynamic "ffz" }
 
-barlineFermata = {\once \set Score.caesuraType = #'((scripts . (fermata))) \caesura} 
+barlineFermata = {\once \set Score.caesuraType = #'((scripts . (fermata))) \caesura}
 
 marks = {
     \set Score.caesuraType = #'((scripts . (outsidecomma)))
@@ -49,13 +49,13 @@ marks = {
     s2. * 10 |
     \barlineFermata
     s2.* 3 |
-    \tempo "rit." 
+    \tempo "rit."
     s2. |
-    \tempo "Lento" 
+    \tempo "Lento"
     s2. * 4 |
     % G
     \barlineFermata
-    \tempo "a tempo" 
+    \tempo "a tempo"
     \barNumberCheck 107
     \mark \default
     s2. * 23 |
@@ -88,7 +88,7 @@ marks = {
 }
 
 \header {
-    title = "Valse Triste" 
+    title = "Valse Triste"
     subtitle = \markup{"from the incidental music for" \italic "Kuolema" ", Op. 44"}
     composer = "Jean Sibelius"
     tagline = "CEIST"

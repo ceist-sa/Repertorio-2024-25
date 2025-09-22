@@ -6,8 +6,9 @@
 \language "português"
 
 notes =  \relative la' {
+    \set Staff.midiInstrument = #"clarinet"
     \override NoteHead.color = #clarinet-range
-    \clef "treble" 
+    \clef "treble"
     r4 |
     R1 * 7 |
     r2 r4 |
@@ -183,7 +184,6 @@ clarinet_conductor = {
     printPartCombineTexts = ##f
     instrumentName = \clarinet_name_long
     shortInstrumentName = \clarinet_name_short
-    midiInstrument = #"clarinet"
   }
   \clarinet_staves
 }

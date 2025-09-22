@@ -6,10 +6,11 @@
 \language "português"
 
 notes =  \relative la {
+    \set Staff.midiInstrument = #"clarinet"
     \override NoteHead.color = #clarinet-range
-    \clef "treble" 
+    \clef "treble"
     R2. * 8 |
-    si2.  | 
+    si2.  |
     r8 si8-> \grace { las16 (si16 } las16 ->) lab16 fas8 fas4 | % 11
     si4   si2     | % 12
     r8 si8 -> \grace { las16 (si16 } si16 ->) sols16 fas8 fas4 | % 13
@@ -25,11 +26,11 @@ notesI = \relative la {
     sol4  sol8 ( fas8 ) sol4 | % 27
     re2 reb4 | % 28
     re8 si8 la4 ~ la8 r8 | % 29
-    fa'2 (  mi4 ) | 
+    fa'2 (  mi4 ) |
     fa4  sol4 sol4
     | % 31
     sol8 --   sol8 -- sol4 fas4 | % 32
-    re4 re4 ~  re8   r8 
+    re4 re4 ~  re8   r8
 
 }
 
@@ -41,7 +42,7 @@ notesII = \relative la {
     re8   do16 si16 do8 ( re8 ) re4 | % 27
     si8 la16 sol16 la8 ( si8 ) la8 ( sol8 ) | % 28
     la8 sol8 fas4  la8 (   si8 ) | % 29
-    R2. | 
+    R2. |
     re4   mi4
     re8 ( do8 ) | % 31
     si8 --   do8 -- re2 | % 32
@@ -50,7 +51,7 @@ notesII = \relative la {
 
 dynamics = {
   s2. * 8 |
-  % repeat bar 
+  % repeat bar
   s2. \p |
   s2. |
   s4 \< s8\f s8\> s8 s16 s16\!|
@@ -109,7 +110,6 @@ clarinet_conductor = {
     printPartCombineTexts = ##f
     instrumentName = \clarinet_name_long
     shortInstrumentName = \clarinet_name_short
-    midiInstrument = #"clarinet"
   }
   \clarinet
 }

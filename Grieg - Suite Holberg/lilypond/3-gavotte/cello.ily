@@ -5,7 +5,8 @@
 \language "português"
 
 notes = \relative sol {
-    \clef bass 
+    \set Staff.midiInstrument = #"cello"
+    \clef bass
     r2 |
     R1 * 3 |
     r2 sol4.->\f (fas8-.) |
@@ -33,20 +34,20 @@ notes = \relative sol {
     % but it works if you use \compressEmptyMeasures if really needed
     r2 |
     R1 * 3 |
-    r2 << 
+    r2 <<
         {
-            mi'2->\div\f | 
+            mi'2->\div\f |
             re8-> do si4-. mi8-> fas sol4-> |
             re2-> sol->\f |
             fas8-> re fas4-. mi8-> do mi4-.|
-        } 
-         
+        }
+
         {
             sol,2-> |
             8-> 8 4-. 8-> 8 4-. |
             2-> 2-> |
             8-> 8 4-. 8-> 8 4-. |
-        } 
+        }
         >>
     si8 do re4-. r4 sol\pizz\pp |
     r4 sol, r sol' |
@@ -61,9 +62,9 @@ notes = \relative sol {
     sol,-- r4 |
     % Musette
     <do, sol'>2\pp\div ~ |
-    2 \repeat unfold 6 {<do sol'> 2 ~ 2} 
+    2 \repeat unfold 6 {<do sol'> 2 ~ 2}
     <do sol'> 2 ~ |
-    4 ~ 8 r8 | 
+    4 ~ 8 r8 |
     %repeat bar, L
     \clef tenor
     re''2\pcantab ( ~ |
@@ -74,13 +75,13 @@ notes = \relative sol {
             sib,4 |
             la4 sol r fa |
             re'4 re r do4 |
-            fa fa, 
+            fa fa,
         }
         {
             sib'4 \div \pizz \cresc|
             la4 sol r fa |
             re'4 re r do4 |
-            fa fa, 
+            fa fa,
         }
     >>
     re'4\f\arco re |
@@ -90,9 +91,9 @@ notes = \relative sol {
     fa4 fa mi mi\< |
     la4 la sol sol |
     do->\ff do,-> <do, sol'>2\pp\div ~ |
-    2 \repeat unfold 6 {<do sol'> 2 ~ 2} 
+    2 \repeat unfold 6 {<do sol'> 2 ~ 2}
     <do sol'> 2 ~ |
-    4 ~ 8 r8 | 
+    4 ~ 8 r8 |
 
 }
 
@@ -102,7 +103,6 @@ cello = << \notes \marks >>
 
 cello_conductor = {
   \new Staff \with {
-    midiInstrument = #"cello"
     instrumentName = \cello_name_long
     shortInstrumentName = \cello_name_short
   }
@@ -113,7 +113,6 @@ cello_gavotte = \score {
   \header { piece = "III. Gavotte" }
   \compressMMRests {
     \new Staff \with {
-      midiInstrument = #"cello"
     }
     \cello
   }

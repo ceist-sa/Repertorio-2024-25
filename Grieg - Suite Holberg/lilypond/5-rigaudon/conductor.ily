@@ -10,10 +10,11 @@
 \include "cello.ily"
 \include "double_bass_cello.ily"
 
-conductor = {
+conductor_rigaudon = \score {
+    \header { piece = "V. Rigaudon" }
     <<
         \new StaffGroup {
-            <<  
+            <<
                 \flute_conductor
                 \oboe_conductor
                 \clarinet_conductor
@@ -21,14 +22,14 @@ conductor = {
         }
 
         \new StaffGroup {
-            <<  
+            <<
                \first_violin_solo_conductor
                \viola_solo_conductor
             >>
         }
 
         \new StaffGroup {
-            <<  
+            <<
                 \first_violin_tutti_conductor
                 \second_violin_conductor
                 \viola_tutti_conductor
@@ -39,13 +40,13 @@ conductor = {
     >>
 }
 
-\score{
-    \conductor
-    \layout {
-        % \context {
-        %     \Staff
-        %     \RemoveAllEmptyStaves
-        % }
-    }
-    \midi {\tempo 2 = 120}
-}
+% \score{
+%     \conductor_rigaudon
+%     \layout {
+%         % \context {
+%         %     \Staff
+%         %     \RemoveAllEmptyStaves
+%         % }
+%     }
+%     \midi {\tempo 2 = 120}
+% }

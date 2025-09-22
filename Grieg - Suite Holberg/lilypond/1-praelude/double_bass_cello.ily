@@ -8,7 +8,7 @@
 
 notes = \relative sol,,{
     \override NoteHead.color = #cello-range
-    \clef bass 
+    \clef bass
     sol'1\ffp ~ |
     sol ~ |
     sol ~ |
@@ -17,7 +17,7 @@ notes = \relative sol,,{
     fas2.-> si4-> |
     la2-> la->|
     % A
-    re,1 \fp 
+    re,1 \fp
     R1 |
     r2 r4 la'4\pizz |
     re, r4 r2 |
@@ -29,10 +29,10 @@ notes = \relative sol,,{
     r4 re''4-.\arco\f la-. fas-. |
     re-. la-. fas-. re-.\fz |
     %repeat bar
-    fas2-> ~4 r4 | 
+    fas2-> ~4 r4 |
     R1 |
     sol1\fp ~ |
-    sol4 r4 r2 | 
+    sol4 r4 r2 |
     res2->\f ~ 4 r4 |
     R1 |
     mi1\fp \~ |
@@ -88,7 +88,6 @@ double_bass_cello_conductor = {
   \new Staff \with {
     instrumentName = \double_bass_cello_name_long
     shortInstrumentName = \double_bass_cello_name_short
-    midiInstrument = #"cello"
   }
   \double_bass_cello
 }
@@ -96,9 +95,7 @@ double_bass_cello_conductor = {
 double_bass_cello_praelude = \score {
   \header { piece = "I. Praelude" }
   \compressMMRests {
-    \new Staff \with {
-      midiInstrument = #"cello"
-    }
+    \new Staff
     \double_bass_cello
   }
 }

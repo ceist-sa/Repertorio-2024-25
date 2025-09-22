@@ -5,7 +5,8 @@
 \language "português"
 
 notes_tutti = \relative do' {
-  \clef alto
+   \set Staff.midiInstrument = #"viola"
+   \clef alto
   r4 \pizz |
   sol4\tutti\f r4 r2 |
   R1 * 6 |
@@ -89,7 +90,8 @@ notes_tutti = \relative do' {
 }
 
 notes_solo = \relative do'' {
-  \clef alto
+   \set Staff.midiInstrument = #"viola"
+   \clef alto
   r4 |
   sol8\fp \solo (re) sol, re' sol, (re') sol re |
   sol8 (re) sol, re' sol, (re') sol re |
@@ -123,7 +125,7 @@ notes_solo = \relative do'' {
   do'8 re, do' re,) la' (re, la' re,) |
   si'8 (re, si' re,) sol (re sol re) |
   fas8 (re fas re) mi (re mi re) |
-  % U 
+  % U
   fas2. mi4\pp (|
   fas2.->) mi4 (|
   fas2.->) mi4 (|
@@ -143,7 +145,6 @@ viola_tutti = << \notes_tutti \marks >>
 
 viola_solo_conductor = {
   \new Staff \with {
-    midiInstrument = #"viola"
     instrumentName = \solo_viola_name_long
     shortInstrumentName = \solo_viola_name_short
     \override VerticalAxisGroup.remove-empty = ##t
@@ -153,7 +154,6 @@ viola_solo_conductor = {
 
 viola_tutti_conductor = {
   \new Staff \with {
-    midiInstrument = #"viola"
     instrumentName = \viola_name_long
     shortInstrumentName = \viola_name_short
   }
@@ -163,9 +163,7 @@ viola_tutti_conductor = {
 viola_rigaudon = \score {
   \header { piece = "V. Rigaudon" }
   \compressMMRests {
-    \new GrandStaff \with {
-      midiInstrument = #"viola"
-    }
+    \new GrandStaff
     <<
       \new Staff \with {
         \override VerticalAxisGroup.remove-empty = ##t

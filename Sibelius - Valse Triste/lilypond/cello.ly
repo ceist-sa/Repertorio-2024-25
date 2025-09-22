@@ -5,6 +5,7 @@
 \include "globals.ily"
 
 cello = \relative do {
+    \set Staff.midiInstrument = #"cello"
     \override NoteHead.color = #cello-range
     \clef bass
     R2. * 8 |
@@ -95,7 +96,7 @@ cello = \relative do {
     sol4 re' re, |
     res8 mi mis fas sol sols |
     <re! la'>4 <fas do'> re, |
-    % F 
+    % F
     si''4.\arco\p \cresc las8 si4 |
     dos4. si8 dos4 |
     res4. dos8 res4 |
@@ -117,7 +118,7 @@ cello = \relative do {
     res4 fas mis)\! |
     \once \override Hairpin.to-barline = ##f
     fas2.\> ~|
-    2\! r4 | 
+    2\! r4 |
     % G
     fas2._\markup{\dynamic p \italic dolce} ( |
     mis) |
@@ -143,7 +144,7 @@ cello = \relative do {
     sol2.\f |
     fas\f |
     mi2\> ~8\! r8 |
-    % H 
+    % H
     R2. |
     la,,4\pizz\f <mi' do'> q |
     <re, la'> <fas' do'> q |
@@ -186,30 +187,30 @@ cello = \relative do {
     re4 (do) do |
     do (sib) sib |
     sib (la) la8 r8 |
-    % L 
+    % L
     re,,4:8\f sol: la: |
-    sib: la: sol: | 
+    sib: la: sol: |
     re4:8 sol: la: |
-    sib: la: sol: | 
+    sib: la: sol: |
     re4:8 sol: la: |
-    sib: la: sol: | 
+    sib: la: sol: |
     re4:8 sol: la: |
-    sib: la: sol: | 
+    sib: la: sol: |
     re4:8 sol: la: |
-    sib: la: sol: | 
+    sib: la: sol: |
     re4:8 sol: la: |
-    sib: la: sol: | 
+    sib: la: sol: |
     re4:8 sol: la: |
-    sib: la: sol: | 
+    sib: la: sol: |
     re4:8 sol: la: |
-    sib: la: sol: | 
+    sib: la: sol: |
     % M
     re4:8 sol: la: |
-    sib: la: sol: | 
+    sib: la: sol: |
     re4:8 sol: la: |
-    sib: la: sol: | 
+    sib: la: sol: |
     re4:8 sol: la: |
-    sib: la: sol: | 
+    sib: la: sol: |
     re4:8 sol: la: |
     sib: la: sol-. |
     r4 r\fermata r8. dos16_\markup{\right-align \italic meno \dynamic f} |
@@ -224,8 +225,7 @@ cello_conductor = \relative do, {
     \new Staff \with {
         instrumentName = "Violoncelo"
         shortInstrumentName = "Vlc."
-        midiInstrument = #"cello"
-    } 
+    }
     << \cello \marks >>
 }
 
@@ -241,7 +241,7 @@ cello_conductor = \relative do, {
         filename = "Sibelius - Valse Triste - VIOLONCELO"
     }
     \score {
-        \new Staff 
+        \new Staff
             <<\cello \marks>>
     }
 }

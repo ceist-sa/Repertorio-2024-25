@@ -8,7 +8,8 @@
 \language "português"
 
 notes = \relative sol,{
-    \clef bass 
+    \set Staff.midiInstrument = #"cello"
+    \clef bass
     sol1 ~ |
     sol ~ |
     sol ~ |
@@ -17,7 +18,7 @@ notes = \relative sol,{
     fas2.-> si4-> |
     la2-> la,->|
     % A
-    s1 
+    s1
     s1 * 10
     %repeat bar
     s1 * 8
@@ -26,7 +27,7 @@ notes = \relative sol,{
     do4-> ~8 r8 r4 r8 do8->-. |
     %B
     si8-.-> r8 r4 r2 |
-    R1*4 
+    R1*4
     r8 si'\pizz \twoCelliSoli la sol fas mi re do |
     si4 r4 r2 |
     r8 si do re mi fas sol la |
@@ -102,13 +103,13 @@ notesI = \relative re {
     la1 ) |
     la1-> ( |
     sol ) |
-    sol2-> (fas) | 
-    fas2-> (mi) | 
+    sol2-> (fas) |
+    fas2-> (mi) |
     mi1 (|
     re2 do) |
     %E
     si4-. s2 s4 |
-    s1*8    
+    s1*8
 }
 
 notesII = \relative re {
@@ -166,11 +167,11 @@ dynamics = {
     s1 \cresc |
     s1 * 2 |
     %A
-    s1 \fp 
+    s1 \fp
     s1 * 8 |
     s4 s4\crescmolto s2 |
     s2 s4 s4\fz |
-    %repeat bar 
+    %repeat bar
     s1 * 2 |
     s1 \fp |
     s1 |
@@ -248,11 +249,11 @@ dynamicsII = {
 staves = {
     \oneStaff
     s1 * 7 |
-    \twoStaves 
+    \twoStaves
     s1 * 9 |
-    \oneStaff 
+    \oneStaff
     s1 * 4 |
-    \twoStaves 
+    \twoStaves
     s1 * 2 |
     \oneStaff
     s1 * 2 |
@@ -304,7 +305,6 @@ cello_staves = {
 cello_conductor = {
     \new GrandStaff \with {
         \consists "Keep_alive_together_engraver"
-        midiInstrument = #"cello"
         instrumentName = \cello_name_long
         shortInstrumentName = \cello_name_short
     }

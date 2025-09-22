@@ -7,8 +7,9 @@
 \language "português"
 
 notes = \relative sol,,{
+  \set Staff.midiInstrument = #"cello"
   \override NoteHead.color = #cello-range
-  \clef bass 
+  \clef bass
   R2. * 8 |
   re'4\p\pizz r mi |
   fas4 r r |
@@ -43,7 +44,6 @@ double_bass_cello_conductor = {
   \new Staff \with {
     instrumentName = \double_bass_cello_name_long
     shortInstrumentName = \double_bass_cello_name_short
-    midiInstrument = #"cello"
   }
   \double_bass_cello
 }
@@ -51,9 +51,7 @@ double_bass_cello_conductor = {
 double_bass_cello_sarabande = \score {
   \header { piece = "II. Sarabande" }
   \compressMMRests{
-    \new Staff \with {
-      midiInstrument = #"cello"
-    }
+    \new Staff
     \double_bass_cello
   }
 }

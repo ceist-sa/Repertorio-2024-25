@@ -11,10 +11,11 @@
 \include "cello.ily"
 \include "double_bass_cello.ily"
 
-conductor = {
+conductor_praelude = \score {
+    \header { piece = "I. Praelude" }
     <<
         \new StaffGroup {
-            <<  
+            <<
                 \flute_conductor
                 \oboe_conductor
                 \clarinet_conductor
@@ -22,7 +23,7 @@ conductor = {
             >>
         }
         \new StaffGroup {
-            <<  
+            <<
                 \first_violin_conductor
                 \second_violin_conductor
                 \viola_conductor
@@ -35,12 +36,6 @@ conductor = {
 
 \score{
     \conductor
-    \layout {
-        \context {
-            \Staff
-            \RemoveAllEmptyStaves
-            printPartCombineTexts = ##f
-        }
-    }
+    \layout {}
     \midi{ \tempo 4 = 150 }
 }

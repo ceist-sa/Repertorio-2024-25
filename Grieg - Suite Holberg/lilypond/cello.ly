@@ -13,7 +13,6 @@
 cello_conductor = \relative sol, {
     \new GrandStaff \with {
         \consists "Keep_alive_together_engraver"
-        midiInstrument = #"cello"
         instrumentName = \cello_name_long
         shortInstrumentName = \cello_name_short
     }

@@ -27,7 +27,7 @@
     \score {
         <<
 
-            \new StaffGroup <<    
+            \new StaffGroup <<
                 \flute_conductor
 
                 \clarinet_in_A_conductor

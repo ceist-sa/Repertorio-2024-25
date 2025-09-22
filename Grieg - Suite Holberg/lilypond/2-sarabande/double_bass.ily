@@ -5,8 +5,9 @@
 \language "português"
 
 notes = \relative sol,{
+    \set Staff.midiInstrument = #"contrabass"
     \transposition do
-    \clef bass 
+    \clef bass
     \key sol \major
     R2. * 8 |
     re'4\p\pizz r mi |
@@ -42,7 +43,6 @@ double_bass_conductor = {
   \new Staff \with {
     instrumentName = \double_bass_name_long
     shortInstrumentName = \double_bass_name_short
-    midiInstrument = #"contrabass"
   }
   \double_bass
 }

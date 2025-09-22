@@ -6,6 +6,7 @@
 \language "português"
 
 notes =  \relative la' {
+    \set Staff.midiInstrument = #"oboe"
     \override NoteHead.color = #oboe-range
     \clef "treble"
     r4 |
@@ -59,7 +60,7 @@ notes =  \relative la' {
     re4 do8 sib \grace{la16 _(sib} la4.-> sol8) |
     sol2 r2 |
     R1 * 3 |
-    r2 r4 |  
+    r2 r4 |
 }
 
 oboe = << \notes \marks >>
@@ -69,7 +70,6 @@ oboe_conductor = {
   \new Staff \with {
     instrumentName = \oboe_name_long
     shortInstrumentName = \oboe_name_short
-    midiInstrument = #"oboe"
   }
   \oboe
 }
@@ -77,9 +77,7 @@ oboe_conductor = {
 oboe_rigaudon = \score {
   \header { piece = "V. Rigaudon" }
   \compressMMRests{
-    \new Staff \with {
-      midiInstrument = #"oboe"
-    }
+    \new Staff
     \oboe
   }
 }

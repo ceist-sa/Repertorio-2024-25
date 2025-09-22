@@ -7,6 +7,7 @@
 \language "português"
 
 notes = \relative sol,{
+    \set Staff.midiInstrument = #"contrabass"
     \transposition do
     \clef bass 
     sol1\ffp ~ |
@@ -17,7 +18,7 @@ notes = \relative sol,{
     fas2.-> si4-> |
     la2-> la,->|
     % A
-    re1 \fp 
+    re1 \fp
     R1 |
     r2 r4 la'4\pizz |
     re, r4 r2 |
@@ -29,10 +30,10 @@ notes = \relative sol,{
     r4 re'4-.\arco\f la-. fas-. |
     re-. la-. fas-. re'-.\fz |
     %repeat bar
-    fas,2-> ~4 r4 | 
+    fas,2-> ~4 r4 |
     R1 |
     sol1\fp ~ |
-    sol4 r4 r2 | 
+    sol4 r4 r2 |
     res'2-> ~ 4 r4 |
     R1 |
     mi,1\fp \~ |
@@ -87,7 +88,6 @@ double_bass_conductor = {
   \new Staff \with {
     instrumentName = \double_bass_name_long
     shortInstrumentName = \double_bass_name_short
-    midiInstrument = #"contrabass"
   }
   \double_bass
 }
@@ -95,7 +95,7 @@ double_bass_conductor = {
 double_bass_praelude = \score {
   \header { piece = "I. Praelude" }
   \compressMMRests{
-    \new Staff 
+    \new Staff
     \double_bass
   }
 }
