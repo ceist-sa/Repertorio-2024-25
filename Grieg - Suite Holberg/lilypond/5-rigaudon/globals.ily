@@ -6,6 +6,7 @@
 \language "português"
 
 marks = {
+    \compressEmptyMeasures
     \set Score.fineText = \markup{\bold \upright "Fine."}
     \set Score.dalSegnoTextFormatter =
          #(lambda (context repeat-count markups)

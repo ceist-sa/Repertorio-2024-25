@@ -114,13 +114,19 @@ clarinet_conductor = {
   \clarinet
 }
 
-clarinet_sarabande = \score {
+clarinetI_sarabande = \score {
   \header { piece = "II. Sarabande" }
   \compressMMRests{
-    \new GrandStaff \with {
-        \consists Keep_alive_together_engraver
-    }
-    \clarinet_staves
+    \new Staff
+    \clarinetI
+  }
+}
+
+clarinetII_sarabande = \score {
+  \header { piece = "II. Sarabande" }
+  \compressMMRests{
+    \new Staff
+    \clarinetII
   }
 }
 

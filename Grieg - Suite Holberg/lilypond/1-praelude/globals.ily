@@ -6,6 +6,7 @@
 \include "../instrument_names.ily"
 
 marks = {
+    \compressEmptyMeasures
     \tempo "Allegro vivace."
     \time 4/4 
     \key sol \major

@@ -5,6 +5,8 @@
 
 \language "português"
 
+% TODO: separate clarinet I and clarinet II parts
+
 notes =  \relative la {
     \set Staff.midiInstrument = #"clarinet"
     \clef "treble"
@@ -113,6 +115,7 @@ clarinet_conductor = {
 clarinet_praelude = \score {
     \header { piece = "I. Praelude" }
     \compressMMRests {
+        \new Staff
         \clarinet
     }
 }

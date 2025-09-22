@@ -93,8 +93,7 @@ double_bass_cello_conductor = {
 double_bass_cello_gavotte = \score {
   \header { piece = "III. Gavotte" }
   \compressMMRests{
-    \new Staff \with {
-    }
+    \new Staff
     \double_bass_cello
   }
 }
