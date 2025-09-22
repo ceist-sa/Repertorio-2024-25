@@ -52,7 +52,7 @@ notes = \relative do'{
       la4 4 4 4 |
       la4 re, fas la |
       do4 re fas r |
-    } \\
+    }
     {
       mi,4 |
       fas4 r r mi |
@@ -68,6 +68,7 @@ notes = \relative do'{
   fas4 sol fas2->\fermata |
   mi4-.\ffz sol,-. sol-. |
   % Poco meno mosso
+  \break
   r4 |
   sib'2\p (la) |
   sol8-> la sib2 sib4 |
@@ -115,6 +116,7 @@ second_violin = << \notes \marks >>
 
 second_violin_conductor = {
   \new Staff \with {
+    \consists Merge_rests_engraver
     instrumentName = \second_violin_name_long
     shortInstrumentName = \second_violin_name_short
   }

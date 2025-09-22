@@ -22,9 +22,11 @@ clarinet_conductor = \relative do' {
     \paper {
         indent = 0.2\cm
         short-indent = 0.2\cm
+        ragged-bottom = ##f
+        ragged-last-bottom = ##f
     }
     \header {
-        instrument = "Clarinet in B♭ II"
+        instrument = "Clarinete II"
         filename = "Grieg - Suite Holberg - CLARINET II"
     }
     \clarinetII_praelude

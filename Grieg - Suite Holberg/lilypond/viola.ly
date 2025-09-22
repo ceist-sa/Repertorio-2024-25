@@ -22,9 +22,11 @@ viola_conductor = \relative do' {
     \paper {
         indent = 0.2\cm
         short-indent = 0.2\cm
+        ragged-bottom = ##f
+        ragged-last-bottom = ##f
     }
     \header {
-        instrument = "Viola"
+        instrument = \viola_name_long
         filename = "Grieg - Suite Holberg - VIOLA"
     }
     \viola_praelude

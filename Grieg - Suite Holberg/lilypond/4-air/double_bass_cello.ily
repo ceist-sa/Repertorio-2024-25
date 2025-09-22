@@ -43,9 +43,9 @@ notes = \relative sol, {
     sib4~8 r8 r4 |
     do,4 \pizz r r |
     re4 r r |
-    \once \stemUp re'4-> ~ (16 do) do (sib) sib (la) la (sol) |
+    re'4-> ~ (16 do) do (sib) sib (la) la (sol) |
     re4 r r |
-    \once \stemUp re'4-> ~ (16 do) do\< (sib) sib\! (la\>) \tuplet 3/2 {do16 (sib la\!)} |
+    re'4-> ~ (16 do) do\< (sib) sib\! (la\>) \tuplet 3/2 {do16 (sib la\!)} |
     re,4 r r |
     R2. * 1 |
     re4\pizz r r |
@@ -165,7 +165,7 @@ staves = {
    \oneStaff
 }
 
-double_bass_cello = <<\notes <<\notesI \\ \notesII>> \marks \dynamics >>
+double_bass_cello = <<\notes \partCombine \notesI \notesII \marks \dynamics >>
 
 double_bass_celloI = <<\notes \notesI \marks \dynamics >>
 double_bass_celloII = <<\notes \notesII \marks \dynamics >>
@@ -213,4 +213,4 @@ double_bass_cello_air = \score {
   }
 }
 
-%\double_bass_cello_conductor
+% \double_bass_cello_conductor

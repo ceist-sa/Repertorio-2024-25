@@ -7,7 +7,6 @@
 
 notesI =  \relative la' {
     \set Staff.midiInstrument = #"flute"
-    \override NoteHead.color = #flute-range
     \clef "treble"
     R2.*8
     r8 fas'8  fas8  fas8  fas8  fas8  |
@@ -52,7 +51,6 @@ notesI =  \relative la' {
 
 notesII =  \relative la' {
     \set Staff.midiInstrument = #"flute"
-    \override NoteHead.color = #flute-range
     \clef "treble"
     R2.*8 |
     r8 re8  re8  re8  re8  re8  |

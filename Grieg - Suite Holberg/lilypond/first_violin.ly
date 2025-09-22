@@ -22,14 +22,17 @@ first_violin_conductor = \relative do'' {
     \paper {
         indent = 0.2\cm
         short-indent = 0.2\cm
+        ragged-bottom = ##f
+        ragged-last-bottom = ##f
     }
     \header {
-        instrument = "Violin I"
+        instrument = \first_violin_name_long
         filename = "Grieg - Suite Holberg - VIOLIN I"
     }
     \first_violin_praelude
     \first_violin_sarabande
     \first_violin_gavotte
+    \pageBreak
     \first_violin_air
     \first_violin_rigaudon
 }

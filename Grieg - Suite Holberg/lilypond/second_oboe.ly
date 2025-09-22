@@ -22,9 +22,11 @@ oboe_conductor = \relative do'' {
     \paper {
         indent = 0.2\cm
         short-indent = 0.2\cm
+        ragged-bottom = ##f
+        ragged-last-bottom = ##f
     }
     \header {
-        instrument = "Oboe II"
+        instrument = "Oboé II"
         filename = "Grieg - Suite Holberg - OBOE II"
     }
     \oboeII_praelude

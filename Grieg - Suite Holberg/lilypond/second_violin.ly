@@ -22,9 +22,12 @@ second_violin_conductor = \relative do'' {
     \paper {
         indent = 0.2\cm
         short-indent = 0.2\cm
+        ragged-bottom = ##f
+        ragged-last-bottom = ##f
+        page-count = 6
     }
     \header {
-        instrument = "Violin II"
+        instrument = \second_violin_name_long
         filename = "Grieg - Suite Holberg - VIOLIN II"
     }
     \second_violin_praelude

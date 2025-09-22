@@ -24,10 +24,11 @@ double_bass_cello_conductor = \relative do {
         short-indent = 0.2\cm
     }
     \header {
-        instrument = "Bass (cello)"
+        instrument = \double_bass_cello_name_long
         filename = "Grieg - Suite Holberg - BASS (CELLO)"
     }
     \double_bass_cello_praelude
+    \pageBreak
     \double_bass_cello_sarabande
     \double_bass_cello_gavotte
     \double_bass_cello_air

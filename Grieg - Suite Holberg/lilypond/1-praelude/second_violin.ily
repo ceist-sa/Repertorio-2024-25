@@ -55,7 +55,6 @@ notes = \relative do'{
       \rthm do \rthm do \rthm do \rthm do |
       do8
     }
-    \\
     {
       \rthm res,-. \rthm res-. \rthm res-. \rthm res-. |
       \rthm re!-. \rthm re-. \rthm re-. \rthm re-. |

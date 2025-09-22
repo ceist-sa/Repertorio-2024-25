@@ -22,9 +22,12 @@ flute_conductor = \relative do'' {
     \paper {
         indent = 0.2\cm
         short-indent = 0.2\cm
+        page-count = 4
+        ragged-bottom = ##f
+        ragged-last-bottom = ##f
     }
     \header {
-        instrument = "Flute I"
+        instrument = "Flauta I"
         filename = "Grieg - Suite Holberg - FLUTE I"
     }
     \fluteI_praelude
