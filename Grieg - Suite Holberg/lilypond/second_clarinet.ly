@@ -27,7 +27,7 @@ clarinet_conductor = \relative do' {
         instrument = "Clarinet in B♭ II"
         filename = "Grieg - Suite Holberg - CLARINET II"
     }
-    \clarinet_praelude
+    \clarinetII_praelude
     \clarinetII_sarabande
     \clarinetII_gavotte
     \clarinetII_air
