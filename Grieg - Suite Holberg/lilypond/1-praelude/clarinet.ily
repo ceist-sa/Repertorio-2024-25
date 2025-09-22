@@ -113,7 +113,7 @@ notesII = \relative la {
     sol2 (mi) |
     fas (re) |
     mi (dos) |
-    res4 r4 r2 |
+    res4\pp r4 r2 |
     s1 * 29 |
     r4 sol,4->\ff la-> fas-> |
     sol-> si-> do-> fa,-> |
