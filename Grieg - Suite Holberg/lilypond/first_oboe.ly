@@ -27,7 +27,7 @@ oboe_conductor = \relative do'' {
         instrument = "Oboe I"
         filename = "Grieg - Suite Holberg - OBOE I"
     }
-    \oboe_praelude
+    \oboeI_praelude
     \oboeI_sarabande
     \oboeI_gavotte
     \oboeI_air

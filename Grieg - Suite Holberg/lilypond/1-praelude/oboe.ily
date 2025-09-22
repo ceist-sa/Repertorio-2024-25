@@ -5,101 +5,35 @@
 
 \language "português"
 
-% TODO: separate oboe I and oboe II parts
-
 notes =  \relative la' {
     \set Staff.midiInstrument = #"oboe"
     \clef "treble"
     R1*3 |
-    r2 r4
-    <<
-        {
-            la4 -> -\mp |
-            la2->\cresc dos2-> |
-            re2. -> re4 -> |
-            re2 -> dos2 -> |
-            % A
-            re4 \f
-        }{
-            mi,4 ->  |
-            fas2 -> sol2 -> |
-            la2. -> si4 -> |
-            la2 -> la2 -> |
-            % A
-            la4
-        }
-    >> r4 r2 |
+    r2 r4 s4|
+    s1 * 3 |
+    % A
+    s4 r4 r2 |
     R1 * 8 |
-    r4 <<
-        {
-            re,-.\f fas-. la-. |
-            re,4-.\< fas-. la-. re4-.\fz |
-        }
-        {
-            re,-. re-. fas-. |
-            fas-. la-. re-. fas-. |
-        }
-    >>
+    r4 s2. |
+    s1 |
     % repeat bar
-    <do, la'>2-> ~4 r4 |
+    s2. r4 |
     R1 |
-    re2.\solo\fp (mi4) |
-    fas4 (sol la si) |
-    <la fas>2->\tutti ~ 4 r4 |
+    s1 * 2 |
+    s2. r4 |
     R1 |
-    si,2.\solo\fp (dos4) |
-    res ( mi fas sol )
-    r4 <fa do>\tutti -> -\f <fa re> -> r4 |
-    r4 <mi si>4 -> <mi do>4 -> r4 |
-    <do mi>4-> ~ 8 r8 r4 r8 la'8-> |
+    s1 * 5 |
     % B
-    si8-> r8 r4 r4 res4\p^\markup{\right-align \smallCaps "Ob. I"} |
-    mi2 (do) |
-    re (si) |
-    do (las) |
-    si r4 res\piup^\markup{\right-align \smallCaps "Ob. II"} |
-    mi2 (do) |
-    re (si) |
-    do (las) |
-    si4\pp r4 r2 |
-    R1 |
-    <mi, sol>4\f -> <la do>\< -> <mi' sol> -> <la do> -> |
-    <la re>4->\fz ~ 8  r8 r2 |
+    s1 * 8 |
+    s1 |
+    s1 |
+    s1 |
+    s4 s8 r8 r2 |
     % C
-    r4
-    <<
-        {
-            \rthm sol,->\ff \rthm la \rthm si-> |
-            \rthm do-> \rthm re-> \rthm do-> \rthm si-> |
-            \rthm la-> \rthm la \rthm fas-> \rthm fas |
-            \rthm sol-> \rthm sol \rthm sol \rthm fa |
-            \rthm mi-> \rthm mi \rthm si'-> \rthm si |
-            \rthm sol-> \rthm sol \rthm sol \rthm do-> |
-            \rthm si-> \rthm si \rthm fas'-> \rthm fas |
-            \rthm re-> \rthm re \rthm mi-> \rthm mi |
-            \rthm do-> \rthm do \rthm re-> \rthm re |
-            \rthm si-> \rthm do \rthm la-> \rthm si |
-            \rthm sol-> \rthm la \rthm fas-> \rthm sol |
-            \rthm mi-> \rthm fas \rthm re-> \rthm mi |
-            \rthm re->\> \rthm re \rthm re-> \rthm re |
-        }
-        {
-            \rthm si-> \rthm do-> \rthm re-> |
-            \rthm mi-> \rthm fas-> \rthm mi-> \rthm re-> |
-            \rthm do-> \rthm do \rthm re-> \rthm re |
-            \rthm si-> \rthm si \rthm si \rthm re_\markup{\italic sempre \dynamic ff} |
-            \rthm do-> \rthm do \rthm fa-> \rthm fa |
-            \rthm mi-> \rthm mi \rthm mi \rthm la-> |
-            \rthm sol-> \rthm sol \rthm do \rthm do |
-            \rthm si \rthm si \rthm si-> \rthm si |
-            \rthm la \rthm la \rthm la-> \rthm la |
-            \rthm sol-> \rthm sol \rthm fas-> \rthm fas |
-            \rthm mi-> \rthm mi \rthm re-> \rthm re |
-            \rthm do-> \rthm do \rthm re-> \rthm mi |
-            \rthm re-> \rthm si \rthm do-> \rthm do |
-        }
-    >>
-    re4\p r4 r2 |
+    s1 * 3|
+    s2 s4 s4_\markup{\italic sempre \dynamic ff} |
+    s1 * 9 |
+    re,4\p r4 r2 |
     % D
     mi'2_\markup{\dynamic p \italic dolce} 4. 8-- ( |
     la,2) r4 r8 \tuplet 3/2 {la16( si do} |
@@ -114,25 +48,135 @@ notes =  \relative la' {
     \rthm re\< \rthm sol \rthm si re4-.\fz |
     r4 \rthm sol,,\piuf \rthm sol \rthm si |
     \rthm re\< \rthm sol \rthm si re4-.\fz |
-    r4 <<
-        {
-            dos,4->\ff re-> la-> |
-            si-> re-> mi-> si-> |
-            do-> la'-> si-> dos-> |
-            sol4.-> \tuplet 3/2 {mi16 (fas sol)} sol4-> fas-> |
-            re1\ffz\fermata |
-        }
-        {
-            dos,4-> re-> s4 |
-            si-> re-> mi-> si-> |
-            do-> la'-> si-> dos-> |
-            sol4.-> \tuplet 3/2 {mi16 (fas sol)} sol4-> fas-> |
-            re1\fermata |
-        }
-    >>
+    r4 s2. |
+    s1 * 3 |
+    s1 \ffz |
 }
 
-oboe = << \notes \marks>>
+notesI = \relative la' {
+    s1*3 |
+    s2 s4
+    la4 -> -\mp |
+    la2->\cresc dos2-> |
+    re2. -> re4 -> |
+    re2 -> dos2 -> |
+    % A
+    re4 \f s4 s2 |
+    s1 * 8 |
+    s4 re,-.\f fas-. la-. |
+    fas-.\< la-. re-. fas-.\fz |
+    % repeat bar
+    la,2-> ~4 s4 |
+    s1 |
+    re,2.\fp (mi4) |
+    fas4 (sol la si) |
+    la2->\f ~ 4 s4 |
+    s1 |
+    si,2.\fp (dos4) |
+    res ( mi fas sol )
+    r4 fa -> -\f fa -> r4 |
+    r4 mi4 -> mi4 -> r4 |
+    mi4-> ~ 8 r8 r4 r8 la8-> |
+    % B
+    si8-> r8 r4 r4 res4\p |
+    mi2 (do) |
+    re (si) |
+    do (las) |
+    si r2  |
+    R1 * 3 |
+    R1 |
+    R1 |
+    sol4\f -> do\< -> sol' -> do -> |
+    re4->\fz ~ 8  r8 r2 |
+    % C
+    r4 \rthm sol,,->\ff \rthm la \rthm si-> |
+    \rthm do-> \rthm re-> \rthm do-> \rthm si-> |
+    \rthm la-> \rthm la \rthm fas-> \rthm fas |
+    \rthm sol-> \rthm sol \rthm sol \rthm fa |
+    \rthm mi-> \rthm mi \rthm si'-> \rthm si |
+    \rthm sol-> \rthm sol \rthm sol \rthm do-> |
+    \rthm si-> \rthm si \rthm fas'-> \rthm fas |
+    \rthm re-> \rthm re \rthm mi-> \rthm mi |
+    \rthm do-> \rthm do \rthm re-> \rthm re |
+    \rthm si-> \rthm do \rthm la-> \rthm si |
+    \rthm sol-> \rthm la \rthm fas-> \rthm sol |
+    \rthm mi-> \rthm fas \rthm re-> \rthm mi |
+    \rthm re->\> \rthm re \rthm re-> \rthm re |
+    s1\! |
+    % D
+    s1 * 8 |
+    %E
+    s1 * 4 |
+    s4 dos'4->\ff re-> la-> |
+    si-> re-> mi-> si-> |
+    do-> la'-> si-> dos-> |
+    sol4.-> \tuplet 3/2 {mi16 (fas sol)} sol4-> fas-> |
+    re1\fermata |
+}
+
+notesII = \relative la' {
+    s1*3 |
+    s2 s4
+    mi4 ->\mp  |
+    fas2 ->\cresc sol2 -> |
+    la2. -> si4 -> |
+    la2 -> la2 -> |
+    % A
+    la4\f s4 s2 |
+    s1 * 8 |
+    s4 re,\f-. re-. fas-. |
+    re4-.\< fas-. la-. re4-.\fz |   
+    % repeat bar
+    do,2-> ~4 s4 |
+    s1 |
+    R1 * 2 |
+    fas2->\f ~ 4 s4 |
+    s1 |
+    R1 * 2 |
+    r4 do -> -\f re -> r4 |
+    r4 si4 -> do4 -> r4 |
+    do4-> ~ 8 r8 r4 r8 la'8-> |
+    % B
+    si8-> r8 r4 r4 r4 |
+    R1 * 3 |
+    r2 r4 res4 \piup |
+    mi2 (do) |
+    re (si) |
+    do (las) |
+    si4\pp r4 r2 |
+    R1 |
+    mi,4 \f -> la\< -> mi'-> la -> |
+    la4->\fz ~ 8  r8 r2 |
+    % C
+    r4 \rthm si,,->\ff \rthm do-> \rthm re-> |
+    \rthm mi-> \rthm fas-> \rthm mi-> \rthm re-> |
+    \rthm do-> \rthm do \rthm re-> \rthm re |
+    \rthm si-> \rthm si \rthm si \rthm re |
+    \rthm do-> \rthm do \rthm fa-> \rthm fa |
+    \rthm mi-> \rthm mi \rthm mi \rthm la-> |
+    \rthm sol-> \rthm sol \rthm do \rthm do |
+    \rthm si \rthm si \rthm si-> \rthm si |
+    \rthm la \rthm la \rthm la-> \rthm la |
+    \rthm sol-> \rthm sol \rthm fas-> \rthm fas |
+    \rthm mi-> \rthm mi \rthm re-> \rthm re |
+    \rthm do-> \rthm do \rthm re-> \rthm mi |
+    \rthm re->\> \rthm si \rthm do-> \rthm do |
+    s1\! |
+    % D
+    s1 * 8 |
+    %E
+    s1 * 4 |
+    s4 dos4->\ff re-> la'-> |
+    si,-> re-> mi-> si-> |
+    do-> la'-> si-> dos-> |
+    sol4.-> \tuplet 3/2 {mi16 (fas sol)} sol4-> fas-> |
+    re1\fermata |
+}
+
+
+oboeI = << \notes \notesI \marks>>
+oboeII = << \notes \notesII \marks>>
+oboe = << \notes \partCombine \notesI \notesII \marks>>
 
 oboe_conductor = {
   \new Staff \with {
@@ -142,12 +186,18 @@ oboe_conductor = {
   \oboe
 }
 
-oboe_praelude = \score {
+oboeI_praelude = \score {
     \header { piece = "I. Praelude" }
     \compressMMRests {
         \new Staff
-        \oboe
+        \oboeI
     }
 }
 
-% \oboe_praelude
+oboeII_praelude = \score {
+    \header { piece = "I. Praelude" }
+    \compressMMRests {
+        \new Staff
+        \oboeII
+    }
+}
