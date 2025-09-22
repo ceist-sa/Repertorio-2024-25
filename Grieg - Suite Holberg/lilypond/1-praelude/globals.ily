@@ -1,11 +1,14 @@
 \version "2.24.4"
 
+\language "português"
+
 \include "../globals.ily"
 \include "../instrument_names.ily"
 
 marks = {
     \tempo "Allegro vivace."
     \time 4/4 
+    \key sol \major
     \repeat volta 2 {
     s1*7
     %A

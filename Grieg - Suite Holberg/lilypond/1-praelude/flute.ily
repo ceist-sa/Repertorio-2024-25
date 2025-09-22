@@ -6,9 +6,7 @@
 \language "português"
 
 notes =  \relative la' {
-    \override NoteHead.color = #flute-range
     \clef "treble" 
-    \key sol \major 
     s1*7 |
     % A
     s1 |

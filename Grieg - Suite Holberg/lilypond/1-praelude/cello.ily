@@ -9,7 +9,6 @@
 
 notes = \relative sol,{
     \clef bass 
-    \key sol \major
     sol1 ~ |
     sol ~ |
     sol ~ |
@@ -86,8 +85,8 @@ notesI = \relative re {
     s1*3
     %B
     s1*10
-    r4 << {do2\arco\tutti do4} \\ {sol2 sol4} >>|
-    << {do4 ~8} \\ {fas,4 ~8} >> r8 r4 \tuplet 6/4 {fas16-> (mi re do si la)} |
+    r4 << {do2\arco\tutti do4} {sol2 sol4} >>|
+    << {do4 ~8} {fas,4 ~8} >> r8 r4 \tuplet 6/4 {fas16-> (mi re do si la)} |
     %C
     <<
         {s4 \rthm sol'->\nondiv \rthm la-> \rthm si-> |
@@ -199,7 +198,7 @@ dynamics = {
     s4 s4 \crescmolto s2 |
     s4 \< s4 s2 |
     s1 \! |
-    \hairpinWithRightText \markup{\italic \tiny "molto"}
+    \hairpinWithRightAlignedText \markup{\italic \tiny "molto"}
     % I don't have to understand this, someone did it for me
     %https://lsr.di.unimi.it/LSR/Snippet?id=947
     s1\< |
@@ -223,7 +222,7 @@ dynamicsI = {
     s1 * 4 |
     s2 \piup s2 |
     s1 * 3 |
-    s4 \f s4 s2 |
+    s4 s4 s2 |
     s1 * 8 |
 }
 
@@ -298,7 +297,7 @@ cello_staves = {
         \new Staff \with {
         \override VerticalAxisGroup.remove-layer = 2
         }
-        << \cello \staves >>
+        \cello
     >>
 }
 

@@ -62,7 +62,6 @@ dynamics = {
 
 notes = \relative do {
   \clef alto
-  \key sol \major
   \rthm re \rthm re \rthm re \rthm mi |
   \rthm fas \rthm sol \rthm la \rthm si |
   \rthm do \rthm do \rthm re \rthm re |
@@ -83,11 +82,11 @@ notes = \relative do {
   \rthm re \rthm re \rthm re \rthm re |
   \rthm fas \rthm la \rthm re fas4-. |
   % repeat bar
-  <<{do,!2->\div ~ 4} \\ {la 2 ~ 4}>> r4 |
+  <<{do,!2->\div ~ 4} {la 2 ~ 4}>> r4 |
   r2 do16 (la) la (fas) r4 |
   sol16^"sul C"\fp fas sol si sol fas sol si sol fas sol si sol fas sol do |
   la^"sul G" sol la re si la si mi do si do fas re do re sol |
-  <<{la,2->\div ~ 4} \\ {fas 2 ~ 4}>> r4 |
+  <<{la,2->\div ~ 4} {fas 2 ~ 4}>> r4 |
   r2 la16 (fas) fas (res) r4 |
   mi16\fp res mi sol mi res mi sol mi res mi sol mi res mi la |
   fas mi fas si sol fas sol dos la^"sul G" sol la res si la si mi |
@@ -183,7 +182,7 @@ staves = {
   s1 * 4 |
 }
 
-viola = <<\notes << \notesI \\ \notesII >> \marks \dynamics>>
+viola = <<\notes \partCombine \notesI \notesII \marks \dynamics>>
 
 violaI = <<\notes \notesI \marks \dynamics>>
 violaII = <<\notes \notesII \marks \dynamics>>

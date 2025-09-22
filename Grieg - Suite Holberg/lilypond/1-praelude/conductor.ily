@@ -3,6 +3,7 @@
 \include "flute.ily"
 \include "oboe.ily"
 \include "clarinet.ily"
+\include "bassoon.ily"
 
 \include "first_violin.ily"
 \include "second_violin.ily"
@@ -17,6 +18,7 @@ conductor = {
                 \flute_conductor
                 \oboe_conductor
                 \clarinet_conductor
+                \bassoon_conductor
             >>
         }
         \new StaffGroup {
@@ -33,6 +35,12 @@ conductor = {
 
 \score{
     \conductor
-    \layout {}
+    \layout {
+        \context {
+            \Staff
+            \RemoveAllEmptyStaves
+            printPartCombineTexts = ##f
+        }
+    }
     \midi{ \tempo 4 = 150 }
 }

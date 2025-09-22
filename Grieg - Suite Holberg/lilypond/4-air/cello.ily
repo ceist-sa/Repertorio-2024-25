@@ -175,10 +175,10 @@ dynamics = {
     s4 s8\! s8 s4 |
     s2. |
     % FIXME this does not look exactly right
-    \hairpinWithRightText \markup{\italic \tiny "molto"}
+    \hairpinWithRightAlignedText \markup{\italic \tiny "molto"}
     s2.\f\< \cantab|
     s8\! s8\> s4.\! s8 |
-    \hairpinWithRightText \markup{\italic \tiny "molto"}
+    \hairpinWithRightAlignedText \markup{\italic \tiny "molto"}
     s2.\< |
     s8\! s8\> s4.\! s8 |
     s8 s4\ff s8 s8 s8 |

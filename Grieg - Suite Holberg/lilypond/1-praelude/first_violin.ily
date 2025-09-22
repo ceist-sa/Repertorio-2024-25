@@ -8,7 +8,6 @@
 
 notes = \relative do'{
   \clef treble 
-  \key sol \major
   \rthm si \rthm si \rthm si \rthm do |
   \rthm re \rthm mi \rthm fas \rthm sol |
   \rthm la \rthm la \rthm si \rthm si |
@@ -75,7 +74,7 @@ notes = \relative do'{
 notesI = \relative do'{
   s1 * 29 |
   %B
-  s8 s8 s4 s4 \twoStaves si''4 |
+  s8 s8 s4 s4 \partCombineChords si''4 |
   do2 (la) |
   si (sol) |
   la (sol) |
@@ -83,7 +82,7 @@ notesI = \relative do'{
   mi2 (do) |
   re (si) |
   do (las) |
-  si4 \oneStaff s4 s2 |
+  si4 \partCombineAutomatic s4 s2 |
   s1 |
   \rthm do-> \rthm sol'-> \rthm do-> \rthm sol'-> |
   \tuplet 7/4 {fas16 (mi re do si la sol)} fas8 r8 s2 |
@@ -253,7 +252,7 @@ dynamics = {
   s1 \ffz |
 }
 
-first_violin = << \notes <<\notesI \\ \notesII \\ \notesIII>> \marks \dynamics >>
+first_violin = << \notes \partCombine \notesI <<\notesII \notesIII>> \marks \dynamics >>
 
 first_violinI = << \notes \notesI \marks \dynamics >> 
 first_violinII = << \notes \notesII \marks \dynamics >> 
@@ -269,11 +268,11 @@ first_violin_conductor = {
 }
 
 first_violin_praelude = \score {
-  \header { piece = "I. Praelude" }
+  \header { subtitle = \markup{\bold \center-align \large "I. Praelude" }}
   \compressMMRests{
     \new GrandStaff \with {
       \consists "Keep_alive_together_engraver"
-    }
+    } 
     <<
       \new Staff \with {
         \override VerticalAxisGroup.remove-empty = ##t

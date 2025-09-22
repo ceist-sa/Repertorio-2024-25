@@ -8,7 +8,6 @@
 
 notes = \relative do'{
   \clef treble 
-  \key sol \major
   \rthm sol \rthm sol \rthm sol \rthm sol |
   \rthm la \rthm si \rthm do \rthm re |
   \rthm mi \rthm mi \rthm fas \rthm fas |
@@ -101,7 +100,6 @@ notes = \relative do'{
       sol4.-> \tuplet 3/2 {mi16 (fas sol)} sol4-> fas-> |
       re1\fermata |
     }
-    \\
     {
       dos,4-> re-> la-> |
       si-> re-> mi-> si-> |

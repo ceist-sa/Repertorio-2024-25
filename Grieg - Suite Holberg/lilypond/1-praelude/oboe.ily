@@ -6,9 +6,7 @@
 \language "português"
 
 notes =  \relative la' {
-    \override NoteHead.color = #oboe-range
     \clef "treble" 
-    \key sol \major 
     R1*3 | 
     r2 r4 
     <<

@@ -120,7 +120,7 @@ a reference.
            (hairpin-with-right-text txt grob)))))
            
            
-hairpinWithRightText =
+hairpinWithRightAlignedText =
 #(define-music-function (text) (markup?)
 "
  Returns a hairpin with text at the right.
@@ -128,4 +128,43 @@ hairpinWithRightText =
 #{
   \once \override Voice.Hairpin.after-line-breaking =
     #(hairpin-with-right-text-callback text)
+#})
+
+
+% GPT 
+
+% === Overlay text on the hairpin, right-aligned to the hairpin's end (padding fixed at 0) ===
+#(define (hp-right-over-text-apply text grob)
+  (let* ((text-stil (grob-interpret-markup grob (markup #:vstrut text)))
+         (hp-stil   (ly:grob-property grob 'stencil))
+         (hp-x-ext  (ly:stencil-extent hp-stil X))
+         (hp-right  (cdr hp-x-ext))
+         (txt-x-ext (ly:stencil-extent text-stil X))
+         (txt-right (cdr txt-x-ext))
+         (dx        (- hp-right txt-right)) ; padding hard-coded as 0
+         (overlaid  (ly:stencil-add
+                     (ly:stencil-aligned-to hp-stil   Y CENTER)
+                     (ly:stencil-translate-axis
+                       (ly:stencil-aligned-to text-stil Y CENTER)
+                       dx X))))
+    (ly:grob-set-property! grob 'stencil overlaid)))
+
+#(define (hp-right-over-text-callback txt)
+  ;; Apply to an unbroken hairpin or the last broken segment only.
+  (lambda (grob)
+    (let* ((orig (ly:grob-original grob))
+           (siblings (ly:spanner-broken-into orig)))
+      (when (or (null? siblings)
+                (equal? grob (car (last-pair siblings))))
+        (hp-right-over-text-apply txt grob)))))
+
+% Taller, right-aligned overlay (height baked in)
+hairpinWithRightAlignedText =
+#(define-music-function (text) (markup?)
+#{
+  % Make the wedge taller (default is 0.75)
+  \once \override Voice.Hairpin.height = 1.25
+  % Overlay the text, right-aligned to the tip
+  \once \override Voice.Hairpin.after-line-breaking =
+    #(hp-right-over-text-callback text)
 #})

@@ -3,7 +3,11 @@
 % stolen from here
 % https://stackoverflow.com/questions/54062699/lilypond-change-color-of-notes-below-and-above-a-certain-pitch
 
+% use this site
+% https://www.omnicalculator.com/other/music-interval
 
+% to calculate a note's distance in semitones from C4 (middle C)
+% C4 = 0
 
 % ===================== VIOLIN =====================
 
@@ -174,3 +178,29 @@
 
 % copy paste within staff
 % \override NoteHead.color = #oboe-range
+
+% ===================== BASSOON =====================
+
+% musescore range:
+#(define bassoon_amateur_low -26) % A#1
+#(define bassoon_amateur_high 9) % A#4
+#(define bassoon_pro_low -26) % A#1
+#(define bassoon_pro_high 16) % E5
+
+#(define (bassoon-range grob)
+   (let* ((pch (ly:event-property (event-cause grob) 'pitch))
+          (semitones (ly:pitch-semitones pch)))
+          (cond ((and 
+                    (>= semitones bassoon_amateur_low)
+                    (<= semitones bassoon_amateur_high) 
+                    ) black)
+                ((and 
+                    (>= semitones bassoon_pro_low)
+                    (<= semitones bassoon_pro_high) 
+                    ) darkyellow)
+
+                (else red)
+          )))
+
+% copy paste within staff
+% \override NoteHead.color = #bassoon-range

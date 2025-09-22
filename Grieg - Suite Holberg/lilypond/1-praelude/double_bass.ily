@@ -9,7 +9,6 @@
 notes = \relative sol,{
     \transposition do
     \clef bass 
-    \key sol \major
     sol1\ffp ~ |
     sol ~ |
     sol ~ |

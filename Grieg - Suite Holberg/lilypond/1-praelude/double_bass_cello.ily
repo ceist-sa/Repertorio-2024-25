@@ -9,7 +9,6 @@
 notes = \relative sol,,{
     \override NoteHead.color = #cello-range
     \clef bass 
-    \key sol \major
     sol'1\ffp ~ |
     sol ~ |
     sol ~ |
@@ -74,7 +73,7 @@ notes = \relative sol,,{
     r4 sol''4\f\arco re4-. si-. |
     sol4-.\< re-. si-. sol-.\! |
     fa1->\startTrillSpan |
-    \hairpinWithRightText \markup{\italic \tiny "molto"}
+    \hairpinWithRightAlignedText \markup{\italic \tiny "molto"}
     \afterGrace fa1\<( {mi16 fa)} |
     mi4->\stopTrillSpan mi'->\ff re-> do-> |
     si4-> fa'-> mi-> re-> |

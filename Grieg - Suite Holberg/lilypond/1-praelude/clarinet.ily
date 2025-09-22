@@ -6,9 +6,7 @@
 \language "português"
 
 notes =  \relative la {
-    \override NoteHead.color = #clarinet-range
     \clef "treble" 
-    \key sol \major 
     R1*3 |
     r2 r4 <dos sol>4\mp -> | % 5
     <re fas,>2\cresc -> <mi mi,>2 -> | % 6
@@ -101,13 +99,14 @@ notes =  \relative la {
     >>
 }
 
-clarinet = << \notes \marks>>
+clarinet = \transpose do re { << \notes \marks>> }
 
 clarinet_conductor = {
   \new Staff \with {  
     instrumentName = \clarinet_name_long
     shortInstrumentName = \clarinet_name_short
     midiInstrument = #"clarinet"
+    \transposition sib % only relevant for MIDI
   }
   \clarinet
 }
