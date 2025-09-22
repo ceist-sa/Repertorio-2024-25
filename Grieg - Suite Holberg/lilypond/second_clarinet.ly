@@ -28,8 +28,8 @@ clarinet_conductor = \relative do' {
         filename = "Grieg - Suite Holberg - CLARINET"
     }
     \clarinet_praelude
-    \clarinet_sarabande
-    \clarinet_gavotte
-    \clarinet_air
-    \clarinet_rigaudon
+    \clarinetII_sarabande
+    \clarinetII_gavotte
+    \clarinetII_air
+    \clarinetII_rigaudon
 }
