@@ -122,7 +122,7 @@ notesII = \relative la {
     si1\fermata\ffz |
 }
 
-clarinet = \transpose do re { << \notes \marks>> }
+clarinet = \transpose do re { << \notes \partCombine \notesI \notesII \marks>> }
 clarinetI = \transpose do re { << \notes \notesI \marks>> }
 clarinetII = \transpose do re { << \notes \notesII \marks>> }
 
