@@ -10,6 +10,14 @@
 \include "4-air/conductor.ily"
 \include "5-rigaudon/conductor.ily"
 
+\layout {
+    \context {
+        \Staff
+        \RemoveAllEmptyStaves
+        printPartCombineTexts = ##f
+    }
+}
+
 \book {
     \paper {
         #(set-paper-size "b4")
@@ -19,7 +27,6 @@
         ragged-bottom = ##f
     }
     \header {
-        instrument = "Violin I"
         filename = "Grieg - Suite Holberg - CONDUCTOR"
     }
     \conductor_praelude

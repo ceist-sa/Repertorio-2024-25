@@ -10,7 +10,8 @@
 \include "cello.ily"
 \include "double_bass_cello.ily"
 
-conductor_air = {
+conductor_air = \score {
+    \header { piece = "IV. Air" }
     <<
         \new StaffGroup {
             <<
@@ -31,14 +32,14 @@ conductor_air = {
     >>
 }
 
-\score{
-    \conductor_air
-    \layout {
-        \context {
-            \Staff
-            \RemoveAllEmptyStaves
-            printPartCombineTexts = ##f
-        }
-    }
-    \midi {\tempo 2. = 15 }
-}
+% \score{
+%     \conductor_air
+%     \layout {
+%         \context {
+%             \Staff
+%             \RemoveAllEmptyStaves
+%             printPartCombineTexts = ##f
+%         }
+%     }
+%     \midi {\tempo 2. = 15 }
+% }

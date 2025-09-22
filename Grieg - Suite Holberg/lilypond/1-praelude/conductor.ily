@@ -10,7 +10,8 @@
 \include "cello.ily"
 \include "double_bass_cello.ily"
 
-conductor_praelude = {
+conductor_praelude = \score {
+    \header { piece = "I. Praelude" }
     <<
         \new StaffGroup {
             <<
@@ -31,8 +32,8 @@ conductor_praelude = {
     >>
 }
 
-\score{
-    \conductor_praelude
-    \layout {}
-    \midi{ \tempo 4 = 150 }
-}
+% \score{
+%     \conductor_praelude
+%     \layout {}
+%     \midi{ \tempo 4 = 150 }
+% }
