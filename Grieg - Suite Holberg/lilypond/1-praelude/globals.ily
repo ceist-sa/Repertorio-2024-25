@@ -4,6 +4,7 @@
 \include "../instrument_names.ily"
 
 marks = {
+    \compressEmptyMeasures
     \tempo "Allegro vivace."
     \time 4/4
     \repeat volta 2 {

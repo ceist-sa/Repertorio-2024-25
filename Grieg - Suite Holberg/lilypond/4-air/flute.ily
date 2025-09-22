@@ -6,9 +6,9 @@
 \language "português"
 
 notesI =  \relative la' {
-     \set Staff.midiInstrument = #"flute"
-     \override NoteHead.color = #flute-range
-     \clef "treble"
+    \set Staff.midiInstrument = #"flute"
+    \override NoteHead.color = #flute-range
+    \clef "treble"
     R2.*8
     r8 fas'8  fas8  fas8  fas8  fas8  |
     sol8  sol8  sol8  sol8  sol8  sol8  |
@@ -51,9 +51,9 @@ notesI =  \relative la' {
 }
 
 notesII =  \relative la' {
-     \set Staff.midiInstrument = #"flute"
-     \override NoteHead.color = #flute-range
-     \clef "treble"
+    \set Staff.midiInstrument = #"flute"
+    \override NoteHead.color = #flute-range
+    \clef "treble"
     R2.*8 |
     r8 re8  re8  re8  re8  re8  |
     re8  re8  re8  re8  re8  re8  |
@@ -201,8 +201,6 @@ flute_conductor = {
   }
   \flute_staves
 }
-
-%TODO
 
 fluteI_air = \score {
   \header { piece = "IV. Air" }

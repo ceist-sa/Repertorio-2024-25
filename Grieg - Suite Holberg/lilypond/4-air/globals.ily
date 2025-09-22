@@ -6,6 +6,7 @@
 \language "português"
 
 marks = {
+    \compressEmptyMeasures
     \tempo "Andante religioso."
     \time 3/4
     \key sol \minor
