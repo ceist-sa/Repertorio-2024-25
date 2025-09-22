@@ -24,8 +24,8 @@ clarinet_conductor = \relative do' {
         short-indent = 0.2\cm
     }
     \header {
-        instrument = "Clarinet in B♭"
-        filename = "Grieg - Suite Holberg - CLARINET"
+        instrument = "Clarinet in B♭ II"
+        filename = "Grieg - Suite Holberg - CLARINET II"
     }
     \clarinet_praelude
     \clarinetII_sarabande
