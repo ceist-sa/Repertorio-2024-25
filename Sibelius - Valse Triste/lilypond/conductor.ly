@@ -4,7 +4,7 @@
 
 \include "flute.ly"
 \include "horns.ily"
-\include "clarinet_in_A.ly"
+\include "clarinet_in_Bb.ly"
 
 \include "first_violin.ly"
 \include "second_violin.ly"
@@ -29,7 +29,7 @@
             \new StaffGroup <<
                 \flute_conductor
 
-                \clarinet_in_A_conductor
+                \clarinet_in_Bb_conductor
 
                 \horns_conductor
             >>
