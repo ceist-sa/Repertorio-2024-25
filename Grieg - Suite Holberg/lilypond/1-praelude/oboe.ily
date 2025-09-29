@@ -28,10 +28,10 @@ notes =  \relative la' {
     s1 |
     s1 |
     s1 |
-    s4 s8 r8 r2 |
+    s1 |
     % C
     s1 * 3|
-    s2 s4 s4_\markup{\italic sempre \dynamic ff} |
+    s2 s4 s4 |
     s1 * 9 |
     re,4\p r4 r2 |
     % D
@@ -50,7 +50,7 @@ notes =  \relative la' {
     \rthm re\< \rthm sol \rthm si re4-.\fz |
     r4 s2. |
     s1 * 3 |
-    s1 \ffz |
+    s1 |
 }
 
 notesI = \relative la' {
@@ -173,15 +173,36 @@ notesII = \relative la' {
     re1\fermata |
 }
 
+dynamics = {
+    s1 * 7 |
+    % A 
+    s1 * 11 |
+    % repeat bar
+    s1 * 11 |
+    % B
+    s1 * 12 |
+    % C
+    s1 * 3 |
+    s2. s4_\markup{\italic sempre \dynamic ff} |
+    s1 * 9 |
+    % D
+    s1 * 9 |
+    % E
+    s1 * 8 |
+    s1 \ffz |
+}
 
-oboeI = << \notes \notesI \marks>>
-oboeII = << \notes \notesII \marks>>
-oboe = << \notes \partCombine \notesI \notesII \marks>>
+
+oboeI = << \notes \notesI \marks \dynamics >>
+oboeII = << \notes \notesII \marks \dynamics >>
+oboe = << \partCombine << \notes \notesI >> << \notes \notesII >> \marks \dynamics >>
 
 oboe_conductor = {
   \new Staff \with {
     instrumentName = \oboe_name_long
     shortInstrumentName = \oboe_name_short
+    soloText = #"Ob. I"
+    soloIIText = #"Ob. II"
   }
   \oboe
 }

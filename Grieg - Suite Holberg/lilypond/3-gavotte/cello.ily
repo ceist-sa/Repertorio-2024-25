@@ -17,8 +17,8 @@ notes = \relative sol {
     sol,-- r4 |
     % H
     r2 |
-    sol4->\p (fas8) r8 r2 |
-    sol4-> (fas8) r8 r4 re'\< \pizz |
+    sol'4->\p (fas8) r8 r2 |
+    sol4-> (fas8) r8 r4 re\< \pizz |
     r4 re\! r re |
     r4 re r re |
     r4\> la r re, |

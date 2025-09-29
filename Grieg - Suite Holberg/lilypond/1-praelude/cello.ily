@@ -71,7 +71,7 @@ notesI = \relative re {
     re2-> ( dos) |
     dos->( si) |
     si1( |
-    la2 sol) |
+    la2\crescmolto sol) |
     fas4-. re'-. la-. fas-. |
     re-. la-. fas-. re-. |
     % repeat bar
@@ -138,8 +138,8 @@ notesII = \relative re {
     s1*3
     %B
     s1*10
-    r4 << {mi'2\arco\tutti^"div. à 4." mi4} \\ {la,2 la4} >>|
-    << {re4 ~8} \\ {la4 ~8} >> r8 r4 \tuplet 6/4 {fas'16-> (mi re do si la)} |
+    r4 << {mi'2\arco\tutti^"div. à 4." mi4} {la,2 la4} >>|
+    << {re4 ~8} {la4 ~8} >> r8 r4 \tuplet 6/4 {fas'16-> (mi re do si la)} |
     %C
     \rthm sol-> \rthm si-> \rthm do-> \rthm re-> |
     \rthm mi-> \rthm fas-> \rthm mi-> \rthm re-> |
@@ -147,7 +147,7 @@ notesII = \relative re {
     \rthm si-> \rthm si \rthm si \rthm fa' |
     s1*9
     %D
-    sol1\p |
+    sol1 |
     R1 |
     r4 re4\pizz sol, r4 |
     R1 |
@@ -169,7 +169,7 @@ dynamics = {
     %A
     s1 \fp
     s1 * 8 |
-    s4 s4\crescmolto s2 |
+    s4 s4 s2 |
     s2 s4 s4\fz |
     %repeat bar
     s1 * 2 |

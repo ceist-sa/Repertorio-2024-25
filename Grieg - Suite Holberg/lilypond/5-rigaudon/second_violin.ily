@@ -5,7 +5,7 @@
 \language "português"
 
 notes = \relative do'{
-   \set Staff.idiInstrument = #"violin"
+   \set Staff.midiInstrument = #"violin"
    \clef treble
   r4 |
   <sol sol'>4\f\div\pizz r r2 |

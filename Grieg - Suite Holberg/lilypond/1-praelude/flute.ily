@@ -10,17 +10,7 @@ notes =  \relative la' {
     \clef "treble"
     s1*7 |
     % A
-    s1 |
-    si'2\solo_\markup{\dynamic p \italic "dolce e tranq."} 4. 8-- ( |
-    mi,2) r4 r8 \tuplet 3/2 {mi16( fas sol} |
-    la2) 4. 8--( |
-    re,2) r4 r8 \tuplet 3/2 {re16( mi fas} |
-    sol2)\piup r4 r8 \tuplet 3/2 {dos,16( re mi} |
-    fas2) r4 r8 \tuplet 3/2 {si,16( dos re} |
-    mi4-.) r4 dos2\startTrillSpan ~ |
-    dos2\crescmolto ~ \afterGrace dos2 ( {si16 dos)} |
-    re4-.\f\stopTrillSpan s4 s4 s4 |
-    s1 |
+    s1 * 11|
     % repeat bar
     R1*8 |
     s1 * 6 |
@@ -60,10 +50,19 @@ notesI = \relative la' {
     re2 -> dos2 -> |
     % A
     re4 \f r4 r2 |
-    s1*8 |
-    s4 re,-.\tutti fas-. la-. |
+    si'2_\markup{\dynamic p \italic "dolce e tranq."} 4. 8-- ( |
+    mi,2) r4 r8 \tuplet 3/2 {mi16( fas sol} |
+    la2) 4. 8--( |
+    re,2) r4 r8 \tuplet 3/2 {re16( mi fas} |
+    sol2)\piup r4 r8 \tuplet 3/2 {dos,16( re mi} |
+    fas2) r4 r8 \tuplet 3/2 {si,16( dos re} |
+    mi4-.) r4 dos2\startTrillSpan ~ |
+    dos2\crescmolto ~ \afterGrace dos2 ( {si16 dos)} |
+    re4-.\f\stopTrillSpan re,-. fas-. la-. |
     re4-.\< fas-. la-. re4-.\fz |
+    \partCombineUnisono
     R1*8 |
+    \partCombineAutomatic
     r4 fa, -> -\f fa -> r4 |
     r4 mi4 -> mi4 -> r4 |
     mi4-> ~ 8 r8 r4 r8 mi8-> |
@@ -80,14 +79,14 @@ notesI = \relative la' {
     s1 * 13 |
     % D
     s1 |
-    mi2_\markup{\dynamic p \italic dolce} 4. 8-- ( |
+    mi2 4. 8-- ( |
     la,2) r4 r8 \tuplet 3/2 {la16( si do} |
     re2) 4. 8--( |
     sol,2) r4 r8 \tuplet 3/2 {sol16( la si} |
-    do2)\piup r4 r8 \tuplet 3/2 {fas,16( sol la} |
+    do2) r4 r8 \tuplet 3/2 {fas,16( sol la} |
     si2) r4 r8 \tuplet 3/2 {mi,16( fas sol} |
     la4-.) r4 fas2\startTrillSpan ~ |
-    fas2\crescmolto ~ \afterGrace fas2 ( {mi16 fas)} |
+    fas2 ~ \afterGrace fas2 ( {mi16 fas)} |
     %E
     sol8-.\f \stopTrillSpan s8 s4 s4 s4 |
     s1 * 3 |
@@ -95,7 +94,7 @@ notesI = \relative la' {
     re-> la'-> sol-> fa-> |
     mi-> mi'-> re-> sol-> |
     si,2-> la4.->\startTrillSpan (sol8--\stopTrillSpan ) |
-    sol1 \ffz \fermata |
+    sol1 \fermata |
 }
 
 notesII = \relative la' {
@@ -106,15 +105,15 @@ notesII = \relative la' {
     la2 -> la2 -> |
     % A
     la4 \f r4 r2 |
-    s1*8 |
-    s4 re,-. re-. fas-. |
+    R1*8 |
+    r4 re,-.\f re-. fas-. |
     la-.\< re-. fas-. la-.\fz |
     R1*8 |
     r4 do, -> -\f re -> r4 |
     r4 si4 -> do -> r4 |
     do4-> ~ 8 r8 r4 r8 mi8-> |
     % B
-    res8-> r8 r4 r4 fas4 |
+    res8-> r8 r4 r4 fas4\p |
     sol2 (mi) |
     fas (re) |
     mi (dos) |
@@ -126,14 +125,14 @@ notesII = \relative la' {
     s1 * 13 |
     % D
     s1 |
-    mi,2_\markup{\dynamic p \italic dolce} 4. 8-- ( |
+    mi,2 4. 8-- ( |
     la,2) r4 r8 \tuplet 3/2 {la16( si do} |
     re2) 4. 8--( |
     sol,2) r4 r8 \tuplet 3/2 {sol16( la si} |
-    do2)\piup r4 r8 \tuplet 3/2 {fas,16( sol la} |
+    do2) r4 r8 \tuplet 3/2 {fas,16( sol la} |
     si2) r4 r8 \tuplet 3/2 {mi,16( fas sol} |
     la4-.) r4 fas2\startTrillSpan ~ |
-    fas2\crescmolto ~ \afterGrace fas2 ( {mi16 fas)} |
+    fas2 ~ \afterGrace fas2 ( {mi16 fas)} |
     %E
     sol8-.\f \stopTrillSpan s8 s4 s4 s4 |
     s1 * 3 |
@@ -141,17 +140,42 @@ notesII = \relative la' {
     re-> la'-> sol-> fa-> |
     mi-> mi'-> re-> sol-> |
     si,2-> la4.->\startTrillSpan (sol8--\stopTrillSpan ) |
-    sol1 \ffz \fermata |
+    sol1 \fermata |
 }
 
-flute = << \notes \partCombine \notesI \notesII \marks >>
-fluteI = << \notes \notesI \marks >>
-fluteII = << \notes \notesII \marks >>
+dynamics = {
+    s1 * 7 |
+    % A 
+    s1 * 11 |
+    % repeat bar
+    s1 * 11 |
+    % B
+    s1 * 12 |
+    % C
+    s1 * 13 |
+    % D
+    s1 |
+    s2_\markup{\dynamic p \italic dolce} s2 |
+    s1 * 3 |
+    s2\piup s2 |
+    s1 * 2 |
+    s1\crescmolto |
+    % E
+    s1 * 8 |
+    s1 \ffz |
+}
+
+flute =  << \partCombine << \notes \notesI >> << \notes \notesII >> \marks \dynamics >>
+fluteI = << \notes \notesI \marks \dynamics >>
+fluteII = << \notes \notesII \marks \dynamics >>
 
 flute_conductor = {
   \new Staff \with {
+    \consists mergeRestsEngraver
     instrumentName = \flute_name_long
     shortInstrumentName = \flute_name_short
+    soloText = #"Fl. I"
+    soloIIText = #"Fl. II"
   }
   \flute
 }

@@ -44,7 +44,6 @@ notesI = \relative {
             fa8 (mi) mi re si' (re,) |
             re8 (do) do r8 r4 |
         }
-        \\
         {
             r8 la'16\pp (si la8) do4 (la8) |
             la (sol) sol2 |
@@ -54,7 +53,7 @@ notesI = \relative {
             si8 (la) la r8 r4 |
         }
     >>
-    r4 r r8 re8 |
+    r4 r r8 re8\tutti |
     re8 re re re re re' |
     re4 mib2 |
     fa4 (mi!8 re) re4 |

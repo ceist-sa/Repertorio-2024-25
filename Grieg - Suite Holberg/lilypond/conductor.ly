@@ -14,7 +14,6 @@
     \context {
         \Staff
         \RemoveAllEmptyStaves
-        printPartCombineTexts = ##f
     }
 }
 

@@ -19,7 +19,7 @@ notes = \relative sol,{
     % A
     re1 |
     R1 * 8 |
-    r4 re'-. la-. fas-. |
+    r4 re'-.\f la-. fas-. |
     re-. la-. fas-. re-. |
     %repeat bar
     fas2-> ~ 4 r4 |
@@ -75,7 +75,7 @@ dynamics = {
     %A
     s1 \fp 
     s1 * 8 |
-    s4 s4\crescmolto s2 |
+    s4 s4 s2 |
     s2 s4 s4\fz |
     %repeat bar 
     s1 * 2 |
