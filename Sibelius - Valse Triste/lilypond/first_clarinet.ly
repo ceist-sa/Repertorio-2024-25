@@ -118,10 +118,10 @@ clarinet_in_Bb = \relative do''' {
 }
 
 
-clarinet_in_Bb_conductor = \relative do' {
+first_clarinet_conductor = \relative do' {
     \new Staff \with {
-        instrumentName = "Clarinete em Si♭"
-        shortInstrumentName = "Cl."
+        instrumentName = "Clarinete em Si♭ I"
+        shortInstrumentName = "Cl. I"
     }
     \transpose do re << \clarinet_in_Bb \marks >>
 }
@@ -133,8 +133,8 @@ clarinet_in_Bb_conductor = \relative do' {
         page-count = #1
     }
     \header {
-        instrument = "Clarinete em Si♭"
-        filename = "Sibelius - Valse Triste - CLARINET"
+        instrument = "Clarinete em Si♭ I"
+        filename = "Sibelius - Valse Triste - CLARINET I"
     }
     \score {
         \new Staff

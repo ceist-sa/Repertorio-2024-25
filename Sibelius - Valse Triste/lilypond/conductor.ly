@@ -3,14 +3,15 @@
 \include "globals.ily"
 
 \include "flute.ly"
-\include "horns.ily"
-\include "clarinet_in_Bb.ly"
+\include "first_clarinet.ly"
+\include "second_clarinet.ly"
 
 \include "first_violin.ly"
 \include "second_violin.ly"
 \include "viola.ly"
 \include "cello.ly"
 \include "double_bass_cello.ly"
+\include "bassoon.ly"
 
 
 \book {
@@ -29,9 +30,9 @@
             \new StaffGroup <<
                 \flute_conductor
 
-                \clarinet_in_Bb_conductor
-
-                \horns_conductor
+                \first_clarinet_conductor
+                \second_clarinet_conductor
+                \bassoon_conductor
             >>
 
             \new StaffGroup <<
