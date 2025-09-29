@@ -1,12 +1,13 @@
 ﻿\version "2.18.2"
-\include "1413-Faure-Elegie-Global.ily"                
+\include "globals.ily"                
 #(set-global-staff-size 20)  
 #(ly:set-option 'point-and-click #f)
 
-cInstrument = "Flûtes"
+cInstrument = "Cors en Fa 3 et 4"
 
-\paper { 
+\paper {
      first-page-number = 2
+		 indent = 20\mm
 }	%% fin paper
 
 \book {
@@ -14,23 +15,23 @@ cInstrument = "Flûtes"
     title = \cTitre
     subsubtitle = \cSousTitre
     composer =	\cCompositeur
-		copyright = \cCopyright
+		% copyright = \cCopyright
 		poet = \markup \box { \pad-around #1 { \cInstrument }}
 		instrumentHeader = 	\markup { \cInstrument }	
 }	%% fin header
 
 \score { 
 	\new StaffGroup <<
-		\new Staff \with {instrumentName = "Flûte 1"} 
+		\new Staff \with {instrumentName = "Cor 3 en Fa"} 
 			{ \reperes \silencesMulti
-			<<	\keepWithTag #'Ton {\include "1413-Faure-Elegie-Trame.ily"}
-					\keepWithTag #'partie {\include "Mus/1413-01-Fl1.ily"}
+			<<	\keepWithTag #'SansTon {\marks}
+					\keepWithTag #'partie {\include "Mus/1413-11-C3.ily"}
 			>>
 		}
-		\new Staff \with {instrumentName = "Flûte 2"} 
+		\new Staff \with {instrumentName = "Cor 4 en Fa"} 
 			{ \reperes \silencesMulti
-			<<	\keepWithTag #'Ton {\include "1413-Faure-Elegie-Trame.ily"}
-					\keepWithTag #'partie {\include "Mus/1413-02-Fl2.ily"}
+			<<	\keepWithTag #'SansTon {\marks}
+					\keepWithTag #'partie {\include "Mus/1413-12-C4.ily"}
 			>>
 		}
 	>>

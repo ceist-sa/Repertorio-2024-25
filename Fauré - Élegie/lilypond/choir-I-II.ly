@@ -1,5 +1,5 @@
 ﻿\version "2.18.2"
-\include "1413-Faure-Elegie-Global.ily"                
+\include "globals.ily"                
 #(set-global-staff-size 20)  
 #(ly:set-option 'point-and-click #f)
 
@@ -15,7 +15,7 @@ cInstrument = "Cors en Fa 1 et 2"
     title = \cTitre
     subsubtitle = \cSousTitre
     composer =	\cCompositeur
-		copyright = \cCopyright
+		% copyright = \cCopyright
 		poet = \markup \box { \pad-around #1 { \cInstrument }}
 		instrumentHeader = 	\markup { \cInstrument }	
 }	%% fin header
@@ -24,13 +24,13 @@ cInstrument = "Cors en Fa 1 et 2"
 	\new StaffGroup <<
 		\new Staff \with {instrumentName = "Cor 1 en Fa"} 
 			{ \reperes \silencesMulti
-			<<	\keepWithTag #'SansTon {\include "1413-Faure-Elegie-Trame.ily"}
+			<<	\keepWithTag #'SansTon {\marks}
 					\keepWithTag #'partie {\include "Mus/1413-09-C1.ily"}
 			>>
 		}
 		\new Staff \with {instrumentName = "Cor 2 en Fa"} 
 			{ \reperes \silencesMulti
-			<<	\keepWithTag #'SansTon {\include "1413-Faure-Elegie-Trame.ily"}
+			<<	\keepWithTag #'SansTon {\marks}
 					\keepWithTag #'partie {\include "Mus/1413-10-C2.ily"}
 			>>
 		}

@@ -1,9 +1,9 @@
 ﻿\version "2.18.2"
-\include "1413-Faure-Elegie-Global.ily"                
+\include "globals.ily"                
 #(set-global-staff-size 20)  
 #(ly:set-option 'point-and-click #f)
 
-cInstrument = "Violoncelle"
+cInstrument = "Contrebasse"
 
 \paper {
     %% first-page-number = 2
@@ -14,7 +14,7 @@ cInstrument = "Violoncelle"
     title = \cTitre
     subsubtitle = \cSousTitre
     composer =	\cCompositeur
-		copyright = \cCopyright
+		% copyright = \cCopyright
 		poet = \markup \box { \pad-around #1 { \cInstrument }}
 		instrumentHeader = 	\markup { \cInstrument }	
 }	%% fin header
@@ -22,8 +22,8 @@ cInstrument = "Violoncelle"
 \score {
 		\new Staff << 
 			\reperes \silencesMulti
-		 	<<	\keepWithTag #'Ton \include "1413-Faure-Elegie-Trame.ily" 
-				\keepWithTag #'partie \include "Mus/1413-17-Vc.ily"
+		 	<<	\keepWithTag #'Ton \marks 
+				\keepWithTag #'partie \include "Mus/1413-18-Cb.ily"
 			>>
 		>>
 }	%% fin score

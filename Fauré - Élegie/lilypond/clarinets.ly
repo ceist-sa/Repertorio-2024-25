@@ -1,9 +1,9 @@
 ﻿\version "2.18.2"
-\include "1413-Faure-Elegie-Global.ily"                
+\include "globals.ily"                
 #(set-global-staff-size 20)  
 #(ly:set-option 'point-and-click #f)
 
-cInstrument = "Cors en Fa 3 et 4"
+cInstrument = \markup {"Clarinettes en si" \flat}
 
 \paper {
      first-page-number = 2
@@ -15,23 +15,23 @@ cInstrument = "Cors en Fa 3 et 4"
     title = \cTitre
     subsubtitle = \cSousTitre
     composer =	\cCompositeur
-		copyright = \cCopyright
+		% copyright = \cCopyright
 		poet = \markup \box { \pad-around #1 { \cInstrument }}
 		instrumentHeader = 	\markup { \cInstrument }	
 }	%% fin header
 
 \score { 
 	\new StaffGroup <<
-		\new Staff \with {instrumentName = "Cor 3 en Fa"} 
+		\new Staff \with {instrumentName = "Clarinette 1"} 
 			{ \reperes \silencesMulti
-			<<	\keepWithTag #'SansTon {\include "1413-Faure-Elegie-Trame.ily"}
-					\keepWithTag #'partie {\include "Mus/1413-11-C3.ily"}
+			<<	\keepWithTag #'TonClarinette {\marks}
+					\keepWithTag #'partie {\include "Mus/1413-05-Cl1.ily"}
 			>>
 		}
-		\new Staff \with {instrumentName = "Cor 4 en Fa"} 
+		\new Staff \with {instrumentName = "Clarinette 2"} 
 			{ \reperes \silencesMulti
-			<<	\keepWithTag #'SansTon {\include "1413-Faure-Elegie-Trame.ily"}
-					\keepWithTag #'partie {\include "Mus/1413-12-C4.ily"}
+			<<	\keepWithTag #'TonClarinette {\marks}
+					\keepWithTag #'partie {\include "Mus/1413-06-Cl2.ily"}
 			>>
 		}
 	>>

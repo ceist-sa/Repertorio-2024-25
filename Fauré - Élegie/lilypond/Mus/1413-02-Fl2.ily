@@ -1,6 +1,7 @@
 % \version "2.18.2"      % Fauré - Elégie - Flûte 2
+\include "../globals.ily"
 
-\relative c''{
+notes = \relative c''{
 \clef treble
 
 \override DynamicLineSpanner.staff-padding = #2.4
@@ -61,4 +62,22 @@ R1*6
 
 
 
+}
+
+
+fluteII = \score { 
+	\new Staff {
+		\reperes \silencesMulti <<
+			\keepWithTag #'Ton {\marks}
+			\keepWithTag #'partie { \notes }
+		>>
+	}
+}
+
+fluteII_conductor = {
+	\new Staff \with {
+		instrumentName = \second_flute_name_long
+		shortInstrumentName = \second_flute_name_short
+	}
+	\notes
 }

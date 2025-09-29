@@ -1,5 +1,5 @@
 ﻿\version "2.18.2"
-\include "1413-Faure-Elegie-Global.ily"                
+\include "globals.ily"                
 #(set-global-staff-size 20)  
 #(ly:set-option 'point-and-click #f)
 
@@ -14,7 +14,7 @@ cInstrument = "Violon 1"
     title = \cTitre
     subsubtitle = \cSousTitre
     composer =	\cCompositeur
-		copyright = \cCopyright
+		% copyright = \cCopyright
 		poet = \markup \box { \pad-around #1 { \cInstrument }}
 		instrumentHeader = 	\markup { \cInstrument }	
 }	%% fin header
@@ -22,7 +22,7 @@ cInstrument = "Violon 1"
 \score {
 		\new Staff << 
 			\reperes \silencesMulti
-		 	<<	\keepWithTag #'Ton \include "1413-Faure-Elegie-Trame.ily" 
+		 	<<	\keepWithTag #'Ton \marks 
 				\keepWithTag #'partie \include "Mus/1413-14-V1.ily"
 			>>
 		>>
