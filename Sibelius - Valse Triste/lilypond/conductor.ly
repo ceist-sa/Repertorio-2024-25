@@ -10,13 +10,13 @@
 \include "second_violin.ly"
 \include "viola.ly"
 \include "cello.ly"
-\include "double_bass.ly"
+\include "double_bass_cello.ly"
 
 
 \book {
     \paper {
         #(set-paper-size "b4")
-        indent = 1.5\cm
+        indent = 2\cm
         short-indent = 0.2\cm
         ragged-last-bottom = ##f
         ragged-bottom = ##f
@@ -41,7 +41,7 @@
                 >>
                 \viola_conductor
                 \cello_conductor
-                \double_bass_conductor
+                \double_bass_cello_conductor
             >>
         >>
         \layout {}

@@ -8,9 +8,9 @@ cello = \relative do {
     \set Staff.midiInstrument = #"cello"
     \override NoteHead.color = #cello-range
     \clef bass
-    R2. * 8 |
+    R2. * 8_\consord |
     % A
-    fas2.\express_\markup{\dynamic p \italic dolce}\consord ( |
+    fas2.\express_\markup{\dynamic p \italic dolce} ( |
     mis) |
     fas\< ( ~ |
     2 sols4\!) |
