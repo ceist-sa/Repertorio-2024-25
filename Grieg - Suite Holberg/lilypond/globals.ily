@@ -24,3 +24,7 @@ crescmolto = _\markup{\italic "cresc. molto"}
 
 oneStaff = \set Staff.keepAliveInterfaces = #'()
 twoStaves = \unset Staff.keepAliveInterfaces
+
+\paper {
+    scoreTitleMarkup = \markup \fontsize #5 { \vspace #2 \fill-line { \null \fromproperty #'header:piece \null } } % Center and resize movement titles
+}
