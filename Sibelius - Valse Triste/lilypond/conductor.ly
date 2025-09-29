@@ -4,7 +4,7 @@
 
 \include "flute.ly"
 \include "horns.ily"
-\include "clarinet_in_A.ily"
+\include "clarinet_in_A.ly"
 
 \include "first_violin.ly"
 \include "second_violin.ly"
