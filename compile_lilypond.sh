@@ -1,9 +1,10 @@
 #!/bin/bash
 
 # Script to recursively compile LilyPond files with filename header to PDF
-# Usage: ./compile_lilypond.sh [-v] [-w] [--ignore pattern] [root_directory]
+# Usage: ./compile_lilypond.sh [-v] [-w] [-c] [--ignore pattern] [root_directory]
 # -v: verbose mode (show LilyPond output)
 # -w: watch mode (monitor files for changes and auto-recompile)
+# -c: clean mode (generate PDFs without point-and-click links)
 # --ignore: ignore files matching pattern (can be used multiple times)
 # If no directory is specified, uses current directory
 
@@ -22,6 +23,7 @@ OS="$(uname -s)"
 # Default values
 VERBOSE=false
 WATCH_MODE=false
+CLEAN_PDF=false
 ROOT_DIR="."
 IGNORE_PATTERNS=()
 
@@ -36,6 +38,10 @@ while [[ $# -gt 0 ]]; do
             WATCH_MODE=true
             shift
             ;;
+        -c|--clean)
+            CLEAN_PDF=true
+            shift
+            ;;
         --ignore)
             if [[ -n "$2" && "$2" != -* ]]; then
                 IGNORE_PATTERNS+=("$2")
@@ -46,9 +52,10 @@ while [[ $# -gt 0 ]]; do
             fi
             ;;
         -h|--help)
-            echo "Usage: $0 [-v] [-w] [--ignore pattern] [root_directory]"
+            echo "Usage: $0 [-v] [-w] [-c] [--ignore pattern] [root_directory]"
             echo "  -v, --verbose    Show LilyPond compilation output"
             echo "  -w, --watch      Watch files for changes and auto-recompile"
+            echo "  -c, --clean      Generate clean PDFs without point-and-click links"
             echo "  --ignore pattern Ignore files matching pattern (can be used multiple times)"
             echo "  -h, --help       Show this help message"
             echo "  root_directory   Directory to scan (default: current directory)"
@@ -56,6 +63,7 @@ while [[ $# -gt 0 ]]; do
             echo "Examples:"
             echo "  $0 --ignore '*test*' --ignore '*backup*'"
             echo "  $0 -w --ignore 'draft_*.ly'"
+            echo "  $0 -c --verbose"
             exit 0
             ;;
         *)
@@ -236,12 +244,24 @@ compile_lilypond() {
     fi
     
     # Compile with LilyPond, output to temporary directory
+    # Build LilyPond command with options
+    local lilypond_cmd="lilypond"
+    
+    # Add clean PDF option if requested
+    if [ "$CLEAN_PDF" = true ]; then
+        lilypond_cmd="$lilypond_cmd -dno-point-and-click"
+    fi
+    
+    # Add output directory
+    lilypond_cmd="$lilypond_cmd --output=\"$temp_dir\""
+    
     # Control output based on verbose flag
     if [ "$VERBOSE" = true ]; then
-        lilypond --output="$temp_dir" "$input_file"
+        eval "$lilypond_cmd \"$input_file\""
         local compile_result=$?
     else
-        lilypond -s --output="$temp_dir" "$input_file"
+        lilypond_cmd="$lilypond_cmd -s"
+        eval "$lilypond_cmd \"$input_file\""
         local compile_result=$?
     fi
     
