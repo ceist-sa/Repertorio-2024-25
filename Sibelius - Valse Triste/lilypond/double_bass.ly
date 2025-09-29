@@ -239,6 +239,10 @@ double_bass_conductor = \relative do, {
         ragged-last-bottom = ##f
         ragged-bottom = ##f
     }
+    \header {
+        instrument = "Double Bass"
+        filename = "Sibelius - Valse Triste - DOUBLE BASS"
+    }
     \score {
         \new Staff
             <<\double_bass \marks>>

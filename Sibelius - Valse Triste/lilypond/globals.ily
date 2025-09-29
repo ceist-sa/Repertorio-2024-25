@@ -7,6 +7,11 @@ express = ^\markup{\italic "express."}
 pizz = ^\markup{\center-align "pizz."}
 arco = ^\markup{\center-align "arco"}
 ffz =  _\markup {\dynamic "ffz" }
+ffp = _\markup { \dynamic ffp }
+fpp = _\markup { \dynamic fpp }
+piup = _\markup{\center-align \italic più \dynamic p}
+piupp = _\markup{\center-align \italic più \dynamic pp}
+piuf = _\markup{\center-align \italic più \dynamic f}
 
 barlineFermata = {\once \set Score.caesuraType = #'((scripts . (fermata))) \caesura}
 

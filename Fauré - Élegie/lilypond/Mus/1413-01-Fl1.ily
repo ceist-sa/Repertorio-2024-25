@@ -1,6 +1,7 @@
 % \version "2.18.2"      % Fauré - Elégie - Flûte 1
+\include "../globals.ily"
 
-\relative c''{
+notes = \relative c''{
 \clef treble
 
 
@@ -61,4 +62,22 @@ R1*6
 
 
 
+}
+
+
+fluteI = \score { 
+	\new Staff {
+		\reperes \silencesMulti <<
+			\keepWithTag #'Ton {\marks}
+			\keepWithTag #'partie { \notes }
+		>>
+	}
+}
+
+fluteI_conductor = {
+	\new Staff \with {
+		instrumentName = \first_flute_name_long
+		shortInstrumentName = \first_flute_name_short
+	}
+	\notes
 }

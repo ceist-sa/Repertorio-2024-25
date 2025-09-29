@@ -1,9 +1,9 @@
 ﻿\version "2.18.2"
-\include "1413-Faure-Elegie-Global.ily"                
+\include "globals.ily"                
 #(set-global-staff-size 20)  
 #(ly:set-option 'point-and-click #f)
 
-cInstrument = "Hautbois"
+cInstrument = "Bassons"
 
 \paper {
      first-page-number = 2
@@ -14,23 +14,23 @@ cInstrument = "Hautbois"
     title = \cTitre
     subsubtitle = \cSousTitre
     composer =	\cCompositeur
-		copyright = \cCopyright
+		% copyright = \cCopyright
 		poet = \markup \box { \pad-around #1 { \cInstrument }}
 		instrumentHeader = 	\markup { \cInstrument }	
 }	%% fin header
 
 \score { 
 	\new StaffGroup <<
-		\new Staff \with {instrumentName = "Hautbois 1"} 
+		\new Staff \with {instrumentName = "Basson 1"} 
 			{ \reperes \silencesMulti
-			<<	\keepWithTag #'Ton {\include "1413-Faure-Elegie-Trame.ily"}
-					\keepWithTag #'partie {\include "Mus/1413-03-Hb1.ily"}
+			<<	\keepWithTag #'Ton {\marks}
+					\keepWithTag #'partie {\include "Mus/1413-07-Bn1.ily"}
 			>>
 		}
-		\new Staff \with {instrumentName = "Hautbois 2"} 
+		\new Staff \with {instrumentName = "Basson 2"} 
 			{ \reperes \silencesMulti
-			<<	\keepWithTag #'Ton {\include "1413-Faure-Elegie-Trame.ily"}
-					\keepWithTag #'partie {\include "Mus/1413-04-Hb2.ily"}
+			<<	\keepWithTag #'Ton {\marks}
+					\keepWithTag #'partie {\include "Mus/1413-08-Bn2.ily"}
 			>>
 		}
 	>>
