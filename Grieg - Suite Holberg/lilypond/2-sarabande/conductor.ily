@@ -3,6 +3,7 @@
 \include "flute.ily"
 \include "oboe.ily"
 \include "clarinet.ily"
+\include "bassoon.ily"
 
 \include "first_violin.ily"
 \include "second_violin.ily"
@@ -18,6 +19,7 @@ conductor_sarabande = \score {
                 \flute_conductor
                 \oboe_conductor
                 \clarinet_conductor
+                \bassoon_conductor
             >>
         }
         \new StaffGroup {
@@ -34,6 +36,9 @@ conductor_sarabande = \score {
 
 % \score{
 %     \conductor_sarabande
-%     \layout {}
+%     \layout { \context {
+%         \Staff
+%         \RemoveAllEmptyStaves
+%     } }
 %     \midi { \tempo 4 = 60}
 % }

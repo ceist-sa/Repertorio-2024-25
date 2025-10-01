@@ -85,7 +85,7 @@ staves = {
 
 dynamics = {
   s2.\p |
-  s8\< s8  s8\> s8\! s4 |
+  s8\< s16 s16 \!  s8\> s8\! s4 |
   s4 s2\< |
   \grace{s16\> s16} s8 s8\! s2 |
   s2. |

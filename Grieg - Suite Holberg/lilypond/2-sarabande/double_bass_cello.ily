@@ -10,8 +10,14 @@ notes = \relative sol,,{
   \set Staff.midiInstrument = #"cello"
   \override NoteHead.color = #cello-range
   \clef bass
-  R2. * 8 |
-  re'4\p\pizz r mi |
+  R2. * 3 |
+  r4 r4 re'4 \pizz |
+  mi4 fas sol |
+  la4\cresc si la8 sol |
+  fas8->\f sol-> la4-> r4 |
+  re4\> r re,\! |
+  % repeat bar
+  re4\p\pizz r mi |
   fas4 r r |
   re4\< dos\f r |
   fas4\p r r |

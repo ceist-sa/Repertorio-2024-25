@@ -14,7 +14,9 @@ notes =  \relative la' {
     \grace { las16 (si16 } las16->) sols16 fas8-. fas8 r8 r4 | % 11
     si8 ( dos16 re16 ) re8 ( dos8 ) dos8 ( las8 ) | % 12
     \grace { las16 (si16 } las16->) sols16 fas8-. fas8-- r8 r4 | % 13
-    R2.*10 | % 22
+    R2.*4 |
+    % F
+    R2.*6 |
 }
 
 notesI = \relative la' {
@@ -69,46 +71,16 @@ dynamics = {
   s4 s4\> s8\! s8|
 }
 
-flute = << \notes \partCombine \notesI \notesII \marks \dynamics>>
+flute =  << \partCombine << \notes \notesI >> << \notes \notesII >> \marks \dynamics >>
 fluteI = << \notes \notesI \marks \dynamics >>
 fluteII = << \notes \notesII \marks \dynamics >>
 
-staves = {
-    \oneStaff
-    s2. * 24 |
-    \twoStaves
-}
-
-flute_staves = {
-    <<
-        \new Staff \with {
-        \consists Merge_rests_engraver
-        \override VerticalAxisGroup.remove-empty = ##t
-        \override VerticalAxisGroup.remove-first = ##t
-        \override VerticalAxisGroup.remove-layer = 1
-        }
-        << \fluteI \staves >>
-        \new Staff \with {
-        \consists Merge_rests_engraver
-        \override VerticalAxisGroup.remove-empty = ##t
-        \override VerticalAxisGroup.remove-first = ##t
-        \override VerticalAxisGroup.remove-layer = 1
-        }
-        << \fluteII \staves >>
-        \new Staff \with {
-            printPartCombineTexts = ##f
-            \consists Merge_rests_engraver
-            \override VerticalAxisGroup.remove-layer = 2
-        }
-        << \flute \staves >>
-    >>
-}
-
 flute_conductor = {
   \new Staff \with {
-    printPartCombineTexts = ##f
     instrumentName = \flute_name_long
     shortInstrumentName = \flute_name_short
+    soloText = #"Flt. I"
+    soloIIText = #"Flt. II"
   }
   \flute
 }
@@ -129,4 +101,10 @@ fluteII_sarabande = \score {
   }
 }
 
-% \flute_sarabande
+% \score {
+%   <<
+%   \new Staff {\fluteI}
+%   \new Staff {\fluteII}
+%   \flute_conductor
+%   >>
+% }

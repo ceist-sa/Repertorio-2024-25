@@ -6,9 +6,9 @@
 
 dynamics = {
   s2. \p |
-  s4 \< s2\> |
-  s4\! \once \override Hairpin.to-barline = ##f s2\< |
-  s4\! s2\> |
+  s8\< s16 s16 \!  s8\> s8\! s4 |
+  s4\! s4\< s8 s16 s16\! |
+  s4 s2\> |
   s2. \! |
   s2. \cresc |
   s2. \f |
@@ -90,7 +90,7 @@ notesI = \relative do' {
 
 notesII = \relative do' {
   sol2 (fas4) |
-  fa4 mi8 re-- sol4 |
+  fa4 mi8 (re--) sol4 |
   si4 (mi,) la |
   re,8 sol \grace{fas16 (sol} fas16) mi re8 re4 |
   s2. * 4 |

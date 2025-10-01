@@ -26,7 +26,7 @@ notesI = \relative la {
     sol4  sol8 ( fas8 ) sol4 | % 27
     re2 reb4 | % 28
     re8 si8 la4 ~ la8 r8 | % 29
-    fa'2 (  mi4 ) |
+    fa'2\pp (  mi4 ) |
     fa4  sol4 sol4
     | % 31
     sol8 --   sol8 -- sol4 fas4 | % 32
@@ -43,8 +43,7 @@ notesII = \relative la {
     si8 la16 sol16 la8 ( si8 ) la8 ( sol8 ) | % 28
     la8 sol8 fas4  la8 (   si8 ) | % 29
     R2. |
-    re4   mi4
-    re8 ( do8 ) | % 31
+    re4\pp mi4 re8 ( do8 ) | % 31
     si8 --   do8 -- re2 | % 32
     sol,2 ~  sol8   r8
 }
@@ -64,52 +63,22 @@ dynamics = {
   s2. \ff |
   s2. |
   s4 s4 \> s8\! s8|
-  s2. \pp |
+  s2. |
   s2. \crescmolto |
   s2. \f |
   s4 s4\> s8\! s8|
 }
 
-staves = {
-    \oneStaff
-    s2. * 24
-    \twoStaves
-}
-
-clarinet = << \notes \partCombine \notesI \notesII \marks \dynamics >>
+clarinet = << \partCombine << \notes \notesI >> << \notes \notesII >> \marks \dynamics >>
 clarinetI = << \notes \notesI \marks \dynamics >>
 clarinetII = << \notes \notesII \marks \dynamics >>
 
-clarinet_staves = {
-    <<
-        \new Staff \with {
-        \consists Merge_rests_engraver
-        \override VerticalAxisGroup.remove-empty = ##t
-        \override VerticalAxisGroup.remove-first = ##t
-        \override VerticalAxisGroup.remove-layer = 1
-        }
-        << \clarinetI \staves >>
-        \new Staff \with {
-        \consists Merge_rests_engraver
-        \override VerticalAxisGroup.remove-empty = ##t
-        \override VerticalAxisGroup.remove-first = ##t
-        \override VerticalAxisGroup.remove-layer = 1
-        }
-        << \clarinetII \staves >>
-        \new Staff \with {
-            printPartCombineTexts = ##f
-            \consists Merge_rests_engraver
-            \override VerticalAxisGroup.remove-layer = 2
-        }
-        << \clarinet \staves >>
-    >>
-}
-
 clarinet_conductor = {
   \new Staff \with {
-    printPartCombineTexts = ##f
     instrumentName = \clarinet_name_long
     shortInstrumentName = \clarinet_name_short
+    soloText = "Cl. I"
+    soloIIText = "Cl. II"
   }
   \clarinet
 }
@@ -130,4 +99,10 @@ clarinetII_sarabande = \score {
   }
 }
 
-% \clarinet_sarabande
+% \score {
+%   <<
+%   \new Staff {\clarinetI}
+%   \new Staff {\clarinetII}
+%   \clarinet_conductor
+%   >>
+% }

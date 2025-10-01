@@ -25,7 +25,7 @@ notesI = \relative la' {
     re8 do16 si16 do8 ( re8 ) re4 | % 27
     si8 la16 sol16 la8 ( si8 ) la8 ( sol8 ) | % 28
     la8 re,8 fas4 ~ fas4 | % 29
-    do'4 (re4 do4) |
+    do'4\pp (re4 do4) |
     sol4. la8 si8
     mi8 | % 31
     re8 mi8 -- re4 do4 | % 32
@@ -41,7 +41,7 @@ notesII = \relative la {
     sol8 la16 si16 la8 (sol8) fas8 ( mi8 ) | % 28 %compiler throws a warning here, but it seems fine
     \grace { fas16 (sol16 } fas16) mi16 re8 re4 ~ re8 r8 | % 29
     R2. |
-    la'8 (si16 do16 ) si8 do8 re8 ( sol8 ) | % 31
+    la'8\pp (si16 do16 ) si8 do8 re8 ( sol8 ) | % 31
     sol,8 do8 si8 ( la8 ) la8 ( sol8 ) | % 32
     sol4 sol4 ~ sol8 r8
 }
@@ -61,13 +61,13 @@ dynamics = {
   s2. \ff |
   s2. |
   s4 s4 \> s8\! s8|
-  s2. \pp |
+  s2. |
   s2. \crescmolto |
   s2. \f |
   s4 s4\> s8\! s8|
 }
 
-oboe = << \notes \partCombine \notesI \notesII \marks \dynamics>>
+oboe = << \partCombine << \notes \notesI >> << \notes \notesII >> \marks \dynamics >>
 oboeI = << \notes \notesI \marks \dynamics >>
 oboeII = << \notes \notesII \marks \dynamics >>
 
@@ -106,9 +106,10 @@ oboe_staves = {
 oboe_conductor = {
   \new GrandStaff \with {
     \consists "Keep_alive_together_engraver"
-    printPartCombineTexts = ##f
     instrumentName = \oboe_name_long
     shortInstrumentName = \oboe_name_short
+    soloText = "Ob. I"
+    soloIIText = "Ob. II"
   }
   \oboe_staves
 }
@@ -129,4 +130,10 @@ oboeII_sarabande = \score {
   }
 }
 
-% \oboe_sarabande
+% \score {
+%   <<
+%   \new Staff {\oboeI}
+%   \new Staff {\oboeII}
+%   \oboe_conductor
+%   >>
+% }
