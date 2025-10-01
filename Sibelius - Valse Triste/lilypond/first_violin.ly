@@ -265,6 +265,8 @@ first_violin_conductor = \relative do'' {
     \paper {
         indent = 0.2\cm
         short-indent = 0.2\cm
+        ragged-last-bottom = ##f
+        ragged-bottom = ##f
     }
     \header {
         instrument = "Violino I"

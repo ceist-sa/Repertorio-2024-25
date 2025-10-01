@@ -157,6 +157,8 @@ second_clarinet_conductor = \relative do' {
         indent = 0.2\cm
         short-indent = 0.2\cm
         page-count = #1
+        ragged-last-bottom = ##f
+        ragged-bottom = ##f
     }
     \header {
         instrument = "Clarinete em Si♭ II"

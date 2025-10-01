@@ -242,7 +242,7 @@ double_bass_cello_conductor = \relative do, {
     }
     \header {
         instrument = "Contrabaixo (vlc.)"
-        filename = "Sibelius - Valse Triste - DOUBLE BASS"
+        filename = "Sibelius - Valse Triste - BASS (CELLO)"
     }
     \score {
         \new Staff
