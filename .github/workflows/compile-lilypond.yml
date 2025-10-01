@@ -51,7 +51,7 @@ jobs:
       run: chmod +x ./compile_lilypond.sh
 
     - name: Run LilyPond compilation
-      run: ./compile_lilypond.sh -v
+      run: ./compile_lilypond.sh -c -v
 
     - name: Check for changes
       id: verify-changed-files
