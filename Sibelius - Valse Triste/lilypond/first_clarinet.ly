@@ -4,7 +4,7 @@
 \include "../../ranges.ily"
 \include "globals.ily"
 
-clarinet_in_Bb = \relative do''' {
+clarinet_in_Bb = \relative do'' {
     \set Staff.midiInstrument = #"clarinet"
     \clef treble
     
@@ -118,7 +118,7 @@ clarinet_in_Bb = \relative do''' {
 }
 
 
-first_clarinet_conductor = \relative do' {
+first_clarinet_conductor = {
     \new Staff \with {
         instrumentName = "Clarinete em Si♭ I"
         shortInstrumentName = "Cl. I"
