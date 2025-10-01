@@ -1,6 +1,7 @@
 **/lilypond/**/*.midi
 **/lilypond/**/*.pdf
 **/lilypond/**/*.tmp
+/diff.pdf
 
 # Common temporary files
 .DS_Store
