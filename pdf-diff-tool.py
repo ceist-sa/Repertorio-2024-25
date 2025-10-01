@@ -9,6 +9,7 @@ import os
 import subprocess
 import sys
 import tempfile
+import shutil
 from pathlib import Path
 from datetime import datetime
 
@@ -153,8 +154,7 @@ def select_commit(commits):
     print("\nCommits that affected this file:")
     print("-" * 80)
     for i, commit in enumerate(commits, 1):
-        print(f"{i}. [{commit['date']}] {commit['message'][:60]}")
-        print(f"   Commit: {commit['hash'][:8]}")
+        print(f"{i}. [{commit['date']}] {commit['message'][:60]} (#{commit['hash'][:8]})")
     print("-" * 80)
     
     while True:
@@ -176,13 +176,7 @@ def select_commit(commits):
 
 def check_diff_pdf():
     """Check if diff-pdf is installed."""
-    try:
-        subprocess.run(['which', 'diff-pdf'],
-                      capture_output=True,
-                      check=True)
-        return True
-    except subprocess.CalledProcessError:
-        return False
+    return shutil.which('diff-pdf') is not None
 
 
 def is_headless():
