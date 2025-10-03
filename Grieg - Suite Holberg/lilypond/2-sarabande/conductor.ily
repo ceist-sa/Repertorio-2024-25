@@ -34,11 +34,11 @@ conductor_sarabande = \score {
     >>
 }
 
-% \score{
-%     \conductor_sarabande
-%     \layout { \context {
-%         \Staff
-%         \RemoveAllEmptyStaves
-%     } }
-%     \midi { \tempo 4 = 60}
-% }
+\score{
+    \conductor_sarabande
+    \layout { \context {
+        \Staff
+        \RemoveAllEmptyStaves
+    } }
+    \midi { \tempo 4 = 60}
+}

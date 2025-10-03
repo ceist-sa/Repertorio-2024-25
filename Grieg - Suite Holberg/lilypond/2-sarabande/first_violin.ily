@@ -62,9 +62,7 @@ notesII = \relative do'{
 
 
 staves = {
-  \oneStaff s2.*21
-  \twoStaves s2.*7
-  \oneStaff s2.*4
+  \oneStaff
 }
 
 
@@ -97,7 +95,7 @@ dynamics = {
   s2. \f |
   s4 s4\> s8\! s8|
 }
-first_violin = << \notes << \notesI \\ \notesII >> \marks \dynamics >>
+first_violin = << \partCombine << \notes \notesI>> <<\notes \notesII >> \marks \dynamics >>
 first_violinI = <<\notes \notesI \marks \dynamics>>
 first_violinII = <<\notes \notesII \marks \dynamics>>
 
@@ -105,6 +103,7 @@ first_violin_conductor = {
   \new Staff \with {
     instrumentName = \first_violin_name_long
     shortInstrumentName = \first_violin_name_short
+    printPartCombineTexts = ##f
   }
   \first_violin
 }
@@ -130,6 +129,7 @@ first_violin_sarabande = \score {
       << \first_violinII \staves >>
       \new Staff \with {
         \override VerticalAxisGroup.remove-layer = 2
+        printPartCombineTexts = ##f
       }
       << \first_violin \staves >>
     >>

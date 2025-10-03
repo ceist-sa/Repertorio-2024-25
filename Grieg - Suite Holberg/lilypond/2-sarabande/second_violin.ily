@@ -52,7 +52,7 @@ notesI = \relative do''{
 }
 
 notesII = \relative do'{
-  re4 mi2 |
+  re4\div mi2 |
   sol4. (fas8--) sol4 |
   re4 (mi) do |
   re8 re re4 ~8 r8 |
@@ -118,12 +118,13 @@ dynamics = {
 
 }
 
-second_violin = << \notes << \notesI \\ \notesII >> \marks \dynamics >>
+second_violin = << \partCombine << \notes \notesI>> <<\notes \notesII >> \marks \dynamics >>
 second_violinI = <<\notes \notesI \marks \dynamics>>
 second_violinII = <<\notes \notesII \marks \dynamics>>
 
 second_violin_conductor = {
   \new Staff \with {
+    printPartCombineTexts = ##f
     instrumentName = \second_violin_name_long
     shortInstrumentName = \second_violin_name_short
   }
@@ -150,6 +151,7 @@ second_violin_sarabande = \score {
       }
       << \second_violinII \staves >>
       \new Staff \with {
+        printPartCombineTexts = ##f
         \override VerticalAxisGroup.remove-layer = 2
       }
       << \second_violin \staves >>

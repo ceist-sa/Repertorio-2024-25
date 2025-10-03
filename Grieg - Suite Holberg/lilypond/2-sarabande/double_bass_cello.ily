@@ -32,9 +32,10 @@ notes = \relative sol,,{
   mi,4\piupp r8 si' r4 |
   do,4 r8 sols' r4 |
   la4 r r |
-  R2. * 2 |
+  r4 r r8 re8\tutti\arco|
+  re8\cresc re re re re re |
   % G
-  sol!4\arco\tutti sol2\< |
+  sol,!4\f sol2\< |
   sol2\ff sol8-- (fas--) |
   mi2 la4 |
   re,8 sol fas16\> mi re8 re4\! |

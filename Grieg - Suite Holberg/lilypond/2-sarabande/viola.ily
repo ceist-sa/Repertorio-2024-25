@@ -120,7 +120,7 @@ staves = {
   s2. * 3 |
 }
 
-viola = <<\notes << \notesI \\ \notesII >> \marks \dynamics>>
+viola = << \partCombine << \notes \notesI>> <<\notes \notesII >> \marks \dynamics >>
 
 violaI = <<\notes \notesI \marks \dynamics>>
 violaII = <<\notes \notesII \marks \dynamics>>
@@ -130,6 +130,7 @@ viola_conductor = {
   \new Staff \with {
     instrumentName = \viola_name_long
     shortInstrumentName = \viola_name_short
+    printPartCombineTexts = ##f
   }
   \viola
 }
@@ -155,6 +156,7 @@ viola_sarabande = \score {
       << \violaII \staves >>
       \new Staff \with {
         \override VerticalAxisGroup.remove-layer = 2
+        printPartCombineTexts = ##f
       }
       << \viola \staves >>
     >>
