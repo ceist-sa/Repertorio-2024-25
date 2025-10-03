@@ -137,7 +137,7 @@ dynamics = {
   s2 s8 \< s16 s32 s32 \! |
   s4 \f\> s4 s8.\! s16|
   s2 s32 s32 \< s8 s16 \!|
-  s8 \ffp s8 \>  s8 s8 s4 \pp |
+  s4\ffp\> s4 s4\pp |
   s4 \pp s2 |
   s2. |
   s4 s8 \< s8 s8 \> s8 \! |
@@ -175,7 +175,7 @@ dynamics = {
   s2 s4 \< |
   s2 \ff s4 |
   s2 s4 \< |
-  s8\! \ffp s8 \>  s8 s8 s4 \pp |
+  s4\ffp\>  s4 s4 \pp |
 
 }
 
@@ -189,6 +189,7 @@ first_violin_conductor = {
   \new Staff \with {
     instrumentName = \first_violin_name_long
     shortInstrumentName = \first_violin_name_short
+    printPartCombineTexts = ##f
   }
   \first_violin
 }

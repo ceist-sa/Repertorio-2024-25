@@ -1,13 +1,34 @@
 \version "2.24.4"
 
-ffp = _\markup { \dynamic ffp }
-fpp = _\markup { \dynamic fpp }
-ffz = _\markup { \dynamic ffz }
-piup = _\markup{\center-align \italic più \dynamic p}
-piupp = _\markup{\center-align \italic più \dynamic pp}
-piuf = _\markup{\center-align \italic più \dynamic f}
-pcantab = _\markup{\center-align \dynamic p \italic cantab.}
-cantab = _\markup{\center-align \italic cantab.}
+ffp = #(make-dynamic-script
+            (markup #:dynamic "ffp"))
+            
+fpp = #(make-dynamic-script
+            (markup #:dynamic "fpp"))
+
+ffz = #(make-dynamic-script
+            (markup #:dynamic "ffz"))
+
+piup = #(make-dynamic-script
+            (markup #:normal-text (#:italic "più")
+                    #:dynamic "p"))
+
+piupp = #(make-dynamic-script
+            (markup #:normal-text (#:italic "più")
+                    #:dynamic "pp"))
+
+piuf = #(make-dynamic-script
+            (markup #:normal-text (#:italic "più")
+                    #:dynamic "f"))
+
+pcantab = #(make-dynamic-script 
+            (markup #:dynamic "p"
+                    #:normal-text (#:italic "cantab.")))
+
+crescmolto = #(make-dynamic-script
+            (markup #:italic "cresc. molto"))
+
+cantab = _\markup{\italic "cantab."}
 
 solo = ^\markup{\smallCaps Solo}
 threeSoli = ^\markup{\smallCaps "3 Soli"}
@@ -20,10 +41,15 @@ arco = ^\markup{\center-align "arco"}
 spicc = ^\markup{\center-align "spicc."}
 div = ^\markup{\center-align "div."}
 nondiv = ^\markup{\center-align "non div."}
-crescmolto = _\markup{\italic "cresc. molto"}
 
-oneStaff = \set Staff.keepAliveInterfaces = #'()
-twoStaves = \unset Staff.keepAliveInterfaces
+oneStaff = {
+        %  \staffHighlight "lightgreen" % for debugging purposes
+        \set Staff.keepAliveInterfaces = #'()
+        }
+twoStaves = {
+        %  \staffHighlight "lightpink" % for debugging purposes
+        \unset Staff.keepAliveInterfaces
+        }
 
 \paper {
     scoreTitleMarkup = \markup \fontsize #5 { \vspace #2 \fill-line { \null \fromproperty #'header:piece \null } } % Center and resize movement titles

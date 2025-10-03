@@ -171,7 +171,7 @@ fluteII = << \notes \notesII \marks \dynamics >>
 
 flute_conductor = {
   \new Staff \with {
-    \consists mergeRestsEngraver
+    \consists Merge_rests_engraver
     instrumentName = \flute_name_long
     shortInstrumentName = \flute_name_short
     soloText = #"Fl. I"

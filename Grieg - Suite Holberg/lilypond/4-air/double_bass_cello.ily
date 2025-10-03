@@ -31,9 +31,9 @@ notes = \relative sol, {
     sib4 r r |
     sib4 la sol |
     r4 fa r |
-    mib r re |
-    r8 mib fa mib r4 |
-    r4 r re8 fa |
+    mib r re ~|
+    8 mib fa mib r4 |
+    r2 re8 fa |
     mib8 sol r4 r |
     re8 sol fa4 r |
     mib2.->\arco |
@@ -43,8 +43,9 @@ notes = \relative sol, {
     sib4~8 r8 r4 |
     do,4 \pizz r r |
     re4 r r |
+    \once \stemUp
     re'4-> ~ (16 do) do (sib) sib (la) la (sol) |
-    re4 r r |
+    re2 sol4\espressivo |
     re'4-> ~ (16 do) do\< (sib) sib\! (la\>) \tuplet 3/2 {do16 (sib la\!)} |
     re,4 r r |
     R2. * 1 |
@@ -72,8 +73,10 @@ notesI = \relative {
     sol2 r4 |
     sol2 r4 |
     sol2 r4 |
+    \once\override Hairpin.to-barline = ##f
     re'2.->\mf\> ~ |
     4\! r r |
+    \once\override Hairpin.to-barline = ##f
     si2.\pp->\> ~ |
     4\! r r |
     % R
@@ -109,9 +112,10 @@ dynamics = {
     s8\> s8\! s2 |
     s2.\cresc |
     s4 s4 s4\< |
-    s4 \f\> \after 8 \! s4 s4 |
-    s2 s32 s32 \< s8 s16 \! |
-    s8 \ffp s8 \>  s8 s8 s4 \pp |
+    s4 \f\> s4 s4\! |
+    s4. s4.\< |
+    \once\override Hairpin.minimum-length = #8
+    s2 \ffp \> s4 \pp |
     % repeat bar
     s2. \pp |
     s2. * 3 |
@@ -125,7 +129,8 @@ dynamics = {
     s2\< s4\! |
     s4 s2 \< |
     % P
-    s4\!\ffz\< s8\! s8 s4| %FIXME my \ffz is not really a new dynamic because the spacing rules are not respected
+    \once\override Hairpin.minimum-length = #7 
+    s4\ffz\< s8\! s8 s4| 
     s2. \p |
     s2. |
     s2. |
@@ -150,8 +155,8 @@ dynamics = {
     s2. \f |
     s4 s8 s16 s16\< s4 |
     s2\ff s4 |
-    s2 s4\< |
-    s8\! \ffp s8 \>  s8 s8 s4 \pp |
+    s2 \once\override Hairpin.minimum-length = #4 s4\< |
+    s4\ffp\>  s4 s4 \pp |
 }
 
 
@@ -165,7 +170,7 @@ staves = {
    \oneStaff
 }
 
-double_bass_cello = <<\notes \partCombine \notesI \notesII \marks \dynamics >>
+double_bass_cello = <<\partCombine <<\notes \notesI>> <<\notes \notesII>> \marks \dynamics >>
 
 double_bass_celloI = <<\notes \notesI \marks \dynamics >>
 double_bass_celloII = <<\notes \notesII \marks \dynamics >>
@@ -173,22 +178,23 @@ double_bass_celloII = <<\notes \notesII \marks \dynamics >>
 double_bass_cello_staves = {
   <<
       \new Staff \with {
-      \consists Merge_rests_engraver
-      \override VerticalAxisGroup.remove-empty = ##t
-      \override VerticalAxisGroup.remove-first = ##t
-      \override VerticalAxisGroup.remove-layer = 1
+        \consists Merge_rests_engraver
+        \override VerticalAxisGroup.remove-empty = ##t
+        \override VerticalAxisGroup.remove-first = ##t
+        \override VerticalAxisGroup.remove-layer = 1
       }
       << \double_bass_celloI \staves >>
       \new Staff \with {
-      \consists Merge_rests_engraver
-      \override VerticalAxisGroup.remove-empty = ##t
-      \override VerticalAxisGroup.remove-first = ##t
-      \override VerticalAxisGroup.remove-layer = 1
+        \consists Merge_rests_engraver
+        \override VerticalAxisGroup.remove-empty = ##t
+        \override VerticalAxisGroup.remove-first = ##t
+        \override VerticalAxisGroup.remove-layer = 1
       }
       << \double_bass_celloII \staves >>
       \new Staff \with {
-      \consists Merge_rests_engraver
-      \override VerticalAxisGroup.remove-layer = 2
+        \consists Merge_rests_engraver
+        \override VerticalAxisGroup.remove-layer = 2
+        printPartCombineTexts = ##f
       }
       \double_bass_cello
   >>
@@ -208,6 +214,7 @@ double_bass_cello_air = \score {
   \compressMMRests{
     \new GrandStaff \with {
       \consists Keep_alive_together_engraver
+      printPartCombineTexts = ##f
     }
     \double_bass_cello_staves
   }

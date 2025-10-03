@@ -153,7 +153,7 @@ dynamics = {
     s2 s4\< |
     s4 \f\> \after 8 \! s4 s4 |
     s2 s32 s32 \< s8 s16 \! |
-    s8 \ffp s8 \>  s8 s8 s4 \pp |
+    s4\ffp\> s4 s4\pp |
     % repeat bar
     s2. \pp |
     s2. * 3 |
@@ -177,11 +177,12 @@ dynamics = {
     s8 s8\dim s2 |
     s4 s8\! s8 s4 |
     s2. |
-    % FIXME this does not look exactly right
     \hairpinWithRightAlignedText \markup{\italic \tiny "molto"}
-    s2.\f\< \cantab|
+    \once\override Hairpin.minimum-length = #10
+    s2.\< \f \cantab |
     s8\! s8\> s4.\! s8 |
     \hairpinWithRightAlignedText \markup{\italic \tiny "molto"}
+    \once\override Hairpin.minimum-length = #10
     s2.\< |
     s8\! s8\> s4.\! s8 |
     s8 s4\ff s8 s8 s8 |
@@ -195,7 +196,7 @@ dynamics = {
     s4 s8 s16 s16\< s4 |
     s2\ff s4 |
     s2 s4\< |
-    s8\! \ffp s8 \>  s8 s8 s4 \pp |
+    s4\ffp\>  s4 s4 \pp |
 }
 
 
@@ -261,6 +262,7 @@ cello_conductor = {
     \consists "Keep_alive_together_engraver"
     instrumentName = \cello_name_long
     shortInstrumentName = \cello_name_short
+    printPartCombineTexts = ##f
   }
   \cello_staves
 }

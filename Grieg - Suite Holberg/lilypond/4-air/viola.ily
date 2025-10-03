@@ -18,7 +18,7 @@ dynamics = {
   s2 s4\< |
   s8\f\> s8 s8 s8\! s4 |
   s2 s32 s32 \< s8 s16 \! |
-  s8 \ffp s8 \>  s8 s8 s4 \pp |
+  s4\ffp\> s4 s4\pp |
   % O
   s2. \pp |
   s2. * 3 |
@@ -58,7 +58,7 @@ dynamics = {
   s2 s4\< |
   s2.\ff |
   s2 s4\< |
-  s8\! \ffp s8 \>  s8 s8 s4 \pp |
+  s4\ffp\>  s4 s4 \pp |
 }
 
 notes = \relative do' {

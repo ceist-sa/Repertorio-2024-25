@@ -23,7 +23,7 @@ notesI =  \relative la' {
     re8  -- re8  -- mi8  -- mi8  -- \partCombineApart mi8 mi8 |
     \partCombineAutomatic re8 -> re8 re8 re8 re8 re8 |
     re8 re8 dos8 la8 mi'8 mi8 |
-    fa8 \partCombineApart re,8\> re8 re8 re4\pp |
+    fa8 \partCombineApart re,8 re8 re8 re4 |
     R2.*9 |
     \partCombineAutomatic fa8 sib8 sib8 sib8 la8 la8 |
     sib8 sib8 sib8 re8 do8 la8 |
@@ -78,7 +78,7 @@ notesII =  \relative la' {
     re8  -- re8  -- re8  -- re8  -- re8 dos16. ( re32 ) |
     re2 ~ -> re8. do ?16 |
     do16 ( si16 ) si16 sib16 sib16 ( la16 ) la8 \tuplet 3/2 {re32 ( dos32 si32 } dos8 dos16 ) |
-    re8 r8 r4 r4 |
+    re2. |
     sib8\pp  sib8  sib8  sib8  sib8  sib8  |
     sib8  sib8  sib8  sib8  sib8  sib8  |
     la8  la8  la8  la8  la8  la8  |
@@ -136,7 +136,7 @@ dynamics = {
   s2 s4\< |
   s8\f\> s8 s8 s8\! s4 |
   s2 s32 s32 \< s8 s16 \!
-  s8 \ffp s8 s8 s8 s4 |
+  s4\ffp\> s4 s4\pp |
   % O
   s2. |
   s2. * 3 |
@@ -177,7 +177,7 @@ dynamics = {
   s2 s4\< |
   s2.\ff |
   s2 s4\< |
-  s8\! \ffp s8 \>  s8 s8 s4 \pp |
+  s4\ffp\>  s4 s4 \pp |
 }
 
 staves = {
@@ -192,6 +192,13 @@ staves = {
   \twoStaves
   s2. * 7
   \oneStaff
+  s2. * 2 
+  % Q 
+  s2. * 14
+  \twoStaves
+  s2. * 2 
+  \oneStaff
+  s2. * 1
 }
 
 
@@ -230,6 +237,8 @@ oboe_conductor = {
     \consists Keep_alive_together_engraver
     instrumentName = \oboe_name_long
     shortInstrumentName = \oboe_name_short
+    soloText = "Ob. I"
+    soloIIText = "Ob. II"
   }
   \oboe_staves
 }
@@ -250,4 +259,10 @@ oboeII_air = \score {
   }
 }
 
-% \oboe_air
+% \score {
+%   <<
+%   \new Staff {\oboeI}
+%   \new Staff {\oboeII}
+%   \oboe_conductor
+%   >>
+% }

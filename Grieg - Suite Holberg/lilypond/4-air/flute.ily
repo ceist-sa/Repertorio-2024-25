@@ -27,7 +27,7 @@ notesI =  \relative la' {
     sib4 ~  sib8 r8 r4 |
     R2.*9 |
     R2.  |
-    \partCombineApart r16  dos,16\pp dos16 ( re16 ) re16 ( dos16 ) dos16 ( re16 )
+   \partCombineApart r16  dos,16\pp dos16 ( re16 ) re16 ( dos16 ) dos16 ( re16 )
     re16 ( dos16 ) dos16 ( re16 ) |
     r16 si16 si16 ( do16 ) do16 ( si16 ) si16 ( do16 ) do16 ( si16 ) si16
     ( do16 ) |
@@ -36,8 +36,8 @@ notesI =  \relative la' {
     r16 mi16\mf mi16 (fa16) fa16 (mi16) mi16 (fa16) fa16\dim (mi16) mi16 (fa16) |
     r16 la,16 la16 (sib16) sib16 (la16) la16 (sib16) sib16\> (fas16) fas16 (sol16)\! |
     r16 dos16\pp dos16 (re16) re16 (dos16) dos16 (re16) re16 (dos16) dos16 (re16) |
-    r16 fas,16 fas16 (sol16) sol16 (fas16) fas16 (sol16) sol16 (re16) re16 (mib16) |
-    \partCombineAutomatic fas'2 ( ~ fas16 la16 ) sol16 fas16 |
+    \partCombineAutomatic r16 fas,16 fas16 (sol16) sol16 (fas16) fas16 (sol16) sol16 (re16) re16 (mib16) |
+    fas'2 ( ~ fas16 la16 ) sol16 fas16 |
     la16 ( sol16 fas16 sol16 ) \grace {fas\( sol la} sol2 \) |
     si2 ( ~ si16 re16 ) do16 si16 |
     re16 ( do16 si16 do16 ) \grace{si\( do re} do2 \) |
@@ -67,7 +67,7 @@ notesII =  \relative la' {
     ) do16 fa16 |
     fa16 ( sib,16 ) sib16 do16 do4 ( ~ do8. sib16 ) |
     sib4 ~ sib8 r8 r4 |
-    R2.*9 s2. |
+    R2.*10 |
     r8 sib8-.\pp  sib8-.  sib8-.  sib8-.  sib8-.  |
     r8 la8  la8  la8  la8  la8  |
     r8 la8  la8  la8  la8  la8  |
@@ -102,7 +102,8 @@ dynamics = {
   s2 s4\< |
   s8\f\> s8 s8 s8\! s4 |
   s2 s32 s32 \< s8 s16 \!
-  s8 \ffp s8\> s8 s8 s4\pp |
+  \once\override Hairpin.minimum-length = #8
+    s2 \ffp \> s4 \pp |
   % O
   s2. |
   s2. * 3 |
@@ -143,7 +144,7 @@ dynamics = {
   s2 s4\< |
   s2.\ff |
   s2 s4\< |
-  s8\! \ffp s8 \>  s8 s8 s4 \pp |
+  s4\ffp\>  s4 s4 \pp |
 }
 
 staves = {
@@ -153,7 +154,7 @@ staves = {
   s2. * 3
   \oneStaff
   s2. * 24
-  \twoStaves
+  %\twoStaves
   s2. * 8
   \oneStaff
   s2. * 6
@@ -196,6 +197,8 @@ flute_conductor = {
     \consists Keep_alive_together_engraver
     instrumentName = \flute_name_long
     shortInstrumentName = \flute_name_short
+    soloText = #"Flt. I"
+    soloIIText = #"Flt. II"
   }
   \flute_staves
 }
@@ -216,4 +219,10 @@ fluteII_air = \score {
   }
 }
 
-% \flute_air
+% \score {
+%   <<
+%   \new Staff {\fluteI}
+%   \new Staff {\fluteII}
+%   \flute_conductor
+%   >>
+% }

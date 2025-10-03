@@ -73,7 +73,7 @@ notesII =  \relative la {
     sib8  sib8  sib8  sib8  sib8  sib8  |
     la8  la8  la8  la8  la8  la8  |
     la8  la8  la8  la8  la8  la8  |
-    sib8  sib8  sib8  <sib re>8 sol8 sol8 |
+    sib8  sib8  sib8  sib8 sol8 sol8 |
     fa8 fa8  fa8  fa8  fa8  fa8  |
     r8 mib8  mib8  mib8  mib8  mib8  |
     re8  re8  re8  re8  re8  re8  |
@@ -142,7 +142,7 @@ dynamics = {
   s2 s4\< |
   s8\f\> s8 s8 s8\! s4 |
   s2 s32 s32 \< s8 s16 \! |
-  s8 \ffp s8 \>  s8 s8 s4 \pp |
+  s4\ffp\> s4 s4\pp |
   % O
   s2. \pp |
   s2. * 3 |
@@ -182,16 +182,16 @@ dynamics = {
   s2 s4\< |
   s2.\ff |
   s2 s4\< |
-  s8\! \ffp s8 \>  s8 s8 s4 \pp |
+  s4\ffp\>  s4 s4 \pp |
 }
 
 staves = {
   \oneStaff
-  s2. * 27
+  s2. * 28
   \twoStaves
-  s2. * 3
+  s2.
   \oneStaff
-  s2. * 17
+  s2. * 18
   \twoStaves
   s2. * 4
   \oneStaff
@@ -208,21 +208,18 @@ clarinetII = \transpose do re { <<  \notesII \marks \dynamics >> }
 clarinet_staves = {
   <<
       \new Staff \with {
-      \consists Merge_rests_engraver
       \override VerticalAxisGroup.remove-empty = ##t
       \override VerticalAxisGroup.remove-first = ##t
       \override VerticalAxisGroup.remove-layer = 1
       }
       << \clarinetI \staves >>
       \new Staff \with {
-      \consists Merge_rests_engraver
       \override VerticalAxisGroup.remove-empty = ##t
       \override VerticalAxisGroup.remove-first = ##t
       \override VerticalAxisGroup.remove-layer = 1
       }
       << \clarinetII \staves >>
       \new Staff \with {
-      \consists Merge_rests_engraver
       \override VerticalAxisGroup.remove-layer = 2
       }
       \clarinet
@@ -235,6 +232,8 @@ clarinet_conductor = {
     \consists Keep_alive_together_engraver
     instrumentName = \clarinet_name_long
     shortInstrumentName = \clarinet_name_short
+    soloText = "Cl. I"
+    soloIIText = "Cl. II"
   }
   \clarinet_staves
 }
@@ -255,4 +254,10 @@ clarinetII_air = \score {
   }
 }
 
-% \clarinet_air
+% \score {
+%   <<
+%   \new Staff {\clarinetI}
+%   \new Staff {\clarinetII}
+%   \clarinet_conductor
+%   >>
+% }
