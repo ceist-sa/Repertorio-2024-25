@@ -207,7 +207,7 @@ dynamics = {
   s2 |
 }
 
-flute = << \notes \partCombine \notesI \notesII \marks \dynamics>>
+flute = << \partCombine << \notes \notesI >> << \notes \notesII >> \marks \dynamics >>
 fluteI = << \notes \notesI \marks \dynamics >>
 fluteII = << \notes \notesII \marks \dynamics >>
 
@@ -242,7 +242,8 @@ flute_staves = {
 
 flute_conductor = {
   \new Staff \with {
-    printPartCombineTexts = ##f
+    soloText = #"Flt. I"
+    soloIIText = #"Flt. II"
     instrumentName = \flute_name_long
     shortInstrumentName = \flute_name_short
   }
@@ -265,4 +266,10 @@ fluteII_gavotte = \score {
   }
 }
 
-% \flute_gavotte
+% \score {
+%   <<
+%   \new Staff {\fluteI}
+%   \new Staff {\fluteII}
+%   \flute_conductor
+%   >>
+% }

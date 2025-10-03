@@ -130,10 +130,9 @@ notesI = \relative do'' {
   r2
   \partCombineApart
   sol4->\pp (la8) r8 |
-  la4-> (do8) r8 do4-> (mi8) r8 |
+  la4-> (do8) r8 \partCombineAutomatic do4-> (mi8) r8 |
   mi2 (\grace{re16 mi} re8 do si4 |
   do4 la) \grace{si16 (do} si8 la sol4) |
-  \partCombineAutomatic
   la2 s2 |
   s1 * 4 |
   s2 |
@@ -190,8 +189,8 @@ notesI = \relative do'' {
 }
 
 notesII = \relative do'' {
-  sol4-> ~8 r8 |
-  sol4-> ~8 r8 sol4-> (do8) r8 |
+  sol4-> (sol8) r8 | %compiler throws a warining here, but it seems fine
+  sol4-> (sol8) r8 sol4-> (do8) r8 |
   do2 si4 _(sol4 ~|
   4 fas) sol (re) |
   fas2 s2 |

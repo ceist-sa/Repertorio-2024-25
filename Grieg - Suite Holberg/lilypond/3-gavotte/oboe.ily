@@ -44,10 +44,9 @@ notesI = \relative la' {
     r2
     R1 * 3 |
     r2 do2 ->  |
-    \grace { si16 (do16 } si8 ->) la8 sol4 -. do8 -> re8 mi4 -. |
+    \grace { si16 (do16 } si8 ->) [la8] sol4 -. do8 -> re8 mi4 -. |
     si2 -> mi2 -> |
-    \grace { re16 (mi16 } re8) -> si8 re4 -. \grace { do16 (re16 } do8) la8
-    do4 -. |
+    \grace { re16 (mi16 } re8) -> [si8] re4 -. \grace { do16 (re16 } do8) [la8] do4 -. |
     si4 -. la4 -. r2 |
     R1 * 3 |
     r2 si4 -. ->  re4 -. -> |
@@ -227,12 +226,44 @@ dynamics = {
   s2 |
 }
 
-oboe = << \notes \partCombine \notesI \notesII \marks \dynamics>>
+oboe = << \partCombine << \notes \notesI >> << \notes \notesII >> \marks \dynamics >>
 oboeI = << \notes \notesI \marks \dynamics >>
 oboeII = << \notes \notesII \marks \dynamics >>
 
 staves = {
-    \twoStaves
+  \oneStaff
+  s2 |
+  s1 * 8 |
+  s2 |
+  % H
+  s2 |
+  s1 * 2 |
+  \twoStaves
+  s1 * 3 |
+  \oneStaff |
+  s1 * 9 |
+  s2 |
+  % I 
+  s2 |
+  s1 * 11 |
+  % K
+  s1 * 5 |
+  s2 |
+  % MUSETTE
+  \twoStaves
+  s2 |
+  s1 * 2 |
+  \oneStaff
+  s1 * 5 |
+  s2 |
+  % L
+  s2 |
+  s1 * 11 |
+  % M
+  \twoStaves
+  s1 * 3 |
+  \oneStaff
+  % ... 
 }
 
 oboe_staves = {
@@ -252,7 +283,6 @@ oboe_staves = {
         }
         << \oboeII \staves >>
         \new Staff \with {
-            printPartCombineTexts = ##f
             \consists Merge_rests_engraver
             \override VerticalAxisGroup.remove-layer = 2
         }
@@ -264,9 +294,10 @@ oboe_staves = {
 oboe_conductor = {
   \new GrandStaff \with {
     \consists "Keep_alive_together_engraver"
-    printPartCombineTexts = ##f
     instrumentName = \oboe_name_long
     shortInstrumentName = \oboe_name_short
+    soloText = "Ob. I"
+    soloIIText = "Ob. II"
   }
   \oboe_staves
 }
@@ -287,5 +318,10 @@ oboeII_gavotte = \score {
   }
 }
 
-
-% \oboe_gavotte
+% \score {
+%   <<
+%   \new Staff {\oboeI}
+%   \new Staff {\oboeII}
+%   \oboe_conductor
+%   >>
+% }

@@ -3,6 +3,7 @@
 \include "flute.ily"
 \include "oboe.ily"
 \include "clarinet.ily"
+\include "bassoon.ily"
 
 \include "first_violin.ily"
 \include "second_violin.ily"
@@ -18,6 +19,7 @@ conductor_gavotte = \score {
                 \flute_conductor
                 \oboe_conductor
                 \clarinet_conductor
+                \bassoon_conductor
             >>
         }
         \new StaffGroup {
@@ -32,8 +34,8 @@ conductor_gavotte = \score {
     >>
 }
 
-% \score{
-%     \conductor_gavotte
-%     \layout {}
-%     \midi {\tempo 2 = 90}
-% }
+\score{
+    \conductor_gavotte
+    \layout {}
+    \midi {\tempo 2 = 90}
+}

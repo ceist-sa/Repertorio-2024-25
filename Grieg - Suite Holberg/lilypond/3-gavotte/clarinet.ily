@@ -65,10 +65,9 @@ notesI = \relative la {
     r2 |
     R1 * 3 |
     r2 do2 |
-    \grace { si16 do16 } si8 -> la8 sol4 -. do8 -> re8 mi4 -. |
+    \grace { si16 (do16 } si8) -> [la8] sol4 -. do8 -> re8 mi4 -. |
     si2 -> mi2 -> |
-    \grace { re16 mi16 } re8 -> si8 re4 -. \grace { do16 re16 } do8 ->
-    la8 do4 -. |
+    \grace { re16 (mi16 } re8) -> [si8] re4 -. \grace { do16 (re16 } do8) -> [la8] do4 -. |
     si4 -. la4 -. r2 |
     R1 * 3|
     r2 re4 -. ->  re4 -. -> |
@@ -80,9 +79,9 @@ notesI = \relative la {
     % MUSETTE
     mi8 (re mi sol |
     fa8 mi re fa) mi (re do mi|
-    re8 si sol4) fa'8-> (la fa re) |
-    do8-> (mi do la) sol (si sol re) |
-    mi2-> sol'4. sol8-> ~ |
+    re8 si sol4) la'8-> (do la fa) |
+    mi8-> (sol mi do) si-> (re si sol) |
+    sol2-> sol'4. sol8-> ~ |
     4. sol8-> ~ 4. sol8-> ~ |
     2 la8-> (do la fa) |
     mi8-> (sol mi do) si8-> (re si sol) |
@@ -98,9 +97,9 @@ notesI = \relative la {
     sol'4 -.  fa4 -. sol4 -. sol4 -. |
     sol4 ~   sol8 r8 mi8 (re mi sol |
     fa8 mi re fa) mi (re do mi|
-    re8 si sol4) fa'8-> (la fa re) |
-    do8-> (mi do la) sol (si sol re) |
-    mi2-> sol'4. sol8-> ~ |
+    re8 si sol4) la'8-> (do la fa) |
+    mi8-> (sol mi do) si-> (re si sol) |
+    sol2-> sol'4. sol8-> ~ |
     4. sol8-> ~ 4. sol8-> ~ |
     2 la8-> (do la fa) |
     mi8-> (sol mi do) si8-> (re si sol) |
@@ -144,9 +143,9 @@ notesII = \relative la {
     % MUSETTE
     sol4. sol8-> ~ |
     4. 8-> ~4. 8-> ~ |
-    2 la'8-> (do la fa) |
-    mi8-> (sol mi do) si-> (re si sol) |
-    sol2-> sol'4. sol8-> ~ |
+    2 fa'8-> (la fa re) |
+    do8-> (mi do la) sol (si sol re) |
+    mi2-> sol'4. sol8-> ~ |
     4. 8-> ~4. 8-> ~ |
     2 la8-> (do la fa) |
     mi8-> (sol mi do) si-> (re si sol) |
@@ -162,9 +161,9 @@ notesII = \relative la {
     do4 -.  do4 -. re4 -. re4 -. |
     mi4 ~   mi8 r8 sol,4. sol8-> ~ |
     4. 8-> ~4. 8-> ~ |
-    2 la'8-> (do la fa) |
-    mi8-> (sol mi do) si-> (re si sol) |
-    sol2-> sol'4. sol8-> ~ |
+    2 fa'8-> (la fa re) |
+    do8-> (mi do la) sol (si sol re) |
+    mi2-> sol'4. sol8-> ~ |
     4. 8-> ~4. 8-> ~ |
     2 la8-> (do la fa) |
     mi8-> (sol mi do) si-> (re si sol) |
@@ -238,13 +237,40 @@ dynamics = {
 }
 
 staves = {
-    \twoStaves
-
+  \oneStaff
+  s2 |
+  s1 * 8 |
+  s2 |
+  % H
+  s2 |
+  s1 * 14 |
+  s2 |
+  % I
+  s2 |
+  s1 * 11 |
+  % K
+  s1 * 5 |
+  s2 |
+  % MUSETTE
+  \twoStaves
+  s2 |
+  s1 * 2 |
+  \oneStaff
+  s1 * 5 |
+  s2 |
+  % L
+  s2 |
+  s1 * 11 |
+  % M
+  \twoStaves
+  s1 * 3 |
+  \oneStaff
+  % ...
 }
 
-clarinet = << \notes \partCombine \notesI \notesII \marks \dynamics >>
-clarinetI = << \notes \notesI \marks \dynamics >>
-clarinetII = << \notes \notesII \marks \dynamics >>
+clarinet = \transpose do re { << \partCombine << \notes \notesI >> << \notes \notesII >> \marks \dynamics >> }
+clarinetI = \transpose do re { << \notes \notesI \marks \dynamics >> }
+clarinetII = \transpose do re { << \notes \notesII \marks \dynamics >> }
 
 clarinet_staves = {
     <<
@@ -263,7 +289,6 @@ clarinet_staves = {
         }
         << \clarinetII \staves >>
         \new Staff \with {
-            printPartCombineTexts = ##f
             \consists Merge_rests_engraver
             \override VerticalAxisGroup.remove-layer = 2
         }
@@ -274,9 +299,10 @@ clarinet_staves = {
 clarinet_conductor = {
   \new GrandStaff \with {
     \consists Keep_alive_together_engraver
-    printPartCombineTexts = ##f
     instrumentName = \clarinet_name_long
     shortInstrumentName = \clarinet_name_short
+    soloText = "Cl. I"
+    soloIIText = "Cl. II"
   }
   \clarinet_staves
 }
@@ -297,4 +323,10 @@ clarinetII_gavotte = \score {
   }
 }
 
-% \clarinet_gavotte
+% \score {
+%   <<
+%   \new Staff {\clarinetI}
+%   \new Staff {\clarinetII}
+%   \clarinet_conductor
+%   >>
+% }

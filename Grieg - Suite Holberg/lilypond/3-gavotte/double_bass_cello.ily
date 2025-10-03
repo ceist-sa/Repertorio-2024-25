@@ -26,7 +26,7 @@ notes = \relative sol, {
     r4\> la r re, |
     re''8\pp do si la sol4 r4 |
     R1 * 3 |
-    r2 sol,4.->\f (fas8-.) |
+    r2 sol,4.->\f\arco (fas8-.) |
     mi4.-> (re8-.) do4.-> (si'8-.) |
     la2->\fz si4 mi |
     la,4 re sol, do |
@@ -39,7 +39,7 @@ notes = \relative sol, {
     re8-> do sol'4-. mi8-> fas sol4-> |
     re2-> sol->\f |
     fas8-> re fas4-. mi8-> do mi4-.|
-    si'8 mi, re4-. r4 sol'\pizz\pp |
+    si'8 do re4-. r4 sol\pizz\pp |
     r4 sol, r sol' |
     r4 sol, r sol' |
     r4 sol, r si |

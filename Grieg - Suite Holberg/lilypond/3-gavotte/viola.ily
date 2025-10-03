@@ -118,10 +118,10 @@ notes = \relative do' {
 notesI = \relative do' {
   \partCombineApart
   r2 |
-  r2 sol'4->\pp (la8) r8 |
+  r2 \partCombineAutomatic sol'4->\pp (la8) r8 |
   la2 si4 (mi, ~ |
   4 re) re2 |
-  re2 \partCombineAutomatic s2 |
+  re2 s2 |
   s1 * 4 |
   s2 |
   % H
@@ -131,8 +131,8 @@ notesI = \relative do' {
   re2-> (dos |
   si2 la |
   sol2 fas) |
-  r2 sol'4-> ~ 8 r8 |
-  sol4-> ~ 8 r8 sol4-> (la8) r8 |
+  r2 sol'4-> (sol8) r8 |
+  sol4-> (sol8) r8 sol4-> (la8) r8 |
   la2 si4 (mi, ~ |
   4 re) re2 |
   re2 s2 |
@@ -188,7 +188,7 @@ notesI = \relative do' {
 }
 
 notesII = \relative do' {
-  si4->\pp (do8) r8 |
+  si4->\pp\div (do8) r8 |
   do4-> (mi8) r8 mi4-> (fas8) r8 |
   fas2 sol4 (mi |
   la,4 re) sol, (si) |
@@ -342,4 +342,6 @@ viola_gavotte = \score {
   }
 }
 
-% \viola_gavotte
+% \score {
+%   \viola_conductor
+% }
