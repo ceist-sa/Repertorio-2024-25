@@ -69,9 +69,9 @@ dynamics = {
   s4 s4\> s8\! s8|
 }
 
-clarinet = << \partCombine << \notes \notesI >> << \notes \notesII >> \marks \dynamics >>
-clarinetI = << \notes \notesI \marks \dynamics >>
-clarinetII = << \notes \notesII \marks \dynamics >>
+clarinet = \transpose do re {<< \partCombine << \notes \notesI >> << \notes \notesII >> \marks \dynamics >>}
+clarinetI = \transpose do re { << \notes \notesI \marks \dynamics >> }
+clarinetII = \transpose do re { << \notes \notesII \marks \dynamics >> }
 
 clarinet_conductor = {
   \new Staff \with {

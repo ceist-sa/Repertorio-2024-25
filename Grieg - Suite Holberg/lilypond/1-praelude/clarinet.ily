@@ -169,7 +169,6 @@ dynamics = { % this is very dub, but some places require it
     s1 \ffz |
 }
 
-%clarinet = \transpose do re { << \notes \partCombine \notesI \notesII \marks>> }
 clarinetI = \transpose do re { << \notes \notesI \marks \dynamics >> }
 clarinetII = \transpose do re { << \notes \notesII \marks \dynamics >> }
 clarinet = \transpose do re { << \partCombine << \notes \notesI >> << \notes \notesII >> \marks \dynamics >>}

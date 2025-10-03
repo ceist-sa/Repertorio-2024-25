@@ -149,9 +149,9 @@ staves = {
     \twoStaves
 }
 
-clarinet = << \notes \partCombine \notesI \notesII \marks \dynamics >>
-clarinetI = << \notes \notesI \marks \dynamics >>
-clarinetII = << \notes \notesII \marks \dynamics >>
+clarinet = \transpose do re { << \notes \partCombine \notesI \notesII \marks \dynamics >> }
+clarinetI = \transpose do re { << \notes \notesI \marks \dynamics >> }
+clarinetII = \transpose do re { << \notes \notesII \marks \dynamics >> }
 
 clarinet_staves = {
     <<
