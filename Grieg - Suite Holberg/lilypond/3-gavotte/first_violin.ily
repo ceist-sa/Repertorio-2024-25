@@ -260,7 +260,7 @@ first_violin_gavotte = \score {
         \consists Merge_rests_engraver
         \override VerticalAxisGroup.remove-layer = 2
       }
-      << \first_violin \staves >>
+      << \first_violin >>
     >>
   }
 }

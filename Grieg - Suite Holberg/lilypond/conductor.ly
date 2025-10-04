@@ -10,13 +10,6 @@
 \include "4-air/conductor.ily"
 \include "5-rigaudon/conductor.ily"
 
-\layout {
-    \context {
-        \Staff
-        \RemoveAllEmptyStaves
-    }
-}
-
 \book {
     \paper {
         #(set-paper-size "b4")
@@ -24,6 +17,7 @@
         short-indent = 0.2\cm
         ragged-last-bottom = ##f
         ragged-bottom = ##f
+        system-separator-markup = \markup{\scale #'(2 . 2) \slashSeparator}
     }
     \header {
         filename = "Grieg - Suite Holberg - CONDUCTOR"

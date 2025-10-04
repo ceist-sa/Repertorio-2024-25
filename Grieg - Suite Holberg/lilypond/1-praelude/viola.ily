@@ -219,7 +219,7 @@ viola_praelude = \score {
       \new Staff \with {
         \override VerticalAxisGroup.remove-layer = 2
       }
-      << \viola \staves >>
+      << \viola >>
     >>
   }
 }

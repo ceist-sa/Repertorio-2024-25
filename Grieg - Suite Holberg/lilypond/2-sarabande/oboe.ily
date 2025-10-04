@@ -98,7 +98,7 @@ oboe_staves = {
             \consists Merge_rests_engraver
             \override VerticalAxisGroup.remove-layer = 2
         }
-        << \oboe \staves >>
+        << \oboe >>
     >>
 }
 

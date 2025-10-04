@@ -13,6 +13,12 @@
 
 conductor_sarabande = \score {
     \header { piece = "II. Sarabande" }
+    \layout {
+        \context {
+            \Staff
+            \RemoveAllEmptyStaves
+        }
+    }
     <<
         \new StaffGroup {
             <<
@@ -34,11 +40,11 @@ conductor_sarabande = \score {
     >>
 }
 
-\score{
-    \conductor_sarabande
-    \layout { \context {
-        \Staff
-        \RemoveAllEmptyStaves
-    } }
-    \midi { \tempo 4 = 60}
-}
+% \score{
+%     \conductor_sarabande
+%     \layout { \context {
+%         \Staff
+%         \RemoveAllEmptyStaves
+%     } }
+%     \midi { \tempo 4 = 60}
+% }

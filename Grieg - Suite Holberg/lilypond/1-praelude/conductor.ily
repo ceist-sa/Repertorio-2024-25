@@ -13,6 +13,12 @@
 
 conductor_praelude = \score {
     \header { piece = "I. Praelude" }
+    \layout {
+        \context {
+            \Staff
+            \RemoveEmptyStaves
+        }
+    }
     <<
         \new StaffGroup {
             <<

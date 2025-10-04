@@ -13,6 +13,12 @@
 
 conductor_gavotte = \score {
     \header { piece = "III. Gavotte" }
+    \layout {
+        \context {
+            \Staff
+            \RemoveAllEmptyStaves
+        }
+    }
     <<
         \new StaffGroup {
             <<
@@ -34,8 +40,8 @@ conductor_gavotte = \score {
     >>
 }
 
-\score{
-    \conductor_gavotte
-    \layout {}
-    \midi {\tempo 2 = 90}
-}
+% \score{
+%     \conductor_gavotte
+%     \layout {}
+%     \midi {\tempo 2 = 90}
+% }

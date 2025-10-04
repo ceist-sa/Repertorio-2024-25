@@ -10,14 +10,6 @@
 \include "4-air/viola.ily"
 \include "5-rigaudon/viola.ily"
 
-viola_conductor = \relative do' {
-    \new Staff \with {
-        instrumentName = \viola_name_long
-        shortInstrumentName = \viola_name_short
-    }
-    << \viola \marks >>
-}
-
 \bookpart {
     \paper {
         indent = 0.2\cm

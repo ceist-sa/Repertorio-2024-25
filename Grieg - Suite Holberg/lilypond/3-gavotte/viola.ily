@@ -337,7 +337,7 @@ viola_gavotte = \score {
         \consists Merge_rests_engraver
         \override VerticalAxisGroup.remove-layer = 2
       }
-      << \viola \staves >>
+      << \viola >>
     >>
   }
 }

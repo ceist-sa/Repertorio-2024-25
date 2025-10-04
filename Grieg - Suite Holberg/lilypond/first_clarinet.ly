@@ -10,14 +10,6 @@
 \include "4-air/clarinet.ily"
 \include "5-rigaudon/clarinet.ily"
 
-clarinet_conductor = \relative do' {
-    \new Staff \with {
-        instrumentName = \clarinet_name_long
-        shortInstrumentName = \clarinet_name_short
-    }
-    \clarinet
-}
-
 \bookpart {
     \paper {
         indent = 0.2\cm

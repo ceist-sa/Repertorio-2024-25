@@ -10,14 +10,6 @@
 \include "4-air/double_bass_cello.ily"
 \include "5-rigaudon/double_bass_cello.ily"
 
-double_bass_cello_conductor = \relative do {
-    \new Staff \with {
-        instrumentName = \double_bass_cello_name_long
-        shortInstrumentName = \double_bass_cello_name_short
-    }
-    \double_bass_cello
-}
-
 \bookpart {
     \paper {
         indent = 0.2\cm

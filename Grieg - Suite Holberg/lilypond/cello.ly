@@ -11,15 +11,6 @@
 \include "4-air/cello.ily"
 \include "5-rigaudon/cello.ily"
 
-cello_conductor = \relative sol, {
-    \new GrandStaff \with {
-        \consists "Keep_alive_together_engraver"
-        instrumentName = \cello_name_long
-        shortInstrumentName = \cello_name_short
-    }
-    \cello_staves
-}
-
 \bookpart {
     \paper {
         indent = 0.2\cm

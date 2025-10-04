@@ -131,7 +131,7 @@ first_violin_sarabande = \score {
         \override VerticalAxisGroup.remove-layer = 2
         printPartCombineTexts = ##f
       }
-      << \first_violin \staves >>
+      << \first_violin >>
     >>
   }
 }

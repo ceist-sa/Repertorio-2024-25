@@ -235,7 +235,7 @@ viola_air = \score {
         \override VerticalAxisGroup.remove-layer = 2
         printPartCombineTexts = ##f
       }
-      << \viola \staves >>
+      << \viola >>
     >>
   }
 }

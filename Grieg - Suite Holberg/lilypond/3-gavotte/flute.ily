@@ -69,8 +69,7 @@ notesI = \relative la' {
     r2 do2 -> |
     \grace { si16 (re16 } si8) -> la8 sol4 -. do8 -> re8 mi4 |
     si2 -> mi2 -> |
-    \grace { re16 (mi16 } re8) -> si8 re4 \grace { do16 (re16 } do8) -> la8
-    do4 -. |
+    \grace { re16 (mi16 } re8) -> [si8] re4 \grace { do16 (re16 } do8) -> [la8] do4 -. |
     si4 -. la4 -. r2 |
     R1*3 |
     r2 sol4 -. ->  la4 -. -> |
@@ -236,7 +235,7 @@ flute_staves = {
             \consists Merge_rests_engraver
             \override VerticalAxisGroup.remove-layer = 2
         }
-        << \flute \staves >>
+        << \flute >>
     >>
 }
 

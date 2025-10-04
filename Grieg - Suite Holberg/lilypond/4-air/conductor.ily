@@ -13,6 +13,12 @@
 
 conductor_air = \score {
     \header { piece = "IV. Air" }
+    \layout {
+        \context {
+            \Staff
+            \RemoveAllEmptyStaves
+        }
+    }
     <<
         \new StaffGroup {
             <<
@@ -34,13 +40,13 @@ conductor_air = \score {
     >>
 }
 
-\score{
-    \conductor_air
-    \layout {
-        \context {
-            \Staff
-            \RemoveAllEmptyStaves
-        }
-    }
-    \midi {\tempo 2. = 15 }
-}
+% \score{
+%     \conductor_air
+%     \layout {
+%         \context {
+%             \Staff
+%             \RemoveAllEmptyStaves
+%         }
+%     }
+%     \midi {\tempo 2. = 15 }
+% }

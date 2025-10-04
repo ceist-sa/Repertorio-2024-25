@@ -10,14 +10,6 @@
 \include "4-air/flute.ily"
 \include "5-rigaudon/flute.ily"
 
-flute_conductor = \relative do'' {
-    \new Staff \with {
-        instrumentName = \flute_name_long
-        shortInstrumentName = \flute_name_short
-    }
-    \flute
-}
-
 \bookpart {
     \paper {
         indent = 0.2\cm

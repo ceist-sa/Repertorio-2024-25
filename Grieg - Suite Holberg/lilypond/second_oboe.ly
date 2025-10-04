@@ -10,14 +10,6 @@
 \include "4-air/oboe.ily"
 \include "5-rigaudon/oboe.ily"
 
-oboe_conductor = \relative do'' {
-    \new Staff \with {
-        instrumentName = \oboe_name_long
-        shortInstrumentName = \oboe_name_short
-    }
-    \oboe
-}
-
 \bookpart {
     \paper {
         indent = 0.2\cm

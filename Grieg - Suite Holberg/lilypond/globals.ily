@@ -26,7 +26,7 @@ pcantab = #(make-dynamic-script
                     #:normal-text (#:italic "cantab.")))
 
 crescmolto = #(make-dynamic-script
-            (markup #:italic "cresc. molto"))
+            (markup  #:normal-text (#:italic "cresc. molto")))
 
 cantab = _\markup{\italic "cantab."}
 

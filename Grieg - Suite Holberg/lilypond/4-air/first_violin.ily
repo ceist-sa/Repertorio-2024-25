@@ -216,7 +216,7 @@ first_violin_air = \score {
       \new Staff \with {
         \override VerticalAxisGroup.remove-layer = 2
       }
-      << \first_violin \staves >>
+      << \first_violin >>
     >>
   }
 }

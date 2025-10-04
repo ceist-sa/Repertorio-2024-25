@@ -189,7 +189,7 @@ notesI = \relative do'' {
 }
 
 notesII = \relative do'' {
-  sol4-> (sol8) r8 | %compiler throws a warining here, but it seems fine
+  sol4-> (sol8) r8 | %compiler throws a warning here, but it seems fine
   sol4-> (sol8) r8 sol4-> (do8) r8 |
   do2 si4 _(sol4 ~|
   4 fas) sol (re) |
@@ -339,7 +339,7 @@ second_violin_gavotte = \score {
         \consists Merge_rests_engraver
         \override VerticalAxisGroup.remove-layer = 2
       }
-      << \second_violin \staves >>
+      << \second_violin >>
     >>
   }
 }
