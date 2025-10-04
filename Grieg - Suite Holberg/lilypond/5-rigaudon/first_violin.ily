@@ -140,13 +140,13 @@ notesI = \relative do'{
   mi4 mi fas fas |
   sol sol si si |
   do do dos dos |
-  re r4 r4 do, |
+  re r4 r4 \partCombineChords do, |
 
   r2 r4 do |
   r2 r4 do |
   r4 do r4 do |
   r4 do r4 do |
-  r4 la do re |
+  r4\partCombineAutomatic la do re |
   fas la do r4 |
 
   %R1 * 14 |

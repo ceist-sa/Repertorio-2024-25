@@ -19,7 +19,7 @@ notes =  \relative la' {
     R1 * 11 |
     % U
     R1 * 7 |
-    si4->\ff (la8--) sol fas mi re do |
+    si4->\ff^\markup{\bold "a2"} (la8--) sol fas mi re do |
     si8 do re2-> mi4 |
     do4 re do2->\fermata\< |
     si'4-.\!\ffz sol-. sol-. |

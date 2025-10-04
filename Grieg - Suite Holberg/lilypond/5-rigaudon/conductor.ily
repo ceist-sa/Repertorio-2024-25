@@ -3,6 +3,7 @@
 \include "flute.ily"
 \include "oboe.ily"
 \include "clarinet.ily"
+\include "bassoon.ily"
 
 \include "first_violin.ily"
 \include "second_violin.ily"
@@ -18,6 +19,7 @@ conductor_rigaudon = \score {
                 \flute_conductor
                 \oboe_conductor
                 \clarinet_conductor
+                \bassoon_conductor
             >>
         }
 
@@ -40,13 +42,13 @@ conductor_rigaudon = \score {
     >>
 }
 
-% \score{
-%     \conductor_rigaudon
-%     \layout {
-%         % \context {
-%         %     \Staff
-%         %     \RemoveAllEmptyStaves
-%         % }
-%     }
-%     \midi {\tempo 2 = 120}
-% }
+\score{
+    \conductor_rigaudon
+    \layout {
+        \context {
+            \Staff
+            \RemoveAllEmptyStaves
+        }
+    }
+    \midi {\tempo 2 = 120}
+}

@@ -19,28 +19,30 @@ notes =  \relative la' {
     R1 * 11 |
     % U
     R1 * 7 |
-    si'4->\ff (la8--) sol fas mi re do |
+    si'4->\ff^\markup{\bold "a2"} (la8--) sol fas mi re do |
     si8 do re2-> mi4 |
     do4 re do2->\fermata\< |
     si4-.\!\ffz sol-. sol-. |
     % Poco meno mosso
-    re' |
+    re'\p |
     sol( fa8 mib) re4( do) |
     sib8-> do re2 re4 |
     re2 \grace { dos16\( re} dos2 \) |
     re2. re4 |
-    mib2( do) |
-    re( sib) |
+    mib2\mf ( do) |
+    re\>( sib) |
     la( sol) |
-    fas r4  fa'!4|
+    fas\pp r4  |
+    % repeat bar
+    fa'!4\p|
     sib( la8 sol) fa4( mib)|
     re8-> mib fa2 fa4 |
     fa2 \grace { mi16\( fa} mi2 \)|
-    fa2 sib,4( sib') |
+    fa2 sib,4\f( sib') |
     fa->( mib) mib->( re) |
     re8->( do) do2 mib8 sol |
     fa4 mib8 re  \grace { do16 \(( re } do4.\) sib8) |
-    sib2 r4 re4 |
+    sib2 r4 re4\p |
     sol4( fa8 mib8) re4( do) |
     sib8-> do re2 re4 |
     re2 \grace { dos16\( re} dos2 \)  |
@@ -49,9 +51,9 @@ notes =  \relative la' {
     re( sib) |
     la( sol) |
     fas sib->( |
-    la) re-> |
+    la) re->\cresc |
     mib-> mi -> |
-    fas -> re4( sol)|
+    fas -> re4\ff ( sol)|
     re->( do) do->(sib) |
     sib8->( la) la2 do8 mib |
     re4 do8 sib \grace {la16\( sib } la4.->  sol8 \) |

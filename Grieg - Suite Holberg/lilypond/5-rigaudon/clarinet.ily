@@ -113,7 +113,7 @@ notesII = \relative la {
     s1 * 8 |
     % V
     s1 * 14 |
-    s2 re4\p^\markup{\italic "più tranquillo"} (sib) |
+    s2 re4\p^\markup{\italic "più tranquillo"} (sib) | % compiler throws a warning here, but it seems fine
     sol4-> (sol') sol,4-> (sol') |
     sol,4-> (sol'2) do,4 |
     re4 do8 sib \grace{la16 _(sib} la4.-> sol8) |
@@ -149,7 +149,7 @@ staves = {
     \twoStaves
 }
 
-clarinet = \transpose do re { << \notes \partCombine \notesI \notesII \marks \dynamics >> }
+clarinet = \transpose do re { << \partCombine << \notes \notesI>> <<\notes \notesII >> \marks \dynamics >> }
 clarinetI = \transpose do re { << \notes \notesI \marks \dynamics >> }
 clarinetII = \transpose do re { << \notes \notesII \marks \dynamics >> }
 
@@ -170,9 +170,10 @@ clarinet_staves = {
         }
         << \clarinetII \staves >>
         \new Staff \with {
-            printPartCombineTexts = ##f
             \consists Merge_rests_engraver
             \override VerticalAxisGroup.remove-layer = 2
+            soloText = "Cl. I"
+            soloIIText = "Cl. II"
         }
         \clarinet
     >>
@@ -181,9 +182,10 @@ clarinet_staves = {
 clarinet_conductor = {
   \new GrandStaff \with {
     \consists Keep_alive_together_engraver
-    printPartCombineTexts = ##f
     instrumentName = \clarinet_name_long
     shortInstrumentName = \clarinet_name_short
+    soloText = "Cl. I"
+    soloIIText = "Cl. II"
   }
   \clarinet_staves
 }

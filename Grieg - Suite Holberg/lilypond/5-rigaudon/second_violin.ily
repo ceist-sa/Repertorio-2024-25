@@ -131,4 +131,4 @@ second_violin_rigaudon = \score {
   }
 }
 
-% \second_violin_rigaudon
+% \second_violin_conductor
