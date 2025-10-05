@@ -19,132 +19,132 @@ notes = \relative do' {
     R2. * 16 |
     % E
     \startMeasureCount
-    dos2.\mp ~ |
-    dos( |
-    re) |
-    re( |
-    dos) ~ |
-    dos( |
-    re) |
-    re( |
-    dos)\p ~ |
-    dos( |
-    re) |
-    re( |
-    dos) ~ |
-    dos |
-    re ~ |
+    si2.\mp ~ |
+    si( |
+    do) |
+    do( |
+    si) ~ |
+    si( |
+    do) |
+    do( |
+    si)\p ~ |
+    si( |
+    do) |
+    do( |
+    si) ~ |
+    si |
+    do ~ |
     2 ~ 8 r |
     \stopMeasureCount
     % F
-    la2._\markup{\dynamic p \italic "cresc. un poco al"} ~ |
-    la |
-    si( |
-    la2) si4\mf( |
-    la2.) |
-    si2.\mf ~ |
-    si_\markup{\italic "dim. molto"} ~ |
-    si ~ |
-    si ~ |
-    si2\pp ~ 8 r |
+    sol2._\markup{\dynamic p \italic "cresc. un poco al"} ~ |
+    sol |
+    la( |
+    sol2) la4\mf( |
+    sol2.) |
+    la2.\mf ~ |
+    la_\markup{\italic "dim. molto"} ~ |
+    la ~ |
+    la ~ |
+    la2\pp ~ 8 r |
     R2. * 8 |
     % G
     R2. * 8 |
     \startMeasureCount
-    dos2.\p ~ |
-    dos( |
-    re) |
-    re( |
-    dos) ~ |
-    dos |
-    re ~ |
-    re2 ~ 8 r |
+    si2.\p ~ |
+    si( |
+    do) |
+    do( |
+    si) ~ |
+    si |
+    do ~ |
+    do2 ~ 8 r |
     \stopMeasureCount
-    la2._\markup{\dynamic p \italic "cresc. un poco al"} ~ |
-    la |
-    si( |
-    la2) si4\mf->( |
-    la2.) |
-    si( |
-    la2)\> ~ 8 r\! |
+    sol2._\markup{\dynamic p \italic "cresc. un poco al"} ~ |
+    sol |
+    la( |
+    sol2) la4\mf->( |
+    sol2.) |
+    la( |
+    sol2)\> ~ 8 r\! |
     % H
     R2. * 4 |
-    sol2.\mf( |
-    la) |
-    si( |
-    la2)\> ~ 8 r\! |
+    fa2.\mf( |
+    sol) |
+    la( |
+    sol2)\> ~ 8 r\! |
     R2. * 5 |
     \startMeasureCount
-    dos,2.\p ~ |
-    dos ~ |
-    dos_\markup{\italic "poco a poco cresc. al"} ~ |
-    dos ~ |
-    dos ~ |
-    dos ~ |
-    dos ~ |
-    dos\f ~ |
-    dos ~ |
-    dos\dim ~ |
-    dos2\p ~ 8 r |
+    si,2.\p ~ |
+    si ~ |
+    si_\markup{\italic "poco a poco cresc. al"} ~ |
+    si ~ |
+    si ~ |
+    si ~ |
+    si ~ |
+    si\f ~ |
+    si ~ |
+    si\dim ~ |
+    si2\p ~ 8 r |
     \stopMeasureCount
     % I / J
     R2. |
     \startMeasureCount
-    mi2.\p ~ |
-    mi_\markup{\italic "poco cresc."} ~ |
-    mi ~ |
-    mi\f ~ |
-    mi ~ |
-    mi\dim ~ |
-    mi2\p ~ 8 r |
+    re2.\p ~ |
+    re_\markup{\italic "poco cresc."} ~ |
+    re ~ |
+    re\f ~ |
+    re ~ |
+    re\dim ~ |
+    re2\p ~ 8 r |
     \stopMeasureCount
     % K
     R2. |
-    r4 r sol\f-> |
-    r r fa-> |
-    r r mi-> ~ |
+    r4 r fa\f-> |
+    r r mib-> |
+    r r re-> ~ |
     \startMeasureCount
-    mi2.\< ~ |
-    mi ~ |
-    mi ~ |
-    mi2 ~ 8 r\! |
+    re2.\< ~ |
+    re ~ |
+    re ~ |
+    re2 ~ 8 r\! |
     \stopMeasureCount
     % L
     \startMeasureCount
-    la2.\mf ~ |
-    la ~ |
-    la ~ |
-    la ~ |
-    la ~ |
-    la\< ~ |
-    la ~ |
-    la ~ |
-    la\f ~ |
-    la ~ |
-    la ~ |
-    la ~ |
-    la ~ |
-    la\> ~ |
-    la ~ |
-    la2 ~ 8 r\! |
+    sol2.\mf ~ |
+    sol ~ |
+    sol ~ |
+    sol ~ |
+    sol ~ |
+    sol\< ~ |
+    sol ~ |
+    sol ~ |
+    sol\f ~ |
+    sol ~ |
+    sol ~ |
+    sol ~ |
+    sol ~ |
+    sol\> ~ |
+    sol ~ |
+    sol2 ~ 8 r\! |
     \stopMeasureCount
     % M
     \startMeasureCount
-    la2.\f ~ |
-    la ~ |
-    la ~ |
-    la ~ |
-    la ~ |
-    la ~ |
-    la ~ |
-    la2 ~ 8 r |
+    sol2.\f ~ |
+    sol ~ |
+    sol ~ |
+    sol ~ |
+    sol ~ |
+    sol ~ |
+    sol ~ |
+    sol2 ~ 8 r |
     \stopMeasureCount
     r4 r\fermata r |
-    mi2.\mp ~ |
-    mi ~ |
-    mi\dim ~ |
-    mi\pp ~ |
-    mi4. r8 r4 |
+    re2.\mp ~ |
+    re ~ |
+    re\dim ~ |
+    re\pp ~ |
+    re4. r8 r4 |
     R2. * 3 |
 }
 

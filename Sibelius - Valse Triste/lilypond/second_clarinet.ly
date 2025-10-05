@@ -18,128 +18,128 @@ notes = \relative do' {
     R2. * 16 |
     % E
     \startMeasureCount
-    mi2.\mp ~ |
-    mi ~ |
-    mi ~ |
-    mi |
-    mi ~ |
-    mi ~ |
-    mi ~ |
-    mi |
-    mi\p ~ |
-    mi ~ |
-    mi ~ |
-    mi |
-    mi ~ |
-    mi ~ |
-    mi ~ |
+    re2.\mp ~ |
+    re ~ |
+    re ~ |
+    re |
+    re ~ |
+    re ~ |
+    re ~ |
+    re |
+    re\p ~ |
+    re ~ |
+    re ~ |
+    re |
+    re ~ |
+    re ~ |
+    re ~ |
     2 ~ 8 r |
     \stopMeasureCount
     % F
-    dos2._\markup{\dynamic p \italic "cresc. un poco al"} ~ |
-    dos ~ |
-    dos ~ |
-    dos2 re4\mf( |
-    dos2.) ~ |
-    dos2\mf ~ 8 r |
+    si2._\markup{\dynamic p \italic "cresc. un poco al"} ~ |
+    si ~ |
+    si ~ |
+    si2 do4\mf( |
+    si2.) ~ |
+    si2\mf ~ 8 r |
     R2. * 12 |
     % G
     R2. * 8 |
     \startMeasureCount
-    mi2.\p ~ |
-    mi ~ |
-    mi ~ |
-    mi |
-    mi ~ |
-    mi ~ |
-    mi ~ |
-    mi2 ~ 8 r |
+    re2.\p ~ |
+    re ~ |
+    re ~ |
+    re |
+    re ~ |
+    re ~ |
+    re ~ |
+    re2 ~ 8 r |
     \stopMeasureCount
-    dos2._\markup{\dynamic p \italic "cresc. un poco al"} ~ |
-    dos ~ |
-    dos ~ |
-    dos2 re4\mf->( |
-    dos2.) ~ |
-    dos ~ |
-    dos2\> ~ 8 r\! |
+    si2._\markup{\dynamic p \italic "cresc. un poco al"} ~ |
+    si ~ |
+    si ~ |
+    si2 do4->\mf( |
+    si2.) ~ |
+    si ~ |
+    si2\> ~ 8 r\! |
     % H
     R2. * 4 |
-    re2.\mf( |
-    dos) |
-    dos ~ |
-    dos2\> ~ 8 r\! |
+    do2.\mf( |
+    si) |
+    si ~ |
+    si2\> ~ 8 r\! |
     R2. * 5 |
     \startMeasureCount
-    dos2.\p ~ |
-    dos ~ |
-    dos_\markup{\italic "poco a poco cresc. al"} ~ |
-    dos ~ |
-    dos ~ |
-    dos ~ |
-    dos ~ |
-    dos\f ~ |
-    dos ~ |
-    dos\dim ~ |
-    dos2\p ~ 8 r |
+    si2.\p ~ |
+    si ~ |
+    si_\markup{\italic "poco a poco cresc. al"} ~ |
+    si ~ |
+    si ~ |
+    si ~ |
+    si ~ |
+    si\f ~ |
+    si ~ |
+    si\dim ~ |
+    si2\p ~ 8 r |
     \stopMeasureCount
     % I / J
     R2. |
     \startMeasureCount
-    mi2.\p ~ |
-    mi_\markup{\italic "poco cresc."} ~ |
-    mi ~ |
-    mi\f ~ |
-    mi ~ |
-    mi\dim ~ |
-    mi2\p ~ 8 r |
+    re2.\p ~ |
+    re_\markup{\italic "poco cresc."} ~ |
+    re ~ |
+    re\f ~ |
+    re ~ |
+    re\dim ~ |
+    re2\p ~ 8 r |
     \stopMeasureCount
     % K
     R2. |
-    r4 r sol\f-> |
-    r r fa-> |
-    r r mi-> ~ |
+    r4 r fa\f-> |
+    r r mib-> |
+    r r re-> ~ |
     \startMeasureCount
-    mi2.\< ~ |
-    mi ~ |
-    mi ~ |
-    mi2 ~ 8 r\! |
+    re2.\< ~ |
+    re ~ |
+    re ~ |
+    re2 ~ 8 r\! |
     \stopMeasureCount
     % L
     \startMeasureCount
-    do2.\mf ~ |
-    do ~ |
-    do ~ |
-    do ~ |
-    do ~ |
-    do\< ~ |
-    do ~ |
-    do ~ |
-    do\f ~ |
-    do ~ |
-    do ~ |
-    do ~ |
-    do ~ |
-    do\> ~ |
-    do ~ |
-    do2 ~ 8 r\! |
+    sib2.\mf ~ |
+    sib ~ |
+    sib ~ |
+    sib ~ |
+    sib ~ |
+    sib\< ~ |
+    sib ~ |
+    sib ~ |
+    sib\f ~ |
+    sib ~ |
+    sib ~ |
+    sib ~ |
+    sib ~ |
+    sib\> ~ |
+    sib ~ |
+    sib2 ~ 8 r\! |
     \stopMeasureCount
     % M
     \startMeasureCount
-    do2.\f ~ |
-    do ~ |
-    do ~ |
-    do ~ |
-    do ~ |
-    do ~ |
-    do ~ |
-    do2 ~ 8 r |
+    sib2.\f ~ |
+    sib ~ |
+    sib ~ |
+    sib ~ |
+    sib ~ |
+    sib ~ |
+    sib ~ |
+    sib2 ~ 8 r |
     \stopMeasureCount
     r4 r\fermata r |
-    mi2.\mp ~ |
-    mi ~ |
-    mi\dim ~ |
-    mi\pp ~ |
-    mi4. r8 r4 |
+    re2.\mp ~ |
+    re ~ |
+    re\dim ~ |
+    re\pp ~ |
+    re4. r8 r4 |
     R2. * 3 |
 }
 
@@ -149,7 +149,7 @@ second_clarinet_conductor = \relative do' {
         instrumentName = "Clarinete em Si♭ II"
         shortInstrumentName = "Cl. II"
     }
-    \transpose do re << \notes \marks >>
+    \transpose sib do' << \notes \marks >>
 }
 
 \bookpart {
@@ -171,6 +171,6 @@ second_clarinet_conductor = \relative do' {
                 \consists Measure_counter_engraver
             }
         }
-        \new Staff \transpose do re <<\notes \marks>>
+        \new Staff \transpose sib do' <<\notes \marks>>
     }
 }
