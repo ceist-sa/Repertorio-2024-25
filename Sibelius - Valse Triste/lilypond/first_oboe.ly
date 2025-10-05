@@ -16,7 +16,7 @@ first_oboe = \relative do'' {
     R2. * 16 | %D
     R2. * 16 | %E
 
-    \acciaccatura re'8 si'2. (~ |
+    \acciaccatura re8 si'2. (~ |
     8 la) sol(\( fas) sol( mi)\) |
     sol4.(\( res8) mi( sol)\) |
     fas2(\> mi4)\! |
@@ -27,7 +27,7 @@ first_oboe = \relative do'' {
     R2. * 8 |
 
     % F
-    si4.\arco\p \cresc las8 si4 |
+    si4.\p \cresc las8 si4 |
     dos4. si8 dos4 |
     res4. dos8 res4 |
     mi2 (fas4) |
@@ -39,7 +39,7 @@ first_oboe = \relative do'' {
 
     % G
     R2. * 16 |
-    si4.\arco\p \cresc las8 si4 |
+    si4.,\p \cresc las8 si4 |
     dos4. si8 dos4 |
     res4. dos8 res4 |
     mi2 (fas4) |
