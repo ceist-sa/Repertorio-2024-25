@@ -54,9 +54,3 @@ marks = {
     \partial 2 s2 |}
     }
 }
-
-\header {
-    title = "Holberg Suite, Op. 40"
-    composer = "Edvard Grieg"
-    tagline = "CEIST"
-}
