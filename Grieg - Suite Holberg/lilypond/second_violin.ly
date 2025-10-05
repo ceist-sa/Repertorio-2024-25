@@ -16,7 +16,6 @@
         short-indent = 0.2\cm
         ragged-bottom = ##f
         ragged-last-bottom = ##f
-        page-count = 6
     }
     \header {
         instrument = \second_violin_name_long
@@ -24,7 +23,9 @@
     }
     \second_violin_praelude
     \second_violin_sarabande
+    \pageBreak
     \second_violin_gavotte
+    \pageBreak
     \second_violin_air
     \second_violin_rigaudon
 }
