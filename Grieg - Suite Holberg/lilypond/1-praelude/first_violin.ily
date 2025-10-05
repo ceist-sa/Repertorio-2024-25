@@ -49,7 +49,7 @@ notes = \relative do'{
   % C
   r4 sol''2 re8-- si-- |
   la8. (sol16) 4 4-. (4-.) |
-  mi2-> \afterGrace fas->( {mi16 fa)}|
+  mi2-> \afterGrace fas->( {mi16 fas)}|
   sol2-> ~ 8 r8 \rthm si, |
   \rthm do-> \rthm do \rthm fa-> \rthm fa |
   \rthm mi-> \rthm mi \rthm mi \rthm fas->|
