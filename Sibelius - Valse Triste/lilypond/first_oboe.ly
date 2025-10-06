@@ -34,12 +34,12 @@ first_oboe = \relative do'' {
     sol2.\f-- |
     fas\f-- |
     fa->_\markup{\italic "dim. molto"} ~ |
-    2. ~|
+    2. |
     R2. * 10 |
 
     % G
     R2. * 16 |
-    si4.,\p \cresc las8 si4 |
+    si,4.\p \cresc las8 si4 |
     dos4. si8 dos4 |
     res4. dos8 res4 |
     mi2 (fas4) |
@@ -48,7 +48,7 @@ first_oboe = \relative do'' {
     mi2\> ~ mi8 r8\> |
 
     % H
-    mi-!\f fas-! sol-! |
+    mi4-!\f fas-! sol-! |
     la-! sol-! fas-! |
     mi-! fas( r8 re) |
     sol2\> ~ sol8 r\! |
@@ -128,7 +128,7 @@ first_oboe = \relative do'' {
 
 first_oboe_conductor = \relative do'' {
     \new Staff \with {
-        instrumentName = "Oboe I"
+        instrumentName = "Oboé I"
         shortInstrumentName = "Ob. I"
     }
     << \first_oboe \marks >>
@@ -142,7 +142,7 @@ first_oboe_conductor = \relative do'' {
         ragged-bottom = ##f
     }
     \header {
-        instrument = "Oboe I"
+        instrument = "Oboé I"
         filename = "Sibelius - Valse Triste - OBOE I"
     }
     \score {
