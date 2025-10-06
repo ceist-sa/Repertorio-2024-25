@@ -18,7 +18,9 @@
         filename = "Grieg - Suite Holberg - CELLO"
     }
     \cello_praelude
+    \pageBreak
     \cello_sarabande
+    \pageBreak
     \cello_gavotte
     \cello_air
     \pageBreak

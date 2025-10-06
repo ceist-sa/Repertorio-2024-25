@@ -13,14 +13,16 @@
 \include "5-rigaudon/bassoon.ily"
 
 \bookpart {
-    
     \header {
         instrument = \bassoon_name_long
         filename = "Grieg - Suite Holberg - BASSOON"
     }
     \bassoon_praelude
+    \pageBreak
     \bassoon_sarabande
     \bassoon_gavotte
+    \pageBreak
     \bassoon_air
+    \pageBreak
     \bassoon_rigaudon
 }
