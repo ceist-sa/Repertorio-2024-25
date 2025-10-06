@@ -66,9 +66,9 @@ def get_previous_commit_message(commit_hash):
 def get_commits_for_file(file_path):
     """Get list of commits that affected the specified file."""
     try:
-        # Get commits with date formatting
+        # Get commits with date and time formatting
         result = subprocess.run(
-            ['git', 'log', '--pretty=format:%H|%ad|%s', '--date=short', '--', file_path],
+            ['git', 'log', '--pretty=format:%H|%ad|%s', '--date=iso-local', '--', file_path],
             capture_output=True,
             text=True,
             check=True
@@ -82,6 +82,20 @@ def get_commits_for_file(file_path):
                 if len(parts) == 3:
                     commit_hash, date, message = parts
                     
+                    # Format date to remove seconds and timezone (YYYY-MM-DD HH:MM)
+                    try:
+                        # Parse format: "2025-09-29 16:31:02 +0100"
+                        # Split by space and take first 2 parts (date and time), then remove seconds
+                        parts = date.split()
+                        if len(parts) >= 2:
+                            date_part = parts[0]  # YYYY-MM-DD
+                            time_part = parts[1].rsplit(':', 1)[0]  # HH:MM (remove seconds)
+                            formatted_date = f"{date_part} {time_part}"
+                        else:
+                            formatted_date = date
+                    except:
+                        formatted_date = date  # Fallback to original if parsing fails
+                    
                     # If this is an "Auto-compile" message, get the previous commit's message from repo history
                     if message == "Auto-compile LilyPond files":
                         previous_message = get_previous_commit_message(commit_hash)
@@ -91,7 +105,7 @@ def get_commits_for_file(file_path):
                     
                     commits.append({
                         'hash': commit_hash,
-                        'date': date,
+                        'date': formatted_date,
                         'message': display_message,
                         'original_message': message
                     })
@@ -154,7 +168,7 @@ def select_commit(commits):
     print("\nCommits that affected this file:")
     print("-" * 80)
     for i, commit in enumerate(commits, 1):
-        print(f"{i}. [{commit['date']}] {commit['message'][:60]} (#{commit['hash'][:8]})")
+        print(f"{i}. [{commit['date']}] {commit['message']} (#{commit['hash'][:8]})")
     print("-" * 80)
     
     while True:
