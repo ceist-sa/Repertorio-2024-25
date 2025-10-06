@@ -3,7 +3,7 @@
 \include "globals.ily"
 
 \include "flute.ly"
-\include "first_oboe.ly"
+\include "oboe.ly"
 \include "first_clarinet.ly"
 \include "second_clarinet.ly"
 
@@ -58,6 +58,7 @@
             \new StaffGroup <<
                 \flute_conductor
                 \first_oboe_conductor
+                \second_oboe_conductor
                 \first_clarinet_conductor
                 \second_clarinet_conductor
                 \bassoon_conductor

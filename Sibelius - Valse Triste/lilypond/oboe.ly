@@ -27,7 +27,7 @@ first_oboe = \relative do'' {
     R2. * 8 |
 
     % F
-    si4.\p \cresc las8 si4 |
+    si'4.\p \cresc las8 si4 |
     dos4. si8 dos4 |
     res4. dos8 res4 |
     mi2 (fas4) |
@@ -48,7 +48,7 @@ first_oboe = \relative do'' {
     mi2\> ~ mi8 r8\> |
 
     % H
-    mi4-!\f fas-! sol-! |
+    mi,4-!\f fas-! sol-! |
     la-! sol-! fas-! |
     mi-! fas( r8 re) |
     sol2\> ~ sol8 r\! |
@@ -123,7 +123,27 @@ first_oboe = \relative do'' {
     dos2. ~ |
     dos2 ~ dos8 r8 |
     r4 r\fermata r |
-    R2 * 9|
+    R2. * 8 |
+}
+
+\addQuote "Oboé I" { \first_oboe }
+
+second_oboe = \relative do'' {
+    \set Staff.midiInstrument = #"oboe"
+    \override NoteHead.color = #oboe-range
+    \clef treble
+
+    R2. * 8 | %A
+    R2. * 16 | %B
+    R2. * 16 |%C
+    R2. * 16 | %D
+    R2. * 16 | %E
+    R2. * 16 | %F
+
+    \transposition do''
+    \quoteDuring "Oboé I" { s2. * 41 } % F and G one octave lower
+    \transposition do'
+    \quoteDuring "Oboé I" { s2. * 73 } % H to M at unison
 }
 
 first_oboe_conductor = \relative do'' {
@@ -134,18 +154,37 @@ first_oboe_conductor = \relative do'' {
     << \first_oboe \marks >>
 }
 
+second_oboe_conductor = \relative do'' {
+    \new Staff \with {
+        instrumentName = "Oboé II"
+        shortInstrumentName = "Ob. II"
+    }
+    << \second_oboe \marks >>
+}
+
 \bookpart {
     \paper {
         indent = 0.2\cm
         short-indent = 0.2\cm
-        ragged-last-bottom = ##f
-        ragged-bottom = ##f
     }
     \header {
         instrument = "Oboé I"
-        filename = "Sibelius - Valse Triste - OBOE I"
+        filename = "Sibelius - Valse Triste - OBOE I e II"
     }
     \score {
         \new Staff <<\first_oboe \marks>>
+    }
+}
+
+\bookpart {
+    \paper {
+        indent = 0.2\cm
+        short-indent = 0.2\cm
+    }
+    \header {
+        instrument = "Oboé II"
+    }
+    \score {
+        \new Staff <<\second_oboe \marks>>
     }
 }
