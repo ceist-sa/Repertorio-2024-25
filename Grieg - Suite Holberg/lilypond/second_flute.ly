@@ -3,6 +3,7 @@
 \include "../../styles.ily"
 \include "../../ranges.ily"
 \include "globals.ily"
+\include "globals_parts.ily"
 
 \include "1-praelude/flute.ily"
 \include "2-sarabande/flute.ily"
@@ -11,12 +12,7 @@
 \include "5-rigaudon/flute.ily"
 
 \bookpart {
-    \paper {
-        indent = 0.2\cm
-        short-indent = 0.2\cm
-        ragged-bottom = ##f
-        ragged-last-bottom = ##f
-    }
+    
     \header {
         instrument = "Flauta II"
         filename = "Grieg - Suite Holberg - FLUTE II"

@@ -3,6 +3,7 @@
 \include "../../styles.ily"
 \include "../../ranges.ily"
 \include "globals.ily"
+\include "globals_parts.ily"
 
 \include "1-praelude/second_violin.ily"
 \include "2-sarabande/second_violin.ily"
@@ -11,12 +12,7 @@
 \include "5-rigaudon/second_violin.ily"
 
 \bookpart {
-    \paper {
-        indent = 0.2\cm
-        short-indent = 0.2\cm
-        ragged-bottom = ##f
-        ragged-last-bottom = ##f
-    }
+    
     \header {
         instrument = \second_violin_name_long
         filename = "Grieg - Suite Holberg - VIOLIN II"

@@ -11,6 +11,13 @@
 \include "cello.ily"
 \include "double_bass_cello.ily"
 
+breaks = {
+    s2. * 8 |
+    \break % repeat bar
+    s2. * 8 
+    \break % F
+    % ...
+}
 conductor_sarabande = \score {
     \header { piece = "II. Sarabande" }
     \layout {
@@ -20,6 +27,7 @@ conductor_sarabande = \score {
         }
     }
     <<
+        \breaks
         \new StaffGroup {
             <<
                 \flute_conductor

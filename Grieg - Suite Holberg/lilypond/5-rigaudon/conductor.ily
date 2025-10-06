@@ -11,7 +11,25 @@
 \include "cello.ily"
 \include "double_bass_cello.ily"
 
-
+breaks = {
+    s4 |
+    s1 * 7 |
+    s2. |
+    \break % S
+    s4 |
+    s1 * 10 |
+    % T 
+    s1 * 11 |
+    % U 
+    s1 * 10 
+    s2. |
+    % Poco meno mosso
+    s4 |
+    s1 * 7 |
+    s2. |
+    \break % repeat bar
+    % ...
+}
 
 conductor_rigaudon = \score {
     \header { piece = "V. Rigaudon" }
@@ -22,6 +40,7 @@ conductor_rigaudon = \score {
         }
     }
     <<
+        \breaks
         \new StaffGroup {
             <<
                 \flute_conductor

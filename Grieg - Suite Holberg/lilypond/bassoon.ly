@@ -3,6 +3,7 @@
 \include "../../styles.ily"
 \include "../../ranges.ily"
 \include "globals.ily"
+\include "globals_parts.ily"
 \include "instrument_names.ily"
 
 \include "1-praelude/bassoon.ily"
@@ -12,12 +13,7 @@
 \include "5-rigaudon/bassoon.ily"
 
 \bookpart {
-    \paper {
-        indent = 0.2\cm
-        short-indent = 0.2\cm
-        ragged-bottom = ##f
-        ragged-last-bottom = ##f
-    }
+    
     \header {
         instrument = \bassoon_name_long
         filename = "Grieg - Suite Holberg - BASSOON"

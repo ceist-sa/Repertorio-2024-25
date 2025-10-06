@@ -3,6 +3,7 @@
 \include "../../styles.ily"
 \include "../../ranges.ily"
 \include "globals.ily"
+\include "globals_parts.ily"
 
 \include "1-praelude/double_bass.ily"
 \include "2-sarabande/double_bass.ily"
@@ -11,10 +12,6 @@
 \include "5-rigaudon/double_bass.ily"
 
 \bookpart {
-    \paper {
-        indent = 0.2\cm
-        short-indent = 0.2\cm
-    }
     \header {
         instrument = "Double Bass"
         filename = "Grieg - Suite Holberg - DOUBLE BASS"

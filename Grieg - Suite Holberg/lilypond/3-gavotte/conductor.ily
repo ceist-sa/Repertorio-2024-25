@@ -11,6 +11,38 @@
 \include "cello.ily"
 \include "double_bass_cello.ily"
 
+breaks = {
+    s2 |
+    s1 * 3 | 
+    \break
+    s1 * 5 |
+    s2 |
+    \break % H
+    s2 |
+    s1 * 5 |
+    \break
+    s1 * 4 |
+    \break
+    s1 * 5 |
+    s2 |
+    \break % I
+    s2 |
+    s1 * 3 |
+    \break
+    s1 * 5 |
+    \break
+    s1 * 3 |
+    \break % K
+    s1 * 5 |
+    s2 |
+    \break % MUSETTE
+    s2 |
+    s1 * 7 |
+    s2 |
+    \break % L 
+    % ...
+}
+
 conductor_gavotte = \score {
     \header { piece = "III. Gavotte" }
     \layout {
@@ -22,6 +54,7 @@ conductor_gavotte = \score {
     <<
         \new StaffGroup {
             <<
+                \breaks
                 \flute_conductor
                 \oboe_conductor
                 \clarinet_conductor

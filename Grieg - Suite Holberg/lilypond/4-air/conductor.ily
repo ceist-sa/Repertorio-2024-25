@@ -11,6 +11,18 @@
 \include "cello.ily"
 \include "double_bass_cello.ily"
 
+breaks = {
+    s2. * 8 |
+    \break % N
+    s2. * 11 |
+    \break % O, repeat bar
+    s2. * 13 |
+    % P
+    s2. * 11 |
+    \break % Q
+    % ...
+}
+
 conductor_air = \score {
     \header { piece = "IV. Air" }
     \layout {
@@ -20,6 +32,7 @@ conductor_air = \score {
         }
     }
     <<
+        \breaks
         \new StaffGroup {
             <<
                 \flute_conductor

@@ -3,6 +3,7 @@
 \include "../../styles.ily"
 \include "../../ranges.ily"
 \include "globals.ily"
+\include "globals_parts.ily"
 
 \include "1-praelude/oboe.ily"
 \include "2-sarabande/oboe.ily"
@@ -11,12 +12,7 @@
 \include "5-rigaudon/oboe.ily"
 
 \bookpart {
-    \paper {
-        indent = 0.2\cm
-        short-indent = 0.2\cm
-        ragged-bottom = ##f
-        ragged-last-bottom = ##f
-    }
+    
     \header {
         instrument = "Oboé I"
         filename = "Grieg - Suite Holberg - OBOE I"

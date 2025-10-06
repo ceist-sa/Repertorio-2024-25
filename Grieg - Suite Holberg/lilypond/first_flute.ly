@@ -3,6 +3,7 @@
 \include "../../styles.ily"
 \include "../../ranges.ily"
 \include "globals.ily"
+\include "globals_parts.ily"
 
 \include "1-praelude/flute.ily"
 \include "2-sarabande/flute.ily"
@@ -12,11 +13,7 @@
 
 \bookpart {
     \paper {
-        indent = 0.2\cm
-        short-indent = 0.2\cm
         page-count = 4
-        ragged-bottom = ##f
-        ragged-last-bottom = ##f
     }
     \header {
         instrument = "Flauta I"

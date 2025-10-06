@@ -1,10 +1,10 @@
-flute_name_long = "Flauta"
+flute_name_long = "2 Flautas"
 flute_name_short = "Flt."
 
-oboe_name_long = "Oboé"
+oboe_name_long = "2 Oboés"
 oboe_name_short = "Ob."
 
-clarinet_name_long = "Clarinete B♭"
+clarinet_name_long = "2 Clarinetes em Si♭"
 clarinet_name_short = "Cl."
 
 bassoon_name_long = "Fagote"
