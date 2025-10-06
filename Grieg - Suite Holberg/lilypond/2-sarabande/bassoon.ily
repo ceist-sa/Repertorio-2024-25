@@ -34,7 +34,7 @@ dynamics = {
     % repeat bar
     s2. \p |
     s2. |
-    s4 \< s2\f \> |
+    s4 \< \once\override Hairpin.minimum-length = #8 s2\f \> |
     s4 \p s2 |
     s2. * 4 |
     %F

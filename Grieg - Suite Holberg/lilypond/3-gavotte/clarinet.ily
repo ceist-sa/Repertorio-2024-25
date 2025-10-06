@@ -172,9 +172,7 @@ notesII = \relative la {
 
 dynamics = {
   s2 |
-  s1 |
-  s1 |
-  s1 |
+  s1 * 3 |
   s2 s2\f |
   s1 |
   s1 \fz |
@@ -183,14 +181,7 @@ dynamics = {
   % H
   s2 |
   s1\p |
-  s1 |
-  s1 |
-  s1 |
-  s1 |
-  s1 |
-  s1 |
-  s1 |
-  s1 |
+  s1 * 8 |
   s2 s2\f |
   s1 |
   s1 \fz |
@@ -198,17 +189,11 @@ dynamics = {
   s2 |
   % I
   s2 |
-  s1 |
-  s1 |
-  s1 |
+  s1 * 3 |
   s2 s2 \f |
   s1 |
   s2 s2\f |
-  s1 |
-  s2 s2 |
-  s1 |
-  s1 |
-  s1 |
+  s1 * 5 |
   % K
   s2 s2 \f |
   s1\< |
@@ -217,16 +202,11 @@ dynamics = {
   s2 |
   % MUSETTE
   s2\pp |
-  s1 * 3 |
-  s2 s2 |
-  s1 * 3 |
+  s1 * 7 |
   s2 |
   % L
   s2 _\markup{\dynamic p \italic cantab.} |
-  s1 * 2 |
-  s1 |
-  s1 |
-  s1 |
+  s1 * 5 |
   s2 s2\f |
   s1 * 3 |
   s2. s4\< |

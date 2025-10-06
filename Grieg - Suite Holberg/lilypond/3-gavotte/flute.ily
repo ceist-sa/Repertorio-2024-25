@@ -140,9 +140,7 @@ notesII = \relative la' {
 
 dynamics = {
   s2 |
-  s1 |
-  s1 |
-  s1 |
+  s1 * 3 |
   s2 s2\f |
   s1 |
   s1 \fz |
@@ -150,15 +148,7 @@ dynamics = {
   s2 |
   % H
   s2 |
-  s1 |
-  s1 |
-  s1 |
-  s1 |
-  s1 |
-  s1 |
-  s1 |
-  s1 |
-  s1 |
+  s1 * 9 |
   s2 s2\f |
   s1 |
   s1 \fz |
@@ -166,17 +156,13 @@ dynamics = {
   s2 |
   % I
   s2 |
-  s1 |
-  s1 |
-  s1 |
+  s1 * 3 |
   s2 s2 \f |
   s1 |
   s2 s2\f |
   s1 |
   s2 s2 |
-  s1 |
-  s1 |
-  s1 |
+  s1 * 3 |
   % K
   s2 s2 \f |
   s1\< |
@@ -191,10 +177,7 @@ dynamics = {
   s2 |
   % L
   s2|
-  s1 * 2 |
-  s1 |
-  s1 |
-  s1 |
+  s1 * 5 |
   s2 s2\f |
   s1 * 3 |
   s2. s4\< |
@@ -268,7 +251,5 @@ fluteII_gavotte = \score {
 % \score {
 %   <<
 %   \new Staff {\fluteI}
-%   \new Staff {\fluteII}
-%   \flute_conductor
 %   >>
 % }

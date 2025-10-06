@@ -58,3 +58,10 @@ twoStaves = {
     tagline = ##f
     opus = "Op. 40"
 }
+
+\layout {
+  \context {
+    \Staff
+    \override MultiMeasureRest.expand-limit = #1
+  }
+}

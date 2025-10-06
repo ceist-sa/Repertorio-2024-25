@@ -68,8 +68,7 @@ notes = \relative sol,{
 }
 
 dynamics = {
-    s1 |
-    s1 * 3 |
+    s1 * 4 |
     s1 \cresc |
     s1 * 2 |
     %A
@@ -88,9 +87,7 @@ dynamics = {
     s1 \f |
     s1 * 2 |
     %B
-    s1 * 5 |
-    s8 s8 \pp s4 s2 |
-    s1 * 4 |
+    s1 * 10 |
     s4 s4 \f \< s2 |
     s1 \fz |
     %C

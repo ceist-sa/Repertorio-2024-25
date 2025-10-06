@@ -19,7 +19,7 @@ notes =  \relative la' {
 
 notesI = \relative la' {
     s2. * 22 |
-    r4 r4 r8 fas8 | % 24
+    r2 r8 fas8 | % 24
     fas8 sol8 sol8 la8 la8 si8 | % 25
     si4 do2 | % 26
     re8 do16 si16 do8 ( re8 ) re4 | % 27
@@ -34,7 +34,7 @@ notesI = \relative la' {
 
 notesII = \relative la {
     s2. * 22 |
-    r4 r4 r8 re8 | % 24
+    r2 r8 re8 | % 24
     re8 mi8 mi8 fas8 fas8 sol8 | % 25
     sol8 (la8 ) la4. ( si8 ) | % 26
     si8 do16 re16 do8 ( si8 ) si4 | % 27 %compiler throws a warning here, but it seems fine

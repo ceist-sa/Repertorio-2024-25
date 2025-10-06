@@ -25,7 +25,7 @@ notesI =  \relative la' {
     re8 re8 dos8 la8 mi'8 mi8 |
     fa8 \partCombineApart re,8 re8 re8 re4 |
     R2.*9 |
-    \partCombineAutomatic fa8 sib8 sib8 sib8 la8 la8 |
+    \partCombineAutomatic fa8\mp sib8 sib8 sib8 la8 la8 |
     sib8 sib8 sib8 re8 do8 la8 |
     sib8 do8 re8 -> do8 sib8 sol'16 ( fa16 ) |
     fa8 -> mi8 -> fa8 fa8 fa8 fa8 |
@@ -76,19 +76,19 @@ notesII =  \relative la' {
     sol8  sol8  sol8  sol8  sol8  sol8  |
     r8 dos8  dos8  dos8  dos8  dos8  |
     re8  -- re8  -- re8  -- re8  -- re8 dos16. ( re32 ) |
-    re2 ~ -> re8. do ?16 |
+    re2 ~ -> re8. do!16 |
     do16 ( si16 ) si16 sib16 sib16 ( la16 ) la8 \tuplet 3/2 {re32 ( dos32 si32 } dos8 dos16 ) |
     re2. |
     sib8\pp  sib8  sib8  sib8  sib8  sib8  |
     sib8  sib8  sib8  sib8  sib8  sib8  |
     la8  la8  la8  la8  la8  la8  |
     sib8  sib8  sib8  sib8  sib8  sib8  |
-    la8  la8  la8  la8  sol8  sol8  |
-    sol8  sol8  fa8  fa8  r4 |
-    r4 r4 sib8 sib8 |
-    sib8 sol8 fa8 sol8 r4 |
-    r4 sib8 fa8 sol8 sib8 |
-    fa8 mi8 fa8 fa8 fa8 fa8 |
+    la8\cresc  la8  la8  la8  sol8  sol8  |
+    sol8  sol8  fa8  fa8\!  r4 |
+    r4 r4 sib8\p sib8 |
+    sib8\< sol8 fa8 sol8\! r4 |
+    r4 sib8\p\cresc fa8 sol8 sib8 |
+    fa8 mi8\! fa8 fa8 fa8 fa8 |
     sol8 sol8 sol8 sib8 la8 fa8 |
     sol8 la8 sib8 la8 sol8 la8 |
     sib8 -> sib8 -> sib8 sib8 la8 la8 |
@@ -101,9 +101,8 @@ notesII =  \relative la' {
     re8  re8  re8\cresc  -> re8  re8  re8  |
     re8  -> re8  re8  re8  re8  -> re8  |
     re8  re8  re8\dim  re8  re8  re8\!  |
-    R2. |
-    R2. |
-    sib8-.\pp sib8-. sib8-. sib8-. sib8-. sib8-. |
+    R2. * 2 |
+    sib8-. sib8-.\pp sib8-. sib8-. sib8-. sib8-. | %FIXME HACK, \pp should be on the first note
     r8 mib8  mib8  mib8  mib8  mib8  |
     r8 mib8  mib8  mib8  mib8  mib8  |
     r8 sib8 sib8 sib8 sib8 sib8 |
@@ -124,45 +123,30 @@ notesII =  \relative la' {
 
 dynamics = {
   s2.\p |
-  s2. * 2 |
-  s4 s2 |
-  s2. |
-  s4 s2 |
-  s2. |
-  s2.
+  s2. * 7 |
   % N
   s2. * 2 |
   s8 s8\cresc s2 |
   s2 s4\< |
+  \once\override Hairpin.minimum-length = #8
   s8\f\> s8 s8 s8\! s4 |
   s2 s32 s32 \< s8 s16 \!
+  \once\override Hairpin.minimum-length = #8
   s4\ffp\> s4 s4\pp |
   % O
   s2. |
-  s2. * 3 |
-  s2. \cresc |
-  s4 s4 s4\! |
-  s2 s4\p |
-  s4\< s8 s8\! s4 |
-  s4 s4\p \cresc s4 |
-  s4 s2\< |
+  s2. * 8 |
+  s4 s4\< s4 |
   s2.\ff |
   s8\< s8\! s2 |
   s4 s2\< |
   s8\! s8\ffz s8 s4.\> |
   s8\! s8 \dim s4 s8 s8\! |
-  s2. |
-  s8 s8 s2 |
-  s2. |
-  s2. |
+  s2. * 4 |
   s4\! s2 |
-  s2. |
-  s4 s4 s4 |
-  s2. |
-  s4 s2
+  s2. * 4 |
   % Q
-  s8 s8  s2 |
-  s2. * 2 |
+  s2. * 3 |
   s4 s8 s8\< s4 |
   s8\! s8\mf s4 s4 \dim |
   s2 s4\> |
@@ -261,8 +245,8 @@ oboeII_air = \score {
 
 % \score {
 %   <<
-%   \new Staff {\oboeI}
+%   % \new Staff {\oboeI}
 %   \new Staff {\oboeII}
-%   \oboe_conductor
+%   % \oboe_conductor
 %   >>
 % }

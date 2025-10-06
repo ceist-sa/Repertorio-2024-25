@@ -17,18 +17,9 @@ notes =  \relative la' {
     r4 s2. |
     s1 |
     % repeat bar
-    s2. r4 |
-    R1 |
-    s1 * 2 |
-    s2. r4 |
-    R1 |
-    s1 * 5 |
+    s1 * 11 |
     % B
-    s1 * 8 |
-    s1 |
-    s1 |
-    s1 |
-    s1 |
+    s1 * 12 |
     % C
     s1 * 3|
     s2 s4 s4 |
@@ -66,12 +57,12 @@ notesI = \relative la' {
     s4 re,-.\f fas-. la-. |
     fas-.\< la-. re-. fas-.\fz |
     % repeat bar
-    la,2-> ~4 s4 |
-    s1 |
+    la,2-> ~4 r4 |
+    R1 |
     re,2.\fp (mi4) |
     fas4 (sol la si) |
-    la2->\f ~ 4 s4 |
-    s1 |
+    la2->\f ~ 4 r4 |
+    R1 |
     si,2.\fp (dos4) |
     res ( mi fas sol )
     r4 fa -> -\f fa -> r4 |
@@ -83,9 +74,7 @@ notesI = \relative la' {
     re (si) |
     do (las) |
     si r2  |
-    R1 * 3 |
-    R1 |
-    R1 |
+    R1 * 5 |
     sol4\f -> do\< -> sol' -> do -> |
     re4->\fz ~ 8  r8 r2 |
     % C
@@ -127,17 +116,15 @@ notesII = \relative la' {
     s4 re,\f-. re-. fas-. |
     re4-.\< fas-. la-. re4-.\fz |   
     % repeat bar
-    do,2-> ~4 s4 |
-    s1 |
-    R1 * 2 |
-    fas2->\f ~ 4 s4 |
-    s1 |
-    R1 * 2 |
+    do,2-> ~4 r4 |
+    R1 * 3 |
+    fas2->\f ~ 4 r4 |
+    R1 * 3 |
     r4 do -> -\f re -> r4 |
     r4 si4 -> do4 -> r4 |
     do4-> ~ 8 r8 r4 r8 la'8-> |
     % B
-    si8-> r8 r4 r4 r4 |
+    si8-> r8 r4 r2 |
     R1 * 3 |
     r2 r4 res4 \piup |
     mi2 (do) |
@@ -222,3 +209,11 @@ oboeII_praelude = \score {
         \oboeII
     }
 }
+
+% \score {
+%     <<
+%     \new Staff {\oboeI}
+%     \new Staff {\oboeII}
+%     \oboe_conductor
+%     >>
+% }

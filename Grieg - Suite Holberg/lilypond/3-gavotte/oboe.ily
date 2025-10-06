@@ -109,17 +109,13 @@ notesII = \relative la {
     \grace { fas16 (sol16 } fas4. sol8-.) sol2 ~ -> |
     sol4 r4 |
     r2 |
-    R1 |
-    R1 |
-    R1 |
+    R1 * 3 |
     r2 mi2 ->  |
     re8 -> do8 si4 -. mi8 -> fas8 sol4 -. |
     re2 -> sol2 -> |
     fas8 -> re8 fas4 -. mi8 -> do8 mi4 -. |
     sol4 -. fas4 -. r2 |
-    R1 |
-    R1 |
-    R1 |
+    R1 * 3 |
     r2 sol4 -. ->  la4 -. -> |
     la4 -. ->  do4 -. -> do4 -. -> mi4 -. -> |
     mi2 ->   re8 do8 si4 |
@@ -162,9 +158,7 @@ notesII = \relative la {
 
 dynamics = {
   s2 |
-  s1 |
-  s1 |
-  s1 |
+  s1 * 3 |
   s2 s2\f |
   s1 |
   s1 \fz |
@@ -173,14 +167,7 @@ dynamics = {
   % H
   s2 |
   s1\p |
-  s1 |
-  s1 |
-  s1 |
-  s1 |
-  s1 |
-  s1 |
-  s1 |
-  s1 |
+  s1 * 8 |
   s2 s2\f |
   s1 |
   s1 \fz |
@@ -188,17 +175,11 @@ dynamics = {
   s2 |
   % I
   s2 |
-  s1 |
-  s1 |
-  s1 |
+  s1 * 3 |
   s2 s2 \f |
   s1 |
   s2 s2\f |
-  s1 |
-  s2 s2 |
-  s1 |
-  s1 |
-  s1 |
+  s1 * 5 |
   % K
   s2 s2 \f |
   s1\< |
@@ -207,9 +188,7 @@ dynamics = {
   s2 |
   % MUSETTE
   s2\pp |
-  s1 * 3 |
-  s2 s2 |
-  s1 * 3 |
+  s1 * 7 |
   s2 |
   % L
   s2|

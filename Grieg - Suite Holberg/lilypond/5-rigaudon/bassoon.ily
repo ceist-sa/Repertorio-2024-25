@@ -56,6 +56,17 @@ notes = \relative sol {
 
 bassoon = << \notes \marks >>
 
+breaks = {
+  s4
+  s1 * 7 |
+  s2. |
+  s4 |
+  s1 * 31 |
+  s2. |
+  \break
+  % ...
+}
+
 bassoon_conductor = {
   \new Staff \with {
     instrumentName = \bassoon_name_long
@@ -68,7 +79,7 @@ bassoon_rigaudon = \score {
   \header { piece = "V. Rigaudon" }
   \compressMMRests{
     \new Staff
-    \bassoon
+    << \bassoon \breaks >>
   }
 }
 

@@ -82,4 +82,4 @@ bassoon_gavotte = \score {
   }
 }
 
-% \bassoon_gavotte
+\bassoon_gavotte

@@ -33,7 +33,7 @@ notesI =  \relative la' {
     ( do16 ) |
     r16 si16 si16 (do16) do16 (si16) si16 (do16) do16 (si16) si16 (do16) |
     r16 la16 la16 (sib16) sib16 (la16) la16 (sib16) sib16 (la16) la16 (sib16) |
-    r16 mi16\mf mi16 (fa16) fa16 (mi16) mi16 (fa16) fa16\dim (mi16) mi16 (fa16) |
+    r16 mi16\mf mi16 (fa16) fa16 (mi16) mi16 (fa16) fa16 (mi16) mi16 (fa16) |
     r16 la,16 la16 (sib16) sib16 (la16) la16 (sib16) sib16\> (fas16) fas16 (sol16)\! |
     r16 dos16\pp dos16 (re16) re16 (dos16) dos16 (re16) re16 (dos16) dos16 (re16) |
     \partCombineAutomatic r16 fas,16 fas16 (sol16) sol16 (fas16) fas16 (sol16) sol16 (re16) re16 (mib16) |
@@ -72,7 +72,7 @@ notesII =  \relative la' {
     r8 la8  la8  la8  la8  la8  |
     r8 la8  la8  la8  la8  la8  |
     r8 sol8  sol8  sol8  sol8  sol8  |
-    r8 sib8\mf  sib8  sib8  sib8\dim  sib8  |
+    r8 sib8\mf  sib8  sib8  sib8  sib8  |
     r8 sol8  sol8  sol8\!  r4 |
     r8 sol8\pp  sol8  sol8  fa8  fa8  |
     R2. |
@@ -88,13 +88,7 @@ notesII =  \relative la' {
 }
 
 dynamics = {
-  s2. |
-  s2. * 2 |
-  s4 s2 |
-  s2. |
-  s4 s2 |
-  s2. |
-  s2.
+  s2. * 8 |
   % N
   s8 s8\p s2 |
   s2. |
@@ -103,38 +97,21 @@ dynamics = {
   s8\f\> s8 s8 s8\! s4 |
   s2 s32 s32 \< s8 s16 \!
   \once\override Hairpin.minimum-length = #8
-    s2 \ffp \> s4 \pp |
+  s2 \ffp \> s4 \pp |
   % O
-  s2. |
-  s2. * 3 |
-  s2. |
-  s4 s4 s4 |
-  s2 s4 |
-  s4 s8 s8 s4 |
-  s4 s4 s4 |
+  s2. * 9 |
   s16 s16\mp s8 s2\< |
   s4\ff s4 s4\< |
   s8 s8\! s2 |
   s4 s2\< |
   s8\!\ffz s8\> s8\! s4. |
-  s8 s8 s4 s8 s8 |
-  s2. |
-  s8 s8 s2 |
-  s2. |
-  s2. |
-  s4\! s2 |
-  s2. |
-  s4 s4 s4 |
-  s2. |
-  s4 s2
+  s2. * 10 |
   % Q
-  s8 s8  s2 |
-  s2. * 2 |
+  s2. * 3 |
   s4 s8 s8\< s4 |
-  s8\! s8 s4 s4 |
-  s2 s4 |
-  s8 s8 s2 |
-  s2. |
+  s8\! s8 s4 s4\dim |
+  s4 s16 s16 s16 s16\! s4 |
+  s2. * 2 |
   % R
   s8\p s8 s2 |
   s2. |
@@ -144,6 +121,7 @@ dynamics = {
   s2 s4\< |
   s2.\ff |
   s2 s4\< |
+  \once\override Hairpin.minimum-length = #8
   s4\ffp\>  s4 s4 \pp |
 }
 

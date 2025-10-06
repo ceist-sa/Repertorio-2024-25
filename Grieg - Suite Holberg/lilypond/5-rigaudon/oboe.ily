@@ -77,7 +77,9 @@ oboe_conductor = {
 oboe_rigaudon = \score {
   \header { piece = "V. Rigaudon" }
   \compressMMRests{
-    \new Staff
+    \new Staff \with {
+      printPartCombineTexts = ##f
+    }
     \oboe
   }
 }
