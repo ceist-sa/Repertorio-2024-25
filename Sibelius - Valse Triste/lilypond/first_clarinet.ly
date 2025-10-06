@@ -20,8 +20,8 @@ clarinet_in_Bb = \relative do'' {
     % E
     R2. * 4 |
     si2.\mf^\markup{\italic espress.} ~ |
-    si4\< la8( si) la( si) |
-    re4.\>( res,8) mi( sol) |
+    si4\< la8( si) la( sol) |
+    do4.\>( res,8) mi( sol) |
     fas4\!( \grace { mi16\( fas\) } mi4 re) |
     R2. * 4 |
     si'2._\markup{\dynamic mp \italic dolce} ~ |
@@ -87,8 +87,8 @@ clarinet_in_Bb = \relative do'' {
     r r \acciaccatura { sols8 } la4\fz |
     re,,2.\f ~ |
     re |
-    do! ~ |
-    do |
+    dos! ~ |
+    dos |
     re\< ~ |
     re ~ |
     re ~ |
@@ -123,7 +123,7 @@ first_clarinet_conductor = {
         instrumentName = "Clarinete em Si♭ I"
         shortInstrumentName = "Cl. I"
     }
-    \transpose do re << \clarinet_in_Bb \marks >>
+    \transpose sib do' << \clarinet_in_Bb \marks >>
 }
 
 \bookpart {
@@ -140,6 +140,6 @@ first_clarinet_conductor = {
     }
     \score {
         \new Staff
-        \transpose do re <<\clarinet_in_Bb \marks>>
+        \transpose sib do' <<\clarinet_in_Bb \marks>>
     }
 }

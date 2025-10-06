@@ -93,7 +93,7 @@ notes = \relative do {
   fas mi fas si sol fas sol dos la^"sul G" sol la res si la si mi |
   la,8-> [la] la'-> [la] si-> [si] si,-> [si] |
   sols-> [sols] sols'-> [sols] la-> [la] la,-> [la] |
-  mi4-> ~ 8 r8 mi16-> (las) las (mi) mi8-. 8-.-> |
+  mi4-> ~ 8 r8 mi'16-> (las,) las (mi) mi8-. 8-.-> |
   % B
   fas-.-> r8 r4 r2 |
   r8 si'\pizz la sol fas mi re do |

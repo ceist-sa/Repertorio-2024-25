@@ -97,8 +97,8 @@ flute = \relative do'' {
     mi2.~|
     mi2.
     mib~\> |
-    mib |
-    mib |
+    mib~|
+    mib~|
     mib2~mib8\! r8 | %M
     mib2.~\f |
     mib |

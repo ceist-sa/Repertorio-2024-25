@@ -126,7 +126,7 @@ notes_solo = \relative do'' {
   si'8 (re, si' re,) sol (re sol re) |
   fas8 (re fas re) mi (re mi re) |
   % U
-  fas2. mi4\pp (|
+  fas'2. mi,4\pp (|
   fas2.->) mi4 (|
   fas2.->) mi4 (|
   fas4) mi (fas) mi4 (|

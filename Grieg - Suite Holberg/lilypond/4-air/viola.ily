@@ -126,9 +126,9 @@ notesI = \relative do'' {
   r8 sol8 8 8 8 8 |
   sol8 8 8 8 sol16 lab lab8 |
   r8 sol8 8 8 8 8 |
-  fas'2 (~16 la sol fas) |
+  fas'2 (~16 la) sol fas |
   la16 (sol fas sol) \grace{fas16 (sol la} sol2) |
-  si2 (~16 re do si) |
+  si2 (~16 re) do si |
   re16 (do si do) \grace{si16 (do re} do2) |
   r8 \clef treble la'8 8 8 8 8 |
   sol8 [8 la8 8] 8 [8] |
@@ -173,9 +173,9 @@ notesII = \relative do' {
   r8 mib8 8 8 8 8 |
   re8 8 8 8 8 8 |
   r8 mib8 8 8 8 8 |
-  fas2^"sul C" (~16 la sol fas) |
+  fas2^"sul C" (~16 la) sol fas |
   la16 (sol fas sol) \grace{fas16 (sol la} sol2) |
-  si2^"sul G" (~16 re do si) |
+  si2^"sul G" (~16 re) do si |
   re16 (do si do) \grace{si16 (do re} do2) |
   r8 <fas la>8 8 8 8 8 |
   sol8 [8 la8 8] 8 [8] |

@@ -22,7 +22,7 @@ notes = \relative sol {
     sol'2 ~ (16 sib)  la (sol) |
     sol16 (fa) mi (fa) do'-- (sib--) la-- sol-- la4 |
     sib2-> fas4
-    sol4. fa16 sol la4 |
+    sol4. fa!16 sol la4 |
     re2 re,4 |
     % O, repeat bar
     sib'4\pizz r r |
@@ -42,7 +42,7 @@ notes = \relative sol {
     sib,4~8 r8 r4 |
     do4 \pizz r r |
     re4 r r |
-    \once \stemUp re4-> ~ (16 do) do (sib) sib (la) la (sol) |
+    \once \stemUp re4->\arco ~ (16 do) do (sib) sib (la) la (sol) |
     re'4 r r |
     \once \stemUp re4-> ~ (16 do) do (sib) sib (la) \tuplet 3/2 {do16 (sib la)} |
     re4 r r |
@@ -71,7 +71,7 @@ notesI = \relative {
     sol2 r4 |
     sol2 r4 |
     sol2 r4 |
-    re2.->\mf\> ~ |
+    re'2.->\mf\> ~ |
     4\! r r |
     si2.\pp->\> ~ |
     4\! r r |

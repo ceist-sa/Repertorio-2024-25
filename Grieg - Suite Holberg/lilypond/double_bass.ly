@@ -22,6 +22,8 @@
     \double_bass_praelude
     \double_bass_sarabande
     \double_bass_gavotte
+    \pageBreak
     \double_bass_air
+    \pageBreak
     \double_bass_rigaudon
 }

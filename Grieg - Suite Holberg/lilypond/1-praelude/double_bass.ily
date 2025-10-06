@@ -36,7 +36,7 @@ notes = \relative sol,{
     sol4 r4 r2 |
     res'2-> ~ 4 r4 |
     R1 |
-    mi,1\fp \~ |
+    mi,1\fp ~ |
     mi4 r4 r2 |
     mi'4-> mi'-> re-> re,->|
     re4-> re'-> do-> do,->|
@@ -54,8 +54,8 @@ notes = \relative sol,{
     \rthm mi 8-> \rthm mi \rthm re-> \rthm re |
     \rthm do-> \rthm do \rthm do \rthm do'-> |
     \rthm si-> \rthm si \rthm la-> \rthm la |
-    sol2.-> sol'4 |
-    fas2.-> fas,4 |
+    sol2.-> sol'4-> |
+    fas2.-> fas,4-> |
     mi4-> mi'-> re-> re,-> |
     do-> do'-> si-> si,-> |
     la-> la'-> si,-> do-> |
