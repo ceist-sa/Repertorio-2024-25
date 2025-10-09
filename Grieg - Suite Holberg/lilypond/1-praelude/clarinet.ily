@@ -185,16 +185,16 @@ clarinet_conductor = {
 
 clarinetI_praelude = \score {
     \header { piece = "I. Praelude" }
-    \compressMMRests {
+    
         \new Staff
         \clarinetI
-    }
+    
 }
 
 clarinetII_praelude = \score {
     \header { piece = "I. Praelude" }
-    \compressMMRests {
+    
         \new Staff
         \clarinetII
-    }
+    
 }

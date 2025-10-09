@@ -116,18 +116,14 @@ oboe_conductor = {
 
 oboeI_sarabande = \score {
   \header { piece = "II. Sarabande" }
-  \compressMMRests{
-    \new Staff
-    \oboeI
-  }
+  \new Staff
+  \oboeI
 }
 
 oboeII_sarabande = \score {
   \header { piece = "II. Sarabande" }
-  \compressMMRests{
-    \new Staff
-    \oboeII
-  }
+  \new Staff
+  \oboeII
 }
 
 % \score {

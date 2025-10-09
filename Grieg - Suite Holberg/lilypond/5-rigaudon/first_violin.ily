@@ -324,7 +324,7 @@ first_violin_tutti_conductor = {
 
 first_violin_rigaudon = \score {
   \header { piece = "V. Rigaudon" }
-  \compressMMRests{
+  
     \new GrandStaff \with {
       \override VerticalAxisGroup.remove-empty = ##t
       printPartCombineTexts = ##f
@@ -333,7 +333,7 @@ first_violin_rigaudon = \score {
       \new Staff \first_violin_solo
       \new Staff \first_violin_tutti
     >>
-  }
+  
 }
 
 % \first_violin_rigaudon

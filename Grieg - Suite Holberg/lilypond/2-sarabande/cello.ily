@@ -178,12 +178,12 @@ cello_conductor = {
 
 cello_sarabande = \score {
   \header { piece = "II. Sarabande" }
-  \compressMMRests {
+  
     \new GrandStaff \with {
       \consists "Keep_alive_together_engraver"
     }
     \cello_staves
-  }
+  
 }
 
 % \cello_sarabande

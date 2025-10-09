@@ -313,12 +313,12 @@ cello_conductor = {
 
 cello_praelude = \score {
     \header { piece = "I. Praelude" }
-    \compressMMRests {
+    
         \new GrandStaff \with {
             \consists "Keep_alive_together_engraver"
         }
         \cello_staves
-    }
+    
 }
 
 % \cello_praelude

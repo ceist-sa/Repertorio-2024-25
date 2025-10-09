@@ -196,18 +196,18 @@ oboe_conductor = {
 
 oboeI_praelude = \score {
     \header { piece = "I. Praelude" }
-    \compressMMRests {
+    
         \new Staff
         \oboeI
-    }
+    
 }
 
 oboeII_praelude = \score {
     \header { piece = "I. Praelude" }
-    \compressMMRests {
+    
         \new Staff
         \oboeII
-    }
+    
 }
 
 % \score {

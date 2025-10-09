@@ -147,8 +147,8 @@ bassoon_conductor = {
 
 bassoon_air = \score {
   \header { piece = "IV. Air" }
-  \compressMMRests{
+  
     \new Staff
     \bassoon
-  }
+  
 }

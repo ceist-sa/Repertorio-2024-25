@@ -240,18 +240,18 @@ clarinet_conductor = {
 
 clarinetI_air = \score {
   \header { piece = "IV. Air" }
-  \compressMMRests{
+  
     \new Staff
     \clarinetI
-  }
+  
 }
 
 clarinetII_air = \score {
   \header { piece = "IV. Air" }
-  \compressMMRests{
+  
     \new Staff
     \clarinetII
-  }
+  
 }
 
 % \score {

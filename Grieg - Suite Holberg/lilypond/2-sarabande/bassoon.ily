@@ -63,10 +63,10 @@ bassoon_conductor = {
 
 bassoon_sarabande = \score {
   \header { piece = "II. Sarabande" }
-  \compressMMRests {
+  
     \new Staff 
     \bassoon
-  }
+  
 }
 
 % \bassoon_sarabande

@@ -192,18 +192,18 @@ clarinet_conductor = {
 
 clarinetI_rigaudon = \score {
   \header { piece = "V. Rigaudon" }
-  \compressMMRests{
+  
     \new Staff
     \clarinetI
-  }
+  
 }
 
 clarinetII_rigaudon = \score {
   \header { piece = "V. Rigaudon" }
-  \compressMMRests{
+  
     \new Staff
     \clarinetII
-  }
+  
 }
 
 % \clarinet_rigaudon

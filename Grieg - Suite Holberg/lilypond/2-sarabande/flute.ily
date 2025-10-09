@@ -87,18 +87,18 @@ flute_conductor = {
 
 fluteI_sarabande = \score {
   \header { piece = "II. Sarabande" }
-  \compressMMRests{
+  
     \new Staff
     \fluteI
-  }
+  
 }
 
 fluteII_sarabande = \score {
   \header { piece = "II. Sarabande" }
-  \compressMMRests{
+  
     \new Staff
     \fluteII
-  }
+  
 }
 
 % \score {

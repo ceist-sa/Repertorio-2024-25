@@ -269,7 +269,7 @@ first_violin_conductor = {
 
 first_violin_praelude = \score {
   \header { piece = "I. Praelude" }
-  \compressMMRests{
+  
     \new GrandStaff \with {
       \consists "Keep_alive_together_engraver"
     } 
@@ -309,7 +309,7 @@ first_violin_praelude = \score {
       }
       << \first_violin \system_breaks >>
     >>
-  }
+  
 }
 
 % \first_violin_praelude

@@ -234,18 +234,18 @@ flute_conductor = {
 
 fluteI_gavotte = \score {
   \header { piece = "III. Gavotte" }
-  \compressMMRests{
+  
     \new Staff
     \fluteI
-  }
+  
 }
 
 fluteII_gavotte = \score {
   \header { piece = "III. Gavotte" }
-  \compressMMRests{
+  
     \new Staff
     \fluteII
-  }
+  
 }
 
 % \score {

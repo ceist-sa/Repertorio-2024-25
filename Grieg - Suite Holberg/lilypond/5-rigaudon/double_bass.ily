@@ -68,10 +68,10 @@ double_bass_conductor = {
 
 double_bass_rigaudon = \score {
   \header { piece = "V. Rigaudon" }
-  \compressMMRests{
+  
     \new Staff
     \double_bass
-  }
+  
 }
 
 % \double_bass_rigaudon

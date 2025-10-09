@@ -88,10 +88,10 @@ cello_conductor = {
 
 cello_rigaudon = \score {
   \header { piece = "V. Rigaudon" }
-  \compressMMRests {
+  
     \new Staff
     \cello
-  }
+  
 }
 
 % \cello_rigaudon

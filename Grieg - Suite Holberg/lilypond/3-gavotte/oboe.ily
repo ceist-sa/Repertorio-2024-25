@@ -283,18 +283,18 @@ oboe_conductor = {
 
 oboeI_gavotte = \score {
   \header { piece = "III. Gavotte" }
-  \compressMMRests{
+  
     \new Staff
     \oboeI
-  }
+  
 }
 
 oboeII_gavotte = \score {
   \header { piece = "III. Gavotte" }
-  \compressMMRests{
+  
     \new Staff
     \oboeII
-  }
+  
 }
 
 % \score {

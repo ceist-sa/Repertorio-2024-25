@@ -289,18 +289,18 @@ clarinet_conductor = {
 
 clarinetI_gavotte = \score {
   \header { piece = "III. Gavotte" }
-  \compressMMRests{
+  
     \new Staff
     \clarinetI
-  }
+  
 }
 
 clarinetII_gavotte = \score {
   \header { piece = "III. Gavotte" }
-  \compressMMRests{
+  
     \new Staff
     \clarinetII
-  }
+  
 }
 
 % \score {

@@ -111,10 +111,10 @@ cello_conductor = {
 
 cello_gavotte = \score {
   \header { piece = "III. Gavotte" }
-  \compressMMRests {
+  
     \new Staff
     \cello
-  }
+  
 }
 
 % \cello_gavotte

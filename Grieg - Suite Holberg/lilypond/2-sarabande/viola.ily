@@ -137,7 +137,7 @@ viola_conductor = {
 
 viola_sarabande = \score {
   \header { piece = "II. Sarabande" }
-  \compressMMRests {
+  
     \new GrandStaff \with {
       \consists "Keep_alive_together_engraver"
     }
@@ -160,7 +160,7 @@ viola_sarabande = \score {
       }
       << \viola >>
     >>
-  }
+  
 }
 
 % \viola_sarabande

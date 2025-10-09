@@ -110,7 +110,7 @@ first_violin_conductor = {
 
 first_violin_sarabande = \score {
   \header { piece = "II. Sarabande" }
-  \compressMMRests {
+  
     \new GrandStaff \with {
       \consists "Keep_alive_together_engraver"
     }
@@ -133,7 +133,7 @@ first_violin_sarabande = \score {
       }
       << \first_violin >>
     >>
-  }
+  
 }
 
 % \first_violin_sarabande

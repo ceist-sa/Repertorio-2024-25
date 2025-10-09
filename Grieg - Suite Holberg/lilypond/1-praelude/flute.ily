@@ -182,18 +182,18 @@ flute_conductor = {
 
 fluteI_praelude = \score {
     \header { piece = "I. Praelude" }
-    \compressMMRests {
+    
         \new Staff
         \fluteI
-    }
+    
 }
 
 fluteII_praelude = \score {
     \header { piece = "I. Praelude" }
-    \compressMMRests {
+    
         \new Staff
         \fluteII
-    }
+    
 }
 
 % \flute_praelude

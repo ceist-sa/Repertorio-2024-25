@@ -94,10 +94,10 @@ double_bass_cello_conductor = {
 
 double_bass_cello_praelude = \score {
   \header { piece = "I. Praelude" }
-  \compressMMRests {
+  
     \new Staff
     \double_bass_cello
-  }
+  
 }
 
 % \double_bass_cello_praelude

@@ -162,7 +162,7 @@ viola_tutti_conductor = {
 
 viola_rigaudon = \score {
   \header { piece = "V. Rigaudon" }
-  \compressMMRests {
+  
     \new GrandStaff
     <<
       \new Staff \with {
@@ -172,7 +172,7 @@ viola_rigaudon = \score {
       \new Staff
       \viola_tutti
     >>
-  }
+  
 }
 
 % \viola_rigaudon

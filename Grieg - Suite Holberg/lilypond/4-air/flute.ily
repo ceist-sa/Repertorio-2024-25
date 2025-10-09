@@ -183,18 +183,18 @@ flute_conductor = {
 
 fluteI_air = \score {
   \header { piece = "IV. Air" }
-  \compressMMRests {
+  
     \new Staff
     \fluteI
-  }
+  
 }
 
 fluteII_air = \score {
   \header { piece = "IV. Air" }
-  \compressMMRests {
+  
     \new Staff
     \fluteII
-  }
+  
 }
 
 % \score {

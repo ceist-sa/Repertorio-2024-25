@@ -214,7 +214,7 @@ viola_conductor = {
 
 viola_air = \score {
   \header { piece = "IV. Air" }
-  \compressMMRests {
+  
     \new GrandStaff \with {
       \consists "Keep_alive_together_engraver"
     }
@@ -237,7 +237,7 @@ viola_air = \score {
       }
       << \viola >>
     >>
-  }
+  
 }
 
 % \viola_air

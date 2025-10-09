@@ -57,10 +57,10 @@ double_bass_cello_conductor = {
 
 double_bass_cello_sarabande = \score {
   \header { piece = "II. Sarabande" }
-  \compressMMRests{
+  
     \new Staff
     \double_bass_cello
-  }
+  
 }
 
 % \double_bass_cello_sarabande

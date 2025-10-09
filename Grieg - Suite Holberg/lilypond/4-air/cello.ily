@@ -269,12 +269,12 @@ cello_conductor = {
 
 cello_air = \score {
   \header { piece = "IV. Air" }
-  \compressMMRests {
+  
     \new GrandStaff \with {
       \consists "Keep_alive_together_engraver"
     }
     \cello_staves
-  }
+  
 }
 
 % \cello_air

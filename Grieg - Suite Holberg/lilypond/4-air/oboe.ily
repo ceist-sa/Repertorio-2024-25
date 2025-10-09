@@ -229,18 +229,18 @@ oboe_conductor = {
 
 oboeI_air = \score {
   \header { piece = "IV. Air" }
-  \compressMMRests {
+  
     \new Staff
     \oboeI
-  }
+  
 }
 
 oboeII_air = \score {
   \header { piece = "IV. Air" }
-  \compressMMRests {
+  
     \new Staff
     \oboeII
-  }
+  
 }
 
 % \score {

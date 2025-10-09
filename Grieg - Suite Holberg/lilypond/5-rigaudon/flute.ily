@@ -76,12 +76,12 @@ flute_conductor = {
 
 flute_rigaudon = \score {
   \header { piece = "V. Rigaudon" }
-  \compressMMRests{
+  
     \new Staff \with {
       printPartCombineTexts = ##f
     }
     \flute
-  }
+  
 }
 
 % \flute_rigaudon

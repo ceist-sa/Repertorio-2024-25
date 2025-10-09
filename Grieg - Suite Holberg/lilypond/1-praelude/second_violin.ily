@@ -185,10 +185,10 @@ second_violin_conductor = {
 
 second_violin_praelude = \score {
   \header { piece = "I. Praelude" }
-  \compressMMRests{
+  
     \new Staff
     \second_violin
-  }
+  
 }
 
 % \second_violin_praelude
