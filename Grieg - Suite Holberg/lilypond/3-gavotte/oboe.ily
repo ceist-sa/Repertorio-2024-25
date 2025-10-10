@@ -7,12 +7,12 @@
 
 notes =  \relative la' {
     \set Staff.midiInstrument = #"oboe"
-    \override NoteHead.color = #oboe-range
+    % \override NoteHead.color = #oboe-range
     \clef "treble"
     r2 |
     R1 * 3|
     r2 sol4 ~  sol4 -. |
-    sol4 ~ -> sol4 -. sol4 ( -> do4 ) -. |
+    sol4 ~ -> sol4 -. sol4 -> do4 -. |
     do2 ->  sol4 sol4 |
     sol4 fas4 sol4 mi4 |
     re2 re2 ~ -> |
@@ -22,7 +22,7 @@ notes =  \relative la' {
 }
 
 notesI = \relative la' {
-    \override NoteHead.color = #oboe-range
+    % \override NoteHead.color = #oboe-range
     s2 |
     s1*8 |
     s2 |
@@ -35,11 +35,11 @@ notesI = \relative la' {
     re,8 ( dos8 re8 re'8 ) re,8 ( dos8 re8  re'8 ) |
     R1 * 4 |
     r2 si4 ( ->  do4 ) -. |
-    do4 ( -> mi4 ) -. mi4 ( -> fas4 ) -. |
+    do4 ( -> mi4 ) -. mi4 -> fas4 -. |
     fas2 ->  re4 mi4 |
     do4 re4 re4 mi4 |
-    la,2 si2 ( -> |
-    si4 ) r4 |
+    la,2 si2~ -> |
+    si4 r4 |
     % I
     r2
     R1 * 3 |
@@ -90,7 +90,7 @@ notesI = \relative la' {
 }
 
 notesII = \relative la {
-    \override NoteHead.color = #oboe-range
+    % \override NoteHead.color = #oboe-range
     s2 |
     s1*8 |
     s2 |
@@ -103,7 +103,7 @@ notesII = \relative la {
     re1 ) |
     R1 * 4 |
     r2 sol4 (  la4 ) -. |
-    la4 ( -> do4 ) -. do4 ( -> mi4 ) -. |
+    la4 ( -> do4 ) -. do4 -> mi4-. |
     mi2 ->  re8 do8 si4 |
     do4 la4 si8 ( do8 ) la8 sol8 |
     \grace { fas16 (sol16 } fas4. sol8-.) sol2 ~ -> |

@@ -71,7 +71,7 @@ notes = \relative do' {
   s2 |
   s1 * 3 |
   s2 si4-> (do-.) |
-  do4-> (mi-.) mi-> (fas-.) |
+  do4-> (mi-.) mi-> fas-. |
   fas2-> re4 mi |
   do4 re re mi |
   la,2 si-> ~ |
@@ -80,7 +80,7 @@ notes = \relative do' {
   s2 |
   s1 * 9 |
   s2 si4-> (do-.) |
-  do4-> (mi-.) mi-> (fas-.) |
+  do4-> (mi-.) mi-> fas-. |
   fas2-> re4 mi |
   do4 re re mi |
   la,2 si-> ~ |

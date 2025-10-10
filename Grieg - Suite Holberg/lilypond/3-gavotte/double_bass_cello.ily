@@ -7,7 +7,7 @@
 
 notes = \relative sol, {
     \set Staff.midiInstrument = #"cello"
-    \override NoteHead.color = #cello-range
+    % \override NoteHead.color = #cello-range
     \clef bass
     r2 |
     R1 * 3 |

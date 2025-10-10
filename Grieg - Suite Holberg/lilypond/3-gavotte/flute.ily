@@ -7,7 +7,7 @@
 
 notes =  \relative la' {
     \set Staff.midiInstrument = #"flute"
-    \override NoteHead.color = #flute-range
+    % \override NoteHead.color = #flute-range
     \clef "treble"
     r2 |
     R1*3 |
@@ -58,7 +58,7 @@ notesI = \relative la' {
     s2 |
     s1 * 9 |
     r2 sol'4 ( -> la4 ) |
-    la4 ( -> do4 ) do4 ( -> mi4 ) |
+    la4 ( -> do4 ) do4 -> mi4-. |
     mi2 -> re8 do8 si4 |
     do4 la4 si8 ( do8 ) la8 sol8 |
     \grace { fas16 ( sol16 } fas4. sol8-.) sol2  ~ -> |
@@ -102,7 +102,7 @@ notesII = \relative la' {
     s2 |
     s1 * 9 |
     r2 sol'4 ~ ->  sol4 -. |
-    sol4 ~ -> sol4 -. sol4 ( -> do4 ) |
+    sol4 ~ -> sol4 -. sol4 -> do4-. |
     do2 ->  sol4 sol4 |
     sol4 fas4 sol4 mi4 |
     re2 re2 ~ -> |

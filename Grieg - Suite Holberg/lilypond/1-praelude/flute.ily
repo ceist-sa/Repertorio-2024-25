@@ -6,6 +6,7 @@
 \language "português"
 
 notes =  \relative la' {
+    % \override NoteHead.color = #flute-range
     \set Staff.midiInstrument = #"flute"
     \clef "treble"
     s1*7 |
@@ -17,7 +18,7 @@ notes =  \relative la' {
     % B
     s1 * 9 |
     % C
-    r4 sol'2\ff re8-- si-- |
+    r4 sol''2\ff re8-- si-- |
     la8. (sol16) 4 4-. (4-.) |
     mi2-> \afterGrace fas-> \startTrillSpan ( {mi16 \stopTrillSpan fa)}|
     sol2-> ~ 8 r8 \rthm si,_\markup{\italic sempre \dynamic ff} |

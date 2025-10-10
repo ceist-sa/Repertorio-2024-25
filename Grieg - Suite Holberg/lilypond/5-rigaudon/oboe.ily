@@ -7,7 +7,7 @@
 
 notes =  \relative la' {
     \set Staff.midiInstrument = #"oboe"
-    \override NoteHead.color = #oboe-range
+    % \override NoteHead.color = #oboe-range
     \clef "treble"
     r4 |
     R1 * 7 |

@@ -7,7 +7,7 @@
 
 notes =  \relative la' {
     \set Staff.midiInstrument = #"clarinet"
-    \override NoteHead.color = #clarinet-range
+    % \override NoteHead.color = #clarinet-range
     \clef "treble"
     r4 |
     R1 * 7 |
@@ -63,7 +63,7 @@ notes =  \relative la' {
 }
 
 notesI = \relative la {
-    \override NoteHead.color = #clarinet-range
+    % \override NoteHead.color = #clarinet-range
     s4 |
     s1 * 7 |
     s2 s4 |
@@ -92,7 +92,7 @@ notesI = \relative la {
 }
 
 notesII = \relative la {
-    \override NoteHead.color = #clarinet-range
+    % \override NoteHead.color = #clarinet-range
     s4 |
     s1 * 7 |
     s2 s4 |

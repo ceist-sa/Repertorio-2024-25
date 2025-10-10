@@ -7,7 +7,7 @@
 
 notes =  \relative la {
     \set Staff.midiInstrument = #"clarinet"
-    \override NoteHead.color = #clarinet-range
+    % \override NoteHead.color = #clarinet-range
     \clef "treble"
     R2. * 8 |
     si2.  |

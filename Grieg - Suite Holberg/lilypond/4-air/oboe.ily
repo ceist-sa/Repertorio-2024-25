@@ -7,7 +7,7 @@
 
 notesI =  \relative la' {
     \set Staff.midiInstrument = #"oboe"
-    \override NoteHead.color = #oboe-range
+    % \override NoteHead.color = #oboe-range
     \clef "treble"
     \partCombineApart re4 re2--\< |
     \tuplet 3/2 {re32\! ( -> do32 si32 } do16\> ~ do8 ~ do4.\! ) r8 |
@@ -62,7 +62,7 @@ notesI =  \relative la' {
 
 notesII =  \relative la' {
     \set Staff.midiInstrument = #"oboe"
-    \override NoteHead.color = #oboe-range
+    % \override NoteHead.color = #oboe-range
     \clef "treble"
     sol8  sol8  sol8  sol8  sol8  sol8  |
     sol8  sol8  sol8  sol8  sol8  sol8  |

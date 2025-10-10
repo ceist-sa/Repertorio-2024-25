@@ -6,6 +6,7 @@
 \language "português"
 
 notesI =  \relative la' {
+    % \override NoteHead.color = #flute-range
     \set Staff.midiInstrument = #"flute"
     \clef "treble"
     R2.*8

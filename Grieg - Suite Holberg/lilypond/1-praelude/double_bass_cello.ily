@@ -7,7 +7,7 @@
 \language "português"
 
 notes = \relative sol,,{
-    \override NoteHead.color = #cello-range
+    % \override NoteHead.color = #cello-range
     \clef bass
     sol'1\ffp ~ |
     sol ~ |

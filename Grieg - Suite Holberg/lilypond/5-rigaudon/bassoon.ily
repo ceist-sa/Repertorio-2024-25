@@ -7,7 +7,7 @@
 
 notes = \relative sol {
   \set Staff.midiInstrument = #"bassoon"
-  \override NoteHead.color = #bassoon-range
+  % \override NoteHead.color = #bassoon-range
   \clef bass
   r4 |
   R1 * 7 |

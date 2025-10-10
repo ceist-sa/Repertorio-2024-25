@@ -10,7 +10,7 @@
 notes = \relative sol,{
     \clef bass 
     \set midiInstrument = #"bassoon"
-    \override NoteHead.color = #bassoon-range
+    % \override NoteHead.color = #bassoon-range
     R1 * 3 |
     r2 r4 sol4->\mp |
     fas2-> mi-> |

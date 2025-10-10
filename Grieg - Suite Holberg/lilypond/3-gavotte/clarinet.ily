@@ -7,12 +7,12 @@
 
 notes =  \relative la' {
     \set Staff.midiInstrument = #"clarinet"
-    \override NoteHead.color = #clarinet-range
+    % \override NoteHead.color = #clarinet-range
     \clef "treble"
     r2 |
     R1 * 3 |
     r2 si,4 ( -> do4 ) -. |
-    do4 ( -> mi4 ) -. mi4 ( -> fas4 ) -. |
+    do4 ( -> mi4 ) -. mi4 -> fas4 -. |
     fas2 re4 mi4 |
     do4 re4 re4 mi4 |
     la,2 si2 ~ -> |
@@ -43,7 +43,7 @@ notes =  \relative la' {
 }
 
 notesI = \relative la {
-    \override NoteHead.color = #clarinet-range
+    % \override NoteHead.color = #clarinet-range
     s2 |
     s1 * 8 |
     s2 |
@@ -56,7 +56,7 @@ notesI = \relative la {
     sol2 fas2 )  |
     R1 * 4 |
     r2 sol'4 ( ->  sol4 ) -. |
-    sol4 ( -> sol4 ) -. sol4 ( -> do4 ) -. |
+    sol4 ( -> sol4 ) -. sol4 -> do4-. |
     do2 ->  sol4 sol4 |
     sol4 fas4 sol4 mi4 |
     re2 re2 ~ -> |
@@ -107,7 +107,7 @@ notesI = \relative la {
 }
 
 notesII = \relative la {
-    \override NoteHead.color = #clarinet-range
+    % \override NoteHead.color = #clarinet-range
     s2 |
     s1 * 8 |
     s2 |
@@ -120,11 +120,11 @@ notesII = \relative la {
     mi2 re2 )  |
     R1 * 4 |
     r2 si'4 ( ->  do4 ) -. |
-    do4 ( -> mi4 ) -. mi4 ( -> fas4 ) -. |
+    do4 ( -> mi4 ) -. mi4 -> fas4-. |
     fas2 ->  re4 mi4 |
     do4 re4 re4 mi4 |
-    la,2 si2 ( -> |
-    si4 ) r4 |
+    la,2 si2 ~ -> |
+    si4 r4 |
     % I
     r2 |
     R1 * 3 |
