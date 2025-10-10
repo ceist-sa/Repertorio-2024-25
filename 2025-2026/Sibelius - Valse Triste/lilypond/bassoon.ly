@@ -12,7 +12,7 @@
     }
     \header {
         instrument = "Fagote"
-        filename = "Sibelius - Valse Triste - FAGOTE"
+        filename = "Sibelius - Valse Triste - BASSOON"
     }
     \bassoon_part
 }

@@ -212,20 +212,20 @@ second_violin = \relative do' {
     r do do |
     r sib sib |
     R2. |
-    <<{
-        \voiceOne
+    <<
+    {
         sib'\pp\>^"2 soli" |
         do\> |
         sib\> ~ |
         sib2
     }
-    \new Voice {
-        \voiceTwo
+    {
         sol2. ~ |
         sol |
         sol ~ |
         sol2
-    }>> \oneVoice r4\! |
+    }
+    >> r4\! |
 }
 
 second_violin_conductor = \relative do'' {

@@ -13,7 +13,7 @@
     }
     \header {
         instrument = "Violoncelo"
-        filename = "Sibelius - Valse Triste - VIOLONCELO"
+        filename = "Sibelius - Valse Triste - CELLO"
     }
     \cello_part
 }

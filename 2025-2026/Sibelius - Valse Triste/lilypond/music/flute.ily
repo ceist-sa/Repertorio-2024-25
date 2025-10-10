@@ -106,7 +106,7 @@ flute = \relative do'' {
     dos2.\!~ |
     dos~ |
     dos2 ~ dos8 r8 |
-    r4 r4 r4 |
+    r4 r4\fermata r4 |
     R2. * 8 |
 
 }

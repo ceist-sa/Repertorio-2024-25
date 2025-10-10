@@ -7,7 +7,7 @@
 \bookpart {
     \header {
         instrument = "Oboé I"
-        filename = "Sibelius - Valse Triste - OBOE I e II"
+        filename = "Sibelius - Valse Triste - OBOE I & II"
     }
     \score {
         \new Staff <<\first_oboe \marks>>

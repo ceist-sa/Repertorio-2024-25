@@ -13,6 +13,9 @@ piup = _\markup{\center-align \italic più \dynamic p}
 piupp = _\markup{\center-align \italic più \dynamic pp}
 piuf = _\markup{\center-align \italic più \dynamic f}
 
+dimmolto = #(make-dynamic-script
+            (markup #:normal-text (#:italic "dim. molto")))
+
 barlineFermata = {\once \set Score.caesuraType = #'((scripts . (fermata))) \caesura}
 
 marks = {

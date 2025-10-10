@@ -7,7 +7,7 @@
 \bookpart {
     \header {
         instrument = "Violino II"
-        filename = "Sibelius - Valse Triste - VIOLINO II"
+        filename = "Sibelius - Valse Triste - VIOLIN II"
     }
     \second_violin_part
 }

@@ -236,20 +236,21 @@ first_violin = \relative do'' {
     re2.\> ~ |
     re4 r\! r
 
-    <<{
-        \voiceOne
+    <<
+    {
         sol'2.\pp\>^"2 soli" |
         fas\> |
         sol\> ~ |
         sol2
     }
-    \new Voice {
-        \voiceTwo
+    {
         re2. |
         mib |
         re ~ |
         re2
-    }>> \oneVoice r4\! |
+    }
+    >> 
+    r4\! |
 }
 
 first_violin_conductor = \relative do'' {
