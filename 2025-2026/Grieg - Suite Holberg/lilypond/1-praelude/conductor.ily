@@ -11,6 +11,16 @@
 \include "cello.ily"
 \include "double_bass_cello.ily"
 
+breaks = {
+    s1 * 18 | 
+    \break 
+    % ...
+}
+
+\paper {
+    page-count = #39
+}
+
 conductor_praelude = \score {
     \header { piece = "I. Praelude" }
     \layout {
@@ -20,6 +30,7 @@ conductor_praelude = \score {
         }
     }
     <<
+        \new Staff  \with { \RemoveAllEmptyStaves } \breaks
         \new StaffGroup {
             <<
                 \flute_conductor
