@@ -3,7 +3,7 @@
 \include "../instrument_names.ily"
 \include "globals.ily"
 \include "../hairpin.ily"
-\include "../../../ranges.ily"
+\include "../../../../styles/ranges.ily"
 
 \language "português"
 

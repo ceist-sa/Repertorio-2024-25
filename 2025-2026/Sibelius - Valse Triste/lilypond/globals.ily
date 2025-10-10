@@ -96,27 +96,9 @@ marks = {
     title = "Valse Triste"
     subtitle = \markup{"from the incidental music for" \italic "Kuolema"}
     composer = "Jean Sibelius (1865 – 1957)"
-    tagline = ##f
     opus = "Op. 44" 
 }
 
 \paper {
-        scoreTitleMarkup = ##f
-        
-        % this only applies to the parts
-        bookTitleMarkup = \markup {
-                                \override #'(baseline-skip . 3.5)
-                                \column {
-                                \fill-line {
-                                        \fontsize #7 \bold \fromproperty #'header:title
-                                }
-                                
-                                \fill-line {
-                                        \epsfile #Y #9 #"short_logo.eps"
-                                        {\raise #2.5 \fontsize #3 \bold \fromproperty #'header:instrument }
-                                        \raise #4.5 \column {\fromproperty #'header:composer \fromproperty #'header:opus }
-                                }
-                                
-                                }
-                                }
+    scoreTitleMarkup = ##f
 }

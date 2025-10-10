@@ -1,6 +1,6 @@
 \version "2.24.4"
 
-\include "../../../ranges.ily"
+\include "../../../../styles/ranges.ily"
 \include "globals.ily"
 \include "../hairpin.ily"
 

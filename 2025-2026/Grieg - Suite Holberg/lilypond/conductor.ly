@@ -1,7 +1,7 @@
 \version "2.24.4"
 \language "portugues"
-\include "../../styles.ily"
-\include "../../ranges.ily"
+\include "../../../styles/style_conductor.ily"
+\include "../../../styles/ranges.ily"
 \include "globals.ily"
 
 \include "1-praelude/conductor.ily"
@@ -13,29 +13,6 @@
 #(set-global-staff-size 17)
 
 \book {
-    \paper {
-        #(set-paper-size "b4")
-        bookTitleMarkup = \markup{ \fill-line {
-            \null
-            \center-column {
-                \vspace #15
-                \epsfile #X #110 #"Preto_direito.eps"
-                \vspace #5
-                \fontsize #15 \bold \fromproperty #'header:title
-                \vspace #3
-                \fontsize #10 \fromproperty #'header:composer
-                \vspace #2
-                \fontsize #8 \fromproperty #'header:opus
-            }
-            \null 
-        }}
-        scoreTitleMarkup = \markup \fontsize #10 { \vspace #2 \fill-line { \null \fromproperty #'header:piece \null } }
-        indent = 2\cm
-        short-indent = 0.2\cm
-        ragged-last-bottom = ##f
-        ragged-bottom = ##f
-        system-separator-markup = \markup{\scale #'(2 . 2) \slashSeparator}
-    }
     \header {
         filename = "Grieg - Suite Holberg - CONDUCTOR"
     }

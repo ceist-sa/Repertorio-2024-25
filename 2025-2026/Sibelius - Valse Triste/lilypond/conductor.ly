@@ -1,18 +1,18 @@
 \version "2.24.4"
-\include "../../styles.ily"
+\include "../../../styles/style_conductor.ily"
 \include "globals.ily"
 
-\include "flute.ly"
-\include "oboe.ly"
-\include "first_clarinet.ly"
-\include "second_clarinet.ly"
+\include "music/flute.ily"
+\include "music/oboe.ily"
+\include "music/first_clarinet.ily"
+\include "music/second_clarinet.ily"
 
-\include "first_violin.ly"
-\include "second_violin.ly"
-\include "viola.ly"
-\include "cello.ly"
-\include "double_bass_cello.ly"
-\include "bassoon.ly"
+\include "music/first_violin.ily"
+\include "music/second_violin.ily"
+\include "music/viola.ily"
+\include "music/cello.ily"
+\include "music/double_bass_cello.ily"
+\include "music/bassoon.ily"
 
 #(set-global-staff-size 17)
 
@@ -24,31 +24,6 @@
 }
 
 \book {
-    \paper {
-        #(set-paper-size "b4")
-        bookTitleMarkup = \markup{ \fill-line {
-            \null
-            \center-column {
-                \vspace #15
-                \epsfile #X #110 #"Preto_direito.eps"
-                \vspace #5
-                \fontsize #15 \bold \fromproperty #'header:title
-                \vspace #3
-                \fontsize #10 \bold \fromproperty #'header:subtitle
-                \vspace #3
-                \fontsize #10 \fromproperty #'header:composer
-                \vspace #2
-                \fontsize #8 \fromproperty #'header:opus
-            }
-            \null 
-        }}
-        scoreTitleMarkup = \markup \fontsize #10 { \vspace #2 \fill-line { \null \fromproperty #'header:piece \null } }
-        indent = 2\cm
-        short-indent = 0.2\cm
-        ragged-last-bottom = ##f
-        ragged-bottom = ##f
-        system-separator-markup = \markup{\scale #'(2 . 2) \slashSeparator}
-    }
     \header {
         filename = "Sibelius - Valse Triste - GERAL"
     }

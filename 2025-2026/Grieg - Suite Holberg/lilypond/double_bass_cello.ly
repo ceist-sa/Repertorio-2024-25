@@ -1,9 +1,8 @@
 \version "2.24.4"
 \language "portugues"
-\include "../../styles.ily"
-\include "../../ranges.ily"
+\include "../../../styles/style_part.ily"
+\include "../../../styles/ranges.ily"
 \include "globals.ily"
-\include "globals_parts.ily"
 
 \include "1-praelude/double_bass_cello.ily"
 \include "2-sarabande/double_bass_cello.ily"

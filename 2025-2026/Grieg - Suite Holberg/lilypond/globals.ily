@@ -55,13 +55,5 @@ twoStaves = {
 \header {
     title = "Suite Holberg"
     composer = "Edvard Grieg (1843 – 1907)"
-    tagline = ##f
     opus = "Op. 40"
-}
-
-\layout {
-  \context {
-    \Staff
-    \override MultiMeasureRest.expand-limit = #1
-  }
 }
