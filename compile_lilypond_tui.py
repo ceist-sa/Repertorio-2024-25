@@ -388,10 +388,11 @@ class CompilationManager:
     """Manages compilation of LilyPond files"""
     
     def __init__(self, files: List[FileInfo], ignore_patterns: List[str],
-                 app: 'LilyPondApp', point_and_click: bool = False, max_workers: int = 4):
+                 app: 'LilyPondApp', root_dir: str, point_and_click: bool = False, max_workers: int = 4):
         self.files = {f.ly_path: f for f in files}
         self.ignore_patterns = ignore_patterns
         self.app = app
+        self.root_dir = root_dir
         self.point_and_click = point_and_click
         self.executor = ThreadPoolExecutor(max_workers=max_workers)
         self.active_futures: Dict[str, Future] = {}
@@ -399,11 +400,7 @@ class CompilationManager:
         
         # Build reverse dependency map
         self.dependents: Dict[str, Set[str]] = {}
-        for file_info in self.files.values():
-            for dep in file_info.dependencies:
-                if dep not in self.dependents:
-                    self.dependents[dep] = set()
-                self.dependents[dep].add(file_info.ly_path)
+        self._rebuild_dependency_map()
     
     def compile_file(self, ly_path: str, force: bool = False) -> Tuple[bool, Optional[str]]:
         """Compile a single LilyPond file
@@ -525,15 +522,70 @@ class CompilationManager:
         else:
             self.app.call_from_thread(self.app.refresh_table)
     
+    def _rebuild_dependency_map(self):
+        """Rebuild the reverse dependency map"""
+        self.dependents.clear()
+        for file_info in self.files.values():
+            for dep in file_info.dependencies:
+                if dep not in self.dependents:
+                    self.dependents[dep] = set()
+                self.dependents[dep].add(file_info.ly_path)
+    
+    def rebuild_file_list(self):
+        """Rebuild the file list and dependency map from disk"""
+        with self.lock:
+            # Find all files again
+            new_files_list = find_all_lilypond_files(self.root_dir, self.ignore_patterns)
+            new_files = {f.ly_path: f for f in new_files_list}
+            
+            # Preserve status and error information for existing files
+            for ly_path, new_file_info in new_files.items():
+                if ly_path in self.files:
+                    old_file_info = self.files[ly_path]
+                    new_file_info.status = old_file_info.status
+                    new_file_info.last_compiled = old_file_info.last_compiled
+                    new_file_info.error_message = old_file_info.error_message
+                else:
+                    # New file - mark as pending
+                    new_file_info.status = FileStatus.PENDING
+            
+            # Update files dict
+            self.files = new_files
+            
+            # Rebuild dependency map
+            self._rebuild_dependency_map()
+        
+        # Refresh UI
+        self.app.call_from_thread(self.app.refresh_table)
+        
+        # Check all files to see if they need compilation
+        # This handles both new files and files with updated dependencies
+        for ly_path, file_info in self.files.items():
+            if needs_compilation(ly_path, file_info.output_file, file_info.dependencies):
+                self.schedule_compilation(ly_path)
+    
     def handle_file_change(self, changed_path: str):
         """Handle a file change"""
         changed_path = canonicalize_path(changed_path)
         
-        # Check if it's a file we're tracking
+        # Check if this is a new .ly file that we're not tracking
+        if changed_path.endswith('.ly') and changed_path not in self.files:
+            # Check if it's in a lilypond directory and has a filename header
+            if 'lilypond' in changed_path and extract_filename(changed_path):
+                # Rebuild the entire file list to pick up the new file
+                threading.Thread(target=self.rebuild_file_list, daemon=True).start()
+                return
+        
+        # For .ily files, dependencies might have changed - rebuild map
+        if changed_path.endswith('.ily'):
+            threading.Thread(target=self.rebuild_file_list, daemon=True).start()
+            return
+        
+        # For tracked .ly files, compile them
         if changed_path in self.files:
             self.schedule_compilation(changed_path)
         
-        # Check if any tracked files depend on this
+        # Check if any tracked files depend on this file
         if changed_path in self.dependents:
             for dependent in self.dependents[changed_path]:
                 self.schedule_compilation(dependent)
@@ -987,20 +1039,21 @@ def run_app(root_dir: str, ignore_patterns: List[str], max_workers: Optional[int
     app = LilyPondApp(None, observer)
     
     # Create compilation manager with app reference
-    manager = CompilationManager(files, ignore_patterns, app, max_workers=max_workers)
+    manager = CompilationManager(files, ignore_patterns, app, root_dir, max_workers=max_workers)
     app.manager = manager
     
     # Set up event handler with manager
     event_handler = LilyPondEventHandler(manager)
     
-    # Watch all directories
+    # Watch all lilypond directories recursively
     watched_dirs = set()
-    for file_info in files:
-        for dep in file_info.dependencies:
-            dir_path = os.path.dirname(dep)
-            if dir_path not in watched_dirs:
-                observer.schedule(event_handler, dir_path, recursive=False)
-                watched_dirs.add(dir_path)
+    for root, dirs, _ in os.walk(root_dir):
+        if 'lilypond' in dirs:
+            lilypond_dir = os.path.join(root, 'lilypond')
+            if lilypond_dir not in watched_dirs:
+                observer.schedule(event_handler, lilypond_dir, recursive=True)
+                watched_dirs.add(lilypond_dir)
+                logging.debug(f"Watching directory: {lilypond_dir}")
     
     observer.start()
     
