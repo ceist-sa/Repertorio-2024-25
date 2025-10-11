@@ -467,8 +467,16 @@ watch_files() {
     local watch_map=$(mktemp)
     local all_files=$(mktemp)
     
+    # Count total files to process
+    echo -e "${CYAN}Building dependency map...${NC}"
+    local total_files=$(find_all_lilypond_files | wc -l)
+    local current_file=0
+    
     # Build mapping of files to their LilyPond sources
     while IFS='|' read -r ly_file filename partes_dir; do
+        ((current_file++))
+        echo -ne "${CYAN}Analyzing dependencies: ${BOLD}$current_file/$total_files${NC} - $(basename "$ly_file")                 \r"
+        
         # Get all dependencies for this LilyPond file
         while IFS= read -r dep_file; do
             echo "$dep_file|$ly_file|$filename|$partes_dir" >> "$watch_map"
@@ -476,7 +484,10 @@ watch_files() {
         done < <(get_all_dependencies "$ly_file")
     done < <(find_all_lilypond_files)
     
+    echo -e "\n${GREEN}✓ Dependency analysis complete${NC}"
+    
     # Remove duplicates from all_files
+    echo -ne "${CYAN}Finalizing watch list...${NC}\r"
     sort "$all_files" | uniq > "${all_files}.tmp"
     mv "${all_files}.tmp" "$all_files"
     
@@ -489,6 +500,7 @@ watch_files() {
     if [ ${#watch_list[@]} -eq 0 ]; then
         echo -e "${YELLOW}No files to watch.${NC}"
     else
+        echo -e "${GREEN}✓ Watching ${BOLD}${#watch_list[@]}${NC}${GREEN} files for changes...${NC}\n"
         fswatch -l 0.1 --event=Updated --event=Removed --event=Renamed --event=Created "${watch_list[@]}" 2>/dev/null | \
         while read -r changed_file; do
             handle_changed_file "$changed_file" "$watch_map"
