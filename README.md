@@ -12,92 +12,116 @@ Cada peça tem uma pasta dedicada, contendo:
 - **`musescore/`** - Ficheiros MuseScore (`.mscz`) quando aplicável
 - **`originais/`** - Partituras originais de referência (quando disponíveis)
 
+## 📋 Convenções de Nomenclatura
+
+- **Ficheiros de Partitura:** Separar com hífen (`Compositor - Obra - Instrumento`)
+- **Pastas:** Nome do compositor seguido da obra (`Bach - Cantata nº 12`)
+
+## 📝 Formato dos Ficheiros LilyPond
+
+Os ficheiros `.ly` devem incluir um campo `filename` no cabeçalho para funcionarem com os scripts de compilação:
+
+```lilypond
+\book{
+    \header {
+        instrument = "Instrumento"
+        filename = "Compositor - Obra - Instrumento"
+    }
+    % ...resto do código...
+}
+```
+
 ## 🛠️ Ferramentas
 
-### Script de Compilação Automática
+### Interface TUI de Compilação Interativa
 
-O repositório inclui um script bash (`compile_lilypond.sh`) que automatiza a compilação de ficheiros LilyPond:
+O repositório inclui uma interface TUI moderna (`compile_lilypond_tui.py`) para compilação e gestão de partituras LilyPond:
 
-```bash
-# Compilar todas as partituras do projeto
-./compile_lilypond.sh
+**Funcionalidades principais:**
+- **Tabela interativa** com estado em tempo real de cada ficheiro
+- **Compilação paralela** automática quando ficheiros são modificados
+- **Monitorização de dependências** - recompila automaticamente ficheiros dependentes
+- **Visualização de erros** detalhada com navegação
+- **Abertura rápida** de ficheiros fonte e PDFs (duplo clique ou tecla)
+- **Point-and-click** configurável (on/off)
+- **Interface moderna** com cores e ícones
 
-# Compilar partituras de uma pasta específica
-./compile_lilypond.sh /caminho/para/pasta
+#### Pré-requisitos
 
-# Compilar sem links "point-and-click" (PDFs mais limpos)
-./compile_lilypond.sh -c
-```
-
-#### Modo Watch
-O modo watch (`-w` ou `--watch`) permite monitorização contínua dos ficheiros:
-- **Monitoriza automaticamente** todos os ficheiros LilyPond e suas dependências
-- **Recompila automaticamente** apenas os PDFs afetados quando um ficheiro é modificado
-- **Mostra em tempo real** quais ficheiros foram alterados e quais PDFs estão a ser recompilados
-
-```bash
-# Iniciar modo watch
-./compile_lilypond.sh --watch
-
-# Watch com modo verboso
-./compile_lilypond.sh -v -w
-```
-
-#### Opção Ignore
-A opção `--ignore` permite excluir ficheiros específicos da compilação:
-- **Suporta padrões glob** (wildcards como `*`, `?`)
-- **Pode ser usada múltiplas vezes** para ignorar vários padrões
-- **Funciona com nomes de ficheiros** ou caminhos completos
-
-Exemplos de padrões:
-- `--ignore '*test*'` - ignora ficheiros que contenham "test" no nome
-- `--ignore 'draft_*.ly'` - ignora ficheiros que comecem com "draft_"
-- `--ignore '*/backup/*'` - ignora ficheiros em pastas chamadas "backup"
-
-```bash
-# Ignorar ficheiros específicos
-./compile_lilypond.sh --ignore '*test*' --ignore 'draft_*.ly'
-```
-
-#### Opção Clean
-A opção `-c` ou `--clean` gera PDFs sem os links "point-and-click" do LilyPond:
-- **PDFs mais limpos** sem metadados de navegação incorporados
-- **Ficheiros mais pequenos** devido à ausência de dados de link
-- **Ideal para distribuição** das partituras finais
-
-```bash
-# Compilar com modo clean
-./compile_lilypond.sh -c
-```
-
-### Como funciona
-1. Procura recursivamente por pastas chamadas `lilypond`
-2. Para cada ficheiro `.ly` encontrado nessa pasta ou subpastas, extrai o campo `filename` do cabeçalho
-3. Segue recursivamente todas as declarações `\include` para identificar dependências
-4. Compila o ficheiro se o PDF resultante não existir ou se qualquer dependência foi modificada após a criação do PDF
-5. Guarda o PDF resultante na pasta `partes` correspondente com o nome especificado
-6. **No modo watch:** Continua a monitorizar todos os ficheiros e recompila automaticamente quando detecta alterações
-
-### Pré-requisitos
-
-Para usar o script de compilação, é necessário ter o LilyPond instalado:
+Para usar o TUI, é necessário ter o LilyPond e Python 3 instalados:
 
 ```bash
 # Ubuntu/Debian
-sudo apt-get install lilypond
+sudo apt-get install lilypond python3 python3-pip
 
 # Arch Linux
-sudo pacman -S lilypond
+sudo pacman -S lilypond python
 
 # macOS (com Homebrew)
-brew install lilypond
+brew install lilypond python
 ```
+
+O TUI também requer as bibliotecas Python `textual` e `watchdog`:
+
+**Com pip:**
+```bash
+pip install textual watchdog
+```
+
+**Com uv (recomendado):**
+```bash
+uv pip install textual watchdog
+```
+
+#### Utilização
+
+```bash
+# Executar no diretório atual
+./compile_lilypond_tui.py
+
+# Executar num diretório específico
+./compile_lilypond_tui.py /caminho/para/pasta
+
+# Ignorar ficheiros específicos
+./compile_lilypond_tui.py --ignore '*test*' --ignore 'draft_*.ly'
+
+# Definir número de workers paralelos (default: número de threads disponíveis)
+./compile_lilypond_tui.py -j 8
+```
+
+#### Controlos da Interface
+
+| Tecla | Ação |
+|-------|------|
+| `p` | Alternar point-and-click links (ON/OFF) |
+| `e` | Ver detalhes de erros |
+| `r` | Recompilar todos os ficheiros |
+| `s` | Abrir ficheiro fonte (.ly) no editor |
+| `o` | Abrir PDF gerado |
+| `q` | Sair |
+| **Duplo clique** | Abrir ficheiro fonte |
+| `←` `→` | Navegar entre erros (no modo de visualização de erros) |
+
+#### Estados dos Ficheiros
+
+- ✓ **up-to-date** (verde) - PDF está atualizado
+- ⋯ **pending** (amarelo) - Aguardando compilação
+- ⚙ **compiling** (azul) - A compilar
+- ✗ **error** (vermelho) - Erro de compilação
+
+#### Como funciona
+1. Procura recursivamente por pastas chamadas `lilypond`
+2. Para cada ficheiro `.ly` encontrado, extrai o campo `filename` do cabeçalho
+3. Analisa recursivamente todas as declarações `\include` para identificar dependências
+4. Monitoriza continuamente todos os ficheiros e suas dependências
+5. Compila automaticamente em paralelo quando detecta alterações
+6. Guarda PDFs na pasta `partes` correspondente
 
 ### GitHub Action - Compilação Automática
 
 O repositório inclui uma GitHub Action que automaticamente:
 
-- **Detecta mudanças** em ficheiros `.ly`, `.ily` ou no script de compilação
+- **Detecta mudanças** em ficheiros `.ly`, `.ily`
 - **Compila automaticamente** as partituras modificadas (se necessário) após cada commit
 - **Faz commit e push** dos PDFs atualizados se houver mudanças
 
@@ -128,27 +152,3 @@ sudo dnf install diff-pdf
 ```
 
 Para outros sistemas ou compilação a partir do código fonte: [https://github.com/vslavik/diff-pdf](https://github.com/vslavik/diff-pdf)
-
-## 📝 Formato dos Ficheiros LilyPond
-
-Os ficheiros `.ly` devem incluir um campo `filename` no cabeçalho para funcionarem com o script de compilação:
-
-```lilypond
-\version "2.24.4"
-
-\book{
-    \header {
-        instrument = "Instrumento"
-        filename = "Nome_do_Ficheiro_Final"
-    }
-    % ...resto do código...
-}
-```
-
-## 📋 Convenções de Nomenclatura
-
-### Ficheiros de Partitura
-- Separar com hífen: `Compositor - Obra - Instrumento`
-
-### Pastas
-- Nome do compositor seguido da obra: `Bach - Cantata nº 12`
