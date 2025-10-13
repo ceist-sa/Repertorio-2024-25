@@ -13,14 +13,14 @@ viola_notes = \relative c'{
 
 \addTenuto { g8\f( g g g) g(\> g g g)\!
 g\pp( g g g) g( g g g) }
-g4:8\simile aes: bes: c:
-ees,: f: g: aes:
-aes: f: << {g8--(\divis aes-- g-- ees--)} {ees--( f-- ees-- ees--)} >>
+g4:8\simile (aes:) bes: (c:)
+ees,: (f:) g: (aes:)
+aes: (f:) << {g8--(\divis aes-- g-- ees--)} {ees--( f-- ees-- ees--)} >>
 R1*3
 
 
 r2 g8--\pp( aes-- g-- ees--)
-g4:8 aes: c8--( b-- c-- c--)  \crescTextCresc
+g4:8 (aes:) c8--( b-- c-- c--)  \crescTextCresc
 b2:8\<  b8--( c-- aes-- aes--)\! \crescHairpin
 e2:8\< e8--\mf\> f-- g-- aes--\!
 aes2:8\p bes8 r r4 \crescTextCresc \set crescendoText = \markup {\italic \fontsize #-1 {"poco a poco cresc."}}
@@ -48,8 +48,9 @@ aes,8:64\f\< c: <aes f'>16->\! r16 r8 a8:64\f[\< c:] <a fis'>16->\! r r8
 g'8:64->\ff aes!:-> g:-> d:-> \once \override TextScript.outside-staff-priority = #1 g16->\sec r r8 r4
 g8:64-> aes:-> g:-> des:-> g16->\sec r r8 r4
 g8:64->\sempreff e:-> f16-> r r8 f8:64-> d:-> ees16-> r r8
-<g, d'>8-> r r4 <g f'>8 r\sourdOn r4
-g16:64\f[ aes: g: f:] \repeat unfold 3 {g:[ aes: g: f:]}
+<g, d'>8-> r r4 <g f'>8 r r4
+\once \override TextScript.outside-staff-priority = 0
+g16:64\f_\sourdOn[ aes: g: f:] \repeat unfold 3 {g:[ aes: g: f:]}
 \repeat unfold 4 {ees:[ f: ees: d:]}		
 ees4:64 f: g: aes:
 aes: f: aes2:64\>

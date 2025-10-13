@@ -13,9 +13,9 @@ cello_notes = \relative c{
 
 \addTenuto { c8\f( c c c) c(\> c c c)\!
 c\pp( c d d) ees( f ees d) }
-c2:8\simile c4:8 bes:
-aes2:8 g4:8 ges:
-f: g!: c2:8
+c2:8\simile c4:8 (bes:)
+aes2:8 g4:8 (ges:)
+f: (g!:) c2:8
 c4_\markup {\dynamic pp \italic "sempre "}( d) ees8( f ees d)
 c4( aes) ees2
 a4( aes) g( ges)
@@ -48,8 +48,9 @@ f16->\f r r8 r4 d16-> r r8 r4
 g'8:64->\ff aes:-> g:-> d:-> \once \override TextScript.outside-staff-priority = #1 g16->\sec r r8 r4
 e8:64-> f:-> e:-> bes:-> e16->\sec r r8 r4
 a,8:64->\sempreff a':-> aes16-> r r8 g,8:64-> g':-> fis16-> r r8
-g,8-> r r4\sourdOn r2 % \textLengthOn \textLengthOff
-c4\f d ees4. d8
+g,8-> r r4 r2 \tag #'partie {\break} 
+\once \override TextScript.outside-staff-priority = 0
+c4_\sourdOn\f d ees4. d8
 c2. bes4
 << {\repeat unfold 4 {c16:64 d: c: bes:}} \\ {a2\divis g4 ges} >>
 << {c16( des c aes) des( ees des aes) ees'(\> f ees des) ees( f ees des)\!} \\ {f,4 des aes'2} >>

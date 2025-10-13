@@ -50,6 +50,7 @@ e2->\ff \once \override TextScript.outside-staff-priority = #1 e16->\sec r r8 r4
 ees4.-> g,8-> ees'16->\sec r r8 r4
 a,8->\sempreff fis-> g16-> r r8 g-> e-> f16-> r r8
 d'-> r r4 cis8-> r r4
+\tag #'partie {\break}
 R1*2
 
 f,,4\f( g a bes)

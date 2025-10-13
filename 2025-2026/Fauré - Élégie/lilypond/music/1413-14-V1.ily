@@ -16,11 +16,11 @@ g\pp( g g g) g( g g f) }
 ees2:8\simile ees:
 c8 r8 r4 r2
 R1
-<< {g''2:8\divis g4.:8 f8 | ees2:8 ees: |
-			c: c: | c4:8 b: c2:8}
-  {g2:8\dolcissimo g4.:8 f8 | ees2:8 ees: |
-			c: c: | c4:8 b: c2:8} >>
-g'2:8 g4:8 aes:  \crescTextCresc \set crescendoText = \markup {\italic \fontsize #-1 {"poco cresc."}}
+<< {g''2:8\divis g4.:8 (f8) | ees2:8 ees: |
+			c: c: | c4:8 (b:) c2:8}
+  {g2:8\dolcissimo g4.:8 (f8) | ees2:8 ees: |
+			c: c: | c4:8 (b:) c2:8} >>
+g'2:8 g4:8 (aes:)  \crescTextCresc \set crescendoText = \markup {\italic \fontsize #-1 {"poco cresc."}}
 aes2:8\<  \addTenuto { aes8( aes aes ees)\! \crescHairpin
 des2:8\< des:\mf\>
 ees:\!\p ees:  \crescTextCresc \set crescendoText = \markup {\italic \fontsize #-1 {"poco a poco cresc."}}
@@ -48,8 +48,9 @@ c8:64\f\< f: <c aes'>16->\! r16 r8 fis8:64\f[\< a:] c16->\! r r8
 g'8:64->\ff aes!:-> g:-> d:-> \once \override TextScript.outside-staff-priority = #1 g16->\sec r r8 r4
 g8:64-> aes:-> g:-> des:-> g16->\sec r r8 r4
 g8:64->\sempreff e:-> f16-> r r8 f8:64-> d:-> ees!16-> r r8
-<d, d'>-> r r4 <d b' g'>8 r\sourdOn r4 \set subdivideBeams = ##f
-g16:64\f[ aes: g: f:] \repeat unfold 3 {g:[ aes: g: f:]}
+<d, d'>-> r r4 <d b' g'>8 r r4 \set subdivideBeams = ##f
+\once \override TextScript.outside-staff-priority = 0
+g16:64_\sourdOn\f[ aes: g: f:] \repeat unfold 3 {g:[ aes: g: f:]}
 \repeat unfold 4 {ees:[ f: ees: d:]}
 c16 r r8 r4 r2
 c16:64[ des: c: aes:] des:[ ees: des: aes:] ees':[\> f: ees: des:] ees:[ f: ees: des]\!

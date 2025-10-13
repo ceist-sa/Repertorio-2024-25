@@ -42,7 +42,7 @@ R1*4
  \tag #'partie \break
 R1*4
 << \tag #'partie << {\set fontSize = #-4 \transpose c c \relative c''
-		{r4^"Hautbois" <c f>16 r r8 r4 <c fis>16 r r8 \unset fontSize}} \\ {\override MultiMeasureRest.staff-position = #-6 R1
+		{r4^"Oboés" <c f>16 r r8 r4 <c fis>16 r r8 \unset fontSize}} \\ {\override MultiMeasureRest.staff-position = #-6 R1
 		 \override MultiMeasureRest.staff-position = #0 } >>
 	 \tag #'score {R1} >>		  \tag #'partie \break
 g''8->-\tag #'partie \ff aes!-> g-> d-> \once \override TextScript.outside-staff-priority = #1 g16->-\tag #'partie \sec r r8 r4
@@ -52,7 +52,7 @@ d-> r r4 g8-> r r4
 R1*5
 
 << \tag #'partie << {\set fontSize = #-4 \transpose c c \relative c
-		{\clef bass e,4(^"Vc.Solo" des) \clef treble \unset fontSize}} \\ {\override MultiMeasureRest.staff-position = #-8 R2
+		{\clef bass e,4_(^"Vc.Solo" des) \clef treble \unset fontSize}} \\ {\override MultiMeasureRest.staff-position = #0 R2
 		 \override MultiMeasureRest.staff-position = #0 } >>
 	 \tag #'score {R2} >>		
 r16\pp c,8\dolcissimo( des c16 \tuplet 3/2 {bes16-.[ c-. des-.]} des16 ees8 f16~ \tuplet 3/2 {f16[ g-. aes-.]} \tuplet 3/2 {ees16-.[ c-. aes-.]}

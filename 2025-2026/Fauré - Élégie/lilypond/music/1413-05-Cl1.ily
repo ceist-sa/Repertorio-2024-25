@@ -21,7 +21,7 @@ R1*7
  
 R1*2
 << \tag #'partie << {\set fontSize = #-4 \transpose c c \relative c''
-		{d2^"Hb.I" ~ d8( ees f ges | ces[ bes aes]) \unset fontSize}} 
+		{d2^"Ob.I" ~ d8( ees f ges | ces[ bes aes]) \unset fontSize}} 
 		 \\ {\override MultiMeasureRest.staff-position = #-6 R1 | r4 r8 \override MultiMeasureRest.staff-position = #0 } >>
 	 \tag #'score {R1 | r4 r8} >>		
 		bes\p( bes' a aes g
@@ -50,6 +50,7 @@ a8->-\tag #'partie \ff bes!-> a-> e-> \once \override TextScript.outside-staff-p
 a8-> bes-> a-> ees-> a16->-\tag #'partie \sec r r8 r4
 a8->-\tag #'partie \sempreff fis-> g16-> r r8 g-> e-> f16-> r r8
 e-> r r4 a8-> r r4
+\tag #'partie {\break}
 R1*2
 
 f,4\f( g a \stemUp bes \stemNeutral
