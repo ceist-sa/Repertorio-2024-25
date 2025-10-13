@@ -2,6 +2,8 @@
 \include "../globals.ily"
 
 second_clarinet_notes = \relative c''{
+\set Staff.midiInstrument = #"clarinet"
+\transposition bes
 \clef treble
 \key d \minor
 

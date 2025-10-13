@@ -2,6 +2,7 @@
 \include "../globals.ily"
 
 cello_solo_notes = \relative c{
+\set Staff.midiInstrument = #"cello"
 \clef bass
 \key c \minor
 
@@ -38,12 +39,12 @@ des8( ees des ees,) c'( des c ees,)
 des'( ees des ees,) c'( des c ees,)
 f'(\semprepp g f bes,) g'( aes g bes,)
 a'( aes g bes,) a'( aes g f) \clef tenor
-r16_\markup{\italic \small "espressivo"} ees'8 des ees16 \tuplet 3/2{c16[( des ees)]} ees16( g,8) aes( g16) \tuplet 3/2{f[( c' f)]} \override TupletNumber.transparent = ##t
+r16_\markup{\italic \small "espressivo"} ees'8 des ees16 \tuplet 3/2{c16[( des ees)]} ees16( g,8) aes( g16) \tuplet 3/2{f[( c' f)]} 
 f16\<( bes,8 c16) \tuplet 3/2 {des16[( c des)]} \tuplet 3/2 {d\!\>[( cis d)]} ees8.\!( bes16) des8 c
 r16 a8( c16) \tuplet 3/2 {a16[( bes c]} \tuplet 3/2 {des16[ ees f])} \once \override TextScript.padding = #2.0 f16(_\markup{\italic \small "poco  a  poco  cresc."} d8 f16) \tuplet 3/2{d16[( ees f]} \tuplet 3/2{g16[ aes c,)]}
 c16( a8 bes16) \tuplet 3/2{d16[( ees g]} \tuplet 3/2{aes!16[ c c,)]} c16\<( bes8 b!16) \tuplet 3/2{c16[( b c)]} \tuplet 3/2{e16[( f g\!)]}
-aes16\f( bes) aes( aes,) \clef bass \tuplet 3/2{c16[( d c)]} \tuplet 3/2{aes16[( f c)]} ees16( f) ees( fis,) \tuplet 3/2{c'16[( d c)]} \tuplet 3/2{ees,16[( d c)]} \override TupletNumber.transparent = ##f
-g'4 r \tuplet 6/4{g''32\ff[( aes g) d( ees d)]} \tuplet 6/4{g,[( aes g) d( ees d)]} \tuplet 6/4{g,[( aes g) d'( ees d)]} \tuplet 6/4{g[( aes g) d'( ees d)]} \override TupletNumber.transparent = ##t
+aes16\f( bes) aes( aes,) \clef bass \tuplet 3/2{c16[( d c)]} \tuplet 3/2{aes16[( f c)]} ees16( f) ees( fis,) \tuplet 3/2{c'16[( d c)]} \tuplet 3/2{ees,16[( d c)]} 
+g'4 r \tuplet 6/4{g''32\ff[( aes g) d( ees d)]} \tuplet 6/4{g,[( aes g) d( ees d)]} \tuplet 6/4{g,[( aes g) d'( ees d)]} \tuplet 6/4{g[( aes g) d'( ees d)]} 
 g8 r r4 \tuplet 6/4{g32[( aes g) des( ees des)]} \tuplet 6/4{g,[( aes g) des( ees des)]} \tuplet 6/4{g,[( aes g) des'( ees des)]} \tuplet 6/4{g[( aes g) des'( ees des)]}
 g8 r \tuplet 6/4{aes,,32[->( bes aes bes c d!)]} \tuplet 6/4{e[( f g aes bes c)]} r4 \tuplet 6/4{c,32[->( b c d ees d)]} \tuplet 6/4{f[( ees d c b c)]}
 \tuplet 6/4{g[( aes g aes bes c]} \tuplet 6/4{d[ ees f g aes g)]} \tuplet 6/4{f[( ees d ees d c]} \tuplet 6/4{bes[ aes g aes bes c])} \tuplet 6/4{d[( ees f g a b)]} \clef tenor \tuplet 6/4{c[( d ees f g aes)]} \tuplet 6/4{g[( f ees) d( ees f)]} \tuplet 6/4{fis--[ g-- a-- b-- c-- d--]}

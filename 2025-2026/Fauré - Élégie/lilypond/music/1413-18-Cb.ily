@@ -2,6 +2,7 @@
 \include "../globals.ily"
 
 double_bass_notes = \relative c{
+\set Staff.midiInstrument = #"contrabass"
 \clef bass
 \key c \minor
 

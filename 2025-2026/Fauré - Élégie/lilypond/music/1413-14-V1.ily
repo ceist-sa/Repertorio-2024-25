@@ -2,6 +2,7 @@
 \include "../globals.ily"
 
 first_violin_notes = \relative c''{
+\set Staff.midiInstrument = #"violin"
 \clef treble
 \key c \minor
 \override DynamicLineSpanner.staff-padding = #3.4
@@ -15,9 +16,9 @@ g\pp( g g g) g( g g f) }
 ees2:8\simile ees:
 c8 r8 r4 r2
 R1
-<< \voiceOne {g''2:8\divis g4.:8 f8 | ees2:8 ees: |
+<< {g''2:8\divis g4.:8 f8 | ees2:8 ees: |
 			c: c: | c4:8 b: c2:8}
- \\ \voiceTwo {g2:8\dolcissimo g4.:8 f8 | ees2:8 ees: |
+  {g2:8\dolcissimo g4.:8 f8 | ees2:8 ees: |
 			c: c: | c4:8 b: c2:8} >>
 g'2:8 g4:8 aes:  \crescTextCresc \set crescendoText = \markup {\italic \fontsize #-1 {"poco cresc."}}
 aes2:8\<  \addTenuto { aes8( aes aes ees)\! \crescHairpin
@@ -27,9 +28,9 @@ e8\pp( e f\< fis) g( g e f)
 g( gis\! \crescHairpin a\< ais) b( c d ees)\! } 
 g,,8->\f g-. r4 g8-> g-. r4
 g8-> g-. r4 r2
-<< \voiceOne {g''2( ~ g4. f8) | ees1 |
+<< {g''2( ~ g4. f8) | ees1 |
 				ees4( f g aes) | a( b c ~ c8) r }
-		\\ \voiceTwo {g,2\pp( ~ g4. f8) | ees1 |
+		 {g,2\pp( ~ g4. f8) | ees1 |
 				ees4( f g aes) | a( b c ~ c8) r } >>
 \addTenuto { c,8\pp( c b b) } c2
 R1
@@ -54,12 +55,12 @@ c16 r r8 r4 r2
 c16:64[ des: c: aes:] des:[ ees: des: aes:] ees':[\> f: ees: des:] ees:[ f: ees: des]\!
 c16:64\p[ des: c: aes:] des:[ ees: des: aes:] ees':[ f: ees: des:] ees:[ f: ees: des]
 c16 r r8 r4
-<< \voiceOne {e2(\divis ees) | e( ees)}
-		\\ \voiceTwo {g,2\pp( aes) | g( aes)} >>
+<< {e2(\divis ees) | e( ees)}
+		 {g,2\pp( aes) | g( aes)} >>
 R1*2
 
-<< \voiceOne {d2( ees) ~ | ees ees8:64 g: c: ees: | g1 ~ | g ~ | g2 r}
-\\ \voiceTwo {b,,2( c) ~ | c g8:64\semprepp g: c: ees: | g1 ~ | g ~ | g2 r} >>
+<< {d2( ees) ~ | ees ees8:64 g: c: ees: | g1 ~ | g ~ | g2 r}
+ {b,,2( c) ~ | c g8:64\semprepp g: c: ees: | g1 ~ | g ~ | g2 r} >>
 
 
 

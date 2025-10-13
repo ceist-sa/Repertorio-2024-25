@@ -2,6 +2,7 @@
 \include "../globals.ily"
 
 bassoon_notes = \relative c{
+\set Staff.midiInstrument = #"bassoon"
 \clef bass
 \key c \minor
 

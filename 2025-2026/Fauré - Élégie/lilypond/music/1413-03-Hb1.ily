@@ -2,6 +2,7 @@
 \include "../globals.ily"
 
 first_oboe_notes = \relative c''{
+\set Staff.midiInstrument = #"oboe"
 \clef treble
 \key c \minor
 

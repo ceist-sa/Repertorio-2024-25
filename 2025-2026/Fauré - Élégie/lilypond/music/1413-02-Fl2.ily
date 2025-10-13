@@ -2,6 +2,7 @@
 \include "../globals.ily"
 
 second_flute_notes = \relative c''{
+\set Staff.midiInstrument = #"flute"
 \clef treble
 \key c \minor
 

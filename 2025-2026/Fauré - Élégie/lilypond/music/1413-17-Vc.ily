@@ -2,6 +2,7 @@
 \include "../globals.ily"
 
 cello_notes = \relative c{
+\set Staff.midiInstrument = #"cello"
 \clef bass
 \key c \minor
 
@@ -39,7 +40,7 @@ des8 ees des ees, c' des c ees,
 des' ees des ees, c' des c ees,
 f' g f bes, g' aes g bes,
 a' aes g bes, a' aes g f
-aes,(^\markup {"Arco" \fontsize #-1 "en dehors" } bes aes ees) bes'( c bes a)
+aes,(^\markup {"arco" \fontsize #-1 "en dehors" } bes aes ees) bes'( c bes a)
 g( a bes aes) g( ees) aes4
 des8( ees des ees,) c'( des c ees,)
 d'! des c( ees,) d'\< des c aes\!

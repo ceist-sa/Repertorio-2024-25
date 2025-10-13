@@ -2,6 +2,7 @@
 \include "../globals.ily"
 
 second_violin_notes = \relative c''{
+\set Staff.midiInstrument = #"violin"
 \clef treble
 \key c \minor
 \override DynamicLineSpanner.staff-padding = #3.4
@@ -48,11 +49,11 @@ f'8:64\f\< aes: <f c'>16->\! r16 r8 c8:64\f[\< fis:] <c a'>16->\! r r8-\tag #'pa
 <des des'>4.:64-> <f aes>8:64 <des des'>16->\sec r r8 r4
 <c c'>4:64->\sempreff < c c'>16-> r r8 <c c'>4:64-> <c c'>16-> r r8
 <c c'>-> r r4 <d b' g'>8 r\sourdOn r4
-\override Stem.length = #12 c2:64\f c:
+ c2:64\f c:
 g4:64 aes: bes: c: \set subdivideBeams = ##f
 c16:64[ d!: c: bes:] \repeat unfold 3 {c:[ d: c: bes:]}  \set subdivideBeams = ##t
 c16 r r8 aes4:64 c2:64\>
-aes:\!\p c:\override Stem.length = #7
+aes:\!\p c:
 g16 r r8 r4
 g32\pp( e' \repeat unfold 6 {g, e'} g, e') aes,( ees' \repeat unfold 6 {aes, ees'} aes, ees')
 g,32( e' \repeat unfold 6 {g, e'} g, e') aes,( ees' \repeat unfold 6 {aes, ees'} aes, ees')

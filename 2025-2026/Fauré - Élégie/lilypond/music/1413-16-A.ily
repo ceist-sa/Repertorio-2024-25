@@ -2,6 +2,7 @@
 \include "../globals.ily"
 
 viola_notes = \relative c'{
+\set Staff.midiInstrument = #"viola"
 \clef alto
 \key c \minor
 \override DynamicLineSpanner.staff-padding = #2.4
@@ -14,7 +15,7 @@ viola_notes = \relative c'{
 g\pp( g g g) g( g g g) }
 g4:8\simile aes: bes: c:
 ees,: f: g: aes:
-aes: f: << {g8--(\divis aes-- g-- ees--)} \\ {ees--( f-- ees-- ees--)} >>
+aes: f: << {g8--(\divis aes-- g-- ees--)} {ees--( f-- ees-- ees--)} >>
 R1*3
 
 
@@ -49,11 +50,11 @@ g8:64-> aes:-> g:-> des:-> g16->\sec r r8 r4
 g8:64->\sempreff e:-> f16-> r r8 f8:64-> d:-> ees16-> r r8
 <g, d'>8-> r r4 <g f'>8 r\sourdOn r4
 g16:64\f[ aes: g: f:] \repeat unfold 3 {g:[ aes: g: f:]}
-\repeat unfold 4 {ees:[ f: ees: d:]}		\override Stem.length = #10
+\repeat unfold 4 {ees:[ f: ees: d:]}		
 ees4:64 f: g: aes:
 aes: f: aes2:64\>
 aes16\! r r8 f4:64 aes2:64
-<< {c16:64\divis[ des: c: g:] bes:[ c: bes: f:]} \\ {\override Stem.length = #10 g4:64\pp f:} >>		\override Stem.length = #6
+<< {c16:64\divis[ des: c: g:] bes:[ c: bes: f:]} \\ { g4:64\pp f:} >>		
 << g16 \\ e >> r16 c'8_\markup {\dynamic mf\italic "un poco marcato"}( bes des) r des( c bes)
 r c( bes des) r des( c bes)
 r c( bes des) r des( c aes)

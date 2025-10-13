@@ -26,7 +26,32 @@
     }
 }
 
+breaks = {
+	s1*9
+	% A
+	\break
+	s1*8
+	% B
+	s1*5
+	% C
+	\break
+	s1*3
+	% D
+	s1*4
+	% E
+	s1*4
+	% F
+	s1*5
+	%G
+	\break
+	s1*5
+	s2
+	% H
+	s1*9
+}
+
 \paper {
+	page-count = #13
 }
 
 \book {
@@ -35,8 +60,8 @@
     }
     \pageBreak
     \score {
-        <<
-            \new Staff  \with { \RemoveAllEmptyStaves }
+    	<<
+            \new Staff \with { \RemoveAllEmptyStaves } \breaks 
             \new StaffGroup <<
                 \new Staff \with {										% Flute I
 					instrumentName = \first_flute_name_long
@@ -45,58 +70,54 @@
 				\new Staff \with {										% Flute II
 					instrumentName = \second_flute_name_long
 					shortInstrumentName = \second_flute_name_short
-				} \keepWithTag #'score {\second_flute_notes}
+				} << \marks \keepWithTag #'score {\second_flute_notes} >>
                 \new Staff \with {										% Oboe I
 					instrumentName = \first_oboe_name_long
 					shortInstrumentName = \first_oboe_name_short
-				} \keepWithTag #'score {\first_oboe_notes}
+				} << \marks \keepWithTag #'score {\first_oboe_notes} >>
                 \new Staff \with {										% Oboe II
 					instrumentName = \second_oboe_name_long
 					shortInstrumentName = \second_oboe_name_short
-				} \keepWithTag #'score {\second_oboe_notes}
+				} << \marks \keepWithTag #'score {\second_oboe_notes} >>
                 \new Staff \with {										% Clarinet I
 					instrumentName = \first_clarinet_name_long
 					shortInstrumentName = \first_clarinet_name_short
-				} \keepWithTag #'score {\first_clarinet_notes}
+				} << \marks \keepWithTag #'score {\first_clarinet_notes} >>
                 \new Staff \with {										% Clarinet II
 					instrumentName = \second_clarinet_name_long
 					shortInstrumentName = \second_clarinet_name_short
-				} \keepWithTag #'score {\second_clarinet_notes}
+				} << \marks \keepWithTag #'score {\second_clarinet_notes} >>
                 \new Staff \with {										% Bassoon
 					instrumentName = \bassoon_name_long
 					shortInstrumentName = \bassoon_name_short
-				} \keepWithTag #'score {\bassoon_notes}
+				} << \marks \keepWithTag #'score {\bassoon_notes} >>
             >>
+			
+			\new Staff \with {										% Cello solo
+					instrumentName = \cello_solo_name_long
+					shortInstrumentName = \cello_solo_name_short
+				} << \marks \keepWithTag #'score {\cello_solo_notes} >>
 
             \new StaffGroup <<
                 \new GrandStaff <<
                     \new Staff \with {									% Violin I
 						instrumentName = \first_violin_name_long
 						shortInstrumentName = \first_violin_name_short
-					} \keepWithTag #'score {\first_violin_notes}
+					} << \marks \keepWithTag #'score {\first_violin_notes} >>
                     \new Staff \with {									% Violin II
 						instrumentName = \second_violin_name_long
 						shortInstrumentName = \second_violin_name_short
-					} \keepWithTag #'score {\second_violin_notes}
+					} << \marks \keepWithTag #'score {\second_violin_notes} >>
                 >>
                 \new Staff \with {										% Viola
 					instrumentName = \viola_name_long
 					shortInstrumentName = \viola_name_short
-				} \keepWithTag #'score {\viola_notes}
-                \new Staff \with {										% Cello
-					instrumentName = \cello_solo_name_long
-					shortInstrumentName = \cello_solo_name_short
-				} \keepWithTag #'score {\cello_solo_notes}
+				} << \marks \keepWithTag #'score {\viola_notes} >>
                 \new Staff \with {										% Cello
 					instrumentName = \cello_name_long
 					shortInstrumentName = \cello_name_short
-				} \keepWithTag #'score {\cello_notes}
-                \new Staff \with {										% Double Bass
-					instrumentName = \double_bass_name_long
-					shortInstrumentName = \double_bass_name_short
-				} \keepWithTag #'score {\double_bass_notes}
+				} << \marks \keepWithTag #'score {\cello_notes} >>
             >>
         >>
-        \layout {}
     }
 }
