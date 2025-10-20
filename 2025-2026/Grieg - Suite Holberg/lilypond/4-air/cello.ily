@@ -116,7 +116,7 @@ notesII = \relative {
     s2 re,4 \tutti ~ |
     8 mib fa mib s4 |
     s2 re8 fa |
-    mib8 fa s2 |
+    mib8 sol s2 |
     s2. |
     mib2.-> |
     mib2 ~ 8 mib |
@@ -130,10 +130,10 @@ notesII = \relative {
     % R
     do2. \p \tutti |
     sib2. |
-    fa2. |
+    fa'2. |
     mib2. |
     s2. * 2 |
-    s2 si''4 |
+    s2 si'4 |
     do4. sib16 do re4 |
     sol16 (sol,) fa-- (mib--) re-- (do--) sib-- (la--) sol4 |
 }

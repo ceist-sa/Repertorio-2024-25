@@ -57,7 +57,7 @@ notes = \relative re' {
     sol4 r4 r2 |
     r4 fa r mib |
     r4 re r2 |
-    do'2 (la) |
+    do'2\arco (la) |
     sib2 (sol) |
     fa2 (mib) |
     re2 sol->( |
