@@ -14,7 +14,6 @@
 \bookpart {
     \header {
         instrument = \cello_name_long
-        %filename = "Grieg - Suite Holberg - CELLO" % we decided to use the original scores
     }
     \cello_praelude
     \pageBreak
