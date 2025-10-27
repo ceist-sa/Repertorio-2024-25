@@ -11,7 +11,7 @@
     }
     \markup{
         \vspace #1
-        \justify{Esta partitura contém a parte de viola, mas as notas estão escritas em clave de dó na segunda linha, ou seja, igual a clave de sol, mas uma quinta mais baixo. A partitura não está transposta. Contém apenas a segunda linha das violas.} 
+        \justify{Esta partitura contém a parte de viola, mas as notas estão escritas em clave de dó na segunda linha, ou seja, igual a clave de sol, mas uma quinta mais baixo. A partitura não está transposta.} 
     }
     \score {
         \layout {

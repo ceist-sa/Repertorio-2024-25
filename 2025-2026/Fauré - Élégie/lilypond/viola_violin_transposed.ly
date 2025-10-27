@@ -7,17 +7,13 @@
 \include "music/1413-16-A.ily"
 
 \bookpart {
-    \paper {
-        indent = 0.2\cm
-        short-indent = 0.2\cm
-    }
     \header {
         instrument = "Viola (para violinista)"
         filename = "Fauré - Élégie - VIOLA (VIOLIN - TRANSPOSED)"
     }
     \markup{
         \vspace #1
-        \justify{Esta partitura contém a parte de viola, mas as notas transpostas para coincidir com o correspondente no violino, ou seja, tudo está escrito uma quinta acima do que verdadeiramente soa. Contém apenas a segunda linha das violas.} 
+        \justify{Esta partitura contém a parte de viola, mas as notas transpostas para coincidir com o correspondente no violino, ou seja, tudo está escrito uma quinta acima do que verdadeiramente soa.} 
     }
     \score {
 		\new Staff {

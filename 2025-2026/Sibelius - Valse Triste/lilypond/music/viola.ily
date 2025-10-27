@@ -5,7 +5,7 @@
 
 viola = \relative do'{
     \set Staff.midiInstrument = #"viola"
-    \override NoteHead.color = #viola-range
+    % \override NoteHead.color = #viola-range
     \clef alto
     R2. * 2_\consord |
     r4 <<si fas\pizz\p>> r |
