@@ -46,47 +46,6 @@ notes_tutti = \relative do' {
   si8 do re2-> mi4 |
   do4 re do2->\fermata\< |
   si4-.\!\ffz sol-. sol-. |
-  % Poco meno mosso
-  \break % maybe this shouldn't be here, but I think it's ok
-  r4 |
-  sol'1\p ~ |
-  2. sol4 |
-  fa2 mib |
-  re2. r4 |
-  do2->\mf (la) |
-  sib2->\> (sol) |
-  fa2 (mib) |
-  re2\pp r4 |
-  % repeat bar
-  r4 |
-  sib''1\p ~ |
-  2. sib4 |
-  la2 sol |
-  fa4 (mib) re\f (sib') |
-  sib2-> sib-> |
-  sib2.-> sib4 |
-  sib4 do8 sib \grace{la16 (sib} la2->) |
-  sib2 r2 |
-  % V
-  re,1\p ~|
-  2. sol4 |
-  fa2 mib |
-  re2. r4 |
-  mib4 mib (do) do( |
-  re) re (sib) sib( |
-  la) la (sol) sol( |
-  la2) sib4-> sib( |
-  la2) re4->\cresc re( |
-  mib4->) mib (mi->) mi( |
-  fas2->) sol->\ff |
-  sol2-> sol-> |
-  sol2.-> sol4 |
-  sol4 la8 sol \grace{fas16 (sol} fas2)-> |
-  sol2 sol,->\p^\markup{\italic "più tranquillo"} |
-  sol2-> sol-> |
-  sol2.-> sol4 |
-  sol4 la8 sol \grace{fas16 (sol} fas2)-> |
-  sol2\fermata\pp r4 |
 }
 
 notes_solo = \relative do'' {
@@ -139,9 +98,53 @@ notes_solo = \relative do'' {
   si4-.\!\ffz sol-. sol-. |
 }
 
+notes_poco_meno_mosso = \relative do' {
+  % Poco meno mosso
+  \break % maybe this shouldn't be here, but I think it's ok
+  r4 |
+  sol'1\p ~ |
+  2. sol4 |
+  fa2 mib |
+  re2. r4 |
+  do2->\mf (la) |
+  sib2->\> (sol) |
+  fa2 (mib) |
+  re2\pp r4 |
+  % repeat bar
+  r4 |
+  sib''1\p ~ |
+  2. sib4 |
+  la2 sol |
+  fa4 (mib) re\f (sib') |
+  sib2-> sib-> |
+  sib2.-> sib4 |
+  sib4 do8 sib \grace{la16 (sib} la2->) |
+  sib2 r2 |
+  % V
+  re,1\p ~|
+  2. sol4 |
+  fa2 mib |
+  re2. r4 |
+  mib4 mib (do) do( |
+  re) re (sib) sib( |
+  la) la (sol) sol( |
+  la2) sib4-> sib( |
+  la2) re4->\cresc re( |
+  mib4->) mib (mi->) mi( |
+  fas2->) sol->\ff |
+  sol2-> sol-> |
+  sol2.-> sol4 |
+  sol4 la8 sol \grace{fas16 (sol} fas2)-> |
+  sol2 sol,->\p^\markup{\italic "più tranquillo"} |
+  sol2-> sol-> |
+  sol2.-> sol4 |
+  sol4 la8 sol \grace{fas16 (sol} fas2)-> |
+  sol2\fermata\pp r4 |
+}
 
-viola_solo = << \notes_solo \marks >>
-viola_tutti = << \notes_tutti \marks >>
+
+viola_solo = << { \notes_solo \notes_poco_meno_mosso } \marks >>
+viola_tutti = << { \notes_tutti \notes_poco_meno_mosso } \marks >>
 
 viola_solo_conductor = {
   \new Staff \with {
