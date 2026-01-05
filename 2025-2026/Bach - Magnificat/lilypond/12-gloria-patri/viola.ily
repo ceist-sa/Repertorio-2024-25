@@ -125,11 +125,13 @@ notes = \relative {
 
 viola = \notes
 
-viola_gloria_patri = \score {
-  \header { piece = "12. Gloria Patri" }
-  \new Staff {
-      % \viola %vanilla
-    % \transpose fa do' <<\viola \clef treble>> %violin
-    \transpose sib do' <<\viola \clef treble>> %clarinet
-  }
-}
+viola_gloria_patri = \notes
+
+% \score {
+%   \header { piece = "12. Gloria Patri" }
+%   \new Staff {
+%       % \viola %vanilla
+%     % \transpose fa do' <<\viola \clef treble>> %violin
+%     \transpose sib do' <<\viola \clef treble>> %clarinet
+%   }
+% }

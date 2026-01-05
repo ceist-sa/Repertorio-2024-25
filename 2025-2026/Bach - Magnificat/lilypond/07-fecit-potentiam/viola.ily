@@ -67,24 +67,24 @@ notes = \relative {
     r8 si' mi dos fas r8 r8 re' |
     si sol r4 r16 la,16 dos mi la mi dos mi | 
     \break
-    la16 mi dos mi la mi la dos sols8 sols r4 |
-    r4^\markup{ "adagio"}  fas2 fas4 |
-    si2 sols4 si,8( dos) |
-    re4( mi8 fas) dos4 las' |
-    fas4 fas2 sol4 |
-    dos,2 si8( dos re si) |
-    mi4  la8 si dos2 | 
+    la16 mi dos mi la mi la dos sols8 sols r4 |\noBreak
+    r4^\markup{ "adagio"}  fas2 fas4 |\noBreak
+    si2 sols4 si,8( dos) |\noBreak
+    re4( mi8 fas) dos4 las' |\noBreak
+    fas4 fas2 sol4 |\noBreak
+    dos,2 si8( dos re si) |\noBreak
+    mi4  la8 si dos2 | \noBreak
     la1 \fermata \stopSinging | 
   \fine
 }
 
-viola = \notes
+viola_fecit_potentiam = \notes
 
-viola_fecit_potentiam = \score {
-  \header { piece = "7. Fecit Potentiam" }
-  \new Staff {
-      \viola %vanilla
-    %\transpose fa do' <<\viola \clef treble>> %violin
-    % \transpose sib do' <<\viola \clef treble>> %clarinet
-  }
-}
+% \score {
+%   \header { piece = "7. Fecit Potentiam" }
+%   \new Staff {
+%       \viola %vanilla
+%     %\transpose fa do' <<\viola \clef treble>> %violin
+%     % \transpose sib do' <<\viola \clef treble>> %clarinet
+%   }
+% }

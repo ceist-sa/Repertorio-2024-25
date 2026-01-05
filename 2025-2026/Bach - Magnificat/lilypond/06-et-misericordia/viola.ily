@@ -66,13 +66,13 @@ notes = \relative {
     \fine   
 }
 
-viola = \notes
+viola_et_misericordia = \notes
 
-viola_et_misericordia = \score {
-    \header { piece = "6. Et misericordia" }
-    \new Staff {
-        \viola %vanilla
-        % \transpose fa do' <<\viola \clef treble>> %violin
-        % \transpose sib do' <<\viola \clef treble>> %clarinet
-    }
-}
+% \score {
+%     \header { piece = "6. Et misericordia" }
+%     \new Staff {
+%         \viola %vanilla
+%         % \transpose fa do' <<\viola \clef treble>> %violin
+%         % \transpose sib do' <<\viola \clef treble>> %clarinet
+%     }
+% }

@@ -44,7 +44,7 @@ notes = \relative {
     fas16 sol fas mi re mi fas sol la8 la |
     \break
     la8 fas re re la' sol |
-    fas4 \startSinging r4 r |
+    fas4 \startSinging \footnote #'(-0.1 . 0.5) "⎡⎤ = Início e fim das partes cantadas" r4 r |
     R2. |
     << 
         { R2. } \\
@@ -147,13 +147,13 @@ notes = \relative {
     \fine
 }
 
-viola = \notes
+viola_magnificat = \notes
 
-viola_magnificat = \score {
-    \header { piece = "1. Magnificat" }
-    \new Staff {
-        \viola %vanilla
-        %\transpose fa do' <<\viola \clef treble>> %violin
-        %\transpose sib do' <<\viola \clef treble>> %clarinet
-    }
-}
+% \score {
+%     \header { piece = "1. Magnificat" }
+%     \new Staff {
+%         \viola %vanilla
+%         %\transpose fa do' <<\viola \clef treble>> %violin
+%         %\transpose sib do' <<\viola \clef treble>> %clarinet
+%     }
+% }

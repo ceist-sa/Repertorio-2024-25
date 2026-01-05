@@ -51,14 +51,14 @@ notes = \relative {
   si\endTen fas r si fas' dos r fas |
   dos fas r4 <<
     {
-    dos8\startTen 8 8 8 | \break
-    dos8 si16 la sols8 fas mis\endTen
+      dos8\startTen 8 8 8 | \break
+      dos8 si16 la sols8 fas mis\endTen
     }
     \addlyrics{
-    o -- mnes, o -- mnes ge -- ne _ -- ra -- ti -- o
+      o -- mnes, o -- mnes ge -- ne _ -- ra -- ti -- o
     }
-    >>
-    dos' r dos |
+  >>
+  dos' r dos |
   dos la' r fas mi sols r si, |
   dos fas r4 <<
     {
@@ -99,13 +99,13 @@ notes = \relative {
       \fine
     }
 
-    viola = \notes
+    viola_omnes_generationes = \notes
 
-    viola_omnes_generationes = \score {
-      \header { piece = "4. Omnes generationes" }
-      \new Staff {
-        % \viola %vanilla
-        \transpose fa do' <<\viola \clef treble>> %violin
-        % \transpose sib do' <<\viola \clef treble>> %clarinet
-      }
-    }
+    % \score {
+    %   \header { piece = "4. Omnes generationes" }
+    %   \new Staff {
+    %     % \viola %vanilla
+    %     \transpose fa do' <<\viola \clef treble>> %violin
+    %     % \transpose sib do' <<\viola \clef treble>> %clarinet
+    %   }
+    % }

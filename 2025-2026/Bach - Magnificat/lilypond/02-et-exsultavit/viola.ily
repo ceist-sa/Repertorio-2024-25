@@ -23,7 +23,7 @@ notes = \relative {
     la16 re re la la fas |
     \startSinging fas8 r r |
     R4. |
-    \break
+    \pageBreak
     <<
         \new CueVoice {
             \stemUp
@@ -133,13 +133,13 @@ notes = \relative {
     \fine
 }
 
-viola = \notes
+viola_et_exsultavit = \notes
 
-viola_et_exsultavit = \score {
-    \header { piece = "2. Et exsultavit spiritus meus" }
-    \new Staff {
-        %\viola %vanilla
-        % \transpose fa do' <<\viola \clef treble>> %violin
-        \transpose sib do' <<\viola \clef treble>> %clarinet
-    }
-}
+% \score {
+%     \header { piece = "2. Et exsultavit spiritus meus" }
+%     \new Staff {
+%         %\viola %vanilla
+%         % \transpose fa do' <<\viola \clef treble>> %violin
+%         \transpose sib do' <<\viola \clef treble>> %clarinet
+%     }
+% }
