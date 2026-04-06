@@ -22,8 +22,8 @@ PartPOneVoiceOne =  \relative mib {
     \clef "bass" \time 2/2 \key mib \major | % 1
     mib2 -\sf r4 \fermata r8. do'16 | % 2
     do2 r4 \fermata r8. sol,16 | % 3
-    sol'2 r4 \fermata r4 | % 4
-    lab,4.. ( -\p do16 ) mib4.. ( do16 ) | % 5
+    sol2 r4 \fermata r4 | % 4
+    lab4.. ( -\p do16 ) mib4.. ( do16 ) | % 5
     lab1\sfp \break | % 6
     sib4.. ( -\p reb16 ) sol4.. ( reb16 ) | % 7
     sib1\sfp | % 8
@@ -66,16 +66,16 @@ PartPOneVoiceOne =  \relative mib {
     fa16 ) | % 35
     re8 -. -\p re8 -. sol8 -. sol8 -. do,8 -. do8 -. fa8 -. -\f fa8 -. | % 36
     re8 -. -\p re8 -. sol8 -. sol8 -. do,8 -. do8 -. fa8 -. -\f fa8 -. | % 37
-    sib1 ~
+    sib,1 ~
     \break | % 38
     sib1 | % 39
-    sol2 r2  | % 40
-    sib1 | \barNumberCheck #41
+    sol'2 r2  | % 40
+    sib,1 | \barNumberCheck #41
     mib1 \break | % 42
     sib1 | % 43
     sol4 mib'2 sib4 | % 44
-    do,4 r4 r2 \break | % 45
-    lab4 r4 sib'4 mib | % 46
+    do4 r4 r2 \break | % 45
+    lab4 r4 sib4 mib | % 46
     mib,2 sib' | % 47
     sib4 mib2 sib4 | % 48
     R1 | % 49
@@ -84,7 +84,7 @@ PartPOneVoiceOne =  \relative mib {
     fa1 ~ | % 52
     4 sib,4 sol' sol | % 53
     fa4 r4 r2 \break | % 54
-    fa,1 | % 55
+    fa1 | % 55
     fa4 r4 r2 | % 56
     fa1 | % 57
     fa4 r4 r2 R1*6 \pageBreak | % 64
@@ -98,9 +98,9 @@ PartPOneVoiceOne =  \relative mib {
     sib16 ) | % 69
     la8 -! r8 do2 ( -\sf sib8 ) r8 | \barNumberCheck #70
     sol8 -! r8 sib2 ( -\sf la8 ) r8 | % 71
-    fa8 -! r8 lab2 ( -\sf sol8 ) r8 \break | % 72
+    fa8 -! r8 sib,2 mib,4 \break | % 72
     mib4 r4 sib'4 r4 | % 73
-    mib,4 r4 fa4 r4 | % 74
+    mib4 r4 fa4 r4 | % 74
     sib8 -. -\p sib8 -. sib8 -. sib8 -. sib8 -. sib8 -. do16 ( sib16 la16
     sib16 ) | % 75
     do1 \break | % 76
@@ -166,6 +166,7 @@ PartPOneVoiceOne =  \relative mib {
     mib8 -. mib8 -. mib8 -. mib8 -. mib8 -. mib8 -. fa16 ( mib16 re16
     mib16 ) 
     
+%{
     % I DON'T WANT TO MAKE ANOTHER FILE JUST FOR SNIPPETS, I'LL JUST USE THIS ONE
     %Nº3 
     %BASSOON I
@@ -224,7 +225,8 @@ PartPOneVoiceOne =  \relative mib {
     R2. |
     R2. |
     R2. |
- 
+ %}
+
     }
 
 \paper {
@@ -266,10 +268,10 @@ PartPOneVoiceOne =  \relative mib {
         
         >>
     \layout {
-        \context {
-            \Score
-            \omit BarNumber
-        }
+        % \context {
+        %     \Score
+        %     \omit BarNumber
+        % }
     }
     % To create MIDI output, uncomment the following line:
     %  \midi {\tempo 4 = 120 }
