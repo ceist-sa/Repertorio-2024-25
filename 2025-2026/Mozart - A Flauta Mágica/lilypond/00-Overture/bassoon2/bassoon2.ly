@@ -164,7 +164,68 @@ PartPOneVoiceOne =  \relative mib {
     \barNumberCheck #120
     re'4 sib2 sol4 | % 121
     mib8 -. mib8 -. mib8 -. mib8 -. mib8 -. mib8 -. fa16 ( mib16 re16
-    mib16 ) }
+    mib16 ) 
+    
+    % I DON'T WANT TO MAKE ANOTHER FILE JUST FOR SNIPPETS, I'LL JUST USE THIS ONE
+    %Nº3 
+    %BASSOON I
+    \pageBreak
+    \time 2/4
+    R2 |
+    \break
+    mib2 ~ |
+    2 |
+    lab4\fp ~8 r8 |
+    R2 * 2 |
+    mib'4\p (sib) |
+    mib,8 r8 r4 |
+    R2 * 5 |
+    r8 fa'8 [sol] r8 | 
+
+    \break 
+
+    %BASSOON II
+    mib,2 ~ |
+    2 |
+    fa4\fp ~8 r8 |
+    R2 * 2 |
+    mib4\p (sib) |
+    mib8 r8 r4 |
+    R2 * 5 |
+    r8 sib'8 [mib] r8 | 
+
+    \pageBreak
+
+    %Nº7 
+    %BASSOON I
+    \time 6/8
+    R2. |
+    r4 r8 fa4.( |
+    sol8) r8 r8 r4 r8 |
+    R2. * 13 |
+    r4 r8 fa4.( |
+    sol8) r8 r8 r4 r8 |
+    R2. * 12 |
+    R2. |
+    R2. |
+    R2. |
+    R2. |
+  
+
+    %BASSOON II
+    R2. |
+    r4 r8 sib,4.( |
+    mib8) r8 r8 r4 r8 |
+    R2. * 13 |
+    r4 r8 sib4.( |
+    mib8) r8 r8 r4 r8 |
+    R2. * 12 |
+    R2. |
+    R2. |
+    R2. |
+    R2. |
+ 
+    }
 
 \paper {
     % top-margin = 2\cm
@@ -178,8 +239,6 @@ PartPOneVoiceOne =  \relative mib {
     evenFooterMarkup = \oddFooterMarkup
     indent = 1\cm
     short-indent = 0\cm
-    ragged-bottom = ##f
-    ragged-last-bottom = ##f
 }
 
 % The score definition
@@ -206,7 +265,12 @@ PartPOneVoiceOne =  \relative mib {
             >>
         
         >>
-    \layout {}
+    \layout {
+        \context {
+            \Score
+            \omit BarNumber
+        }
+    }
     % To create MIDI output, uncomment the following line:
     %  \midi {\tempo 4 = 120 }
     }
