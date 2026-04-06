@@ -54,5 +54,5 @@ twoStaves = {
 
 \header {
     title = "A Flauta Mágica"
-    composer = "Wolfgang Amadeus Mozart (1756 – 1791)"
+    composer = "Wolfgang Amadeus Mozart"
 }
