@@ -1,6 +1,9 @@
 pdftk originais/violinI.pdf cat 1-33 36-53 64-72 output "partes/VIOLIN I - Mozart - A Flauta Mágica.pdf"
 
-pdftk originais/violinII.pdf cat 1-53 64-70 output "partes/VIOLIN II - Mozart - A Flauta Mágica.pdf"
+pdftk \
+A=originais/violinII.pdf \
+B=snippets/"VIOLIN II"/replace_page_43.pdf \
+cat A1-42 B A44-53 A64-70 output "partes/VIOLIN II - Mozart - A Flauta Mágica.pdf"
 
 pdftk originais/viola.pdf cat 1-29 32-47 56-62 output "partes/VIOLA - Mozart - A Flauta Mágica.pdf"
 
@@ -29,3 +32,9 @@ G=snippets/"BASSOON II"/replace_page_21.pdf \
 H=snippets/"BASSOON II"/replace_page_22.pdf \
 cat B C A3-7 D A9-13 E A15-16 F A18-20 G H A23-end \
 output "partes/BASSOON II - Mozart - A Flauta Mágica.pdf"
+
+pdftk \
+A=originais/cellos_basses.pdf \
+B=snippets/CELLO/replace_page_4.pdf \
+cat A1-3 B A5-47 A60-66 \
+output "partes/CELLO - Mozart - A Flauta Mágica.pdf"
