@@ -75,7 +75,7 @@ PartPOneVoiceOne =  \relative mib {
     sib1 | % 43
     sol4 mib'2 sib4 | % 44
     do4 r4 r2 \break | % 45
-    lab4 r4 sib4 mib | % 46
+    lab4 r4 sib'4 mib | % 46
     mib,2 sib' | % 47
     sib4 mib2 sib4 | % 48
     R1 | % 49
@@ -83,7 +83,7 @@ PartPOneVoiceOne =  \relative mib {
     fa'2 -\sf fa-\sf | % 51
     fa1 ~ | % 52
     4 sib,4 sol' sol | % 53
-    fa4 r4 r2 \break | % 54
+    fa,4 r4 r2 \break | % 54
     fa1 | % 55
     fa4 r4 r2 | % 56
     fa1 | % 57
@@ -97,10 +97,10 @@ PartPOneVoiceOne =  \relative mib {
     sib8 -. -\f sib8 -. sib8 -. sib8 -. sib8 -. sib8 -. do16 ( sib16 la16
     sib16 ) | % 69
     la8 -! r8 do2 ( -\sf sib8 ) r8 | \barNumberCheck #70
-    sol8 -! r8 sib2 ( -\sf la8 ) r8 | % 71
+    sol8 -! r8 sib'2 ( -\sf la8 ) r8 | % 71
     fa8 -! r8 sib,2 mib,4 \break | % 72
     mib4 r4 sib'4 r4 | % 73
-    mib4 r4 fa4 r4 | % 74
+    mib4 r4 la,4 r4 | % 74
     sib8 -. -\p sib8 -. sib8 -. sib8 -. sib8 -. sib8 -. do16 ( sib16 la16
     sib16 ) | % 75
     do1 \break | % 76

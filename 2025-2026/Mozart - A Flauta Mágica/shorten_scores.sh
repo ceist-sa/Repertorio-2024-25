@@ -28,24 +28,24 @@ output "partes/FLUTE II - PICCOLO - Mozart - A Flauta Mágica.pdf"
 
 pdftk \
 A=originais-flattened/bassoon1.pdf \
-B=snippets/"BASSOON I"/cover.pdf \
+B=snippets/"BASSOON I"/cover-pdfjam.pdf \
 C=snippets/"BASSOON I"/replace_page_8.pdf \
 D=snippets/"BASSOON I"/replace_page_15.pdf \
 E=snippets/"BASSOON I"/replace_page_18.pdf \
-F=snippets/"BASSOON I"/replace_page_20.pdf \
-cat B A1-7 C A9-14 D A16-17 E A19 F A21-end \
+F=snippets/"BASSOON I"/replace_page_22.pdf \
+cat B A1-7 C A9-14 D A16-17 E A19-21 F A23-32 A39-43 \
 output "partes/BASSOON I - Mozart - A Flauta Mágica.pdf"
 		
 pdftk \
 A=originais-flattened/bassoon2.pdf \
-B=snippets/"BASSOON II"/cover.pdf \
+B=snippets/"BASSOON II"/cover-pdfjam.pdf \
 C=snippets/"BASSOON II"/replace_pages_1-2.pdf \
 D=snippets/"BASSOON II"/replace_page_8.pdf \
 E=snippets/"BASSOON II"/replace_page_14.pdf \
 F=snippets/"BASSOON II"/replace_page_17.pdf \
 G=snippets/"BASSOON II"/replace_page_21.pdf \
 H=snippets/"BASSOON II"/replace_page_22.pdf \
-cat B C A3-7 D A9-13 E A15-16 F A18-20 G H A23-end \
+cat B C A3-7 D A9-13 E A15-16 F A18-20 G H A23-28 A36-39 \
 output "partes/BASSOON II - Mozart - A Flauta Mágica.pdf"
 
 pdftk \
@@ -62,3 +62,7 @@ pdfjam --paper a4paper --scale 1.1 --outfile "partes/VIOLA - Mozart - A Flauta M
 pdfjam --paper a4paper --scale 1.1 --outfile "partes/CELLO - Mozart - A Flauta Mágica.pdf" -- "partes/CELLO - Mozart - A Flauta Mágica.pdf"
 pdfjam --paper a4paper --scale 1.1 --outfile "partes/FLUTE I - Mozart - A Flauta Mágica.pdf" -- "partes/FLUTE I - Mozart - A Flauta Mágica.pdf"
 pdfjam --paper a4paper --scale 1.1 --outfile "partes/FLUTE II - PICCOLO - Mozart - A Flauta Mágica.pdf" -- "partes/FLUTE II - PICCOLO - Mozart - A Flauta Mágica.pdf"
+
+# for some reason, these two, and only these two, do not work
+pdfjam --paper a4paper --scale 1.1 --outfile "partes/BASSOON I - Mozart - A Flauta Mágica.pdf" -- "partes/BASSOON I - Mozart - A Flauta Mágica.pdf"
+pdfjam --paper a4paper --scale 1.1 --outfile "partes/BASSOON II - Mozart - A Flauta Mágica.pdf" -- "partes/BASSOON II - Mozart - A Flauta Mágica.pdf"
