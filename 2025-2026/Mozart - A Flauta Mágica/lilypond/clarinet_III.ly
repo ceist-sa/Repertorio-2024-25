@@ -1,5 +1,5 @@
 \version "2.24.4"
-% \include "../../../styles/style_part.ily"
+\include "../../../styles/style_part.ily"
 \include "../../../styles/ranges.ily"
 \include "globals.ily"
 \include "instrument_names.ily"
