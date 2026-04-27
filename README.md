@@ -14,8 +14,10 @@ Cada peça tem uma pasta dedicada, contendo:
 
 ## 📋 Convenções de Nomenclatura
 
-- **Ficheiros de Partitura:** Separar com hífen (`Compositor - Obra - Instrumento`)
+- **Ficheiros de Partitura:** Separar com hífen; Instrumento em maiúsculas (`INSTRUMENTO - Compositor - Obra`)
 - **Pastas:** Nome do compositor seguido da obra (`Bach - Cantata nº 12`)
+- **Língua:** Variáveis e nomes de ficheiros, por defeito são em inglês (violin em vez de violino), mas tudo o que aparecer nos PDFs em si deverá ser em português.
+- **Numeração:** Deve-se usar numeração romana para numerar partes do mesmo instrumento: violino I e violino II em vez de violino 1 e violino 2. 
 
 ## 📝 Formato dos Ficheiros LilyPond
 

@@ -334,7 +334,7 @@ clarinetIII_XIV_aria = \score {
 
 \bookpart {
     \header {
-        filename = "Mozart - Flauta Mágica - Clarinet III"
+        filename = "CLARINET III - Mozart - A Flauta Mágica"
         instrument = \clarinet_III_name_long
     }
     \clarinetIII_overture

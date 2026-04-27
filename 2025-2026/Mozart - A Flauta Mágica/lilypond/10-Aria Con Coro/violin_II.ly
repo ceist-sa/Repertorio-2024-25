@@ -74,7 +74,6 @@ violin_II_ten_aria_con_coro = \score {
 }
 \bookpart {
     \header {
-        filename = "Mozart - Flauta Mágica - Violin II"
         instrument = \second_violin_name_long
     }
     \violin_II_ten_aria_con_coro
