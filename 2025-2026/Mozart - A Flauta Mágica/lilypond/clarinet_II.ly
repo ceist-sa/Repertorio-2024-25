@@ -226,12 +226,38 @@ clarinetII_introduction = \score {
             \compressEmptyMeasures
             \clef "treble" \key sol \major
             \time 4/4
-            \voiceOne
-            R1
+            la,1 ~ | % 14
+            la1 ~ | % 15
+            la1 -\fp | % 16
+            la4 la2 la4 | % 17
+            la1 ~ | % 18
+            la1 -\fp | % 19
+            la4 la2 la4 | \barNumberCheck #20
+            la1 ~ | % 21
+            la2 ~ la4 r4 | % 22
+            R1*2 | % 24
+            r4 sol'2 -\f la,4 ~ | % 25
+            la4 la8. la16 la8 la8 la8 r8 | % 26
+            sol'2 la2 | % 27
+            R1 | % 28
+            la,4 -\f la8. la16 la4 la4 | % 29
+            la4 r4 r2 | \barNumberCheck #30
+            R1 | % 31
+            la2 -\fp r2 | % 32
+            r4 la2 -\p la4 | % 33
+            R1 | % 34
+            la2 -\fp r2 | % 35
+            r4 la2 -\p la4 | % 36
+            la1 ~ | % 37
+            la1 | % 38
+            R1 | % 39
+            r4 la2 -\sf la4 -\p | \barNumberCheck #40
             \voiceTwo
-            R1*38 |
+            R1*11 | % 51
             \oneVoice
-            do2 -\f sol'4. sol8 | \barNumberCheck #41
+            la4 -\f la8. la16 la4 la8. la16 | % 52
+            
+            do'2 -\f sol'4. sol8 | \barNumberCheck #41
             mi4 sol4 mi4 do4 |
             do2. \fermata re8. re16 |
             si4 re8. re16 si4 re8. re16 |
@@ -241,10 +267,10 @@ clarinetII_introduction = \score {
             si2 re2 |
             sol2 mi2 |
             do2 re2 |
-            sol,4 r4 r2 |
-            \voiceOne
-            R1*3 |
-            \oneVoice
+            sol,2\sf 2\sf |
+            1 ~ |
+            4 4 la la |
+            sol r r2 | 
             r4 sol8 ( si8 ) si8 ( re8 ) re8 ( sol8 ) |
             sol4 r4 r2 |
             R1 |
@@ -304,16 +330,13 @@ clarinetII_introduction = \score {
         }
         \new CueVoice = "clarinetII_cue" \relative la {
             \voiceTwo
-            \time 4/4 sol16 - "Viol. II" mi16 sol16
-            mi16 sol16 mi16 sol16 mi16 sol16 mi16 sol16 mi16 sol16 mi16 sol16
-            mi16 s1*35 | % 263
+            \time 4/4
+            s1*36 | % 263
             \voiceOne
             sol'2 - "Ob. I" fas2 | % 264
             sol1 | % 265
-            sol4 sol8. sol16 fas4 fas8. fas16 s1*5 s1*6 | % 277
-            \voiceTwo
-            do1 ( - "Clar. I" | % 278
-            si4 ) r4 r2 s1*4 s1*6 s1*11 |
+            s1*6 s1*6 | % 277
+            s1*6 s1*6 s1*11 |
             \voiceOne
             do4 - "Viol. I" do8. ( mi16 sol4 ) sol4 | % 301
             sol4 ( do4 si4 sib4 | % 302
@@ -332,9 +355,66 @@ clarinetII_two_aria = \score {
     \transpose do sib <<
         \new Voice = "clarinetII" \relative la {
             \compressEmptyMeasures
+            \time 2/4
+            \voiceTwo
+            \partial 8 r8 |
+            R2 |
+            \oneVoice
+            mi8 -! -\p la8 -! mi8 -! r8 |
+            R2 |
+            la8 -! mi8 -! dos8 -! r8 |
+            R2 |
+            mi8 -! la8 -! mi8 -! r8 |
+            R2 |
+            mi8 -! si'8 -! mi,8 -! r8 |
+            R2 |
+            la8 -! mi8 -! dos8 -! r8 |
+            R2 |
+            mi8 -! la8 -! mi8 -! mi8 ( |
+            la8 ) r8 r8 mi8 ( |
+            la8 ) r8 r4 |
+            R2 |
+            la,8 -! la8 -! la8 -! r8 |
+            R2 |
+            dos8 -! mi8 -! dos8 -! r8 |
+            la2 ~ |
+            la8 la8 -! la8 -! r8 |
+            mi'2 ~ -\f |
+            mi8 mi8 -! la,8 -! r8 |
+            r8 mi'8 ( -\p la8 ) r8 |
+            r8 mi8 ( la8 ) r8 |
+            la8. -\f dos16 dos16 si16 la16 mi16 |
+            dos8 -! dos8 -! dos8 -! \bar "||"
+            r8 \segno |
+            R2 |
+            mi8 -\p la8 -! mi8 -! r8 |
+            R2 |
+            la8 -! mi8 -! dos8 -! r8 |
+            R2 |
+            mi8 -! la8 -! mi8 -! r8 |
+            R2 |
+            mi8 -! si'8 -! mi,8 -! r8 |
+            mi4 -\f si'4 |
+            mi,8 si'8 -! mi,8 -! r8 |
+            R2 |
+            la8 -! -\p mi8 dos8 -! r8 |
+            R2 |
+            mi8 la8 -! mi8 \fermata mi8 ( |
+            la8 ) r8 r8 mi8 ( |
+            la8 ) r8 r4 |
+            R2 |
+            la,8 -! la8 la8 -! r8 |
+            R2 |
+            dos8 -! mi8 -! dos8 -! r8 |
+            r8 mi8 ( la8 ) r8 |
+            r8 mi8 ( la8 ) r8 |
+            la8. -\f dos16 dos16 si16 la16 mi16 |
+            dos8 -! dos8 -! dos8 \fermata -! -"Dal segno" -"(3 strophen)" \segno \bar "||"
         }
         \new CueVoice = "clarinetII_cue" \relative la {
-            
+            \voiceOne
+            \partial 8 dos'16 ( - "Viol. I" si16 ) |
+            la8 la8 si16 ( la16 sols16 la16 )
         }
     >>
 }
@@ -398,15 +478,103 @@ clarinetII_three_aria = \score {
 }
 
 clarinetII_four_recitativo = \score {
-    \header { piece = "No. 2 Aria" }
-    \new Staff
-    \transpose do sib <<
-        \new Voice = "clarinetII" \relative la {
-            \compressEmptyMeasures
-        }
-        \new CueVoice = "clarinetII_cue" \relative la {
-            
-        }
+    \header { piece = "No. 4 Recitativo" }
+    <<
+        \new StaffGroup
+        \new Staff
+        \transpose do sib <<
+            \new Voice = "clarinetII" \relative la {
+                \compressEmptyMeasures
+                \time 4/4  R1 |
+                do,1 ~ -\p |
+                do1 ~ -\markup{ \italic {cresc.} } |
+                do1 |
+                sol'1 -\f |
+                mi1 |
+                sol1 |
+                mi1 |
+                sol1 |
+                mi4 mi4 mi4 mi4 |
+                <<
+                    \new Staff <<
+                        \once \omit Staff.TimeSignature
+                        \new CueVoice = "clarinetII_voice" \with { instrumentCueName = "Königin der Nacht" } \relative la' {
+                            fa4^"Recitativo" la8. do16 mi,4 r16 sol16 sib16 la16 |
+                            fa4 r4 r2 |
+                            R1 |
+                            r8 re si do re re r4 |
+                            sol8 sol r4 mi r |
+                        }
+                        \new Lyrics \lyricsto "clarinetII_voice" {
+                            o "zitt " -- re "nicht," mein lie -- ber "sohn," du "bist" un -- schul
+                            "dig," "wei " -- "se," "fromm " --
+                        }
+                    >>
+                    {
+                        mi4 r4 r2 |
+                        R1 |
+                        do1 ~ -\f |
+                        do4 -\p r4 r2 |
+                    }
+                >>
+                \voiceOne
+                R1 |
+                \oneVoice
+                sol'1 -\f |
+                R1*3 |
+                \time 3/4  r4 r4 \fermata r4 |
+                R2.*8 |
+                R2. |
+                R2. |
+                R2. |
+                do,8. -\f do16 do4 r4 |
+                mi2 -\f do8. mi16 |
+                sol4 r4 r4 |
+                R2.*21 |
+                R2. |
+                R2. |
+                R2. |
+                R2. \bar "||"
+                \time 4/4  r2 sol,4 -\f r4 |
+                do4 r4 do4 do4 |
+                r2 sol4 sol4 |
+                R1*6 |
+                r2 do2 -\f |
+                R1*2 |
+                r8 sol'8 -\f sol8 sol8 sol4 r4 |
+                R1*10 |
+                r8 mi8 -\p mi8 mi8 mi8 mi8 mi8 mi8 |
+                sol4 r4 r2 |
+                r8 sol8 sol8 sol8 sol8 sol8 sol8 sol8 |
+                do4 r4 r2 |
+                R1*4 |
+                sol1 ~ |
+                sol1 |
+                do,4 r4 r2 |
+                R1 |
+                r2 do2 -\mf |
+                do'4 -\f do8. do16 sol4 sol8. sol16 |
+                mi4 r4 do4 do4 |
+                r2 sol4 sol4 |
+                R1 |
+                r8 sol'16 sol16 sol8 sol8 mi8 sol8 do8 sol8 |
+                mi8 sol16 sol16 sol8 sol8 mi8 sol8 do8 sol8 |
+                mi4 mi4 do4 r4 \fermata |
+            }
+            \new CueVoice = "clarinetII_cue" \relative la {
+                s1*15 |
+                \voiceTwo
+                sol,4( -"VC. e B." si re sol) |
+                s1*4 |
+                \time 3/4
+                s2.*9 |
+                sol8 ( - "Fag." la8 sol8 fa8 mi8 re8 ) |
+                mi8. ( fa16 ) sol4 r4 s1*3 s4*63 | % 243
+                fa4 ( -. - "Fag." fa4 -. fa4 ) -. | % 244
+                mi2. ~ | % 245
+                mi2 ( re8 ) r8
+            }
+        >>
     >>
 }
 
