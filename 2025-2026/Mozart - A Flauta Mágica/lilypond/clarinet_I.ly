@@ -327,7 +327,7 @@ NoIntroduction =  \relative do'' {
 
     \time 4/4 \tempo "Allegro"
     
-    <<
+    %{<<
     \new CueVoice {
             
         fa,16 -"Viol.II" re16 fa16 re16 fa16 re16 fa16 re16 fa16 re16 fa16
@@ -353,9 +353,64 @@ NoIntroduction =  \relative do'' {
     {
         R1*3| \cueClefUnset
     }
-    >>
+    >>%}
+
+
+    %%%TROMPA 
+    \transpose do sol { 
+        \relative do'{
+            re1 -\p ^"Horn I" ~|
+            re1 ~|
+            re1 -\fp|
+            re4 re2 re4 |
+            re1 ~|
+            re1 -\fp|
+            re4 re2 re4 |
+            re1 ~|
+            re2(re4) r4| 
+            R1*2 | 
+            r4 do2 -\f re4~|
+            re4 re8. re16 re8 re re r8|
+            do2 re2 |
+            R1 |
+            re4 -\f re8. re16 re4 re|
+            sib4 r4 r2 | 
+            R1 |
+            re2 -\fp r2 | 
+            %20 
+            r4 re2 -\p re4 |
+            R1|
+            re2 -\fp r2 | 
+            r4 re2 -\p re4 |
+            re1~|
+            re1 |
+            R1 |
+            r4 re2 -\sf re4 -\p|
+            R1*9 |
+            
+            <<
+            \new CueVoice {
+                    
+                sib'2 ^"Ob.I" la2 | 
+                sib1 | 
+            }
+            \\
+            {
+                R1*2| \cueClefUnset
+            }
+            >>
+
+            re,4 re8. re16 re4 re8. re16 | 
+              
+        }
     
-    sib2 -\f fa'4. fa8 | % 267
+    }
+    %%%FIM TROMPA
+
+    %R1*34   
+
+    %40
+    sib2 -\f ^"Clarinetto I"fa'4. fa8 | % 267
     re4 fa4 re4 sib4 | % 268
     do2. \fermata do8. do16 | % 269
     fa4 do8. do16 fa4 do8. do16 |
@@ -392,8 +447,6 @@ NoIntroduction =  \relative do'' {
         R1*4 | r4 fa'4.( re8 mib8 do8)| \cueClefUnset
     }
     >>
-
-
 
     re1 ~ | % 306
     re2. sol4 | % 307
@@ -440,6 +493,91 @@ NoIntroduction =  \relative do'' {
 
 }
 
+
+
+NotwoAria= \transpose do sol { 
+        \relative do'{
+            \time 2/4 \key sol \major \tempo "Andante"
+            <<
+            \new CueVoice {
+                    
+                \partial 8 
+                \ottava 2
+                \set Staff.ottavation = "8" 
+                
+                fas''16( ^"Viol I" mi)| 
+                re8 -! re-! mi16( re dos re)\ottava 0 | 
+                
+            }
+            \\
+            {
+                \partial 8 r8|
+                R2| \cueClefUnset
+            }
+            >> 
+            
+            mi,,8-\p ^"Horn I" -! fas-! mi-! r8  |
+            R2|
+            fas8-! mi-! re -! r8|
+            R2| 
+            mi8-! fas-! mi-! r8  |
+            R2|
+            mi8-! mi-! mi-! r8 | %8 
+            R2 | 
+            fas8-! mi-! re-! r8 |
+            R2 |
+            mi8-! fas-! mi-! mi( |
+            fas) r8 r8 mi(
+            fas) r8 r4 |
+            R2 |
+            re8-! re-! re-! r8 |
+            R2 |
+            re8-! mi -! re-! r8 |
+            re2 \cresc ~|
+            re8 re -!  re-! r8|
+            la2 \f ~|
+            %22
+            la8 la8 -! la -! r8 |
+            r8 mi' -\p ( fas) r8 |
+            r8 mi ( fas) r8 |
+            fas8. -\f la16 la sol fas mi | 
+            re8-! re-! re-! \bar "||"
+            \repeat segno 2{
+            \partial 8 r8 | 
+            %27 
+            R2 |
+            mi8-!-\p fas-! mi-! r8  |
+            R2|
+            fas8-! mi-! re -! r8|
+            R2| 
+            mi8-! fas-! mi-! r8  |
+            R2|
+            mi8-! mi-! mi-! r8 | 
+            mi4-\f mi| 
+            mi8-! mi-! mi-! r8 | 
+            R2 | 
+            fas8-! -\p mi-! re -! r8|
+            R2|
+            mi8-! fas-! mi -\fermata mi ( |
+            fas8 ) r8 r8 mi(|
+            fas8) r8 r4 |
+            R2|
+            re8 -! re -! re -! r8 |
+            R2 |
+            re8 -! mi -! re -! r8| 
+            r8 mi( fas) r8 |
+            r8 mi( fas) r8 |
+            fas8. la16 la sol fas mi |
+           \partial 4. re8 -! re-! re -! \bar "||"
+            }
+              
+        }
+    
+    }
+
+
+
+
 NothirdAria= \relative do''{
 
     \time 2/4 \tempo "Larghetto" s16*7 r16  | % 446
@@ -481,39 +619,250 @@ NothirdAria= \relative do''{
 
 }
 
+
+Upperfour= \relative do''{
+    \time 4/4  
+    s1*10 | 
+
+    \clef "treble"  \key do \major | 
+    fa4^"Königin der Nacht" la8. do16 mi,4 r16 sol16 sib la |
+    fa4 r4 r2 |
+    R1 |
+    r8 re8 si do re re r4 |
+    sol8 sol r4 mi4 r4 |
+    R1 |    
+
+}
+
+NofourRecitativo=\transpose do sol { 
+        \relative do{
+            \time 4/4 \key do \major \tempo "Allegro maestroso"
+            R1^"Horn I." |
+            fa1 -\p ~|
+            fa1 \cresc ~|
+            fa1  |
+            do'1 -\f |
+            fa |
+            sol |
+            fa |
+            sol |
+            fa4 fa fa fa |
+            fa4 ^"Recitativo" r4  r2 |
+            R1 |
+            fa1 -\f ~|
+            fa4 -\p r4 r2 |
+            R1 |
+
+            <<
+            \new CueVoice {
+                                   
+                do,4( ^"Vc. e B." mi sol do)| 
+                               
+            }
+            \\
+            {
+                
+                R1| \cueClefUnset
+            }
+            >> 
+
+            do1 -\f |
+            R1 *3 |
+
+            \time 3/4 \tempo "Andante"
+
+            r4 ^"Aria" r4 \fermata r4 | 
+            R2. *8 |
+
+            <<
+            \new CueVoice {
+                                   
+                do8(^"Fag." re do sib la sol)| 
+                la8. ( \trill sib16 ) do4 r4 | 
+                                               
+            }
+            \\
+            {
+                
+                R2.*2| \cueClefUnset
+            }
+            >> 
+
+            R2. |
+            fa8.-\f fa16 fa4 r4 |
+            fa2 -\f la8. fa16 |
+            do4 r4 r4 |
+            R2. *21 | 
+
+             <<
+            \new CueVoice {
+                                   
+                sib4(^"Fag." -. sib-. sib-.)| 
+                la2. ~ | 
+                la2( sol8) r8 |
+                                               
+            }
+            \\
+            {
+                
+                R2.*3| \cueClefUnset
+            }
+            >> 
+            R2. \bar "||" 
+            \time 4/4\tempo "Allegro moderato" 
+            r2 do4 -\f r4 |
+            do4 r4 fa4 fa, |
+            r2 do'4 do | 
+            R1 *6 |
+            r2 fa2 -\f |
+            R1*2 |
+            r8 do8 -\f do do do4 r4 |
+            R1 *10 |
+            r8 fa -\p fa fa fa fa fa fa |
+            sol4 r4 r2 |
+            r8 sol8 sol sol sol sol sol sol |
+            la4 r4 r2 |
+            R1 *4 |
+            do,1 ~|
+            do |
+            fa,4 r4 r2 |
+            R1 |
+            r2 fa'2 -\mf |
+            la 4 -\f la8. la16 sol4 sol8. sol16 |
+            fa4 r4 fa4 fa, |
+            r2 do'4 do |
+            R1 |
+            r8 do16 do do8 do fa sol la sol|
+            fa do16 do do8 do fa sol la sol |
+            fa4 fa fa, r4 \fermata \bar "||"
+
+        }
+    }
+
+
+
+
 NofifthQuintetto= \relative do''{
-
     \time 2/2 \tempo "Allegro"
-    <<
-    \new CueVoice {
-            
-    do2 ^"Viol"  r8. do16 -! do8 ( sib16 do16 ) | 
-    mi4 -! do4 -! sol4 -! mi4 -! | % 511
-    do4 -! r4 r2 |
-    }
-    \\
-    {
-        R1*3| \cueClefUnset
-    }
-    >>
-    
-    R1 *207 \break | % 513
-    
-    <<
-    \new CueVoice {    
-      r4^"Ob." <do' fas>4 <sib sol'>4 <do fas>4 -! | % 514
-    <sib sol'>4 -! <do fas>4 <sib sol'>4 -! <do fas>4 -! | % 515
-    <sib sol'>4 r4 r2 \bar "||"
-    }
-    \\
-    {
-        R1*2 | R1 -\fermata \bar "||" \cueClefUnset
-    }
-    >>
 
+    \transpose do sol { 
+        \relative do'{
+        fa2 ^"Horn I." -\f r2 |
+        r4 fa4 -\p do la |
+        fa4 r4 r2 |
+        R1*31 |
+
+        <<
+        \new CueVoice {
+                
+        sol'4. ^"Viol I"  fa8 mi4 fa |
+        sol4. fa8 mi4 sol( |
+        la do si re )| 
+        re8( do si la) sol4 s4 |
+        }
+        \\
+        {
+            R1*3|
+            r2 r4 do,4 -\p | \cueClefUnset
+        }
+        >>
+
+        do4 do do do |
+        do2 r2 |
+        R1*4|
+        do2 r2|
+        do2 r2 |
+        R1*3|
+        r2 r4 sol'4 -\f |
+        sol4 sol sol sol |
+        sol4 sol sol r4 |
+        R1*9|
+        la2 -\f la |
+        la4 la la la |
+        fa fa r2 |
+        R1*5|
+
+        la2 -\f la |
+        la4 la la la |
+        fa fa r2 |
+        R1*7|
+
+        sol1 -\p(|
+        fa4) r4 r2 |
+        R1*5| 
+        fa1 ~|
+        fa~|
+        fa4 r4 r2 |
+        R1 | 
+        fa1 ~|
+        fa~|
+        fa4 r4 r2 |
+
+        R1*7|
+        r4 do4-\p do do |
+        do r4 r2 |
+        R1*2|
+        r4 fa8 fa fa4 fa |
+        fa r4 r2 |
+        R1*2 |
+        do1-\p ~ |
+        do ~|
+        do ~|
+        do ~|
+        do ~|
+        do ~|
+        do ~|
+        do ~|
+        do4 r4 r2 |
+
+        R1 *6|
+        fa1 -\f |
+        R1*3|
+        fa1 -\f |
+        R1*5|
+        la,1 -\p ~|
+        la1 ~ |
+        la4 r4 r2 |
+        R1 *48|
+
+        <<
+        \new CueVoice {
+                
+        r4 ^"Viol I" sol'8 -.-\mf fa-. mi-. re-. do-. sib-. |
+        la4 -\p r4 r2 | 
+        r4 sol'8-. fa-. mi-. re-. do-. sib-. |
+            }
+        \\
+        {
+            R1*3| \cueClefUnset
+        }
+        >>
+
+        fa'1 -\p |
+        sol|
+        la2 r2 |
+        r4 do,4-! -\f do-! do -!|
+        do1 -\sfp ~|
+        do1 |
+        do1 -\sfp ~|
+        do1 |
+        %196 
+        R1 |
+        sol'2. -\sfp fa4 -\p|
+        r2 do4 r4 |
+        la4 r4 r2 |
+        R1 |
+        sol'2. -\sf  fa4 -\p |
+        r2 sol4 -\p r4 |
+        fa4 r4 r2 |
+        R1*7|
+        sol1 -\p ~|
+        sol1 ~|
+        sol4 r4 r2 \fermata \bar "||"
+        }
+    }
     \time 2/2  \tempo "Andante"
-
-    sol'1 -\p -"dolce" | % 517
+    sol'1 ^"Clarinetto I." -\p -"dolce" | % 517
     mi1 | % 518
     do2 ~ do4. re16 mi16 \break | % 519
     fa8. ( sol16 ) mi8. ( fa16 ) re4 ( sol,8 ) r8 |
@@ -525,12 +874,35 @@ NofifthQuintetto= \relative do''{
     re'2 ( mi2 ) | % 525
     fa8. ( mi16 ) fa8. ( sol16 ) mi4 -! r4 | % 526
     la4. -\sf la8 -\p la8 ( sol8 fa8 mi8 ) | % 527
-    re4 -! re4 -!  do4 -! r4 R1*4 \break | % 532
-    re2 ( -\p mi2 ) | % 533
+    re4 -! re4 -!  do4 -! r4| % 532
+
+    %226 
+    \transpose do sol { 
+        \relative do'{
+        do1 -\p  ^"Horn I."|
+        la1 |
+        fa2(fa4) r4 |
+        r1 |
+        }
+    }
+
+
+    %230
+    re2 ^"Clarinetto I." ( -\p mi2 ) | % 533
     fa8. ( mi16 ) fa8. ( sol16 ) mi4 -! r4 | % 534
     la4. -\sf la8 -\p la8 ( sol8 fa8 mi8 ) | % 535
-    re4 -! re4 -! do4 -! r4 R1*3 \break | % 539
-    r2 r4 r8 do8 -\f |
+    re4 -! re4 -! do4 -! r4|
+
+    \transpose do sol { 
+        \relative do{
+        do1 ^"Horn I."~|
+        do2( fa4) r4 |
+        fa1 -\sfp|
+        }
+    }
+
+    %237
+    r2^"Clarinetto I."  r4 r8 do8 -\f |
     la'4. la8 sol4 r8 do,8 | % 541
     la'4. la8 sol4 r8 do,8 | % 542
     la'4. la8 la8 ( sol8 fa8 mi8 ) | % 543
@@ -541,6 +913,66 @@ NofifthQuintetto= \relative do''{
     do4 r4 do4 r4 | % 549
     do4 r4 r2 \fermata \bar "|."
 }
+
+
+NosixTerzetto=\transpose do sol { 
+    \relative do'{
+        \time 4/4 \key do \major \tempo "Allegro molto"
+        re1 -\f ^"Horn I." ~|
+        re4 r4 r2 |
+        R1 |
+        re1 -\p ~|
+        re1 ~|
+        re1 ~|
+        re1 ~|
+        re1 |
+        mi1 -\fp |
+        re4 re-\f re r4 |
+        R1 *6|
+        la1 -\p ~|
+        la ~|
+        la |
+        R1 |
+        r4 la4 -\f la r4 |
+        R1*3 |
+        la1 -\f ~|
+        la4 r4 r2 |
+        r2 re4 re |
+        r2 re4 re |
+        r2 re4 re |
+        R1*19 |
+        
+        <<
+        \new CueVoice {
+                
+        fas,4 -! ^"Fag" fas fas8.(sol16) mi8.( fas16)| sol4 s4 s2|  
+        }
+        \\
+        {
+            R1| r4 mi'4 -! -\p mi-! r4 |\cueClefUnset
+        }
+        >>
+
+        R1|
+        r4 re4 -\f -!  re-! re-! |
+        re-! r4 \fermata r4 r4 |
+        R1*7|
+
+        r4 re4-\p mi r4 |
+        R1 |
+        r4 re4 mi r4 |
+        R1 |
+        r4 fas4-! fas-! r4 |
+        r4 la4-! la-! r4|
+        r2 r4 re,4 |
+        mi4 r4 r4 mi |
+        re fas -! fas -! r4 |
+        r4 la-! la-! r4 |
+        r4 la-! la -! la -! \bar "||"
+
+    }
+}
+
 
 NoseventhDuetto= \relative do''{
 
@@ -925,6 +1357,554 @@ NotenArie = \relative do''{
 }
 
 
+NotwelveQuintetto = \transpose do sol { 
+    \relative do'{
+        \time 2/2 \key do \major \tempo "Allegro"
+        re2 -\f ^"Horn I."  r2|
+        R1 * 18|
+             
+        <<
+        \new CueVoice {
+                
+        si'4 -! ^"Viol.I" re dos mi |
+        re fas8 mi re dos si la|  
+        }
+        \\
+        {
+            R1*2 |\cueClefUnset
+        }
+        >>
+
+        mi2 -\fp mi2 -\fp |
+        mi1 -\fp |
+        mi2 -\fp mi2 -\fp |
+        mi4 -\fp r4 r2|
+
+        R1 *6|
+        mi1 -\f ~|
+        mi4 r4 r2|
+        R1*3|
+        mi1 -\p ~|
+        mi1  ~|
+        mi1  ~|
+        mi1  |
+        la,4 r4 r2 |
+        R1 |
+        la1 -\fp | 
+        la1 -\fp ~|
+        la4 r4 r2 |
+        R1 *38 |
+
+        <<
+        \new CueVoice {
+                
+         r4^"Fag" r8  re,8 mi4. fas8|
+         sol4. si8 la4. sol8|
+         fas4. s8 s2 |  
+        }
+        \\
+        {
+            R1*2 |
+            r4 r8 re'8 -\f re4. re8 |\cueClefUnset
+        }
+        >>
+
+        re2 r2 |
+        R1 |
+        la2 -\p la4. la8 |
+        la2 r2 |
+        R1 *19|
+
+        <<
+        \new CueVoice {
+                
+          r4 ^"Fag" dos,2 re4 |
+          mi4 fas sol la |
+          fas r4 r2 |
+          
+        }
+        \\
+        {
+            R1*3|\cueClefUnset
+        }
+        >>
+        re'2 -\p re2 |
+        re r4 re4 |
+        mi2. mi4 |
+        mi4 fas r4 re-! |
+        re4-! r4 re-! r4|
+        re2 -\fp r2 |
+        fas4 r4 mi r4 |
+        re r4 r2 |
+        R1 *3|
+        la1-\p ~|
+        la1 ~|
+        la1 ~|
+        la1 ~|
+        la4 r4 r4 la-\f|
+        la2(la4.) re8 |
+        re4. re8 re4. re8 |
+        re2 r2 |
+        R1*4|
+
+        r2 r4 la4 -\f |
+        la2( la4.) re8|
+        re4. re8 re4. re8 |
+        re2 r2 |
+        R1*9|
+
+        <<
+        \new CueVoice {
+                
+          r4 ^"Fag" r8 re,8 si'4 r8 sol8|
+          fas4 r8 la8 sol4 r8 fa8 |
+          re4 s4 s2 |
+
+        }
+        \\
+        {
+            R1*2|
+            r4 re'2 re4 ||\cueClefUnset
+        }
+        >>
+
+        re2 -\fp re -\fp |
+        re4 re2 -\sf re4|
+        re2 -\fp re -\fp |
+        mi1 -\ff |
+        mi2 mi |
+        re1 ~|
+        re4 r4 r2 |
+        R1*6 \bar "||"    
+
+
+        \tempo "Adagio"
+
+        r4 r8. do16 do2 |
+        do r2 \fermata |
+        r4 r8. do16 do2 |
+        do r2 \fermata |
+        r4 r8. do16 do2 |
+        do r2 \fermata \bar "||"
+    }
+}
+
+
+NofourteenAria = \transpose do sol { 
+    \relative do'{
+        \time 4/4 \key do \major \tempo "Allegro assai"
+        
+        r1 ^"Horn"|
+        mi1 -\sfp |
+        R1 |
+        r2 do2 -\f |
+        r2 fa2 |
+        r2 mi |
+        R1*3 |
+        r2 r4 sol,4 -\f |
+        sol2 r2 |
+        R1*4|
+        r4 do2 -\fp do4 |
+        do r4 r2 |
+        R1*25| 
+
+        <<
+        \new CueVoice {
+                
+          s4 r4 ^"Viol.I" do'8 -! do do do |
+          re-! re re re mib-! mib mib mib |
+
+
+        }
+        \\
+        {
+            R1*2|\cueClefUnset
+        }
+        >>
+        mi,1 -\f ~|
+        mi4 mi8. mi16 re4 re8. re16|
+        do4 r4 r4 re4( |
+        mi4) r4 r4 re4( |
+        mi4) r4 r2 |
+        r4 sol4 fa re |
+        do r4 r2 |
+        do1 -\f |
+        R1 |
+        do1 |
+        R1 |
+        do1 |
+        R1 |
+        do1 |
+        R1 *3|
+        re -\f |
+        R1 
+        re |
+        R1*2|
+        r4 mi2 -\sf mi4 |
+        R1*12 |
+        
+        <<
+        \new CueVoice {
+                
+          sib'1 ^"Fl.I" ~ |
+          sib2.(la4) |
+          sols4 s4 s2 |
+        }
+        \\
+        {
+            R1*2|
+            r4 mi4 -\f mi r4 |\cueClefUnset
+        }
+        >>
+
+        r4 mi4 mi r4 |
+        r4 mi4 mi r4 |
+        R1 |
+        r4 re2 re4 |
+        re2 r2 \fermata|
+        R1 |
+        r2 do2 |
+        r2 do2|
+        re4 do re do |
+        re r4 r2|
+        r4 r8. re16 re4 r8. do16|
+        do2 r2 |
+        R1 |
+        r2 mi2 |
+        R1| 
+        do4 r4 mi r4 |
+        do2 r2 \fermata \bar "||"
+
+    }
+}
+
+
+
+NofifteenAria = \transpose do sol { 
+    \relative do'{
+        \time 2/4 \key do \major \tempo "Larghetto"
+        
+               
+        <<
+        \new CueVoice {
+                
+          \partial 16 fas16 ^"Viol.I" ^"Horn" |
+          fas8.( res16) dos8.(mi16) |
+        }
+        \\
+        {
+           \partial 16 r16|
+           R2|\cueClefUnset
+        }
+        >>
+
+        dos8 -! -\f si -! r8 \repeat segno 2 { r8 |
+        R2*7|
+
+        <<
+        \new CueVoice {
+                
+          r16 ^"Fl.I" fas''8( res32 si32)  las16( dos8) si32( sols)|
+
+        }
+        \\
+        {
+           R2|\cueClefUnset
+        }
+        >>
+
+        fas,2 -\p ~|
+        fas2 ~|
+        fas2 ~|
+        fas2 ~|
+        fas2 |
+        R2*7|
+
+        <<
+        \new CueVoice {
+                
+         r8 ^"Viol.I" si r8 si|
+         r8 dos8 r8 mi8 |
+        }
+        \\
+        {
+           R2*2|\cueClefUnset
+        }
+        >>
+        
+        r8 res16 res mi mi dos dos |
+        si8 r8 r4 |
+        R2 |
+        dos4( si8) \bar "||"}
+
+    }
+}
+
+
+NotwentyoneFinale = \transpose do sol { 
+    \relative do'{
+        \time 6/8 \key do \major \tempo "Allegro"
+        
+               
+        <<
+        \new CueVoice {
+                
+            \partial 4 re8 -! -\p re -! ^"Viol.I" ^"Horn" |
+            re8( la) r8 r8  fas' -! fas -! |
+        }
+        \\
+        {
+           \partial 4 r8 r8|
+           R2.|\cueClefUnset
+        }
+        >>
+
+        R2. *2|
+        r8 r8 mi8 -\p ( fas) r8 r8 |
+        r8 r8 mi(fas) r8 r8 |
+        R2. *4|
+        mi2. -\f ~|
+        mi4. ( mi8) r8 r8 |
+        r4 r8 mi4 fas8 |
+        re8 la la la r8 r8 |
+        R2. *4|
+        r8 r8 mi'( -\p fas ) r8 r8 |
+        r8 r8 mi( fas) r8 r8 |
+        la,2. ~|
+        la2. ~|
+        la4. r4 r8 |
+        R2. *4|
+        r8 la8 -\f la la r8 r8 |
+        R2. *11|
+
+        <<
+        \new CueVoice {
+                
+            si'8 ^"Viol.I" re-! si-! fas'16( mi16 re16 dos16 si8)|
+            re16( dos si la sols8 ) res16 mi fa fas sol sols |
+            
+        }
+        \\
+        {
+            R2.*2|\cueClefUnset
+        }
+        >>
+
+        mi2. -\p ~|
+        mi2. ~|
+        mi8 r8 r8 r4 r8 |
+
+        R2. *7|
+        R2. \fermata |
+
+        <<
+        \new CueVoice {
+                
+            la,,4 ^"Vc. e B."  r8 la4 r8|
+            la8 -\f la -\p la la-\f la -\p la |
+            la8 -\f la -\p la s8 s8 s8 |
+        }
+        \\
+        {
+            R2.*2|
+            r4 r8 la'4. ~|\cueClefUnset
+        }
+        >>
+
+        la8 fas fas fas r8 r8 |
+        R2.*26|
+
+        <<
+        \new CueVoice {
+                
+            la'8( ^"Viol.I"  dos,) la'-! la(re,) la' -! |
+            la8(mi) la -! r8 la-! la -!|
+            la8( las,) la'-! la(re,) la' -! |
+        }
+        \\
+        {
+            R2.*3|\cueClefUnset
+        }
+        >>
+
+        la,2. -\p ~|
+        la2. ~|
+        la8 r8 r8 r4 r8 |
+
+        R2.*7 |
+        r8 mi'8 -! mi-! mi4 -! r8 |
+        R2.|
+        r8 mi8 -! mi-! mi4 -! r8 |
+        R2.*2|
+        la,2. \cresc |
+        la8 -\f la la la r8 r8 |
+        R2. *3|
+
+
+        %517
+
+        r8 re8 -\p re re4 r8 |
+        R2. *5|
+        la2. -\p ~|
+        la2. ~|
+        la2. ~|
+        la2.|
+        R2. *3|
+        R2. \fermata|
+        R2. \fermata|
+        R2. \fermata|
+        r4 \fermata r8 r8 r8 r8|
+        R2. *9|
+
+        \time 4/4 \tempo "Allegretto"
+
+        re4 re\cresc re re |
+        re2 \f r2 |
+        R1*8|
+        re2 -\p ( mi) |
+        fas4 r4 r2 |
+        R1*4|
+        r4 re4 -\f re re |
+        re4 r4 r2 |
+        r4 re re re |
+        re4 r4 r2 |
+        r4 re re re |
+        re4 r4 r2 |
+
+        r4 re re re |
+        re4 r4 r2 |
+        R1*9|
+
+        \time 4/4 \tempo "Allegro"
+        R1*30|
+
+        <<
+        \new CueVoice {
+                
+            re,4 ^"Fag.I"  re re re|
+            sol,4 r4 r2 |
+        }
+        \\
+        {
+            R1*2|\cueClefUnset
+        }
+        >>
+
+        r2 re''4 -\p r4 |
+        re4  r4 r2| 
+        r2 re4 r4 |
+        re4 r4 r2|
+
+        r2 re4 r4 |
+        re4 r4 r2|
+
+        R1|
+        
+        fa1 -\f \fermata \bar"||"
+
+        R1*24|
+
+
+        <<
+        \new CueVoice {
+                
+            r4 ^"Fag.I"  la,2( sol8 fas)|
+            mi2 ( fas4 sol)|
+        }
+        \\
+        {
+            R1*2|\cueClefUnset
+        }
+        >>
+
+        re1 -\p ~|
+        re1 ~|
+        re4 r4 r2 |
+
+        R1*4|
+        r4 mi' -\f fas fas |
+        mi4 la, la la|
+        la r4 r2|
+
+        R1*15
+
+        R1*8 ^"ritardando"|
+
+        la1 -\fp ^"in tempo" ~|
+        la 1|
+        la1 -\fp ~|
+        la 1|
+        la1 -\fp ~|
+        la 1|
+        la1 -\fp ~|
+        la 1|
+
+        R1*2|
+        r4 la -\f la la |
+        la1 -\fp ~|
+        la4 r4 r2 \fermata|
+
+        R1*5|
+
+        r2 mi'2 -\fp (|
+        fas4) r4 mi2 -\fp (|
+        fas4) r4 mi2 -\fp |
+        re8 -\p re mi mi re re mi mi | 
+        re1 -\f |
+        R1*6|
+
+        mi1(-\p |
+        fas4 ) r4 r2 |
+        r2 mi2( \fp |
+        fas4) r4 mi2 -\fp (|
+        fas4) r4 mi2 -\fp |
+        re8 -\p re mi mi re re mi mi | 
+        re1 -\f |
+        R1*3|
+
+        re1 -\p ~|
+        re1 ~|
+        re1 ~|
+        re1 ~|
+        re1\cresc|
+
+        fas4 -\f fas mi mi |
+
+        re1 -\p ~|
+        re1 ~|
+        re1 ~|
+        re1 ~|
+        re1\cresc |
+
+        fas4 -\f fas mi mi |
+        re4 r4 r2 |
+
+        R1 |
+        re1 -\f|
+
+        fas4 fas8 fas mi4 mi8 mi|
+        re4 r4 r2|
+        R1*3|
+        r4 re4 -\f r4 mi4|
+        r4 fas4 r4 mi4 |
+        r4 fas4 r4 mi4 |
+        re4 la'8 la la la la la |
+        la4 re,8 re fas fas la la |
+        re,8 re re re fas fas la la |
+        re,8 re re re fas fas la la |
+        re,8 la re la re la re la|
+        re4 fas la fas|
+        re4 r4 re r4 |
+        re2 \fermata s2 \bar "||"            
+    }
+}
+
+
+\paper {
+  ragged-bottom = ##t
+}
+
+
 % The score definition
 \score {
   <<
@@ -938,18 +1918,67 @@ NotenArie = \relative do''{
         \mark \markup \center-align { \bold "No.1 Introduction" }
         \set Score.currentBarNumber = #1
         \NoIntroduction
+        \pageBreak
+        % \break
+        \mark \markup \center-align { \bold "No.2 Aria" }
+        \set Score.currentBarNumber = #0
+        \NotwoAria
         %\pageBreak
          \break
         \mark \markup \center-align { \bold "No.3 Aria" }
         \set Score.currentBarNumber = #0
         \NothirdAria
-        %\pageBreak
-         \break
+        \pageBreak
+         
+         
+    }
+    
+  >>
+    \layout {}
+
+}
+
+
+\score {
+   \new StaffGroup <<
+    % Upper staff (cue or extra voice)
+    \new Staff \with {
+      fontSize = #-2
+      \override StaffSymbol.staff-space = #(magstep -2)
+    } {
+      \Upperfour
+    }
+
+    % Main staff
+    \new Staff {
+      \set Staff.instrumentName = "Clarinetto I"
+      \mark \markup \center-align { \bold "No.4 Recitativo ed Aria" }
+      \NofourRecitativo
+      \pageBreak
+    }
+  >>
+  \layout {
+    \context {
+      \Staff
+      \RemoveEmptyStaves
+    }
+  }
+}
+
+\score {
+  <<
+    \new Staff {
+        \set Staff.instrumentName = "Clarinetto I"
+
         \mark \markup \center-align { \bold "No.5 Quintetto" }
         \set Score.currentBarNumber = #1
         \NofifthQuintetto
-        %\pageBreak
-         \break
+        \pageBreak
+        \break
+        \mark \markup \center-align { \bold "No.6 Terzetto" }
+        \set Score.currentBarNumber = #1
+        \NosixTerzetto
+        \break
         \mark \markup \center-align { \bold "No.7 Duetto" }
         \set Score.currentBarNumber = #0
         \NoseventhDuetto
@@ -962,6 +1991,8 @@ NotenArie = \relative do''{
     \layout {}
 
 }
+
+
 
 \score {
    \new StaffGroup <<
@@ -1003,7 +2034,22 @@ NotenArie = \relative do''{
         \mark \markup \center-align { \bold "No.10 Aria con coro" }  % movement title
         \set Score.currentBarNumber = #1
         \NotenArie
-        
+        \break
+        \mark \markup \center-align { \bold "No.12 Quintetto" }  % movement title
+        \set Score.currentBarNumber = #1
+        \NotwelveQuintetto
+        \break
+        \mark \markup \center-align { \bold "No.14 Aria" }  % movement title
+        \set Score.currentBarNumber = #1
+        \NofourteenAria
+        \break
+        \mark \markup \center-align { \bold "No.15 Aria" }  % movement title
+        \set Score.currentBarNumber = #0
+        \NofifteenAria
+        \pageBreak
+        \mark \markup \center-align { \bold "No.21 Finale" }  % movement title
+        \set Score.currentBarNumber = #412
+        \NotwentyoneFinale
     }
     
   >>
