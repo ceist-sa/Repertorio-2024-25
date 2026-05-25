@@ -1,14 +1,31 @@
 \version "2.24.4"
+\include "../../../styles/style_part.ily"
+\include "instrument_names.ily"
 % automatically converted by musicxml2ly from /Users/simaoleal/Downloads/clarinet1-basset-horn-original.xml
 \pointAndClickOff
 
 %% additional definitions required by the score:
 \language "português"
 
+\paper {
+  oddHeaderMarkup = \markup {
+    \unless #on-first-page \fill-line {
+      \fromproperty #'header:instrument
+    }
+  }
+  evenHeaderMarkup = \markup {
+    \unless #on-first-page \fill-line {
+      \fromproperty #'header:instrument
+    }
+  }
+}
+
 
 \header {
   title = "Die Zauberflöte"
-  composer = "Wolfgang Amadeus"
+  composer = "Wolfgang Amadeus Mozart"
+  filename = "CLARINET I - Mozart - A Flauta Mágica"
+  instrument = \clarinet_I_name_long
 }
 
 \layout {
@@ -1909,22 +1926,18 @@ NotwentyoneFinale = \transpose do sol {
 \score {
   <<
     \new Staff {
-        \set Staff.instrumentName = "Clarinetto I"
 
         \mark \markup \center-align { \bold "Ouverture" }  % movement title
         \Ouverture
-        %\pageBreak
-         \break
+        \pageBreak
         \mark \markup \center-align { \bold "No.1 Introduction" }
         \set Score.currentBarNumber = #1
         \NoIntroduction
         \pageBreak
-        % \break
         \mark \markup \center-align { \bold "No.2 Aria" }
         \set Score.currentBarNumber = #0
         \NotwoAria
-        %\pageBreak
-         \break
+        \pageBreak
         \mark \markup \center-align { \bold "No.3 Aria" }
         \set Score.currentBarNumber = #0
         \NothirdAria
@@ -1951,7 +1964,6 @@ NotwentyoneFinale = \transpose do sol {
 
     % Main staff
     \new Staff {
-      \set Staff.instrumentName = "Clarinetto I"
       \mark \markup \center-align { \bold "No.4 Recitativo ed Aria" }
       \NofourRecitativo
       \pageBreak
@@ -1968,17 +1980,16 @@ NotwentyoneFinale = \transpose do sol {
 \score {
   <<
     \new Staff {
-        \set Staff.instrumentName = "Clarinetto I"
+        
 
         \mark \markup \center-align { \bold "No.5 Quintetto" }
         \set Score.currentBarNumber = #1
         \NofifthQuintetto
         \pageBreak
-        \break
         \mark \markup \center-align { \bold "No.6 Terzetto" }
         \set Score.currentBarNumber = #1
         \NosixTerzetto
-        \break
+        \pageBreak
         \mark \markup \center-align { \bold "No.7 Duetto" }
         \set Score.currentBarNumber = #0
         \NoseventhDuetto
@@ -2006,7 +2017,7 @@ NotwentyoneFinale = \transpose do sol {
 
     % Main staff
     \new Staff {
-      \set Staff.instrumentName = "Clarinetto I"
+      
       \mark \markup \center-align { \bold "No.8 Finale" }
       \NoeightFinale
       \pageBreak
@@ -2024,25 +2035,23 @@ NotwentyoneFinale = \transpose do sol {
 \score {
   <<
     \new Staff {
-        \set Staff.instrumentName = "Clarinetto I"
 
         \mark \markup \center-align { \bold "No.9 Marcia" }  % movement title
         \set Score.currentBarNumber = #1
         \NonineMarshchderPriester
-        %\pageBreak
-         \break
+        \pageBreak
         \mark \markup \center-align { \bold "No.10 Aria con coro" }  % movement title
         \set Score.currentBarNumber = #1
         \NotenArie
-        \break
+        \pageBreak
         \mark \markup \center-align { \bold "No.12 Quintetto" }  % movement title
         \set Score.currentBarNumber = #1
         \NotwelveQuintetto
-        \break
+        \pageBreak
         \mark \markup \center-align { \bold "No.14 Aria" }  % movement title
         \set Score.currentBarNumber = #1
         \NofourteenAria
-        \break
+        \pageBreak
         \mark \markup \center-align { \bold "No.15 Aria" }  % movement title
         \set Score.currentBarNumber = #0
         \NofifteenAria
