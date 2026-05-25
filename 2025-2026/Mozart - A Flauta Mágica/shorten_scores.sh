@@ -16,7 +16,7 @@ output "partes/VIOLA - Mozart - A Flauta Mágica.pdf"
 pdftk \
 A=originais-flattened/flute1.pdf \
 B=snippets/"FLUTE I"/cover-pdfjam.pdf \
-cat B A1-27 A34-38 \
+cat B A1-27 A33-38 \
 output "partes/FLUTE I - Mozart - A Flauta Mágica.pdf"
 
 pdftk \
