@@ -5,14 +5,28 @@
 \include "globals.ily"
 \include "instrument_names.ily"
 
+\paper {
+  oddHeaderMarkup = \markup {
+    \unless #on-first-page \fill-line {
+      \fromproperty #'header:instrument
+    }
+  }
+  evenHeaderMarkup = \markup {
+    \unless #on-first-page \fill-line {
+      \fromproperty #'header:instrument
+    }
+  }
+}
 
-clarinetII_overture = \score {
+clarinetII_overture = \score { 
     \header { piece = "Overture" }
     \new Staff
-    \transpose do sib <<
-        \new Voice = "clarinetII" \relative la {
+    \transpose do re << % actual clarinet transposition
+        \new Voice = "clarinetII" {
             \compressEmptyMeasures
-            \clef "treble" \time 2/2 \key sol \major | % 1
+            \clef "treble" \time 2/2 \key mib \major | % 1
+            << \transpose do lab \relative { % this transpose is just fixing a fuck up
+            \tempo "Adagio"
             si2 -\sf r4 \fermata r8. si16 | % 2
             si2 r4 \fermata r8. re16 | % 3
             re2 r4 \fermata r4 | % 4
@@ -20,10 +34,8 @@ clarinetII_overture = \score {
             mi2. -\sfp r4 | % 6
             R1 | % 7
             re2. -\sfp r4 | % 8
-            R1*5 | % 13
-            r4 re2 -\sfp r4 | % 14
-            r4 mi2 -\sfp r4 | % 15
-            R1 \bar "||"
+            s1 * 8 \bar "||"
+            \tempo "Allegro"
             R1*19 | % 35
             \voiceTwo
             R1*2 | % 37
@@ -88,11 +100,13 @@ clarinetII_overture = \score {
             re4 re'4 la4 fas4 | % 95
             re4 r4 re4 re4 | % 96
             re1 \fermata \bar "||"
+            \tempo "Adagio"
             r4 r8. re'16 re2 | % 98
             re2 r2 \fermata | % 99
             r4 r8. re16 re2 | \barNumberCheck #100
             re2 r2 \fermata | % 101
             r4 r8. re16 re2 | % 102
+            \tempo "Allegro"
             re2 r2 \fermata \bar "||"
             R1*9 | % 112
             \voiceTwo
@@ -185,12 +199,25 @@ clarinetII_overture = \score {
             si8 re8 re8 re8 re8 re8 re8 re8 | % 225
             re4 r4 si4 si4 | % 226
             si2 r2 \fermata | % 227
+            } 
+            \relative la' {
+                s1 * 7 |
+                R1 |
+                r4 mib-. (mib-.) r |
+                R1 |
+                r4 re-. (re-.) r |
+                R1 |
+                r4 re2\sfp r4 |
+                r4 mib!2\sfp r4 |
+                r4 re\p r re |  
+            }
+            >>
         }
-        \new CueVoice = "clarinetII_cue" \relative la {
+        \new CueVoice = "clarinetII_cue" \transpose do lab \relative la {
             s1*15 \bar "||"
             s1*19 | % 35
             \voiceOne
-            re8 r8 fas8 ( mi16 fas16 ) sol8 -. sol8 -. mi8 -. mi8 -. | % 36
+            re8 - "Viol. 1" r8 fas8 ( mi16 fas16 ) sol8 -. sol8 -. mi8 -. mi8 -. | % 36
             la8 -. la8 -. fas8 ( mi16 fas16 ) sol8 -. sol8 -. mi8 -. mi8 -.
             s1*3 s1*5 s1*5 s1*6 s1*8 | % 64
             <re, fas>8\p -. - "Fag." <re fas>8 -. <re fas>8 -. <re fas>8 -.
@@ -1033,14 +1060,24 @@ clarinetII_ten_aria_con_coro = \score {
         instrument = \clarinet_II_name_long
     }
     \clarinetII_overture
+    \pageBreak
     \clarinetII_introduction
+    \pageBreak
     \clarinetII_two_aria
+    \pageBreak
     \clarinetII_three_aria
+    \pageBreak
     \clarinetII_four_recitativo
+    \pageBreak
     \clarinetII_five_quintetto
+    \pageBreak
     \clarinetII_six_terzetto
+    \pageBreak
     \clarinetII_seven_duetto
+    \pageBreak
     \clarinetII_eight_finale
+    \pageBreak
     \clarinetII_nine_marcia
+    \pageBreak
     \clarinetII_ten_aria_con_coro
 }
