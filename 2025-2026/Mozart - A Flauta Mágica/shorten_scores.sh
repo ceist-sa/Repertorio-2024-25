@@ -1,4 +1,10 @@
 pdftk \
+A=snippets/PIANO/n10.pdf \
+B=snippets/PIANO/n21.pdf
+cat A B \
+output "partes/PIANO - Mozart - A Flauta Mágica.pdf"
+
+pdftk \
 originais-flattened/violinI.pdf \
 cat 1-33 36-53 64-72 \
 output "partes/VIOLIN I - Mozart - A Flauta Mágica.pdf"
