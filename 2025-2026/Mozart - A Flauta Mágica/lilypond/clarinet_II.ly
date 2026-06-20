@@ -248,13 +248,15 @@ clarinetII_overture = \score {
 clarinetII_introduction = \score {
     \header { piece = "No. 1 Introduction" }
     \new Staff
-    \transpose do sib <<
+    \transpose do re <<
         \new Voice = "clarinetII" \relative la {
             \compressEmptyMeasures
-            \clef "treble" \key sol \major
+            \clef "treble" \key mib \major
             \time 4/4
-            la,1 ~ | % 14
-            la1 ~ | % 15
+            \transpose do sib, \relative { %fixing a fuckup
+            \tempo "Allegro"
+            la1\p ~ | % 14
+            la1 ~ | % 15 
             la1 -\fp | % 16
             la4 la2 la4 | % 17
             la1 ~ | % 18
@@ -279,12 +281,14 @@ clarinetII_introduction = \score {
             la1 | % 38
             R1 | % 39
             r4 la2 -\sf la4 -\p | \barNumberCheck #40
-            \voiceTwo
+            \voiceTwo 
             R1*11 | % 51
             \oneVoice
             la4 -\f la8. la16 la4 la8. la16 | % 52
-            
-            do'2 -\f sol'4. sol8 | \barNumberCheck #41
+            }
+
+            \transpose do lab, \relative do'' { %fixing a fuckup
+            do2 -\f sol'4. sol8 | \barNumberCheck #41
             mi4 sol4 mi4 do4 |
             do2. \fermata re8. re16 |
             si4 re8. re16 si4 re8. re16 |
@@ -294,15 +298,15 @@ clarinetII_introduction = \score {
             si2 re2 |
             sol2 mi2 |
             do2 re2 |
-            sol,2\sf 2\sf |
+            sol,,1 \p  ~ |
             1 ~ |
-            4 4 la la |
-            sol r r2 | 
-            r4 sol8 ( si8 ) si8 ( re8 ) re8 ( sol8 ) |
+            1 ~ |
+            1 ~ | 
+            4 sol'8 ( si8 ) si8 [( re8 )] re8 ( sol8 ) |
             sol4 r4 r2 |
             R1 |
             sol,2 ( la2 ) |
-            sol4 sol8 ( si8 ) si8 ( re8 ) re8 ( sol8 ) |
+            sol4 sol8 ( si8 ) si8 [( re8 )] re8 ( sol8 ) |
             sol4 r4 r2 |
             R1 |
             sol,2 ( la2 ) |
@@ -311,7 +315,7 @@ clarinetII_introduction = \score {
             R1*14 |
             \voiceOne
             R1 |
-            r4 \oneVoice mi'4. ( -\p do8 re8 si8 ) |
+            r4 \oneVoice mi'4. ( -\p do8 re8 [si8] ) |
             do1 ~ |
             do1 |
             si2 r4 si4 |
@@ -321,7 +325,7 @@ clarinetII_introduction = \score {
             si1 |
             do4 fa8 ( re8 ) do4 si4 |
             do4 r4 r2 |
-            r2 r4 re4 ( |
+            r2 r4 re4\f ( |
             do8 ) r8 r4 r2 |
             r2 r4 re4 ( |
             do8 ) r8 r4 r2 |
@@ -350,21 +354,25 @@ clarinetII_introduction = \score {
             las8 ) r8 r4 r4 si4 ( |
             las8 ) r8 r4 r4 si4 ( |
             las8 ) r8 r4 r4 si4 ( |
-            do8 ) r8 r4 r4 si4 |
+            do!8 ) r8 r4 r4 si4 |
             si4 r4 si4 r4 |
             las4 r4 r4 \fermata r8 r8 \bar "||"
             R1*99 \bar "|."
+            }
         }
         \new CueVoice = "clarinetII_cue" \relative la {
             \voiceTwo
             \time 4/4
             s1*36 | % 263
             \voiceOne
-            sol'2 - "Ob. I" fas2 | % 264
-            sol1 | % 265
+            \stemDown
+            mib''2 - "Ob. I" re2 | % 264
+            mib1 | % 265
+            \stemNeutral
             s1*6 s1*6 | % 277
             s1*6 s1*6 s1*11 |
             \voiceOne
+            \transpose do lab, \relative do'' {
             do4 - "Viol. I" do8. ( mi16 sol4 ) sol4 | % 301
             sol4 ( do4 si4 sib4 | % 302
             \voiceTwo
@@ -372,6 +380,7 @@ clarinetII_introduction = \score {
             sol,2. ( la8 si8 ) | % 304
             do4 s4*23 s1*6 s1*6 s1*6 s1*5 s1*5 s1*5 s1*3 \bar "||"
             s1*99 \bar "|."
+            }
         }
     >>
 }
@@ -1059,25 +1068,25 @@ clarinetII_ten_aria_con_coro = \score {
         filename = "CLARINET II - Mozart - A Flauta Mágica"
         instrument = \clarinet_II_name_long
     }
-    \clarinetII_overture
-    \pageBreak
+    % \clarinetII_overture
+    % \pageBreak
     \clarinetII_introduction
     \pageBreak
-    \clarinetII_two_aria
-    \pageBreak
-    \clarinetII_three_aria
-    \pageBreak
-    \clarinetII_four_recitativo
-    \pageBreak
-    \clarinetII_five_quintetto
-    \pageBreak
-    \clarinetII_six_terzetto
-    \pageBreak
-    \clarinetII_seven_duetto
-    \pageBreak
-    \clarinetII_eight_finale
-    \pageBreak
-    \clarinetII_nine_marcia
-    \pageBreak
-    \clarinetII_ten_aria_con_coro
+    % \clarinetII_two_aria
+    % \pageBreak
+    % \clarinetII_three_aria
+    % \pageBreak
+    % \clarinetII_four_recitativo
+    % \pageBreak
+    % \clarinetII_five_quintetto
+    % \pageBreak
+    % \clarinetII_six_terzetto
+    % \pageBreak
+    % \clarinetII_seven_duetto
+    % \pageBreak
+    % \clarinetII_eight_finale
+    % \pageBreak
+    % \clarinetII_nine_marcia
+    % \pageBreak
+    % \clarinetII_ten_aria_con_coro
 }
