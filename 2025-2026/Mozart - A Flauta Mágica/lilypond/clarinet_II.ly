@@ -248,7 +248,7 @@ clarinetII_overture = \score {
 clarinetII_introduction = \score {
     \header { piece = "No. 1 Introduction" }
     \new Staff
-    \transpose do do <<
+    \transpose do re <<
         \new Voice = "clarinetII" \relative la {
             \compressEmptyMeasures
             \clef "treble" \key mib \major
@@ -436,11 +436,13 @@ clarinetII_introduction = \score {
 clarinetII_two_aria = \score {
     \header { piece = "No. 2 Aria" }
     \new Staff
-    \transpose do sib <<
-        \new Voice = "clarinetII" \relative la {
+    \transpose do re <<
+        \key sol \major
+        \new Voice = "clarinetII" \transpose do sib \relative la {
             \compressEmptyMeasures
             \time 2/4
             \voiceTwo
+            \tempo "Andante"
             \partial 8 r8 |
             R2 |
             \oneVoice
@@ -461,7 +463,7 @@ clarinetII_two_aria = \score {
             la,8 -! la8 -! la8 -! r8 |
             R2 |
             dos8 -! mi8 -! dos8 -! r8 |
-            la2 ~ |
+            la2\cresc ~ |
             la8 la8 -! la8 -! r8 |
             mi'2 ~ -\f |
             mi8 mi8 -! la,8 -! r8 |
@@ -493,7 +495,7 @@ clarinetII_two_aria = \score {
             r8 mi8 ( la8 ) r8 |
             r8 mi8 ( la8 ) r8 |
             la8. -\f dos16 dos16 si16 la16 mi16 |
-            dos8 -! dos8 -! dos8 \fermata -! -"Dal segno" -"(3 strophen)" \segno \bar "||"
+            \partial 4. dos8 -! dos8 -! dos8 \fermata -! -"Dal segno" -"(3 strophen)" \segno \bar "||"
         }
         \new CueVoice = "clarinetII_cue" \relative la {
             \voiceOne
@@ -1118,9 +1120,9 @@ clarinetII_ten_aria_con_coro = \score {
     }
     % \clarinetII_overture
     % \pageBreak
-    \clarinetII_introduction
-    \pageBreak
-    % \clarinetII_two_aria
+    %\clarinetII_introduction
+    %\pageBreak
+    \clarinetII_two_aria
     % \pageBreak
     % \clarinetII_three_aria
     % \pageBreak
