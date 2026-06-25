@@ -248,7 +248,7 @@ clarinetII_overture = \score {
 clarinetII_introduction = \score {
     \header { piece = "No. 1 Introduction" }
     \new Staff
-    \transpose do re <<
+    \transpose do do <<
         \new Voice = "clarinetII" \relative la {
             \compressEmptyMeasures
             \clef "treble" \key mib \major
@@ -301,8 +301,8 @@ clarinetII_introduction = \score {
             sol,,1 \p  ~ |
             1 ~ |
             1 ~ |
-            1 ~ | 
-            4 sol'8 ( si8 ) si8 [( re8 )] re8 ( sol8 ) |
+            1 | 
+            r4 sol'8 ( si8 ) si8 [( re8 )] re8 ( sol8 ) |
             sol4 r4 r2 |
             R1 |
             sol,2 ( la2 ) |
@@ -357,8 +357,57 @@ clarinetII_introduction = \score {
             do!8 ) r8 r4 r4 si4 |
             si4 r4 si4 r4 |
             las4 r4 r4 \fermata r8 r8 \bar "||"
-            R1*99 \bar "|."
             }
+
+            \tempo "Allegretto"
+            \time 6/8
+            \key sol \major
+            R2. * 23 |
+            R2.\fermata |
+            R2. * 9  \bar "||"
+
+            \tempo "Allegro"
+            \time 2/2
+            \key do \major
+            R1 * 8 |
+            r2 r4 re'4\f |
+            sol,4 re' sol, re' |
+            sol,,1\fp ~ |
+            1 ~ |
+            1\fp ~ |
+            1 |
+            sol4\f r4 r2 |
+            R1 * 3 |
+            sol'4\f 2 4 ~ |
+            4 2 4 |
+            2 r4\fermata r8 r8 |
+            R1 * 8 |
+            sol,1\p ~ |
+            1 ~ |
+            1 |
+            do4 r4 r2 |
+            R1 |
+            R1 \fermata |
+            R1 * 8 |
+            sol1\p ~ |
+            1 ~ |
+            1 |
+            do4 r4 r2 |
+            R1 * 8 |
+            r4 do'\p r sol |
+            mi r r2 |
+            r4 do' r sol |
+            mi2\f sol |
+            do4 8 8 sol4 8 8 |
+            mi4 8 8 4 8 8 |
+            mi4 8 8 4 8 8 |
+            mi4 mi sol mi |
+            do do'8 sol do sol do sol |
+            do4 r do, do |
+            do4 r4 r2 | 
+
+            \bar "|."
+            
         }
         \new CueVoice = "clarinetII_cue" \relative la {
             \voiceTwo
@@ -379,7 +428,6 @@ clarinetII_introduction = \score {
             sols4 la4 sol8 fa8 mi8 re8 ) | % 303
             sol,2. ( la8 si8 ) | % 304
             do4 s4*23 s1*6 s1*6 s1*6 s1*5 s1*5 s1*5 s1*3 \bar "||"
-            s1*99 \bar "|."
             }
         }
     >>
