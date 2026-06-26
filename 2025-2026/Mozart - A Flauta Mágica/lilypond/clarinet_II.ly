@@ -570,15 +570,16 @@ clarinetII_three_aria = \score {
 }
 
 clarinetII_four_recitativo = \score {
-    \header { piece = "No. 4 Recitativo" }
+    \header { piece = "No. 4 Recitativo ed Aria" }
     <<
         \new StaffGroup
-        \new Staff
-        \transpose do sib <<
+        \new Staff = "main"
+        <<
             \new Voice = "clarinetII" \relative la {
                 \compressEmptyMeasures
+                \tempo "Allegro maestoso"
                 \time 4/4  R1 |
-                do,1 ~ -\p |
+                do1 ~ -\p |
                 do1 ~ -\markup{ \italic {cresc.} } |
                 do1 |
                 sol'1 -\f |
@@ -588,22 +589,25 @@ clarinetII_four_recitativo = \score {
                 sol1 |
                 mi4 mi4 mi4 mi4 |
                 <<
-                    \new Staff <<
-                        \once \omit Staff.TimeSignature
+                    \new Staff = "ossiaStaff" \with {
+                        \remove "Time_signature_engraver"
+                        alignAboveContext = "main"
+                        \override StaffSymbol.staff-space = #(magstep -3)
+                        }<<
                         \new CueVoice = "clarinetII_voice" \with { instrumentCueName = "Königin der Nacht" } \relative la' {
-                            fa4^"Recitativo" la8. do16 mi,4 r16 sol16 sib16 la16 |
+                            fa4 la8. do16 mi,4 r16 sol16 sib16 la16 |
                             fa4 r4 r2 |
                             R1 |
                             r8 re si do re re r4 |
                             sol8 sol r4 mi r |
                         }
-                        \new Lyrics \lyricsto "clarinetII_voice" {
+                        \new Lyrics \with { alignBelowContext = "ossiaStaff" fontSize = #-3 } \lyricsto "clarinetII_voice" {
                             o "zitt " -- re "nicht," mein lie -- ber "sohn," du "bist" un -- schul
                             "dig," "wei " -- "se," "fromm " --
                         }
                     >>
                     {
-                        mi4 r4 r2 |
+                        mi4^"Recitativo" r4 r2 |
                         R1 |
                         do1 ~ -\f |
                         do4 -\p r4 r2 |
@@ -614,7 +618,8 @@ clarinetII_four_recitativo = \score {
                 \oneVoice
                 sol'1 -\f |
                 R1*3 |
-                \time 3/4  r4 r4 \fermata r4 |
+                \time 3/4  r4 r4 \fermata \tempo Andante r4^"Aria" |
+                
                 R2.*8 |
                 R2. |
                 R2. |
@@ -651,12 +656,12 @@ clarinetII_four_recitativo = \score {
                 R1 |
                 r8 sol'16 sol16 sol8 sol8 mi8 sol8 do8 sol8 |
                 mi8 sol16 sol16 sol8 sol8 mi8 sol8 do8 sol8 |
-                mi4 mi4 do4 r4 \fermata |
+                mi4 mi4 do4 r4 \fermata \bar "|."
             }
             \new CueVoice = "clarinetII_cue" \relative la {
                 s1*15 |
                 \voiceTwo
-                sol,4( -"VC. e B." si re sol) |
+                sol4( -"VC. e B." si re sol) |
                 s1*4 |
                 \time 3/4
                 s2.*9 |
@@ -1130,9 +1135,9 @@ clarinetII_ten_aria_con_coro = \score {
     %\pageBreak
     %\clarinetII_two_aria
     % \pageBreak
-    \clarinetII_three_aria
+    %\clarinetII_three_aria
     % \pageBreak
-    % \clarinetII_four_recitativo
+    \clarinetII_four_recitativo
     % \pageBreak
     % \clarinetII_five_quintetto
     % \pageBreak
