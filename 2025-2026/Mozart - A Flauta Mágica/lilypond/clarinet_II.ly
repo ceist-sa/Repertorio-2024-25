@@ -508,11 +508,15 @@ clarinetII_two_aria = \score {
 clarinetII_three_aria = \score {
     \header { piece = "No. 3 Aria" }
     \new Staff
-    \transpose do sib
-        \new Voice = "clarinetII" \relative la {
+    \transpose do re
+        \new Voice = "clarinetII" {
             \compressEmptyMeasures
-            \clef treble \time 2/4 \partial 16 r16 |
-            si4 ^\markup{ \italic {ten.} } -\p r4 |
+            \clef treble \time 2/4 \key mib \major 
+
+            \transpose do lab, \relative la {
+            \tempo "Larghetto"
+            \partial 16 r16 |
+            si'4 ^\markup{ \italic {ten.} } -\p r4 |
             re4 ^\markup{ \italic {ten.} } r4 |
             R2 |
             r8 la8 ( -. la8 -. la8 ) -. |
@@ -548,7 +552,8 @@ clarinetII_three_aria = \score {
             r16 la16 r16 la16 r16 sol16 r16 sol16 |
             r16 mi16 r16 mi16 r16 mi16 r16 mi16 |
             r16 fas16 r16 sol16 r16 la16 r16 la16 |
-            R2*4 - "G.P." |
+            R2 - "G.P." |
+            R2 * 3 |
             si,4 ( -\markup{ \italic {cresc.} } -\p la4 ) |
             sol8 -! -\f re'8 r4 |
             R2*4 |
@@ -560,6 +565,7 @@ clarinetII_three_aria = \score {
             si8 -\f r16 sol'16 ( la8. ) fas16 ( |
             sol8 ) r8 r4 |
             fas4 ( -\p sol8 ) r8 \fermata \bar "|." |
+            }
         }
 }
 
@@ -1122,9 +1128,9 @@ clarinetII_ten_aria_con_coro = \score {
     % \pageBreak
     %\clarinetII_introduction
     %\pageBreak
-    \clarinetII_two_aria
+    %\clarinetII_two_aria
     % \pageBreak
-    % \clarinetII_three_aria
+    \clarinetII_three_aria
     % \pageBreak
     % \clarinetII_four_recitativo
     % \pageBreak
