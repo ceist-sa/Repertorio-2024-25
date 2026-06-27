@@ -677,54 +677,157 @@ clarinetII_four_recitativo = \score {
 
 clarinetII_five_quintetto = \score {
     \header { piece = "No. 5 Quintetto" }
-    \new Staff
-    \transpose do sib <<
-        \new Voice = "clarinetII" \relative la' {
-            \compressEmptyMeasures
-            \key re \major
-            \voiceTwo
-            \time 2/2 R1*213 \bar "||"
+    \new Staff {
+        \compressEmptyMeasures
+        \key do \major
+        \time 2/2
+        \tempo "Andante"
+        \relative la {
+            do2\f r2 |
+            r4 do'\p sol mi |
+            do r4 r2 |
+            R1 * 31 |
+            <<
+                \new CueVoice {
+                    sol''4.^"Viol. I" fa8 mi4 fa |
+                    sol4. fa8 mi4 sol ( |
+                    la do si re ) |
+                    re8 (do si la) sol4 
+                }
+                {
+                    \voiceTwo
+                    R1 
+                    R1 
+                    R1
+                    r2 r4
+                }
+            >>
             \oneVoice
-            fas2 ( -\markup{ \italic {dolce} } -\p mi2 ) |
-            re2 ( dos2 ) |
-            si2 ( la4 ) re4 |
-            dos4 ( re4 ) dos4 ( la8 ) r8 |
-            fas'2 ( mi2 ) |
-            re2 ( dos2 ) |
-            si2 ( la4 ) re4 |
-            dos4 ( re4 ) dos4 ( la8 ) r8 |
-            dos2 ( re2 ) |
-            mi8. ( re16 ) mi8. ( dos16 ) re4 -! r4 |
-            re4. -\sf re8 -\p re2 |
-            re4 -! dos4 -! re4 -! r4 |
-            R1*4 |
-            dos2 ( re2 ) |
-            mi8. ( re16 ) mi8. ( dos16 ) re4 -! r4 |
-            re4. -\sf re8 -\p re2 |
-            re4 -! dos4 -! re4 -! r4 |
-            R1*3 |
-            r2 r4 r8 re8 -\f |
-            re4. re8 re4 r8 re8 |
-            re4. re8 re4 r8 re8 |
-            re4. re8 re2 ~ |
-            re4 dos4 re4 r8 re8 -\p |
-            dos2 ( re4 ) r4 |
-            r2 r4 r8 re8 |
-            dos2 ( re4 ) r4 |
+            sol,4 |
+            4 4 4 4 |
+            2 r2 |
+            R1 * 4 |
+            2 r2 |
+            2 r2 |
+            R1 * 3 |
+            r4 r4 r4 re'4 \f |
+            4 4 4 4 |
+            4 4 4 r |
+            R1 * 9 |
+            mi,2\f 2 |
+            4 4 4 4 |
+            4 4 r2 |
+            R1 * 5 |
+            2\f 2 | 
+            4 4 4 4 |
+            4 4 r2 |
+            R1 * 7 |
+            sol1\p (|
+            mi4) r4 r2 |
+            R1 * 5 |
+            do1 ~ |
+            1 ~ |
+            4 r4 r2 |
             R1 |
-            fas,4 r4 fas4 r4 |
-            fas4 r4 r2 \fermata \bar "|." |
+            do1 ~ |
+            1 ~ |
+            4 r4 r2 |
+            R1 * 7 |
+            r4 sol'4\p 4 4 | 
+            4 r4 r2 |
+            R1 * 2 |
+            r4 do,8\f 8 4 4 |
+            4 r4 r2 |
+            R1 * 2 |
+            do1\p ~ |
+            1 ~ |
+            1 ~ | 
+            1 ~ |
+            1 ~ |
+            1 ~ |
+            1 ~ |
+            1 ~ |
+            4 r4 r2 |
+            R1 * 6 |
+            do1\f |
+            R1 * 3 |
+            do1 \f  |
+            R1 * 5 |
+            mi1\p ~ |
+            1 ~ |
+            4 r4 r2 |
+            R1 * 48 |
+            <<
+                \new CueVoice {
+                    r4^"Viol. I"\mf sol'8-. fa-. mi-. re-. do-. sib-. |
+                    la4\p r4 r2 |
+                    r4\mf sol'8-. fa-. mi-. re-. do-. sib-. |
+                }
+                {
+                    \voiceTwo
+                    R1 
+                    R1 
+                    R1
+                }
+            >>
+            \oneVoice
+            mi,1\p |
+            sol |
+            do2 r2 |
+            r4 sol-! \f 4-! 4-! |
+            sol1\sfp ~ |
+            1 |
+            sol1\sfp ~ |
+            1 |
+            R1 |
+            sol2.\sfp do,4 |
+            r2 sol'4 r4 |
+            do,4 r4 r2 |
+            R1 |
+            sol'2.\sfp do,4 |
+            r2 sol'4 \p r4 |
+            do,4 r4 r2 |
+            R1 * 7 |
+            re'1 \p ~ |
+            1 |
+            sol,4 r4 r2\fermata \bar "||" \break
         }
-        \new CueVoice = "clarinetII_cue" \relative la {
-            \voiceOne
-            re2 - "Viol." r8. re16 -! re8\trill ( dos16 re16 ) |
-            fas4 -! re4 -! la4 -! fas4 -! |
-            re4 -! r4 r2 s1*207 |
-            r4 <re' sols>4 -! - "Ob." <dos la'>4 -! <re sols>4 -! |
-            <dos la'>4 -! <re sols>4 -! <dos la'>4 -! <re sols>4 -! |
-            <dos la'>4 -! r4 \fermata r2 \bar "|."
+
+
+        \transpose do sib %this makes no sense, but ok
+            \new Voice = "clarinetII" \relative la' {
+                \tempo "Andante"
+                fas2 ( -\markup{ \italic {dolce} } -\p mi2 ) |
+                re2 ( dos2 ) |
+                si2 ( la4 ) re4 |
+                dos4 ( re4 ) dos4 ( la8 ) r8 |
+                fas'2 ( mi2 ) |
+                re2 ( dos2 ) |
+                si2 ( la4 ) re4 |
+                dos4 ( re4 ) dos4 ( la8 ) r8 |
+                dos2 ( re2 ) |
+                mi8. ( re16 ) mi8. ( dos16 ) re4 -! r4 |
+                re4. -\sf re8 -\p re2 |
+                re4 -! dos4 -! re4 -! r4 |
+                |
+                dos2 ( re2 ) |
+                mi8. ( re16 ) mi8. ( dos16 ) re4 -! r4 |
+                re4. -\sf re8 -\p re2 |
+                re4 -! dos4 -! re4 -! r4 |
+                R1*3 |
+                r2 r4 r8 re8 -\f |
+                re4. re8 re4 r8 re8 |
+                re4. re8 re4 r8 re8 |
+                re4. re8 re2 ~ |
+                re4 dos4 re4 r8 re8 -\p |
+                dos2 ( re4 ) r4 |
+                r2 r4 r8 re8 |
+                dos2 ( re4 ) r4 |
+                R1 |
+                fas,4 r4 fas4 r4 |
+                fas4 r4 r2 \fermata \bar "|." |
+            }
         }
-    >>
 }
 
 clarinetII_six_terzetto = \score {
@@ -1137,9 +1240,9 @@ clarinetII_ten_aria_con_coro = \score {
     % \pageBreak
     %\clarinetII_three_aria
     % \pageBreak
-    \clarinetII_four_recitativo
+    % \clarinetII_four_recitativo
     % \pageBreak
-    % \clarinetII_five_quintetto
+    \clarinetII_five_quintetto
     % \pageBreak
     % \clarinetII_six_terzetto
     % \pageBreak
