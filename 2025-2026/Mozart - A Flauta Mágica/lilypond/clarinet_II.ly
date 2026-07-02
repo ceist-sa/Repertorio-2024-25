@@ -833,13 +833,68 @@ clarinetII_five_quintetto = \score {
 clarinetII_six_terzetto = \score {
     \header { piece = "No. 6 Terzetto" }
     \new Staff
-    \transpose do sib <<
+    \transpose re la, << % transposition from horn in fa to clarinet in sib
         \new Voice = "clarinetII" \relative la {
+            % written as it is on the horn part
             \compressEmptyMeasures
+            \key do \major
+            \time 4/4 
+            \tempo "Allegro Molto"
+            re1\f ~|
+            4 r4 r2 |
+            R1 |
+            re1 \p ~ |
+            1 ~ |
+            1 ~ |
+            1 ~ |
+            1 |
+            \break
+            la'1 \fp |
+            fas4 4\f 4 r |
+            R1 * 6 |
+            la,1\p ~ |
+            1 ~ |
+            1 |
+            R1 |
+            \break
+            r4 la\f la r |
+            R1 * 3 |
+            la1\f ~|
+            4 r4 r2 |
+            r2 re4 re |
+            r2 re4 re |
+            \break 
+            r2 re4 re |
+            R1 * 19 |
+            \voiceOne
+            R1 |
+            \break
+            r4 \oneVoice la'4\p-! la-! r |
+            R1 |
+            r4 re,4\f -! re-! re-! |
+            re-! r\fermata r r | 
+            R1 * 7 | 
+            \break
+            r4 fas\p la r |
+            R1 |
+            r4 fas la r |
+            R1 |
+            r4 re-! re-! r |
+            r mi-! mi-! r |
+            r2 r4 fas, |
+            la r r la |
+            fas re'-! re-! r |
+            r mi-! mi-! r |
+            r fas-! fas-! fas-! |
+            \fine
         }
-        \new CueVoice = "clarinetII_cue" \relative la {
-            
-        }
+        \new CueVoice = "clarinetII_cue" \relative la' {
+            s1 * 47 |
+            \voiceTwo
+            s2 s4 la8._"Fag." (sol16) |
+            fas4 fas fas8. [^(sol16) mi8. ^(fas16)] |
+            sol4
+            }
     >>
 }
 
@@ -1242,9 +1297,9 @@ clarinetII_ten_aria_con_coro = \score {
     % \pageBreak
     % \clarinetII_four_recitativo
     % \pageBreak
-    \clarinetII_five_quintetto
+    %\clarinetII_five_quintetto
     % \pageBreak
-    % \clarinetII_six_terzetto
+    \clarinetII_six_terzetto
     % \pageBreak
     % \clarinetII_seven_duetto
     % \pageBreak
