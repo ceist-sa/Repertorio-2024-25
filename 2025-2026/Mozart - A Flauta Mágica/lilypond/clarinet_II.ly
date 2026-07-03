@@ -1256,18 +1256,18 @@ clarinetII_ten_aria_con_coro = \score {
     \transpose do sib {
         \new Voice = "clarinetII" \relative la {
             \compressEmptyMeasures
-            \key mi \major
-            \time 3/4  mi2 ( -\p res4 |
+            \key la \major
+            \time 3/4  mi2 ( -\p re4 |
             dos2 fas4 ) |
-            si,4. ( dos8 ) res4 |
+            si,4. ( dos8 ) re4 |
             dos2 r4 |
             mi2 r4 |
             sols2 r4 |
-            la2 ( fas8 res8 ) |
-            dos4 ( si4 ) res4 |
-            res2. ~ |
-            res2. ~ |
-            res2. |
+            la2 ( fas8 re8 ) |
+            dos4 ( si4 ) re4 |
+            re2. ~ |
+            re2. ~ |
+            re2. |
             dos4 ( -. dos4 -. dos4 ) -. |
             dos2. |
             res4 ( -. res4 -. res4 ) -. |
@@ -1289,7 +1289,7 @@ clarinetII_ten_aria_con_coro = \score {
             dos2. ~ |
             dos2. ~ |
             dos4 ( si4 ) r4 |
-            res,2. |
+            re,2. |
             r4 la'4 ( mi4 ) |
             r4 do4 ( la4 ) |
             la4 ( sols4 ) si4 |
@@ -1302,15 +1302,15 @@ clarinetII_ten_aria_con_coro = \score {
             la2 ( sols4 ) |
             sols4 ( la4 ) r4 |
             la4 ( -. la4 -. la4 ) -. |
-            la2 ( fas8 res8 ) |
+            la2 ( fas8 re8 ) |
             dos2 ( si4 ) |
             la4 la'4 ( -. la4 ) -. |
             la4 ( sols4 fas4 |
             mis4 fas4 ) fas4 ( |
-            mi2 res4 ) |
+            mi2 re4 ) |
             dos4 dos4 ( -. dos4 ) -. |
-            dos4 ( fas4 res4 ) |
-            dos2 ( res4 ) |
+            dos4 ( fas4 re4 ) |
+            dos2 ( re4 ) |
             dos2 r4 \fermata \bar "|." |
         }
     }
@@ -1339,8 +1339,8 @@ clarinetII_ten_aria_con_coro = \score {
     % \pageBreak
     %\clarinetII_eight_finale
     % \pageBreak
-    \clarinetII_winds_chords
-    \clarinetII_nine_marcia
+    % \clarinetII_winds_chords
+    % \clarinetII_nine_marcia
     % \pageBreak
-    % \clarinetII_ten_aria_con_coro
+    \clarinetII_ten_aria_con_coro
 }
