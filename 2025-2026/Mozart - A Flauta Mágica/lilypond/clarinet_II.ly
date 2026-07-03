@@ -1188,6 +1188,24 @@ clarinetII_eight_finale = \score {
     >>
 }
 
+clarinetII_winds_chords = \score {
+    \new Staff
+    \transpose do sol, {
+        \new Voice = "clarinetII" \relative la'' {
+            \time 2/2
+            \key do \major
+            \tempo Adagio
+            r4 r8. fa16 2 |
+            2 r2 \fermata |
+            r4 r8. fa16 2 |
+            2 r2 \fermata |
+            r4 r8. fa16 2 |
+            2 r2 \fermata |
+            \fine
+        }
+    }
+}
+
 clarinetII_nine_marcia = \score {
     \header { piece = "No. 9 Marcia" }
     \new Staff
@@ -1195,7 +1213,7 @@ clarinetII_nine_marcia = \score {
         \new Voice = "clarinetII" \relative la {
             \compressEmptyMeasures
             \time 2/2
-            \key mi \major
+            \key la \major % this does not at all correspond to the corret key. A fuck up was made
             \repeat volta 2 {
                 la2 ( sols2 ) |
                 la2 r4 mi4 ( |
@@ -1319,9 +1337,10 @@ clarinetII_ten_aria_con_coro = \score {
     % \pageBreak
     %\clarinetII_seven_duetto
     % \pageBreak
-    \clarinetII_eight_finale
+    %\clarinetII_eight_finale
     % \pageBreak
-    % \clarinetII_nine_marcia
+    \clarinetII_winds_chords
+    \clarinetII_nine_marcia
     % \pageBreak
     % \clarinetII_ten_aria_con_coro
 }
