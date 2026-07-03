@@ -960,6 +960,7 @@ clarinetII_eight_finale = \score {
         \new Voice = "clarinetII" \relative la {
             \compressEmptyMeasures
             \time 2/2  \key mi \major
+            \tempo Larghetto
             R1 |
             si'1 ~ -\p |
             si1 ~ |
@@ -968,7 +969,7 @@ clarinetII_eight_finale = \score {
             R1 |
             r2 r8. sols,16 si8. mi16 |
             sols2 ~ sols8. ( fas16 ) mi8. ( fas16 ) |
-            mi4 res8. ( dos32 res32 ) mi4 r4 |
+            mi4 res8.\trill ( dos32 res32 ) mi4 r4 |
             si'1 ~ |
             si1 ~ |
             si1 ~ |
@@ -984,29 +985,36 @@ clarinetII_eight_finale = \score {
             R1*4 |
             r2 r8. sols16 sols8. sols16 |
             sols4 si8. mi16 sols2 ~ |
-            sols8. ( fas16 ) mi8. ( fas16 ) mi4 res8. ( dos32 res32 ) |
+            sols8. ( fas16 ) mi8. ( fas16 ) mi4 res8.\trill ( dos32 res32 ) |
             mi4 r4 r2 |
             si'1 ~ |
             si1 ~ |
             si2 ~ si4 r4 \bar "||"
-            \time 4/4  R1*11 - "Recitativo" |
-            R1*6 ^"Allegro" |
-            R1*9 ^"Allegro assai" |
+            \tempo Recitativo
+            \time 4/4  R1*11  |
+            \tempo Allegro
+            R1*6 |
+            \tempo "Allegro assai"
+            R1*9 |
             R1 \fermata |
             R1 \fermata |
             R1*18 |
-            R1*3 ^"Adagio" |
-            re,2 -\p ^"Andante" si2 |
+            \tempo Adagio
+            R1*3 |
+            \tempo Andante
+            re,2 -\p si2 |
             do1 |
             si4 r4 r2 |
-            R1*260 \bar "||" |
+            R1*260 \tweak self-alignment-X #RIGHT ^\markup{\tiny "Estes 260 compassos incluem os compassos 228-350 que foram cortados"} \bar "||" |
             \voiceTwo
             \key re \major R1*44 \bar "||"
             \oneVoice
 
             % Corno di Bassetto in Fa/F
-            \key mi \major % Does it make sense to change the key when changing the transposition?
-            \time 2/2  dos,4 ^ "Larghetto" -\f r4 mi4 r4 |
+            \key la \major % this does not at all correspond to the corret key. A fuck up was made
+            \time 2/2 
+            \tempo "Larghetto"
+            dos,4  -\f r4 mi4 r4 |
             la2 r2 |
             R1*3 |
             r4 dos,4 ( -. dos4 -. dos4 ) -. |
@@ -1028,7 +1036,8 @@ clarinetII_eight_finale = \score {
             la4. ( sol16 fas16 ) mi8 -! mi8 ( fas8 sol8 ) |
             sol8 ( fas8 ) fas4 -! r2 |
             R1*5 |
-            R1 \fermata ^"Recitativo" |
+            \tempo Recitatvo
+            R1 \fermata |
             R1 \fermata \bar "||" |
             \voiceTwo
             R1*16 |
@@ -1036,6 +1045,7 @@ clarinetII_eight_finale = \score {
             R1*2 |
             \voiceTwo
             R1*2 |
+            \oneVoice
             r4 mi'2 -\f mi4 |
             sol4 mi4 r2 |
             fas2 -\f mi8 ( re8 dos8 si8 ) |
@@ -1052,6 +1062,7 @@ clarinetII_eight_finale = \score {
             la4 ) r4 r2 |
             \voiceTwo
             R1*23 |
+            \oneVoice
             re1 ( -\f |
             dos4 ) r4 r2 |
             \oneVoice
@@ -1061,9 +1072,13 @@ clarinetII_eight_finale = \score {
             la2 r2 |
             R1 |
             \voiceTwo
-            R1*6 - "Recitativo" \bar "||"
-            \key la \major sols2 -\f r2 |
+            \tempo "Recitativo"
+            R1*6  \bar "||"
+            \break
+            \tempo Presto
             \oneVoice
+            \key mi \major % this does not at all correspond to the corret key. A fuck up was made
+            sols2 -\f r2 |
             R1 |
             sols2 r2 |
             R1 |
@@ -1163,10 +1178,11 @@ clarinetII_eight_finale = \score {
             \voiceOne
             sols4 si'2. ~ - "Ob. I" |
             si4 ( la4 sols4 fas4 ) s1*2 s1*8 s1*29 |
-            r4 la2 ( - "Cor. di B.I" sol4 |
+            r4 la2 ( - "Cl.I" sol4 |
             fas4 mi4 re4 dos4 ) |
+            \oneVoice
             re4 r4 r2 s1*5 s1*8 |
-            r2 res4 ( - "Fl. I" -\p mi4 ) ~ |
+            r2 \tempo Adagio res4 ( - "Fl. I" -\p mi4 ) ~ |
             mi4 ( res4 ) mi4 r4 \fermata
         }
     >>
@@ -1299,11 +1315,11 @@ clarinetII_ten_aria_con_coro = \score {
     % \pageBreak
     %\clarinetII_five_quintetto
     % \pageBreak
-    \clarinetII_six_terzetto
+    %\clarinetII_six_terzetto
     % \pageBreak
-    % \clarinetII_seven_duetto
+    %\clarinetII_seven_duetto
     % \pageBreak
-    % \clarinetII_eight_finale
+    \clarinetII_eight_finale
     % \pageBreak
     % \clarinetII_nine_marcia
     % \pageBreak
