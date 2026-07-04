@@ -1604,6 +1604,299 @@ clarinetII_fifteen_aria = \score {
     >>
 }
 
+clarinetII_twenty_one_finale = \score {
+    \header { piece = "No. 21 Finale" }
+    \new Staff
+    \transpose do sol, << %transposition horn in F -> Clarinet Bb
+        \new Voice = "clarinetII" \relative la' {
+            \set Score.barNumberVisibility = #all-bar-numbers-visible
+            \set Score.currentBarNumber = #413
+            \compressEmptyMeasures
+            \time 6/8
+            \tempo "Allegro"
+            \key sol \major
+            \voiceTwo
+            \partial 4 r8 r8  |
+            R2. |
+            R2. * 2 |
+            \oneVoice
+            r8 r8 la8\p [(re)] r8 r8 |
+            \break
+            r8 r8 la8 [(re)] r8 r8 |
+            R2. * 4 |
+            mi2. (|
+            la,4.) ~ 8 r8 r |
+            r4 r8 la4 8 |
+            fas8 8 8 8 r r |
+            \break
+            R2. * 4 |
+            r8 r8 la8\p [(re)] r8 r8 |
+            r8 r8 la8 [(re)] r8 r8 |
+            la2. ~ |
+            2. ~ |
+            4. r4 r8 |
+            R2. * 4 |
+            \break 
+            r8 la\f la la r r |
+            R2. * 11 |
+            \voiceTwo
+            R2. |
+            R2. |
+            \oneVoice
+            mi'2.\p ~ |
+            mi |
+            la,8 r r r4 r8 |
+            R2. * 7 |
+            R2. \fermata |
+            \voiceOne
+            R2. |
+            R2. |
+            r4 r8 \oneVoice la4.\f ~ |
+            \break 
+            8 re, re re r r |
+            R2. * 26 |
+            \voiceTwo
+            R2. |
+            R2. |
+            \break
+            R2. |
+            \oneVoice
+            la'2.\p ~ |
+            2. ~ |
+            8 r8 r8 r4 r8 |
+            R2. * 7 |
+            \break
+            r8 la8-! 8-! 4-! r8 |
+            R2. |
+            r8 la8-! 8-! 4-! r8 |
+            R2. * 2 |
+            la2.\cresc ~ |
+            8\f fas fas fas r r |
+            R2. * 3 |
+            \break
+            r8 fas8\p fas fas4 r8 |
+            R2. * 5 |
+            la2.\p  ~ |
+            2. ~ |
+            2. ~ |
+            2. |
+            \break 
+            R2. * 3 |
+            R2. \fermata |
+            R2. \fermata |
+            R2. \fermata |
+            r4 r8\fermata r \tempo Andante r r |
+            R2. * 7 |
+            \voiceOne
+            R2. |
+            R2. \bar "||"
+            \break
+            \time 2/2 
+            \tempo Allegretto
+            \oneVoice
+            re,4 4\cresc 4 4 |
+            2\f r2 |
+            R1 * 8 |
+            fas2 (la) |
+            re4 r4 r2 |
+            R1 * 4 |
+            r4 re,4\f 4 4 |
+            4 r4 r2 |
+            r4 re4 4 4 |
+            4 r4 r2 |  
+            r4 re4 4 4 |
+            4 r4 r2 |
+            \break
+            r4 re4 4 4 |
+            4 r4 r2 | 
+            R1 * 9 \bar "||"
+            \tempo Allgero
+            R1 * 27 |
+            \voiceOne
+            R1 |
+            \break
+            R1 |
+            R1 |
+            R1 |
+            R1 |
+            \oneVoice
+            r2 re4\p r4 |
+            re r r2 |
+            \break
+            r2 re4 r4 |
+            re4 r4 r2 |
+            r2 re4 r4 |
+            re4 r4 r2 |
+            R1 |
+            la1\f\fermata \bar "||"
+            \break
+            R1 * 24 |
+            \voiceOne
+            R1 |
+            R1 |
+            \oneVoice
+            re1\p ~ |
+            1 ~ |
+            4 r4 r2 |
+            \break
+            R1 * 4 |
+            r4 la'\f re re |
+            la la la la |
+            la r4 r2 |
+            R1 * 15 |
+            \break 
+            \voiceOne
+            \tempo "ritardando"
+            R1 |
+            R1 |
+            R1 |
+            R1 |
+            R1 |
+            R1 |
+            \break
+            R1 |
+            R1 |
+            \oneVoice
+            \tempo "in tempo"
+            la,1\fp ~ |
+            la |
+            la\fp ~ |
+            la |
+            \break
+            la1\fp ~ |
+            la |
+            la\fp ~ |
+            la |
+            R1 * 2 |
+            r4 la4\f la la |
+            \break
+            la1\f ~ |
+            4 r4 r2\fermata |
+            R1 * 5 |
+            r2 la'2_\markup{\dynamic mfp} (|
+            \break
+            re4) r4  la2_\markup{\dynamic mfp} (|
+            re4) r4 la2_\markup{\dynamic mfp} |
+            fas8\p fas la la fas fa la la |
+            fas1 \mf |
+            R1 * 6 |
+            \break
+            la1\p (|
+            re4) r4 r2 |
+            r2 la2_\markup{\dynamic mfp} (|
+            re4) r4  la2_\markup{\dynamic mfp} (|
+            re4) r4 la2_\markup{\dynamic mfp} |
+            re8 re la la re re la la |
+            \break
+            fas1 \f |
+            R1 * 3 |
+            re1 \p ~ |
+            1 ~ |
+            1 ~ |
+            1 ~ |
+            1 \cresc |
+            \break
+            mi'4\f mi la, la |
+            re,1 \p ~ |
+            1 ~ |
+            1 ~ |
+            1 ~ |
+            1 \cresc |
+            mi'4\f mi la, la |
+            \break
+            re,4 r4 r2 |
+            R1 |
+            re1\f |
+            re'4 8 8 la4 8 8 |
+            fas4 r4 r2 |
+            R1 * 3 |
+            \break
+            r4 fas\f r la |
+            r re r la |
+            r re r la |
+            fas4 fas'8 8 8 8 8 8 |
+            4 re,8 re fas fas la la |
+            \break
+            re, re re re fas fas la la |
+            re, re re re fas fas la la |
+            re, fas re fas re fas re fas |
+            re4 fas la fas |
+            \break
+            re r re r |
+            \partial 2 re2\fermata
+            \fine
+        }
+        \new CueVoice = "clarinetII_cue" \relative la' {
+            \oneVoice
+            \partial 4  re8-!^"Viol. I" re-! |
+            re8 (la) r r fas'-! fas-!
+
+            s2. * 37 |
+
+            si8^"Viol. I 8va" re-! si-! fas'16 (mi re dos si8) |
+            re16 (dos si la sols8) res16 mi fa fas sol sols |
+
+            s2. * 11 |
+
+            la,4\p_"Vc. e B. 8va" r8 la4 r8 |
+            la8\f 8\p 8 8\f 8\p 8 |
+            8\f 8\p 8  s4. |
+
+            s2. * 27 |
+
+            la'8^"Viol. I" (dos,) la'-! la8 (dos,) la'-! |
+            la8 (dos,) la'-! r8 la-! la-! |
+            la8 (dos,) la'-! la8 (dos,) la'-! |
+
+            s2. * 44 |
+
+            fas,4._"Fag. I" (mib |
+            re dos)
+
+            s1 * 60 |
+
+            \voiceTwo
+            sol'8_"Fag. I" si-. la-. sol-. fas-. mi-. re-. do-. |
+            \oneVoice
+            si4 si si si |
+            do4.\trill re8 mi2 |
+            re4 4 4 4 |
+            sol,4 r4 r2 |
+
+            s1 * 32 |
+
+            r4 la'2_"Fag. I" (sol8 fas) |
+            mi2 (fas4 sol) |
+
+            s1 * 25 |
+
+            \voiceTwo
+            r2_"Fag. I" dos,4-. (dos-.) |
+            si2 r2 |
+            r2 la'4-. (la-.) |
+            sols2 r2 |
+            r2 dos2 ( |
+            re si) |
+            dos4 dos (re8 dos si dos) |
+            re2 si |
+
+
+            % fa8. (res16) dos8. (mi16) |    
+            % s2 |
+            % s2 * 7 |
+            % \oneVoice
+            % r16^"Fl. I" fas'8 [(res32 si)]
+            % las16 [(dos8) si32 (sols)] |
+
+            % s2 * 12 |
+
+            % \voiceOne
+            % r8^"Viol. I" si, r si |
+            % r dos r mi |
+        }
+    >>
+}
+
 \bookpart {
     \header {
         filename = "CLARINET II - Mozart - A Flauta Mágica"
@@ -1613,7 +1906,7 @@ clarinetII_fifteen_aria = \score {
     % \pageBreak
     %\clarinetII_introduction
     %\pageBreak
-    \clarinetII_two_aria
+    %\clarinetII_two_aria
     % \pageBreak
     %\clarinetII_three_aria
     % \pageBreak
@@ -1633,5 +1926,6 @@ clarinetII_fifteen_aria = \score {
     %\clarinetII_ten_aria_con_coro
     % \clarinetII_twelve_quintetto
     %\clarinetII_fourteen_aria
-    \clarinetII_fifteen_aria
+    %\clarinetII_fifteen_aria
+    \clarinetII_twenty_one_finale
 }
