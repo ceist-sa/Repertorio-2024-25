@@ -1456,7 +1456,8 @@ clarinetII_fourteen_aria = \score {
             \compressEmptyMeasures
             \clef treble 
             \key re \minor
-            \time 4/4 
+            \time 4/4
+            \tempo "Allgero assai"
             \voiceOne
             R1 |
             \oneVoice
@@ -1550,6 +1551,59 @@ clarinetII_fourteen_aria = \score {
     >>
 }
 
+clarinetII_fifteen_aria = \score {
+    \header { piece = "No. 15 Aria" }
+    \new Staff
+    \transpose do sol, << %transposition horn in F -> Clarinet Bb
+        \new Voice = "clarinetII" \relative la' {
+            \compressEmptyMeasures
+            \time 2/4
+            \voiceTwo
+            \tempo "Larghetto"
+            \partial 16 r16 |
+            R2 |
+            \partial 4. {\oneVoice fas8-!\f [si-!] r8}  \bar "||"
+            \partial 8 r8^\segno |
+            R2 * 7 |
+            \voiceTwo
+            R2 |
+            \oneVoice
+            fas,2\p ~ |
+            2 ~ |
+            \break
+            2 ~ |
+            2 ~ |
+            2 | 
+            R2 * 7 |
+            \voiceTwo
+            R2 |
+            R2 |
+            \break 
+            \oneVoice
+            r8 si'16 si dos dos fas, fas |
+            si,8 r8 r4 |
+            R2 |
+            fas'4 (si,8)_"Dal segno"^\segno \bar "||"
+        }
+        \new CueVoice = "clarinetII_cue" \relative la' {
+            \voiceOne
+            \partial 16 fas'16 - "Viol. I"|
+            fa8. (res16) dos8. (mi16) |    
+            s2 |
+            s2 * 7 |
+            \oneVoice
+            r16^"Fl. I" fas'8 [(res32 si)]
+            las16 [(dos8) si32 (sols)] |
+
+            s2 * 12 |
+
+            \voiceOne
+            r8^"Viol. I" si, r si |
+            r dos r mi |
+        }
+    >>
+}
+
 \bookpart {
     \header {
         filename = "CLARINET II - Mozart - A Flauta Mágica"
@@ -1559,7 +1613,7 @@ clarinetII_fourteen_aria = \score {
     % \pageBreak
     %\clarinetII_introduction
     %\pageBreak
-    %\clarinetII_two_aria
+    \clarinetII_two_aria
     % \pageBreak
     %\clarinetII_three_aria
     % \pageBreak
@@ -1578,5 +1632,6 @@ clarinetII_fourteen_aria = \score {
     % \pageBreak
     %\clarinetII_ten_aria_con_coro
     % \clarinetII_twelve_quintetto
-    \clarinetII_fourteen_aria
+    %\clarinetII_fourteen_aria
+    \clarinetII_fifteen_aria
 }
