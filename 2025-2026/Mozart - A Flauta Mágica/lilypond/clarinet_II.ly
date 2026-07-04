@@ -1902,30 +1902,20 @@ clarinetII_twenty_one_finale = \score {
         filename = "CLARINET II - Mozart - A Flauta Mágica"
         instrument = \clarinet_II_name_long
     }
-    % \clarinetII_overture
-    % \pageBreak
-    %\clarinetII_introduction
-    %\pageBreak
-    %\clarinetII_two_aria
-    % \pageBreak
-    %\clarinetII_three_aria
-    % \pageBreak
-    % \clarinetII_four_recitativo
-    % \pageBreak
-    %\clarinetII_five_quintetto
-    % \pageBreak
-    %\clarinetII_six_terzetto
-    % \pageBreak
-    %\clarinetII_seven_duetto
-    % \pageBreak
-    %\clarinetII_eight_finale
-    % \pageBreak
-    % \clarinetII_winds_chords
-    % \clarinetII_nine_marcia
-    % \pageBreak
-    %\clarinetII_ten_aria_con_coro
-    % \clarinetII_twelve_quintetto
-    %\clarinetII_fourteen_aria
-    %\clarinetII_fifteen_aria
+    \clarinetII_overture
+    \clarinetII_introduction
+    \clarinetII_two_aria
+    \clarinetII_three_aria
+    \clarinetII_four_recitativo
+    \clarinetII_five_quintetto
+    \clarinetII_six_terzetto
+    \clarinetII_seven_duetto
+    \clarinetII_eight_finale
+    \clarinetII_winds_chords
+    \clarinetII_nine_marcia
+    \clarinetII_ten_aria_con_coro
+    \clarinetII_twelve_quintetto
+    \clarinetII_fourteen_aria
+    \clarinetII_fifteen_aria
     \clarinetII_twenty_one_finale
 }
