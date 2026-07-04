@@ -1448,6 +1448,108 @@ clarinetII_twelve_quintetto = \score {
     >>
 }
 
+clarinetII_fourteen_aria = \score {
+    \header { piece = "No. 14 Aria" }
+    \new Staff
+    \transpose do sol, << %transposition horn in F -> Clarinet Bb
+        \new Voice = "clarinetII" \relative la' {
+            \compressEmptyMeasures
+            \clef treble 
+            \key re \minor
+            \time 4/4 
+            \voiceOne
+            R1 |
+            \oneVoice
+            mi\sfp
+            R1 |
+            r2 do\f |
+            r re' |
+            r mi, |
+            \break
+            R1 * 3 |
+            r2 r4 sol4\f |
+            sol2 r |
+            R1 * 4 |
+            r4 do,2_\markup {\dynamic mfp} do4 |
+            do4 r r2 |
+            \break
+            R1 * 23 |
+            \voiceTwo
+            R1 |
+            R1 |
+            R1 |
+            R1 |
+            \oneVoice
+            do'1\f ~ |
+            \break 
+            4 8. 16 sol4 8. 16 |
+            mi4 r r sol (|
+            do) r r sol (|
+            do) r4 r2 |
+            r4 mi re sol, |
+            mi r4 r2 |
+            do1 \f |
+            R1 |
+            do |
+            R1 |
+            do |
+            R1 |
+            do |
+            \break
+            R1 * 3 |
+            re'\f |
+            R1 |
+            re |
+            R1 * 2 |
+            r4 mi,2\sf 4 |
+            R1 * 12 |
+            \break
+            \voiceTwo
+            R1 |
+            R1 |
+            r4 \oneVoice mi4\f mi r |
+            r mi mi r |
+            r mi mi r |
+            R1 |
+            r4 re'2 4 |
+            \break
+            2 r2\fermata |
+            R1 |
+            r2 do,2\f |
+            r2 do' |
+            re4 do re do |
+            re r4 r2 |
+            \break
+            r4 r8. re16 4 r8. do,16 |
+            do2 r 2 |
+            R1 |
+            r2 mi2 |
+            R1 |
+            mi4 r mi r |
+            mi2 r2 |
+            \fine
+        }
+        \new CueVoice = "clarinetII_cue" \relative la {
+            \voiceTwo
+            la'16_"Viol. II" 16 16 16 4:16 2:16 |
+
+            s1 * 39 |
+
+            r2^"Fl. I 8va" sol'8-! r si-! r |
+            sol4-! r4 sol8-! r la-! r |
+            sol4-! r4 do8-!^"Viol. I " 8 8 8 |
+            re8-! 8 8 8 mib8-! 8 8 8|
+
+            s1 * 37 |
+
+            \voiceOne
+            sib1 ~ |
+            2. (la4) |
+            sols4 s2. |
+        }
+    >>
+}
+
 \bookpart {
     \header {
         filename = "CLARINET II - Mozart - A Flauta Mágica"
@@ -1475,5 +1577,6 @@ clarinetII_twelve_quintetto = \score {
     % \clarinetII_nine_marcia
     % \pageBreak
     %\clarinetII_ten_aria_con_coro
-    \clarinetII_twelve_quintetto
+    % \clarinetII_twelve_quintetto
+    \clarinetII_fourteen_aria
 }
