@@ -3,5 +3,8 @@
 **/lilypond/**/*.tmp
 /diff.pdf
 
+# Musescore autosave files
+*.mscz~
+
 # Common temporary files
 .DS_Store
